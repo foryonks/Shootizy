@@ -5,6 +5,19 @@ const { boardId, key, token } = JSON.parse(
   fs.readFileSync("../.trello-settings")
 );
 
+//minutes to hour (and days) converter
+function convertMinutes(num) {
+  let d = Math.floor(num / 1440); // 60*24
+  let h = Math.floor((num - d * 1440) / 60);
+  let m = Math.round(num % 60);
+
+  if (d > 0) {
+    return d + " days, " + h + " hours, " + m + " minutes";
+  } else {
+    return h + " hours, " + m + " minutes";
+  }
+}
+
 async function getCards() {
   var options = {
     method: "GET",
@@ -48,19 +61,6 @@ async function getCards() {
     )
     .map(card => JSON.parse(card.pluginData[0].value).points)
     .reduce((accumulator, currentValue) => accumulator + currentValue);
-
-  //minutes to hour (and days) converter
-  function convertMinutes(num) {
-    let d = Math.floor(num / 1440); // 60*24
-    let h = Math.floor((num - d * 1440) / 60);
-    let m = Math.round(num % 60);
-
-    if (d > 0) {
-      return d + " days, " + h + " hours, " + m + " minutes";
-    } else {
-      return h + " hours, " + m + " minutes";
-    }
-  }
 
   console.log("Total en heures : %s", sum);
   let totalFormatted = convertMinutes(sum * 60);
