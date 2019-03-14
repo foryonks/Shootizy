@@ -23,4 +23,17 @@ function convertMinutes(num) {
   }
 }
 
-console.log(convertMinutes(sum * 60));
+console.log("Total en heures : %s", sum);
+let totalFormatted = convertMinutes(sum * 60);
+console.log("Total : %s", totalFormatted);
+let totalJourOuvres = convertMinutes(sum * 60 * (24 / 8));
+console.log(
+  "Jours ouvrés : %s, à raison de 8h de travail par jour",
+  totalJourOuvres
+);
+
+let totalJourOuvresHorsWeekend = convertMinutes((sum * 60 * (24 / 8) * 7) / 5);
+console.log(
+  "Jours ouvrés : %s, à raison de 8h de travail par jour, et 5 jours par semaine",
+  totalJourOuvresHorsWeekend
+);
