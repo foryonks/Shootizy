@@ -1,6 +1,7 @@
 const fs = require("fs");
-
+const util = require("util");
 let request = require("request");
+const requestPromise = util.promisify(request);
 const { boardId, key, token } = JSON.parse(
   fs.readFileSync("../.trello-settings")
 );
@@ -45,12 +46,9 @@ async function getCards() {
       tags: "false"
     }
   };
-  let cards = await new Promise((resolve, reject) => {
-    request(options, function(error, response, body) {
-      var json = JSON.parse(body);
-      resolve(json);
-    });
-  });
+
+  const response = await requestPromise(options);
+  let cards = JSON.parse(response.body);
 
   let sum = cards.cards
     .filter(
