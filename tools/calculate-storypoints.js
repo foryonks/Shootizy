@@ -1,4 +1,3 @@
-const exported = require("./exported.json");
 const fs = require("fs");
 
 let request = require("request");
