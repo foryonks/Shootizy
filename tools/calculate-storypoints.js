@@ -1,10 +1,23 @@
 const fs = require("fs");
 const util = require("util");
+const path = require("path");
 let request = require("request");
 const requestPromise = util.promisify(request);
 const { boardId, key, token } = JSON.parse(
-  fs.readFileSync("../.trello-settings")
+  fs.readFileSync(path.join(__dirname, "../.trello-settings"))
 );
+
+async function main() {
+  const response = await requestPromise(options);
+  if (response.statusCode >= 200 && response.statusCode < 400) {
+    calculateTime(JSON.parse(response.body));
+  } else {
+    console.error(response.body);
+    console.log(`If you have a token error you can generate a new token at this address : 
+    https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Server%20Token&key=36f5ffb20817ff2a5a209082e7567fc7
+    `);
+  }
+}
 
 //minutes to hour (and days) converter
 function convertMinutes(num) {
@@ -19,37 +32,34 @@ function convertMinutes(num) {
   }
 }
 
-async function getCards() {
-  var options = {
-    method: "GET",
-    url: `https://api.trello.com/1/boards/${boardId}`,
-    qs: {
-      key: key,
-      token: token,
-      actions: "none",
-      boardStars: "none",
-      cards: "all",
-      card_pluginData: "true",
-      checklists: "none",
-      customFields: "false",
-      fields:
-        "name,desc,descData,closed,idOrganization,pinned,url,shortUrl,prefs,labelNames",
-      lists: "open",
-      members: "none",
-      memberships: "none",
-      membersInvited: "none",
-      membersInvited_fields: "all",
-      pluginData: "false",
-      organization: "false",
-      organization_pluginData: "false",
-      myPrefs: "false",
-      tags: "false"
-    }
-  };
+var options = {
+  method: "GET",
+  url: `https://api.trello.com/1/boards/${boardId}`,
+  qs: {
+    key: key,
+    token: token,
+    actions: "none",
+    boardStars: "none",
+    cards: "all",
+    card_pluginData: "true",
+    checklists: "none",
+    customFields: "false",
+    fields:
+      "name,desc,descData,closed,idOrganization,pinned,url,shortUrl,prefs,labelNames",
+    lists: "open",
+    members: "none",
+    memberships: "none",
+    membersInvited: "none",
+    membersInvited_fields: "all",
+    pluginData: "false",
+    organization: "false",
+    organization_pluginData: "false",
+    myPrefs: "false",
+    tags: "false"
+  }
+};
 
-  const response = await requestPromise(options);
-  let cards = JSON.parse(response.body);
-
+function calculateTime(cards) {
   let sum = cards.cards
     .filter(
       card =>
@@ -77,4 +87,4 @@ async function getCards() {
     totalJourOuvresHorsWeekend
   );
 }
-getCards();
+main();
