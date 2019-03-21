@@ -1,6 +1,11 @@
 @import "./variables";
 
-@mixin font-size($sizeValue: $font-size) {
-  //font-size: ($sizeValue) + px;
-  font-size: ($sizeValue/$font-size) + rem;
+@function font-size($sizeValue: $font-size) {
+  //$stripped: stript-unit($font-size);
+  $number: strip-unit($sizeValue / $font-size);
+  @return $number + rem;
+}
+
+@function strip-unit($number) {
+  @return $number / ($number * 0 + 1);
 }

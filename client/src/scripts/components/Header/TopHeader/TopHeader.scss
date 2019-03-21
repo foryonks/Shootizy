@@ -1,6 +1,9 @@
-@import "functions.scss";
+@import "../../../../styles/functions";
+
+.header-top {
+  font-size: font-size(15);
+}
 
 .header-reservation {
   margin-left: 1em;
-  @include font-size(15);
 }
