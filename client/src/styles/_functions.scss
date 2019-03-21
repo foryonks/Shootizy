@@ -1,0 +1,6 @@
+@import "./variables";
+
+@mixin font-size($sizeValue: $font-size) {
+  //font-size: ($sizeValue) + px;
+  font-size: ($sizeValue/$font-size) + rem;
+}

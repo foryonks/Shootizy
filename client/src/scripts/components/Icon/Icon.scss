@@ -1,0 +1,18 @@
+.icon-svg {
+  font-size: 1em;
+  line-height: 1;
+
+  display: inline-block;
+  overflow: hidden;
+
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+
+  vertical-align: -.15em;
+  path {
+    color: inherit;
+
+    fill: currentColor;
+  }
+}
