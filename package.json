@@ -1,6 +1,24 @@
 {
-	"devDependencies": {
-		"lerna": "^3.13.1"
-	},
-	"name": "shootizy"
+  "name": "shootizy",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnogues/shootizy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arnogues/shootizy/issues"
+  },
+  "engines": {
+    "version": "10.15.x",
+    "npm": "6.4.x"
+  },
+  "license": "ISC",
+  "scripts": {
+    "install": "lerna bootstrap",
+    "start": "lerna run start --stream",
+    "build": "lerna run build"
+  },
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  }
 }

@@ -1,11 +1,11 @@
-# `shootizy-server`
+# shootizy NodeJs Server
 
-> TODO: description
+## DEV
 
-## Usage
+We use .env for environment variables, create your own file
 
 ```
-const shootizyServer = require('shootizy-server');
-
-// TODO: DEMONSTRATE API
+.env
 ```
+
+based on .env.development
