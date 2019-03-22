@@ -2,20 +2,34 @@
   "name": "shootizy-client",
   "version": "0.1.0",
   "private": true,
+  "icons": {
+    "jsonFilePath": "src/scripts/Components/Icon/Icons.json",
+    "svgFolder": "src/assets/icons"
+  },
+  "scripts": {
+    "build": "react-scripts build && rm -fr ../shootizy-server/public/ && mv build ../shootizy-server/public",
+    "start": "npm-run-all start-js create-icons-watch",
+    "start-js": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "create-icons": "node ./tasks/icons-to-json.js",
+    "create-icons-watch": "npm run create-icons -- --watch",
+    "icons-to-json": "node tasks/icons-to-json"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "dependencies": {
+    "npm-run-all": "^4.1.5",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && rm -fr ../shootizy-server/public/ && mv build ../shootizy-server/public",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "dom-parser": "^0.1.5",
+    "node-sass": "^4.11.0",
+    "node-watch": "^0.6.0"
   },
   "browserslist": [
     ">0.2%",
