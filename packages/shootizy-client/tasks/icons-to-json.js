@@ -7,6 +7,7 @@ const packageJson = require("../package.json");
 const iconsJsonDestFile = path.resolve(rootDir, packageJson.icons.jsonFilePath);
 const svgPath = path.resolve(rootDir, packageJson.icons.svgFolder);
 const watch = require("node-watch");
+console.log("start icon to json task");
 
 function convert() {
   let parser = new DomParser();
@@ -19,26 +20,24 @@ function convert() {
       let dom = parser.parseFromString(fileContent);
       let svg = dom.getElementsByTagName("svg")[0];
       let viewBox = svg.getAttribute("viewBox");
-      let paths = Array.prototype.slice
-        .call(svg.getElementsByTagName("path"))
-        .map(function(path) {
-          const attrObj = {};
-          path.attributes.forEach(function(attr) {
-            attrObj[attr.name] = attr.value;
-          });
-          return attrObj;
+      let paths = Array.prototype.slice.call(svg.getElementsByTagName("path")).map(function(path) {
+        const attrObj = {};
+        path.attributes.forEach(function(attr) {
+          attrObj[attr.name] = attr.value;
         });
+        return attrObj;
+      });
 
       let obj = {
         name: filename.replace(/\.svg$/, ""),
         paths: paths,
-        viewBox: viewBox
+        viewBox: viewBox,
       };
       svgIcons[obj.name] = obj;
     });
 
   fs.writeFileSync(iconsJsonDestFile, JSON.stringify(svgIcons, null, 2), {
-    encoding: "utf8"
+    encoding: "utf8",
   });
   console.log("conversion done");
 }

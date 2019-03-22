@@ -8,13 +8,11 @@
   },
   "scripts": {
     "build": "react-scripts build && rm -fr ../shootizy-server/public/ && mv build ../shootizy-server/public",
-    "start": "npm-run-all start-js create-icons-watch",
+    "start": "npm-run-all -p start-js create-icons-watch",
     "start-js": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "create-icons": "node ./tasks/icons-to-json.js",
-    "create-icons-watch": "npm run create-icons -- --watch",
-    "icons-to-json": "node tasks/icons-to-json"
+    "create-icons-watch": "npm run create-icons -- --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
