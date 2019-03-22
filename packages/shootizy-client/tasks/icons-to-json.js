@@ -23,7 +23,9 @@ function convert() {
       let paths = Array.prototype.slice.call(svg.getElementsByTagName("path")).map(function(path) {
         const attrObj = {};
         path.attributes.forEach(function(attr) {
-          attrObj[attr.name] = attr.value;
+          if (["data-name", "fill-rule"].indexOf(attr.name) == -1) {
+            attrObj[attr.name] = attr.value;
+          }
         });
         return attrObj;
       });

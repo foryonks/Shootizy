@@ -2,8 +2,14 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 1408px;
+}
+
+.header-main {
   background: #fff;
   border-radius: 0 11px 11px 0;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
 }
 
 // // WG

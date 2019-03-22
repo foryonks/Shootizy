@@ -1,1 +1,7 @@
-/* your css code */
+@import "../../../../styles/inline-menu";
+
+.nav-bar {
+  .menu {
+    @extend .inline-menu;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import TopHeader from "./TopHeader";
 import NavBar from "./NavBar/NavBar";
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo.svg";
 
 // import { Link } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const Header = ({ showAdmLinks }) => {
     <header className="header">
       <TopHeader />
 
-      <div class="header-main">
+      <div className="header-main">
         <div className="logo">
           <img src={logo} alt="Shootizy" /> Le shooting qui vous chouchoute
         </div>
