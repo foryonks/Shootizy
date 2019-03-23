@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./components/Header";
-import Header from "./components/Header";
-import Carousel from "./components/Carousel";
-import Prices from "./components/Prices";
+import Home from "./components/Home";
 
 class App extends Component {
   render() {
+    // debug
+    setTimeout(() => {
+      window.scrollTo(0, 500);
+    }, 500);
+
     return (
       <div className="App">
-        <Header />
-        <Carousel />
-        <Prices className="Prices-header" />
+        <Home />
+
         <div className="main" />
       </div>
     );
