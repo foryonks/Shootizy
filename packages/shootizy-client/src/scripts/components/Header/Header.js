@@ -25,25 +25,6 @@ const Header = ({ showAdmLinks }) => {
           <button className="btn-big">Réserver mon Shooting</button>
         </span>
       </div>
-
-      {/* <div className="header-meta header-meta--adjusted hidden-sm-down">
-        <div className="container-fluid d-flex flex-row-reverse">
-          <UserInfo className="p-2" />
-        </div>
-      </div>
-      <iv className="header-main header-main--noborder">
-        <div className="container d-flex">
-          <Link to="/" className="header-brand">
-            <img src={logo} className="header-brand-image" alt="AXA logo" />
-            <span className="header-brand__text">
-              <strong>AXA en France</strong>
-              <br />
-              <span>Gestion de Plan de Charge</span>
-            </span>
-          </Link>
-          <NavBar navLinks={navLinks} navId="navheader" className="ml-auto" />
-        </div>
-      </div> */}
     </header>
   );
 };
