@@ -4,6 +4,8 @@
 .header-top {
   font-size: font-size(15);
   min-height: font-size(35);
+
+  padding: 0 0 0 7px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,7 +27,7 @@
   @extend .inline-menu;
   li {
     vertical-align: middle;
-    margin-left: 1.5em;
+    margin-left: 1.4em;
   }
 
   & {
@@ -44,14 +46,18 @@
   .facebook,
   .instagram {
     text-decoration: none;
+
+    .icon-svg {
+      margin: 0;
+    }
   }
 
   .facebook {
-    margin-left: 0.5em;
+    margin-left: 0.9em;
   }
 
   .instagram {
-    margin-left: 0;
+    margin-left: 0.5em;
   }
 
   .icon-svg {

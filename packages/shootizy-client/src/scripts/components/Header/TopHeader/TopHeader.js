@@ -34,7 +34,7 @@ const TopHeader = ({ showAdmLinks }) => {
         <li>
           <a href="/contacts">
             <Icon name="letter" />
-            Contacts
+            Contact
           </a>
         </li>
         <li className="facebook">
