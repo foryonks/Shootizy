@@ -1,4 +1,26 @@
 {
+  "arrow-left": {
+    "name": "arrow-left",
+    "paths": [
+      {
+        "id": "Rectangle_23_copie_2",
+        "class": "st0",
+        "d": "M10.7,19.6L1,10.3L10.7,1"
+      }
+    ],
+    "viewBox": "0 0 11.7 20.6"
+  },
+  "arrow-right": {
+    "name": "arrow-right",
+    "paths": [
+      {
+        "id": "Rectangle_23_copie_2",
+        "class": "st0",
+        "d": "M1,1l9.7,9.3L1,19.6"
+      }
+    ],
+    "viewBox": "0 0 11.7 20.6"
+  },
   "blog": {
     "name": "blog",
     "paths": [
