@@ -1,6 +1,6 @@
 import React from "react";
 import TopHeader from "./TopHeader";
-import NavBar from "./NavBar/NavBar";
+import NavBar from "./NavBar";
 import logo from "../../../assets/logo.svg";
 
 // import { Link } from "react-router-dom";
@@ -13,11 +13,17 @@ const Header = ({ showAdmLinks }) => {
       <TopHeader />
 
       <div className="header-main">
-        <div className="logo">
-          <img src={logo} alt="Shootizy" /> Le shooting qui vous chouchoute
-        </div>
-        <NavBar />
-        <button className="btn-big">Réservr mon Shooting</button>
+        <span className="logo">
+          <img src={logo} alt="Shootizy" />{" "}
+          <span className="logo-text">
+            Le shooting photo
+            <br /> qui vous chouchoute
+          </span>
+        </span>
+        <span className="navigation">
+          <NavBar />
+          <button className="btn-big">Réserver mon Shooting</button>
+        </span>
       </div>
 
       {/* <div className="header-meta header-meta--adjusted hidden-sm-down">
@@ -25,7 +31,7 @@ const Header = ({ showAdmLinks }) => {
           <UserInfo className="p-2" />
         </div>
       </div>
-      <div className="header-main header-main--noborder">
+      <iv className="header-main header-main--noborder">
         <div className="container d-flex">
           <Link to="/" className="header-brand">
             <img src={logo} className="header-brand-image" alt="AXA logo" />

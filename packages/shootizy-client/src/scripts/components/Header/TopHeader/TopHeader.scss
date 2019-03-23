@@ -33,6 +33,19 @@
     padding-right: 0.3em;
   }
 
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .facebook,
+  .instagram {
+    text-decoration: none;
+  }
+
   .facebook {
     margin-left: 0.5em;
   }
