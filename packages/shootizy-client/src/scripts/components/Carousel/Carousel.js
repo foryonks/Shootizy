@@ -36,7 +36,7 @@ const Carousel = props => (
                 <Interweave content={title} />
               </div>
               <p className="carousel-item-button-container">
-                <button className="carousel-item-button">{buttonText}</button>
+                <button className="btn-green carousel-item-button">{buttonText}</button>
               </p>
               <p className="carousel-item-text">{text}</p>
             </div>

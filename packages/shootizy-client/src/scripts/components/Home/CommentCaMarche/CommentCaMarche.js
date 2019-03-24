@@ -1,30 +1,49 @@
 import React from "react";
 import Interweave from "interweave";
+import Icon from "../../Icon";
 //import PropTypes from "prop-types";
 
 const data = [
   {
-    icon: "calendar2",
+    icon: "star",
     title: "Prenez Rendez-vous",
     text:
-      "Réservez en ligne la date & l'heure de votre séance photo, 3 clics suffisent. <strong>So easy, so Shootizy",
+      "Réservez en ligne la date & l'heure de votre séance photo, 3 clics suffisent. <strong>So easy, so Shootizy</strong>",
+  },
+  {
+    icon: "star",
+    title: "Vivez votre Shooting",
+    text: "Au studio, nous révélons <strong>le meilleur de vous-même</strong>",
+  },
+  {
+    icon: "star",
+    title: "Choisissez vos photos",
+    text:
+      "Découvez instantanément vos clichés.<br><strong>Achetez seulement ceux que vous aimez</strong>",
   },
 ];
 
 const CommentCaMarche = ({ className }) => (
-  <div className={"CommentCaMarcheWrapper " + className}>
-    <h3>Comment ça marche</h3>
+  <div className={"CommentCaMarche container " + className}>
+    <h3>Comment ça marche ?</h3>
     <ul>
       {data.map(({ icon, title, text }) => (
-        <li class="CommentMarche-item">
-          <div className="icon">{icon}</div>
-          <h3>{title}</h3>
-          <p>
+        <li class="CommentCaMarche-item item-with-arrow">
+          <div className="icon">
+            <Icon name={icon} />
+          </div>
+          <h4>{title}</h4>
+          <p className="text">
             <Interweave content={text} />
           </p>
         </li>
       ))}
     </ul>
+    <p>
+      <a className="btn-green" href="/shooting">
+        Je réserve mon shooting
+      </a>
+    </p>
   </div>
 );
 
