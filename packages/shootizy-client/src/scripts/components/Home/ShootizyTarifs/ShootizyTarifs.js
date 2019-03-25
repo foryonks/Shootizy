@@ -12,7 +12,7 @@ const data = [
   },
   {
     icon: "star",
-    title: "Pack de 150 photos = 150 €, soit 1 € la photo",
+    title: "Pack de 150 photos = 150 €,<br> soit 1 € la photo",
     text: "Rearement un billet de vingt vous aura fait <strong>autant de bien ;-)</strong>",
   },
   {
@@ -39,7 +39,9 @@ const ShootizyTarifs = ({ className }) => (
             <div className="icon">
               <Icon name={icon} />
             </div>
-            <h4>{title}</h4>
+            <h4>
+              <Interweave content={title} />
+            </h4>
             <p className="text">
               <Interweave content={text} />
             </p>
