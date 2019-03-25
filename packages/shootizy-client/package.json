@@ -7,10 +7,10 @@
     "svgFolder": "src/assets/icons"
   },
   "scripts": {
-    "build": "react-scripts build && rm -fr ../shootizy-server/public/ && mv build ../shootizy-server/public",
+    "build": "cross-env NODE_PATH=src/ react-scripts build && rm -fr ../shootizy-server/public/ && mv build ../shootizy-server/public",
     "start": "npm-run-all -p start-js create-icons-watch",
-    "start-js": "react-scripts start",
-    "test": "react-scripts test",
+    "start-js": "cross-env NODE_PATH=src/ react-scripts start",
+    "test": "cross-env NODE_PATH=src/ react-scripts test",
     "create-icons": "node ./tasks/icons-to-json.js",
     "create-icons-watch": "npm run create-icons -- --watch"
   },
@@ -18,16 +18,18 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "npm-run-all": "^4.1.5",
-    "node-sass": "^4.11.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "dom-parser": "^0.1.5",
     "node-sass": "^4.11.0",
-    "node-watch": "^0.6.0"
+    "node-watch": "^0.6.0",
+    "npm-run-all": "^4.1.5"
   },
   "browserslist": [
     ">0.2%",

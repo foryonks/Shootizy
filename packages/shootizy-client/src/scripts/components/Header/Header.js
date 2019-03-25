@@ -2,19 +2,22 @@ import React from "react";
 import TopHeader from "./TopHeader";
 import NavBar from "./NavBar";
 import logo from "../../../assets/logo.svg";
+import { NavLink } from "react-router-dom";
 
 // import { Link } from "react-router-dom";
 
 // import logo from "@axa/web-toolkit/images/axa.svg";
 
-const Header = ({ showAdmLinks }) => {
+const Header = () => {
   return (
     <header className="header">
       <TopHeader />
 
       <div className="header-main">
         <span className="logo">
-          <img src={logo} alt="Shootizy" />{" "}
+          <NavLink to="/">
+            <img src={logo} alt="Shootizy" />{" "}
+          </NavLink>
           <span className="logo-text">
             Le shooting photo
             <br /> qui vous chouchoute

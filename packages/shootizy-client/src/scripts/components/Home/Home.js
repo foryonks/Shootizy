@@ -1,6 +1,6 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
-import Header from "../Header";
 import Carousel from "../Carousel";
 import Prices from "./Prices";
 import CommentCaMarche from "./CommentCaMarche";
@@ -9,7 +9,9 @@ import ShootizyTarifs from "./ShootizyTarifs";
 
 const Home = props => (
   <div className="HomeWrapper">
-    <Header />
+    <Helmet>
+      <title>Accueil</title>
+    </Helmet>
     <Carousel />
     <Prices className="Prices-header" />
     <CommentCaMarche className="CommentCaMarche-Home" />
