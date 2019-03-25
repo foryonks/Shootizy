@@ -4,6 +4,7 @@ import Header from "../Header";
 import Carousel from "../Carousel";
 import Prices from "./Prices";
 import CommentCaMarche from "./CommentCaMarche";
+import ShootizyTarifs from "./ShootizyTarifs";
 //import PropTypes from "prop-types";
 
 const Home = props => (
@@ -12,6 +13,7 @@ const Home = props => (
     <Carousel />
     <Prices className="Prices-header" />
     <CommentCaMarche className="CommentCaMarche-Home" />
+    <ShootizyTarifs />
   </div>
 );
 

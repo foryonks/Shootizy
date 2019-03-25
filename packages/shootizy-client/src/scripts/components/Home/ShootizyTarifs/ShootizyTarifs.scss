@@ -1,0 +1,61 @@
+@import "../../../../styles/functions";
+
+/* your css code */
+.ShootizyTarifs {
+  background: #2ef7cc;
+  padding-top: 84px;
+  margin-top: 104px;
+
+  > .container {
+    width: 1172px;
+
+    > h3 {
+      font-size: font-size(43);
+      font-weight: normal;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    > ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .ShootizyTarifs-item {
+    background: #fff;
+    border-radius: 19px;
+    color: #6a6a6a;
+    font-size: font-size(18);
+    text-align: center;
+    padding: 0 45px 30px 45px;
+    width: 32%;
+
+    > h4 {
+      font-size: 27px;
+      color: #000;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    strong {
+      color: #000;
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      width: 70px;
+      margin: -35px auto 28px;
+
+      .icon-svg {
+        color: #fff;
+        font-size: 40px;
+      }
+    }
+  }
+}
