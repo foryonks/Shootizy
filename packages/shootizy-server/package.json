@@ -7,11 +7,12 @@
   "license": "ISC",
   "main": "index.js",
   "engines": {
-    "version": "10.15.x",
+    "node": "10.15.x",
     "npm": "6.4.x"
   },
   "scripts": {
-    "start": "cross-env NODE_PATH=src/ nodemon --delay 2 src/index.js"
+    "start": "cross-env NODE_PATH=src/ nodemon --delay 2 src/index.js",
+    "start-heroku-server": "cross-env NODE_PATH=src/ node src/index.js"
   },
   "dependencies": {
     "compression": "^1.7.4",
