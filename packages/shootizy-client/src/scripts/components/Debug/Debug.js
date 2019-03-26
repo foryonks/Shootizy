@@ -5,7 +5,11 @@
 
 import React from "react";
 
-const debug = process.env.REACT_APP_DEBUG;
+const debug = process.env.REACT_APP_DEBUG === "true";
+
+if (debug) {
+  require("./Debug.scss");
+}
 
 class Debug extends React.Component {
   constructor(props) {
