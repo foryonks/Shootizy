@@ -16,6 +16,7 @@
   "scripts": {
     "install": "lerna bootstrap",
     "start": "lerna run start --stream",
+    "start-debug": "lerna run start-debug --stream",
     "build": "lerna run build",
     "heroku-remote": "lerna run start-heroku-server"
   },

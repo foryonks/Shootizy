@@ -9,6 +9,7 @@
   "scripts": {
     "build": "cross-env NODE_PATH=src/ react-scripts build && rm -fr ../shootizy-server/public/ && mv build ../shootizy-server/public",
     "start": "npm-run-all -p start-js create-icons-watch",
+    "start-debug": "cross-env REACT_APP_DEBUG=true npm-run-all -p start-js create-icons-watch",
     "start-js": "cross-env NODE_PATH=src/ react-scripts start",
     "test": "cross-env NODE_PATH=src/ react-scripts test",
     "create-icons": "node ./tasks/icons-to-json.js",
