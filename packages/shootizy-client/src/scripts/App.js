@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 
 import Header from "scripts/components/Header";
 import Home from "scripts/components/Home";
+import Debug from "./components/Debug";
 
 const DEFAULT_TITLE = "Shootizy";
 
@@ -12,6 +13,7 @@ const SampleComponent = () => <div>TO-DO</div>;
 
 const App = () => (
   <div className="App">
+    <Debug />
     <Helmet titleTemplate={`%s | ${DEFAULT_TITLE}`} defaultTitle={DEFAULT_TITLE} />
     <Header />
     <Switch>

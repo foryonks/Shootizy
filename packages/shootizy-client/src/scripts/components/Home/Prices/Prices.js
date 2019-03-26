@@ -1,8 +1,9 @@
 import React from "react";
 import Interweave from "interweave";
+import { keyfix } from "../../../utils/utils";
 //import PropTypes from "prop-types";
 
-const data = [
+const data = keyfix([
   {
     qty: 45,
     unit: "min",
@@ -21,12 +22,12 @@ const data = [
     of: "la photo",
     html: "<strong>un prix à l'unité</strong><br>Pour les petites envies",
   },
-];
+]);
 
 const Prices = ({ className }) => (
   <div className={"Prices " + className}>
-    {data.map(({ qty, unit, of, html }) => (
-      <div className="price-item">
+    {data.map(({ qty, unit, of, html, key }) => (
+      <div className="price-item" key={key}>
         <span className="price-item-qty">
           {qty}
           <em>{unit}</em>

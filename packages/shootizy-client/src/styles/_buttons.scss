@@ -20,3 +20,21 @@
   text-align: center;
   letter-spacing: -0.01em;
 }
+
+.btn-white {
+  color: #000;
+  font-weight: bold;
+  font-size: font-size(20);
+  min-height: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: #fff;
+  border-radius: 20px;
+  line-height: 45px;
+  $h-padding: 45px;
+  padding-left: $h-padding;
+  padding-right: $h-padding;
+  .icon-svg {
+    font-size: 0.8em;
+  }
+}

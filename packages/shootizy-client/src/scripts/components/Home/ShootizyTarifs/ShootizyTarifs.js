@@ -1,9 +1,10 @@
 import React from "react";
 import Interweave from "interweave";
 import Icon from "../../Icon";
+import { keyfix } from "../../../utils/utils";
 //import PropTypes from "prop-types";
 
-const data = [
+const data = keyfix([
   {
     icon: "star",
     title: "Shooting de 45 min = 0 €",
@@ -21,7 +22,7 @@ const data = [
     text:
       "Sitôt votre séance terminée, découvrez vos photos.<br><br>Prenez votre temps, <strong>Aucune obligation d'achat. Payez seulement les images qui vous plaisent.",
   },
-];
+]);
 
 const ShootizyTarifs = ({ className }) => (
   <div className={"ShootizyTarifs " + className}>
@@ -34,8 +35,8 @@ const ShootizyTarifs = ({ className }) => (
         </strong>
       </h3>
       <ul>
-        {data.map(({ icon, title, text }) => (
-          <li class="ShootizyTarifs-item">
+        {data.map(({ icon, title, text, key }) => (
+          <li className="ShootizyTarifs-item" key={key}>
             <div className="icon">
               <Icon name={icon} />
             </div>
@@ -48,8 +49,9 @@ const ShootizyTarifs = ({ className }) => (
           </li>
         ))}
       </ul>
-      <p class="button-container-centered">
+      <p className="button-container-centered">
         <a className="btn-white" href="/shooting">
+          <Icon name="triangle-right" />
           Consulter nos tarifs
         </a>
       </p>

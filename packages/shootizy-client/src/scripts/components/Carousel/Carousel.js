@@ -2,8 +2,9 @@ import React from "react";
 //import PropTypes from "prop-types";
 import Interweave from "interweave";
 import { Carousel as CarouselResponsive } from "react-responsive-carousel";
+import { keyfix } from "../../utils/utils";
 
-const data = [
+const data = keyfix([
   {
     title: "Léa est venue chez nous<br><strong>pour ses 24 Printemps</strong>",
     buttonText: "Je réserve mon shooting",
@@ -16,7 +17,7 @@ const data = [
     text: "Avec Shootizy les meilleures clichés !",
     img: "/assets/photos/visuel2.jpg",
   },
-];
+]);
 
 const Carousel = props => (
   <div className="Carousel container">
@@ -28,8 +29,8 @@ const Carousel = props => (
         showIndicators={false}
         showStatus={false}
         interval={5000}>
-        {data.map(({ title, buttonText, text, img }) => (
-          <div className="carousel-item">
+        {data.map(({ title, buttonText, text, img, key }) => (
+          <div className="carousel-item" key={key}>
             <img src={img} alt="" className="carousel-image" />
             <div className="carousel-item-content">
               <div className="carousel-item-title">

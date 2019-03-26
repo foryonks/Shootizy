@@ -5,21 +5,26 @@
 
 import React from "react";
 
+const debug = process.env.REACT_APP_DEBUG;
+
 class Debug extends React.Component {
   constructor(props) {
     super(props);
-    console.log("DEBUG ACTIVATED");
+    if (debug) {
+      console.log("Debug Activated !");
+    }
   }
 
   componentDidMount() {
-    // debug
-    setTimeout(() => {
-      window.scrollTo(0, 750);
-    }, 500);
+    if (debug) {
+      setTimeout(() => {
+        window.scrollTo(0, 750);
+      }, 500);
+    }
   }
 
   render() {
-    return <></>;
+    return debug ? <></> : null;
   }
 }
 
