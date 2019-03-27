@@ -25,12 +25,12 @@ const data = keyfix([
 ]);
 
 const CommentCaMarche = ({ className }) => (
-  <div className={"CommentCaMarche container " + className}>
+  <div className={"CommentCaMarche container container-2" + className}>
     <h3>Comment ça marche ?</h3>
     <ul>
       {data.map(({ icon, title, text, key }) => (
-        <li className="CommentCaMarche-item item-with-arrow" key={key}>
-          <div className="icon">
+        <li className="CommentCaMarche-item item-with-arrow card card-with-top-icon" key={key}>
+          <div className="top-icon icon-big">
             <Icon name={icon} />
           </div>
           <h4>{title}</h4>

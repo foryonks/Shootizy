@@ -26,7 +26,7 @@ const data = keyfix([
 
 const ShootizyTarifs = ({ className }) => (
   <div className={"ShootizyTarifs " + className}>
-    <div className="container">
+    <div className="container container-2">
       <h3>
         Avec Shootizy{" "}
         <strong>
@@ -34,10 +34,10 @@ const ShootizyTarifs = ({ className }) => (
           les photos que vous aimez !
         </strong>
       </h3>
-      <ul>
+      <ul className="row row-3">
         {data.map(({ icon, title, text, key }) => (
-          <li className="ShootizyTarifs-item" key={key}>
-            <div className="icon">
+          <li className="ShootizyTarifs-item card card-simple card-with-top-icon" key={key}>
+            <div className="top-icon">
               <Icon name={icon} />
             </div>
             <h4>

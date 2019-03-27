@@ -1,13 +1,17 @@
-.container {
+.container,
+.container-2 {
   margin-left: auto;
   margin-right: auto;
   max-width: 1628px;
 }
 
-.card {
-  background: #fff;
-  box-shadow: 0px 0px 50px 18px #2d2d2d17;
+.container-2 {
+  max-width: 1172px;
 }
+
+/***********
+* ROW
+************/
 
 .row {
   display: flex;
@@ -18,5 +22,49 @@
 .row-3 {
   .card {
     width: 32%;
+  }
+}
+
+/***********
+* CARD
+************/
+
+.card {
+  /** card base **/
+}
+
+.card-simple {
+  background: #fff;
+  box-shadow: 0px 0px 50px 18px #2d2d2d21;
+  border-radius: 15px;
+}
+
+.card-with-top-icon {
+  position: relative;
+
+  .top-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    margin: -35px auto 28px;
+    background: #000;
+    border-radius: 200px;
+
+    .icon-svg {
+      color: #fff;
+      font-size: 40px;
+    }
+  }
+
+  .icon-big {
+    width: 106px;
+    height: 106px;
+    line-height: 106px;
+
+    .icon-svg {
+      font-size: 3em;
+    }
   }
 }
