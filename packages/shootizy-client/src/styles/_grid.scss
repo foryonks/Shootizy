@@ -39,8 +39,12 @@
 
 .card-simple {
   background: #fff;
-  box-shadow: 0px 0px 50px 18px #2d2d2d21;
+  box-shadow: 0px 0px 35px 18px #2d2d2d15;
   border-radius: 15px;
+
+  &:hover {
+    box-shadow: 0px 0px 5px 4px #2d2d2d40;
+  }
 }
 
 .card-with-top-icon {
