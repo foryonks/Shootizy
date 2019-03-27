@@ -21,7 +21,8 @@
   letter-spacing: -0.01em;
 }
 
-.btn-white {
+.btn-white,
+.btn-white-simple {
   color: #000;
   font-weight: bold;
   font-size: font-size(20);
@@ -37,4 +38,9 @@
   .icon-svg {
     font-size: 0.8em;
   }
+}
+
+.btn-white-simple {
+  padding: 0;
+  border: none;
 }

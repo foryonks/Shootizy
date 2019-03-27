@@ -9,6 +9,9 @@
   max-width: 1172px;
 }
 
+.grid {
+}
+
 /***********
 * ROW
 ************/
@@ -20,7 +23,8 @@
 }
 
 .row-3 {
-  .card {
+  .card,
+  .dummyCard {
     width: 32%;
   }
 }
