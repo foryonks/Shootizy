@@ -8,6 +8,5 @@ export const keyfix = array => {
   array.forEach((item, i) => {
     item.key = `${i}-${~~(Math.random() * 10000000)}`;
   });
-  console.log(array);
   return array;
 };

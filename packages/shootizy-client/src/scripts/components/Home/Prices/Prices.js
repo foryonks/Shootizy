@@ -25,9 +25,9 @@ const data = keyfix([
 ]);
 
 const Prices = ({ className }) => (
-  <div className={"Prices " + className}>
+  <div className={"Prices row row-3 " + className}>
     {data.map(({ qty, unit, of, html, key }) => (
-      <div className="price-item" key={key}>
+      <div className="price-item card" key={key}>
         <span className="price-item-qty">
           {qty}
           <em>{unit}</em>
