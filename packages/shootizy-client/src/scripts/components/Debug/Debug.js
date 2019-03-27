@@ -5,30 +5,38 @@
 
 import React from "react";
 
-const debug = process.env.REACT_APP_DEBUG === "true";
+const reactDebug = process.env.REACT_APP_DEBUG === "true";
 
-if (debug) {
-  require("./Debug.scss");
+if (reactDebug) {
+  // using conditionnal CSS creation is mandatory because require is always actived :(
+  // so don't know why
+  const style = document.createElement("style");
+  style.innerHTML = `
+  body {
+    width: 1920px;
+  }
+  `;
+  document.head.appendChild(style);
 }
 
 class Debug extends React.Component {
   constructor(props) {
     super(props);
-    if (debug) {
+    if (reactDebug) {
       console.log("Debug Activated !");
     }
   }
 
   componentDidMount() {
-    if (debug) {
+    if (reactDebug) {
       setTimeout(() => {
-        // window.scrollTo(0, 750);
+        window.scrollTo(0, 750);
       }, 500);
     }
   }
 
   render() {
-    return debug ? <></> : null;
+    return reactDebug ? <></> : null;
   }
 }
 
