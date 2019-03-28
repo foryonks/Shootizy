@@ -13,7 +13,7 @@ const ShootizyTarifs = ({ contents, className }) => (
           les photos que vous aimez !
         </strong>
       </h3>
-      <ul>
+      <ul className="row row-3">
         {contents.map(({ icon, title, text }, index) => (
           <li className="ShootizyTarifs-item card card-simple card-with-top-icon" key={index}>
             <div className="top-icon">

@@ -7,20 +7,7 @@ import CommentCaMarche from "./CommentCaMarche";
 import ShootizyTarifs from "./ShootizyTarifs";
 import Themes from "./Themes/Themes";
 //import PropTypes from "prop-types";
-
 import { fetchJson } from "scripts/utils/api";
-const Home = props => (
-  <div className="HomeWrapper">
-    <Helmet>
-      <title>Accueil</title>
-    </Helmet>
-    <Carousel />
-    <Prices className="Prices-header container-2" />
-    <CommentCaMarche className="CommentCaMarche-Home" />
-    <ShootizyTarifs />
-    <Themes />
-  </div>
-);
 
 const Home = props => {
   const [htmlContents, setHtmlContents] = useState(() => []);
@@ -45,6 +32,7 @@ const Home = props => {
       {htmlContents["home-detail-prices"] && (
         <ShootizyTarifs contents={htmlContents["home-detail-prices"].items} />
       )}
+      <Themes />
     </div>
   );
 };

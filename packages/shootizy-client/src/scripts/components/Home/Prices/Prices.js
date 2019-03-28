@@ -3,7 +3,7 @@ import Interweave from "interweave";
 import PropTypes from "prop-types";
 
 const Prices = ({ contents, className }) => (
-  <div className={"Prices row row-3 " + className}>
+  <div className={"Prices container-2 row row-3 " + className}>
     {contents.map(({ qty, unit, of, html }, index) => (
       <div className="price-item card card-simple" key={index}>
         <span className="price-item-qty">
