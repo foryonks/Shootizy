@@ -5,7 +5,8 @@ import Carousel from "../Carousel";
 import Prices from "./Prices";
 import CommentCaMarche from "./CommentCaMarche";
 import ShootizyTarifs from "./ShootizyTarifs";
-
+import Themes from "./Themes/Themes";
+//import PropTypes from "prop-types";
 import { fetchJson } from "scripts/utils/api";
 
 const Home = props => {
@@ -31,6 +32,7 @@ const Home = props => {
       {htmlContents["home-detail-prices"] && (
         <ShootizyTarifs contents={htmlContents["home-detail-prices"].items} />
       )}
+      <Themes />
     </div>
   );
 };
