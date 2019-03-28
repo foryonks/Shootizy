@@ -29,6 +29,20 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 ```
 
+## MongoDB
+
+### Installation
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+### Init db
+
+Once Mongo is correctly installed, execute this command to (re)initialize db / user / data
+
+```
+npm run init-db
+```
+
 ## Heroku deploy
 
 Install heroku client and login

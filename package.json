@@ -18,6 +18,7 @@
     "start": "lerna run start --stream",
     "start-debug": "lerna run start-debug --stream",
     "build": "lerna run build",
+    "init-db": "sh database-init.sh",
     "heroku-remote": "lerna run start-heroku-server"
   },
   "devDependencies": {

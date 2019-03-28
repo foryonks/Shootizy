@@ -1,0 +1,18 @@
+extends:
+  - "eslint:recommended"
+  - "prettier"
+env:
+  node: true
+  es6: true
+parser: "babel-eslint"
+parserOptions:
+  ecmaVersion: 2018
+plugins:
+  - "prettier"
+rules:
+  "prettier/prettier": "error"
+overrides:
+  - env:
+      jest: true
+    files:
+      - "src/**/*.{test,spec}.js"
