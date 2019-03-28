@@ -8,6 +8,7 @@ import ShootizyTarifs from "./ShootizyTarifs";
 import Themes from "./Themes/Themes";
 //import PropTypes from "prop-types";
 import { fetchJson } from "scripts/utils/api";
+import SurMesure from "./SurMesure/SurMesure";
 
 const Home = props => {
   const [htmlContents, setHtmlContents] = useState(() => []);
@@ -33,6 +34,7 @@ const Home = props => {
         <ShootizyTarifs contents={htmlContents["home-detail-prices"].items} />
       )}
       <Themes />
+      <SurMesure />
     </div>
   );
 };

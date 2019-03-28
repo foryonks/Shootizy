@@ -1,0 +1,25 @@
+@import "./functions";
+$selectors: "textarea, input[type='text'], input[type='date'], input[type='datetime-local'], input[type='email'], input[type='file'], input[type='month'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='time'], input[type='url'], input[type='week']";
+
+#{$selectors} {
+  border: 1px solid #979797;
+  border-radius: 4px;
+  font-size: font-size(27);
+  padding: 0.2em 0.3em;
+}
+
+.form-line {
+  margin-bottom: font-size(19);
+}
+
+.label-top > {
+  label {
+    display: block;
+    margin-bottom: font-size(7);
+  }
+
+  #{$selectors} {
+    display: block;
+    width: 100%;
+  }
+}
