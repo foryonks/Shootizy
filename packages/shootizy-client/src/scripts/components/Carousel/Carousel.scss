@@ -1,0 +1,96 @@
+@import "../../../styles/functions";
+
+/* your css code */
+.Carousel {
+  .carousel-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 50% 50% / 0 0 13% 13%;
+
+    > ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      > li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .control-arrow {
+      $size: 57px;
+      width: $size;
+      height: $size;
+      line-height: $size;
+      text-align: center;
+      background: rgba(0, 0, 0, 20);
+      border-radius: 100px;
+      vertical-align: middle;
+      padding: 0;
+      top: 42.3%;
+
+      &:before {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border: none !important;
+        color: #fff;
+        margin: 0;
+        -webkit-transform: scaleY(1.9);
+        transform: scaleY(1.9) translate3D(-50%, -30%, 0);
+        font-weight: 200;
+      }
+    }
+    .control-prev {
+      left: 6.7%;
+      &:before {
+        content: "<";
+      }
+    }
+
+    .control-next {
+      right: 6.7%;
+      &:before {
+        content: ">";
+      }
+    }
+  }
+
+  .carousel-item {
+    position: relative;
+    padding-bottom: 41.4%;
+  }
+
+  .carousel-image {
+    width: 100%;
+    display: block;
+    position: absolute;
+  }
+
+  .carousel-item-content {
+    position: absolute;
+    color: #fff;
+    top: 177px;
+    left: 20.2%;
+    //transform: translateY(-50%);
+  }
+
+  .carousel-item-title {
+    font-size: font-size(47);
+    line-height: 1.1;
+  }
+
+  .carousel-item-button-container {
+    text-align: right;
+    margin: 27px 0;
+  }
+
+  .carousel-item-text {
+    font-size: 21px;
+    max-width: 268px;
+    text-align: right;
+    margin: 41.9px 3px 0 auto;
+    line-height: 1.3;
+  }
+}

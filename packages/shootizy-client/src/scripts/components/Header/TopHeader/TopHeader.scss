@@ -1,9 +1,72 @@
 @import "../../../../styles/functions";
+@import "../../../../styles/inline-menu";
 
 .header-top {
   font-size: font-size(15);
+  min-height: font-size(33);
+  padding: 0 0 0 7px;
+  margin-bottom: 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.header-top > * {
+  flex-shrink: 1;
+}
 .header-reservation {
-  margin-left: 1em;
+  margin-left: 1.4em;
+  .icon-svg {
+    margin-right: 5px;
+    font-size: 1.4em;
+  }
+}
+
+.header-links {
+  @extend .inline-menu;
+  li {
+    vertical-align: middle;
+    margin-left: 1.4em;
+  }
+
+  & {
+    list-style: none;
+    padding-right: 0.3em;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .facebook,
+  .instagram {
+    text-decoration: none;
+
+    .icon-svg {
+      margin: 0;
+    }
+  }
+
+  .facebook {
+    margin-left: 0.9em;
+  }
+
+  .instagram {
+    margin-left: 0.5em;
+  }
+
+  .icon-svg {
+    font-size: 1.2em;
+    margin-right: 0.3em;
+    vertical-align: sub;
+  }
+
+  a {
+    color: inherit;
+  }
 }

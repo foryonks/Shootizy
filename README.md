@@ -28,3 +28,45 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 ```
+
+## MongoDB
+
+### Installation
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+### Init db
+
+Once Mongo is correctly installed, execute this command to (re)initialize db / user / data
+
+```
+npm run init-db
+```
+
+## Heroku deploy
+
+Install heroku client and login
+
+```
+npm i -g heroku
+heroku login
+```
+
+Create app instance "shootizy" in your account's heroku interface and bind it to the app, it's better than heroku create because you can choose extra params (for ex. region Europe)
+
+```
+heroku git:remote -a shootizy
+```
+
+We must keep devDependencies so add this config
+
+```
+heroku config:set NPM_CONFIG_PRODUCTION=false
+
+```
+
+Deploy a branch other than master:
+
+```
+git push heroku <any-branch>:master
+```

@@ -9,14 +9,17 @@
     "url": "https://github.com/arnogues/shootizy/issues"
   },
   "engines": {
-    "version": "10.15.x",
+    "node": "10.15.x",
     "npm": "6.4.x"
   },
   "license": "ISC",
   "scripts": {
     "install": "lerna bootstrap",
     "start": "lerna run start --stream",
-    "build": "lerna run build"
+    "start-debug": "lerna run start-debug --stream",
+    "build": "lerna run build",
+    "init-db": "sh database-init.sh",
+    "heroku-remote": "lerna run start-heroku-server"
   },
   "devDependencies": {
     "husky": "^1.3.1",
