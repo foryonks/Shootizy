@@ -66,10 +66,14 @@ const Themes = props => {
         <strong>selon votre besoin</strong>
       </h3>
 
-      {dataGrid.map(row => (
-        <div className="row row-3" key={row.key}>
-          {row.map(theme =>
-            theme === "" ? <div className="dummyCard" /> : <ThemeCard {...theme} key={theme.key} />
+      {dataGrid.map((row, indexRow) => (
+        <div className="row row-3" key={indexRow}>
+          {row.map((theme, indexTheme) =>
+            theme === "" ? (
+              <div className="dummyCard" key={indexTheme} />
+            ) : (
+              <ThemeCard {...theme} key={indexTheme} />
+            )
           )}
         </div>
       ))}

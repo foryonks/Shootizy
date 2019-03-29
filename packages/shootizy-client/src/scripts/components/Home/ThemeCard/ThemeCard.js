@@ -1,6 +1,6 @@
 import React from "react";
 import "./ThemeCard.scss";
-import FacebookShareButton from "../../Common/FacebookShareButton/FacebookShareButton";
+import FacebookShareButton from "scripts/components/_common/FacebookShareButton";
 import Icon from "../../Icon";
 
 const ThemeCard = ({ image, title, sharelink, price, description, bookingLink, moreLink }) => {
