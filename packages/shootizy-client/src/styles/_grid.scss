@@ -30,9 +30,19 @@
 }
 
 .row-3 {
-  .card,
-  .dummyCard {
+  > .card,
+  > .dummyCard {
     width: 32%;
+  }
+}
+
+/***********
+* col
+************/
+
+.row-2 {
+  > .col {
+    width: 48%;
   }
 }
 
