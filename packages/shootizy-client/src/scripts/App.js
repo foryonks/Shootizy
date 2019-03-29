@@ -1,31 +1,23 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { lazy } from "react";
+import { Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import Header from "scripts/components/Header";
-import Home from "scripts/components/Home";
 import Debug from "./components/Debug";
+import LazyRoute from "./components/LazyRoute";
 
 const DEFAULT_TITLE = "Shootizy";
 
-//TO-DO Make your own component
-const SampleComponent = () => <div>TO-DO</div>;
+const PublicPage = lazy(() => import("scripts/pages/Public"));
+const AdminPage = lazy(() => import("scripts/pages/Admin"));
 
 const App = () => (
   <div className="App">
     <Debug />
     <Helmet titleTemplate={`%s | ${DEFAULT_TITLE}`} defaultTitle={DEFAULT_TITLE} />
-    <Header />
     <Switch>
-      <Route path="/accueil" component={Home} />
-      <Route path="/comment-ca-marche" component={SampleComponent} />
-      <Route path="/shooting-studio" component={SampleComponent} />
-      <Route path="/shooting-sur-mesure" component={SampleComponent} />
-      <Route path="/tarifs" component={SampleComponent} />
-      <Route path="/reservation" component={SampleComponent} />
-      <Redirect to="/accueil" />
+      <LazyRoute path="/admin" lazyComponent={AdminPage} />
+      <LazyRoute path="/" lazyComponent={PublicPage} />
     </Switch>
-    <div className="main" />
   </div>
 );
 
