@@ -9,6 +9,7 @@ import Themes from "./Themes/Themes";
 //import PropTypes from "prop-types";
 import { fetchJson } from "scripts/utils/api";
 import SurMesure from "./SurMesure/SurMesure";
+import VenirAuStudio from "./VenirAuStudio/VenirAuStudio";
 
 const Home = props => {
   const [htmlContents, setHtmlContents] = useState(() => []);
@@ -35,6 +36,7 @@ const Home = props => {
       )}
       <Themes />
       <SurMesure />
+      <VenirAuStudio />
     </div>
   );
 };
