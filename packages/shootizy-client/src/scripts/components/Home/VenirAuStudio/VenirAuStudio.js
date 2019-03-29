@@ -12,7 +12,27 @@ const VenirAuStudio = props => (
     </div>
     <div className="row row-2">
       <div className="col">
-        <form>sfsdf</form>
+        <form action="">
+          <div className="form-line label-top">
+            <label htmlFor="venirstudionom">Nom :</label>
+            <input type="text" id="venirstudionom" />
+          </div>
+          <div className="form-line label-top">
+            <label htmlFor="venirstudioemail">Email :</label>
+            <input type="text" id="venirstudioemail" />
+          </div>
+          <div className="form-line label-top">
+            <label htmlFor="venirstudiomessage">
+              Message (ou numéro de téléphone pour être rappelé)
+            </label>
+            <textarea id="venirstudiomessage" />
+          </div>
+          <div className="button-container-centered">
+            <button className="btn-green" type="submit">
+              Envoyer
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
