@@ -30,7 +30,7 @@ class Debug extends React.Component {
   componentDidMount() {
     if (reactDebug) {
       setTimeout(() => {
-        window.scrollTo(0, 1500);
+        window.scrollTo(0, document.body.scrollHeight);
       }, 500);
     }
   }

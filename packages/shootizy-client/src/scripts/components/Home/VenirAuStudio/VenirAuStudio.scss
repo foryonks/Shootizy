@@ -1,1 +1,39 @@
 /* your css code */
+.VenirAuStudio {
+  background: #fff;
+
+  .description {
+    margin-bottom: 10px;
+  }
+
+  .moreInfos {
+    margin-top: 40px;
+    .col {
+      padding-left: 50px;
+      padding-right: 10px;
+      h3.title {
+        position: relative;
+        line-height: 1;
+        margin-bottom: 10px;
+
+        .icon-svg {
+          background: #2ef7cc;
+          border-radius: 20px;
+          font-size: 11px;
+          padding: 0.3em;
+          position: absolute;
+          left: -30px;
+          vertical-align: middle;
+          top: 0.4em;
+        }
+      }
+    }
+  }
+
+  .metros {
+    a {
+      float: left;
+      width: 50%;
+    }
+  }
+}

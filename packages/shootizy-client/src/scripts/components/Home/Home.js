@@ -34,8 +34,11 @@ const Home = props => {
       {htmlContents["home-detail-prices"] && (
         <ShootizyTarifs contents={htmlContents["home-detail-prices"].items} />
       )}
-      <Themes />
-      <SurMesure />
+      <div className="section-container">
+        <Themes />
+        <SurMesure />
+      </div>
+
       <VenirAuStudio />
     </div>
   );
