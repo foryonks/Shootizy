@@ -1,0 +1,16 @@
+.mea {
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+
+  .mea-img {
+    float: left;
+  }
+  .mea-desc {
+    display: table-cell;
+    width: 1000px;
+    padding: 15px;
+  }
+}

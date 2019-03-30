@@ -50,7 +50,7 @@ const VenirAuStudio = props => (
         </div>
         <div className="col">
           <h3 className="title">
-            <Icon name="fleche-right" />
+            <Icon name="fleche-right" className="arrow-green" />
             Venir en transport
           </h3>
           <p class="metros">

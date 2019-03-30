@@ -10,6 +10,7 @@ import Themes from "./Themes/Themes";
 import { fetchJson } from "scripts/utils/api";
 import SurMesure from "./SurMesure/SurMesure";
 import VenirAuStudio from "./VenirAuStudio/VenirAuStudio";
+import BlogSmall from "./BlogSmall/BlogSmall";
 
 const Home = props => {
   const [htmlContents, setHtmlContents] = useState(() => []);
@@ -40,6 +41,7 @@ const Home = props => {
       </div>
 
       <VenirAuStudio />
+      <BlogSmall />
     </div>
   );
 };

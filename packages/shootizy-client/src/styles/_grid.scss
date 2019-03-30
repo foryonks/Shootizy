@@ -1,3 +1,5 @@
+@import "./variables";
+
 .page-section {
   padding-top: 65px;
   padding-bottom: 65px;
@@ -7,11 +9,11 @@
 .container-2 {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1628px;
+  max-width: $container-width;
 }
 
 .container-2 {
-  max-width: 1172px;
+  max-width: $container-2-width;
 }
 .container-inside {
   max-width: 750px;
@@ -58,10 +60,14 @@
 .card {
   /** card base **/
 }
+$box-shadow: 0px 0px 35px 18px #2d2d2d15;
+.card-shadow {
+  box-shadow: $box-shadow;
+}
 
 .card-simple {
   background: #fff;
-  box-shadow: 0px 0px 35px 18px #2d2d2d15;
+  box-shadow: $box-shadow;
   border-radius: 15px;
 
   &:hover {
