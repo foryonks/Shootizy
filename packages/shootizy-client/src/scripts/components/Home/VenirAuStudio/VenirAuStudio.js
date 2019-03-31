@@ -41,7 +41,7 @@ const VenirAuStudio = props => (
       <div className="row row-3 moreInfos">
         <div className="col">
           <h3 className="title">
-            <Icon name="fleche-right" />
+            <Icon name="arrow-right" />
             Nous localiser
           </h3>
           <p>
@@ -50,7 +50,7 @@ const VenirAuStudio = props => (
         </div>
         <div className="col">
           <h3 className="title">
-            <Icon name="fleche-right" className="arrow-green" />
+            <Icon name="arrow-right" className="arrow-green" />
             Venir en transport
           </h3>
           <p class="metros">
@@ -62,7 +62,7 @@ const VenirAuStudio = props => (
         </div>
         <div className="col">
           <h3 className="title">
-            <Icon name="fleche-right" />
+            <Icon name="arrow-right" />
             Nous contacter
           </h3>
           <ul className="list-table">

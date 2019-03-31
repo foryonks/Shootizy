@@ -64,7 +64,7 @@ const BlogSmall = props => {
                       <h4>{title}</h4>
                       <p>{description}</p>
                       <a href={link}>
-                        <Icon name="fleche-right" /> Lire l'article
+                        <Icon name="arrow-right" /> Lire l'article
                       </a>
                     </div>
                   </div>

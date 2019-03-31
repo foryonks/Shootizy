@@ -2,6 +2,7 @@ import React from "react";
 //import PropTypes from "prop-types";
 import Icon from "../Icon";
 import "./Footer.scss";
+import NewsletterSubscribeFooter from "./NewsletterSubscribeFooter";
 
 const Footer = props => (
   <section className="Footer">
@@ -27,6 +28,7 @@ const Footer = props => (
         </div>
       </div>
     </div>
+    <NewsletterSubscribeFooter />
   </section>
 );
 
