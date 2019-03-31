@@ -1,1 +1,27 @@
 /* your css code */
+.footer-social-section {
+  background: url("/assets/design/footer-social.jpg") top center;
+  min-height: 660px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social-section-content {
+  width: 355px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  .description {
+    margin-bottom: 20px;
+  }
+  .social-buttons {
+    font-size: 30px;
+
+    a {
+      margin: 0 10px;
+      vertical-align: middle;
+    }
+  }
+}
