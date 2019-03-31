@@ -8,9 +8,10 @@ import ShootizyTarifs from "./ShootizyTarifs";
 import Themes from "./Themes/Themes";
 //import PropTypes from "prop-types";
 import { fetchJson } from "scripts/utils/api";
-import SurMesure from "./SurMesure/SurMesure";
-import VenirAuStudio from "./VenirAuStudio/VenirAuStudio";
-import BlogSmall from "./BlogSmall/BlogSmall";
+import SurMesure from "./SurMesure";
+import VenirAuStudio from "./VenirAuStudio";
+import BlogSmall from "./BlogSmall";
+import Footer from "../Footer";
 
 const Home = props => {
   const [htmlContents, setHtmlContents] = useState(() => []);
@@ -42,6 +43,7 @@ const Home = props => {
 
       <VenirAuStudio />
       <BlogSmall />
+      <Footer />
     </div>
   );
 };
