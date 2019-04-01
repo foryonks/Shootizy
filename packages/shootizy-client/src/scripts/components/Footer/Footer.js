@@ -1,6 +1,4 @@
 import React from "react";
-//import PropTypes from "prop-types";
-import Icon from "../Icon";
 import "./Footer.scss";
 import NewsletterSubscribeFooter from "./NewsletterSubscribeFooter";
 import FooterBottom from "./FooterBottom/FooterBottom";
