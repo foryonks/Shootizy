@@ -4,6 +4,7 @@ import Icon from "../Icon";
 import "./Footer.scss";
 import NewsletterSubscribeFooter from "./NewsletterSubscribeFooter";
 import FooterBottom from "./FooterBottom/FooterBottom";
+import SocialButtons from "../_common/SocialButtons";
 
 const Footer = props => (
   <section className="Footer">
@@ -13,20 +14,7 @@ const Footer = props => (
         <div className="description">
           Rejoignez la communauté Shootizy sur tous <br /> vos réseaux sociaux préférés !
         </div>
-        <div className="social-buttons">
-          <a href="/facebook" className="button-facebook" title="Facebook">
-            <Icon name="facebook" />
-          </a>
-          <a href="/twitter" className="button-twitter" title="Twitter">
-            <Icon name="twitter" />
-          </a>
-          <a href="/youtube" className="button-youtube" title="Youtube">
-            <Icon name="youtube" />
-          </a>
-          <a href="/facebook" className="button-instagram" title="Instagram">
-            <Icon name="instagram" />
-          </a>
-        </div>
+        <SocialButtons />
       </div>
     </div>
     <NewsletterSubscribeFooter />

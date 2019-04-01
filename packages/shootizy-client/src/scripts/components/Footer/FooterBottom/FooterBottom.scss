@@ -8,3 +8,30 @@
   padding-bottom: 40px;
   border-bottom: 1px solid #2f2e2e;
 }
+
+.footer-bottom-2 {
+  margin-top: 40px;
+  .title {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .allLinks {
+    flex-grow: 4;
+    margin-right: 100px;
+
+    a {
+      color: #979797;
+      font-size: 18px;
+    }
+  }
+
+  .social-buttons {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .follow-us {
+    text-align: right;
+    color: #979797;
+  }
+}
