@@ -3,6 +3,7 @@ import React from "react";
 import Icon from "../Icon";
 import "./Footer.scss";
 import NewsletterSubscribeFooter from "./NewsletterSubscribeFooter";
+import FooterBottom from "./FooterBottom/FooterBottom";
 
 const Footer = props => (
   <section className="Footer">
@@ -29,6 +30,7 @@ const Footer = props => (
       </div>
     </div>
     <NewsletterSubscribeFooter />
+    <FooterBottom />
   </section>
 );
 
