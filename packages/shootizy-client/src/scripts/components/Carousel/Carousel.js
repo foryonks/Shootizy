@@ -28,7 +28,7 @@ const Carousel = props => (
         showThumbs={false}
         showIndicators={false}
         showStatus={false}
-        interval={5000}>
+        interval={500000}>
         {data.map(({ title, buttonText, text, img, key }) => (
           <div className="carousel-item" key={key}>
             <img src={img} alt="" className="carousel-image" />
@@ -44,7 +44,24 @@ const Carousel = props => (
           </div>
         ))}
       </CarouselResponsive>
+      <svg
+        className="carousel-ellipse"
+        data-name="Calque 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 476 367">
+        <path d="M0 0h423.86C456.43 59.2 476 134.94 476 217.7c0 54.44-8.47 103.6-23.53 149.3H0z" />
+      </svg>
     </div>
+    <svg
+      className="carousel-mask"
+      data-name="Calque 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 811 44">
+      <path
+        d="M0 0c97.95 23.5 245.72 37.41 411.21 37.41C571.4 37.41 715.12 22.24 813 0v44H0z"
+        fill="#fff"
+      />
+    </svg>
   </div>
 );
 

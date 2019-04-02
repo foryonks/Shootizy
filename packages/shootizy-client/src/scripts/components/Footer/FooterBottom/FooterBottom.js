@@ -2,15 +2,14 @@ import React from "react";
 //import PropTypes from "prop-types";
 import Logo from "../../Header/Logo";
 import "./FooterBottom.scss";
-import { keyfix } from "../../../utils/utils";
 import SocialButtons from "../../_common/SocialButtons";
 
-const data = keyfix([
+const data = [
   {
     label: "Nos Offres",
     link: "/offres",
     id: 1,
-    links: keyfix([
+    links: [
       {
         label: "Book Modèle",
         link: "/",
@@ -31,90 +30,90 @@ const data = keyfix([
         link: "/",
         id: 4,
       },
-    ]),
+    ],
   },
   {
     label: "Nos Offres",
     link: "/offres",
     id: 2,
-    links: keyfix([
+    links: [
       {
         label: "Book Modèle",
         link: "/",
-        id: 1,
+        id: 11,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 2,
+        id: 21,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 3,
+        id: 31,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 4,
+        id: 41,
       },
-    ]),
+    ],
   },
   {
     label: "Nos Offres",
     link: "/offres",
     id: 3,
-    links: keyfix([
+    links: [
       {
         label: "Book Modèle",
         link: "/",
-        id: 1,
+        id: 12,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 2,
+        id: 22,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 3,
+        id: 32,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 4,
+        id: 42,
       },
-    ]),
+    ],
   },
   {
     label: "Nos Offres",
     link: "/offres",
-    id: 4,
-    links: keyfix([
+    id: 4333,
+    links: [
       {
         label: "Book Modèle",
         link: "/",
-        id: 1,
+        id: 13,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 2,
+        id: 23,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 3,
+        id: 33,
       },
       {
         label: "Book Modèle",
         link: "/",
-        id: 4,
+        id: 43,
       },
-    ]),
+    ],
   },
-]);
+];
 const FooterBottom = props => (
   <div className="FooterBottom">
     <div className="container-2 footer-bottom-1 row">
@@ -134,13 +133,13 @@ const FooterBottom = props => (
       <div className="col allLinks">
         <div className="row ">
           {data.map(cat => (
-            <div className="col" key="cat.id">
+            <div className="col" key={cat.id}>
               <a href={cat.link}>
-                <h3 class="title">{cat.label}</h3>
+                <h3 className="title">{cat.label}</h3>
               </a>
               <ul>
                 {cat.links.map(item => (
-                  <li ley={item.id}>
+                  <li key={item.id}>
                     <a href={item.link}>{item.label}</a>
                   </li>
                 ))}

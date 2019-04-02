@@ -12,7 +12,7 @@ const NewsletterSubscribeFooter = props => (
       </div>
       <div className="col">
         <form action="/newsletter">
-          <i nput type="email" placeholder="ex : julien@yahoo.fr" />
+          <input type="email" placeholder="ex : julien@yahoo.fr" />
           <button type="submit" className="arrow-button">
             <Icon name="arrow-right" />
           </button>

@@ -53,7 +53,7 @@ const VenirAuStudio = props => (
             <Icon name="arrow-right" className="arrow-green" />
             Venir en transport
           </h3>
-          <p class="metros">
+          <p className="metros">
             <a href="/maps">
               Place de clichy <span className="nowrap">St-Lazare</span>
             </a>
