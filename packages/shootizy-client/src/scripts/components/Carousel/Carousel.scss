@@ -70,6 +70,7 @@
   }
 
   .carousel-item-content {
+    z-index: 3;
     position: absolute;
     color: #fff;
     top: 177px;
@@ -106,7 +107,7 @@
   .carousel-ellipse {
     opacity: 0.6;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     top: -7%;
     left: -0.5%;
     width: 56%;

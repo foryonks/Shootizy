@@ -32,6 +32,13 @@ const Carousel = props => (
         {data.map(({ title, buttonText, text, img, key }) => (
           <div className="carousel-item" key={key}>
             <img src={img} alt="" className="carousel-image" />
+            <svg
+              className="carousel-ellipse"
+              data-name="Calque 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 476 367">
+              <path d="M0 0h423.86C456.43 59.2 476 134.94 476 217.7c0 54.44-8.47 103.6-23.53 149.3H0z" />
+            </svg>
             <div className="carousel-item-content">
               <div className="carousel-item-title">
                 <Interweave content={title} />
@@ -44,13 +51,6 @@ const Carousel = props => (
           </div>
         ))}
       </CarouselResponsive>
-      <svg
-        className="carousel-ellipse"
-        data-name="Calque 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 476 367">
-        <path d="M0 0h423.86C456.43 59.2 476 134.94 476 217.7c0 54.44-8.47 103.6-23.53 149.3H0z" />
-      </svg>
     </div>
     <svg
       className="carousel-mask"
