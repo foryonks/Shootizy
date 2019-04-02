@@ -61,6 +61,7 @@
   .carousel-item {
     position: relative;
     padding-bottom: 41.4%;
+    overflow: hidden;
   }
 
   .carousel-image {
@@ -75,7 +76,6 @@
     color: #fff;
     top: 177px;
     left: 20.2%;
-    //transform: translateY(-50%);
   }
 
   .carousel-item-title {
@@ -92,15 +92,15 @@
     font-size: 21px;
     max-width: 268px;
     text-align: right;
-    margin: 41.9px 3px 0 auto;
+    margin: 42px 3px 0 auto;
     line-height: 1.3;
   }
 
   .carousel-mask {
     position: absolute;
-    width: 100%;
+    width: 100.2%;
     bottom: -14px;
-    left: 0;
+    left: -0.1%;
     z-index: 3;
   }
 
