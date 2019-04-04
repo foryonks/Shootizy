@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Logo.scss";
-import Icon from "../../Icon";
 
 function Logo({ className }) {
   return (
