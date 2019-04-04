@@ -59,6 +59,7 @@
 
 .card {
   /** card base **/
+  padding: 34px 15px;
 }
 $box-shadow: 0px 0px 35px 18px #2d2d2d15;
 .card-shadow {
@@ -68,7 +69,7 @@ $box-shadow: 0px 0px 35px 18px #2d2d2d15;
 .card-simple {
   background: #fff;
   box-shadow: $box-shadow;
-  border-radius: 15px;
+  border-radius: 10px;
 
   &:hover {
     box-shadow: 0px 0px 5px 4px #2d2d2d40;
