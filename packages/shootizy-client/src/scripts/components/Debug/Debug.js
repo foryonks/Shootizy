@@ -5,7 +5,7 @@
 
 import React from "react";
 
-const reactDebug = false; //process.env.REACT_APP_DEBUG === "true";
+const reactDebug = process.env.REACT_APP_DEBUG === "true";
 
 if (reactDebug) {
   // using conditionnal CSS creation is mandatory because require is always actived :(
@@ -30,7 +30,7 @@ class Debug extends React.Component {
   componentDidMount() {
     if (reactDebug) {
       setTimeout(() => {
-        // window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0, 0); //document.body.scrollHeight);
       }, 500);
     }
   }

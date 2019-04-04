@@ -12,9 +12,9 @@ const data = keyfix([
     img: "/assets/photos/visuel1.jpg",
   },
   {
-    title: "Lorem ipsum<br><strong>dolor sit amet</strong>",
+    title: "Relancer sa carrière avec<br><strong>Shootizy, c'est so Easy !</strong>",
     buttonText: "Je réserve mon shooting",
-    text: "Avec Shootizy les meilleures clichés !",
+    text: "Avec Shootizy payez seulement les photos que vous aimez !",
     img: "/assets/photos/visuel2.jpg",
   },
 ]);
@@ -24,11 +24,11 @@ const Carousel = props => (
     <div className="carousel-content">
       <CarouselResponsive
         infiniteLoop
-        autoPlay
+        //autoPlay
         showThumbs={false}
         showIndicators={false}
         showStatus={false}
-        interval={500000}>
+        interval={5000}>
         {data.map(({ title, buttonText, text, img, key }) => (
           <div className="carousel-item" key={key}>
             <img src={img} alt="" className="carousel-image" />
