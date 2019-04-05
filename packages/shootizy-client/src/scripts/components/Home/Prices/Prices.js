@@ -14,7 +14,7 @@ const Prices = ({ className }) => {
         <div className="price-item card card-simple" key={index}>
           <span className="price-item-qty">
             {qty}
-            <em>{unit}</em>
+            <sup>{unit}</sup>
           </span>
           <span className="price-item-of">{of}</span>
           <p className="price-item-text">
@@ -22,7 +22,6 @@ const Prices = ({ className }) => {
           </p>
         </div>
       ))}
-      git
     </div>
   );
 };

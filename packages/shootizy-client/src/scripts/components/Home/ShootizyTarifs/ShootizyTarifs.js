@@ -13,13 +13,13 @@ const ShootizyTarifs = ({ className }) => {
   return (
     <div className={"ShootizyTarifs " + className}>
       <div className="container container-2">
-        <h3>
+        <h2 className="title">
           Avec Shootizy{" "}
           <strong>
             payez seulement <br />
             les photos que vous aimez !
           </strong>
-        </h3>
+        </h2>
         <ul className="row row-3">
           {items.map(({ icon, title, text }, index) => (
             <li className="ShootizyTarifs-item card card-simple card-with-top-icon" key={index}>
