@@ -43,6 +43,15 @@ Once Mongo is correctly installed, execute this command to (re)initialize db / u
 npm run init-db
 ```
 
+## Bypass login in dev mode
+
+Add these configs to .env files of each packages
+
+```
+#shootizy-client/.env REACT_APP_USE_DEV_TOKEN=true
+#shootizy-server/.env USE_DEV_TOKEN=true
+```
+
 ## Heroku deploy
 
 Install heroku client and login

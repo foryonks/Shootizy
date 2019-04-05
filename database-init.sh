@@ -2,4 +2,5 @@
 mongo database/0-init.js
 
 # Init Data
-mongo database/1-data.js
+mongo database/1-users.js
+mongo database/2-contents.js
