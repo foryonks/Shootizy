@@ -16,11 +16,13 @@
     "start-heroku-server": "cross-env NODE_PATH=src/ node src/index.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "compression": "^1.7.4",
     "connect-history-api-fallback": "^1.6.0",
     "cross-env": "^5.2.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.11",
     "mongodb": "^3.2.2",
     "morgan": "^1.9.1",

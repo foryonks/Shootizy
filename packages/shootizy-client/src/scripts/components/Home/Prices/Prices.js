@@ -1,31 +1,34 @@
 import React from "react";
-import Interweave from "interweave";
 import PropTypes from "prop-types";
 
-const Prices = ({ contents, className }) => (
-  <section className={"Prices container-2 row row-3 " + className}>
-    {contents.map(({ qty, unit, of, html }, index) => (
-      <div className="price-item card card-simple" key={index}>
-        <span className="price-item-qty">
-          {qty}
-          <sup>{unit}</sup>
-        </span>
-        <span className="price-item-of">{of}</span>
-        <p className="price-item-text">
-          <Interweave content={html} />
-        </p>
-      </div>
-    ))}
-  </section>
-);
+import Interweave from "interweave";
+import useRemoteContents from "scripts/hooks/useRemoteContents";
 
-Prices.propTypes = {
-  contents: PropTypes.arrayOf(PropTypes.object),
-  className: PropTypes.string,
+const Prices = ({ className }) => {
+  const { contents } = useRemoteContents("/api/contents/home-key-prices");
+  const items = contents ? contents.items : [];
+
+  return (
+    <div className={"Prices container-2 row row-3 " + className}>
+      {items.map(({ qty, unit, of, html }, index) => (
+        <div className="price-item card card-simple" key={index}>
+          <span className="price-item-qty">
+            {qty}
+            <em>{unit}</em>
+          </span>
+          <span className="price-item-of">{of}</span>
+          <p className="price-item-text">
+            <Interweave content={html} />
+          </p>
+        </div>
+      ))}
+      git
+    </div>
+  );
 };
 
-Prices.defaultProps = {
-  contents: [],
+Prices.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Prices;

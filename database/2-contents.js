@@ -1,10 +1,10 @@
 const conn = new Mongo();
 const db = conn.getDB("shootizy");
 
-db.htmlContents.insert([
+db.contents.insert([
   {
     contentId: "home-key-prices",
-    page: "home",
+    tags: ["price", "home"],
     items: [
       {
         qty: 45,
@@ -28,7 +28,7 @@ db.htmlContents.insert([
   },
   {
     contentId: "home-detail-prices",
-    page: "home",
+    tags: ["price", "home"],
     items: [
       {
         icon: "star",
@@ -52,4 +52,4 @@ db.htmlContents.insert([
 ]);
 
 // Create index for fast search
-db.htmlContents.createIndex({ contentId: 1, page: 1 });
+db.contents.createIndex({ contentId: 1 }, { unique: true });

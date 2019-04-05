@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
+import { CredentialsProvider } from "scripts/contexts/Credentials";
 import App from "./scripts/App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -10,7 +11,9 @@ import "./styles/index.scss";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <CredentialsProvider>
+      <App />
+    </CredentialsProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

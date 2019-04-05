@@ -3,17 +3,17 @@ import { Route } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const LazyRoute = props => {
-  const { component, render, lazyComponent: RouteComponent, ...acceptedProps } = props;
+  const { component, render, extendedProps, lazyComponent: RouteComponent, ...routeProps } = props;
   return (
     <Route
-      {...acceptedProps}
+      {...routeProps}
       render={componentProps => (
         <Suspense
           fallback={
             //TO-DO
             <div>Chargement en cours...</div>
           }>
-          <RouteComponent {...componentProps} />
+          <RouteComponent {...componentProps} {...extendedProps} />
         </Suspense>
       )}
     />
@@ -22,6 +22,9 @@ const LazyRoute = props => {
 
 LazyRoute.propTypes = {
   lazyComponent: PropTypes.object.isRequired,
+  extendedProps: PropTypes.object,
 };
-
+LazyRoute.defaultProps = {
+  extendedProps: {},
+};
 export default LazyRoute;
