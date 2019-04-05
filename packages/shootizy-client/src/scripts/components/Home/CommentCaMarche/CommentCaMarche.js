@@ -25,8 +25,10 @@ const data = keyfix([
 ]);
 
 const CommentCaMarche = ({ className }) => (
-  <div className={"CommentCaMarche container container-2 " + className}>
-    <h3>Comment ça marche ?</h3>
+  <section className={`CommentCaMarche container container-2 page-section ${className}`}>
+    <h2 className="title">
+      <strong>Comment ça marche ?</strong>
+    </h2>
     <ul className="row row-3">
       {data.map(({ icon, title, text, key }) => (
         <li className="CommentCaMarche-item item-with-arrow card card-with-top-icon" key={key}>
@@ -45,7 +47,7 @@ const CommentCaMarche = ({ className }) => (
         Je réserve mon shooting
       </a>
     </p>
-  </div>
+  </section>
 );
 
 CommentCaMarche.propTypes = {

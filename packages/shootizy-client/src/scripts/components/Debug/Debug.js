@@ -14,9 +14,11 @@ if (reactDebug) {
   style.innerHTML = `
   body {
     width: 1920px;
+    margin-left:auto;
+    margin-right:auto;
   }
   `;
-  document.head.appendChild(style);
+  document.body.appendChild(style);
 }
 
 class Debug extends React.Component {
@@ -30,7 +32,7 @@ class Debug extends React.Component {
   componentDidMount() {
     if (reactDebug) {
       setTimeout(() => {
-        window.scrollTo(0, 0); //document.body.scrollHeight);
+        window.scrollTo(0, 1000); //document.body.scrollHeight);
       }, 500);
     }
   }

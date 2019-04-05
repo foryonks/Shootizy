@@ -4,15 +4,15 @@ import Icon from "../../Icon";
 import PropTypes from "prop-types";
 
 const ShootizyTarifs = ({ contents, className }) => (
-  <div className={"ShootizyTarifs " + className}>
-    <div className="container container-2">
-      <h3>
+  <div className={`ShootizyTarifs page-section ${className}`}>
+    <div className=" container container-2">
+      <h2 className="title">
         Avec Shootizy{" "}
         <strong>
           payez seulement <br />
           les photos que vous aimez !
         </strong>
-      </h3>
+      </h2>
       <ul className="row row-3">
         {contents.map(({ icon, title, text }, index) => (
           <li className="ShootizyTarifs-item card card-simple card-with-top-icon" key={index}>

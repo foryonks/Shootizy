@@ -38,7 +38,7 @@ db.htmlContents.insert([
       },
       {
         icon: "star",
-        title: "Pack de 150 photos = 150 €,<br> soit 1 € la photo",
+        title: "Pack de 150 photos = 150 €,<br> soit 1 € la photo<br> ou photo à l'unité = 20 €",
         text: "Rearement un billet de vingt vous aura fait <strong>autant de bien ;-)</strong>",
       },
       {

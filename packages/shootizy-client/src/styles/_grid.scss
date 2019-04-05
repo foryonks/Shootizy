@@ -1,8 +1,9 @@
 @import "./variables";
 
 .page-section {
-  padding-top: 65px;
-  padding-bottom: 65px;
+  $margin: 90px;
+  padding-top: $margin;
+  padding-bottom: $margin;
 }
 
 .container,
