@@ -17,7 +17,7 @@ const SurMesure = props => (
         </div>
         <div className="form-line label-top">
           <label htmlFor="surmesureexplain">Expliquez-nous</label>
-          <textarea id="surmesureexplain" />
+          <textarea id="surmesureexplain" rows="3" />
         </div>
         <div className="button-container-centered">
           <button className="btn-green" type="submit">

@@ -23,7 +23,7 @@ export const toMatrix = (myArr, width, { transform = item => item, fill = false 
     []
   );
 
-  if (fill) {
+  if (fill && myArr.length) {
     let lastLine = myArr[myArr.length - 1];
     while (lastLine.length < width) {
       lastLine.push("");

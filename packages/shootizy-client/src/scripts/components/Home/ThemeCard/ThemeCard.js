@@ -3,7 +3,9 @@ import "./ThemeCard.scss";
 import FacebookShareButton from "scripts/components/_common/FacebookShareButton";
 import Icon from "../../Icon";
 
-const ThemeCard = ({ image, title, sharelink, price, description, bookingLink, moreLink }) => {
+const ThemeCard = ({ image, title, sharelink, price, description, id }) => {
+  let bookingLink = `/booking/${id}`;
+  let moreLink = `/theme/`;
   return (
     <div className="ThemeCard card card-simple">
       <div className="ThemeCard-image">

@@ -49,6 +49,11 @@ db.contents.insert([
       },
     ],
   },
+  {
+    contentId: "themes",
+    tags: ["price", "theme", "photo"],
+    items: [],
+  },
 ]);
 
 // Create index for fast search
