@@ -34,7 +34,7 @@ db.contents.insert([
         icon: "star",
         title: "Shooting de 45 min = 0 €",
         text:
-          "Oui, zéro euro \u{1F601}<br>Mais nous sommes sûrs que vous choisirez au moins une photo...",
+          "Oui, zéro euro \u{1F601}<br><br>Mais nous sommes sûrs que vous choisirez au moins une photo...",
       },
       {
         icon: "star",

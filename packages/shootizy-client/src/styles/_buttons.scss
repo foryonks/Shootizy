@@ -23,20 +23,22 @@
 
 .btn-white,
 .btn-white-simple {
+  $h-padding: 30px;
   color: #000;
-  font-weight: bold;
   font-size: font-size(20);
   min-height: 45px;
   display: inline-block;
   vertical-align: middle;
   background: #fff;
+  letter-spacing: -0.05ex;
   border-radius: 20px;
   line-height: 45px;
-  $h-padding: 45px;
   padding-left: $h-padding;
   padding-right: $h-padding;
+  font-weight: normal;
   .icon-svg {
-    font-size: 0.8em;
+    font-size: 0.7em;
+    margin-right: 0.2em;
   }
 }
 
