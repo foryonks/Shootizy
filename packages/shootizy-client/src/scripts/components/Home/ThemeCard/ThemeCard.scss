@@ -22,17 +22,19 @@
   .ThemeCard-actions {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
     margin-bottom: 12px;
 
     .ThemeCard-price {
       font-size: font-size(12px);
+
       border: 1px solid #000;
       border-radius: 4px;
       text-transform: uppercase;
       color: #000;
       padding: 6px 8px;
       cursor: pointer;
+      vertical-align: middle;
     }
   }
 
