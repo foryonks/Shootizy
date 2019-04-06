@@ -26,9 +26,9 @@ const ShootizyTarifs = ({ className }) => {
               <div className="top-icon">
                 <Icon name={icon} />
               </div>
-              <h4>
-                <Interweave content={title} />
-              </h4>
+              <h3 className="title">
+                <Interweave co ntent={title} />
+              </h3>
               <p className="text">
                 <Interweave content={text} />
               </p>
