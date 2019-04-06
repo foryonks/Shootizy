@@ -5,7 +5,17 @@
   .description {
     margin-bottom: 10px;
   }
+  .googlemaps {
+    position: relative;
 
+    iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
   .moreInfos {
     margin-top: 40px;
     .col {

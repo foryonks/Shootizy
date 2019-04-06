@@ -13,7 +13,7 @@ const VenirAuStudio = props => (
         arrondissement de Paris, venez vivre l’expérience Shootizy,{" "}
         <strong>le shooting en mode so easy !</strong>
       </div>
-      <div className="row row-2">
+      <div className="row row-2 row-strech">
         <div className="col">
           <form action="">
             <div className="form-line label-top">
@@ -28,7 +28,7 @@ const VenirAuStudio = props => (
               <label htmlFor="venirstudiomessage">
                 Message (ou numéro de téléphone pour être rappelé)
               </label>
-              <textarea id="venirstudiomessage" />
+              <textarea id="venirstudiomessage" rows="4" />
             </div>
             <div className="button-container-centered">
               <button className="btn-green" type="submit">
@@ -36,6 +36,13 @@ const VenirAuStudio = props => (
               </button>
             </div>
           </form>
+        </div>
+        <div className="col googlemaps">
+          <iframe
+            src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=fr&amp;q=100%20rue%20d'Amsterdam%2075009%20Paris+(Shootizy)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed"
+            scrolling="no">
+            <a href="https://www.maps.ie/map-my-route/">Draw map route</a>
+          </iframe>
         </div>
       </div>
       <div className="row row-3 moreInfos">

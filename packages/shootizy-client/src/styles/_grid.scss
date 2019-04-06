@@ -37,6 +37,10 @@
   justify-content: space-between;
 }
 
+.row-strech {
+  align-items: stretch;
+}
+
 .row-3 {
   > .card,
   > .dummyCard {

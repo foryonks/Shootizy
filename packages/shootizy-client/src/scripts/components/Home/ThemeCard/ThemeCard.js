@@ -14,16 +14,16 @@ const ThemeCard = ({ image, title, sharelink, price, description, id }) => {
       <div className="ThemeCard-content">
         <div className="ThemeCard-actions">
           <button className="ThemeCard-price">Dès {price} la photo</button>
-          <FacebookShareButton />
+          <FacebookShareButton link={bookingLink} />
         </div>
         <h4 className="ThemeCard-title">{title}</h4>
         <div className="ThemeCard-description">{description}</div>
         <div className="ThemeCard-buttons">
           <button className="btn-green">Réserver mon shooting</button>
-          <button className="btn-white-simple">
+          <a href={moreLink} className="btn-white-simple">
             <Icon name="triangle-right" />
             En savoir plus
-          </button>
+          </a>
         </div>
       </div>
     </div>
