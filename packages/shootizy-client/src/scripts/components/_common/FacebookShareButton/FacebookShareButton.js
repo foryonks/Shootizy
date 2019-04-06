@@ -1,7 +1,7 @@
 import React from "react";
 // import PropTypes from "prop-types";
 import Icon from "../../Icon";
-//import { Test } from './FacebookShareButton.styles';
+import "./FacebookShareButton.scss";
 
 const FacebookShareButton = props => (
   <button className="facebook-share-button">

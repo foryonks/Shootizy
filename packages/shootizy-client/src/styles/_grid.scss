@@ -37,6 +37,10 @@
   justify-content: space-between;
 }
 
+.row-strech {
+  align-items: stretch;
+}
+
 .row-3 {
   > .card,
   > .dummyCard {
@@ -86,7 +90,7 @@ $box-shadow: 0px 0px 35px 18px #2d2d2d15;
     align-items: center;
     height: 70px;
     width: 70px;
-    margin: -35px auto 28px;
+    margin: -35px auto 26px;
     background: #000;
     border-radius: 200px;
 

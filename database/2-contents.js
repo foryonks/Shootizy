@@ -34,7 +34,7 @@ db.contents.insert([
         icon: "star",
         title: "Shooting de 45 min = 0 €",
         text:
-          "Oui, zéro euro \u{1F601}<br>Mais nous sommes sûrs que vous choisirez au moins une photo...",
+          "Oui, zéro euro \u{1F601}<br><br>Mais nous sommes sûrs que vous choisirez au moins une photo...",
       },
       {
         icon: "star",
@@ -46,6 +46,85 @@ db.contents.insert([
         title: "Le temps de choisir = 0 €",
         text:
           "Sitôt votre séance terminée, découvrez vos photos.<br><br>Prenez votre temps, <strong>Aucune obligation d'achat. Payez seulement les images qui vous plaisent.",
+      },
+    ],
+  },
+  {
+    contentId: "themes",
+    tags: ["themes"],
+    items: [
+      {
+        image: "/assets/photos/theme1.jpg",
+        title: "Book modèle / Artistes Comédien",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer",
+        price: "20€",
+      },
+      {
+        image: "/assets/photos/theme2.jpg",
+        title: "Réseaux sociaux / Rencontres",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Comparez la qualité d’un selfie et celle d’un portrait de qualité pro. Il n’y a pas photo",
+        price: "20€",
+      },
+      {
+        image: "/assets/photos/theme3.jpg",
+        title: "Couples / Duo",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Un cadeau de Saint Valentin, l’anniversaire de votre relation ? Un coup de folie douce, en mode coup de cœur ?",
+        price: "20€",
+      },
+      {
+        image: "/assets/photos/theme4.jpg",
+        title: "Familles",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Future maman ? Nous réalisons régulièrement des séances photos, en général entre le 6ème et le 8ème mois de grossesse",
+        price: "20€",
+      },
+
+      {
+        image: "/assets/photos/theme5.jpg",
+        title: "Carrières / CV LinkedIn",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Faites vraiment la différence, dans votre présentation personnelle et auprès de vos relations personnelles et...",
+        price: "20€",
+      },
+
+      {
+        image: "/assets/photos/theme1.jpg",
+        title: "Groupes",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Associations, clubs, chorales, orchestres…  Plus on est de fous, plus on Shootizy.",
+        price: "20€",
+      },
+      {
+        image: "/assets/photos/theme1.jpg",
+        title: "Fêtes / Anniversaires / Mariages",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Sitôt votre séance terminée, découvrez vos photos. Prenez votre temps, prenons-le ensemble au",
+        price: "20€",
+      },
+      {
+        image: "/assets/photos/theme1.jpg",
+        title: "Enterrements de vie de jeune Fille / Garçon",
+        sharelink: "http://foobarbook.com",
+        description:
+          "Sitôt votre séance terminée, découvrez vos photos. Prenez votre temps, prenons-le ensemble au studio.",
+        price: "20€",
+      },
+      {
+        image: "/assets/photos/theme1.jpg",
+        title: "Grossesses / Naissances",
+        sharelink: "http://foobarbook.com",
+        description: "Sitôt votre séance terminée, découvrez vos photos. Prenez votre tempsv",
+        price: "20€",
       },
     ],
   },

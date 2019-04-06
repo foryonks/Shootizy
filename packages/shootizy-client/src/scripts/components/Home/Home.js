@@ -22,7 +22,7 @@ const Home = () => {
       <Prices className="Prices-header" />
       <CommentCaMarche className="CommentCaMarche-Home" />
       <ShootizyTarifs />
-      <div className="section-container">
+      <div className="page-section section-container">
         <Themes />
         <SurMesure />
       </div>

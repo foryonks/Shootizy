@@ -11,7 +11,7 @@ const ShootizyTarifs = ({ className }) => {
   const items = contents ? contents.items : [];
 
   return (
-    <div className={"ShootizyTarifs " + className}>
+    <div className={`ShootizyTarifs page-section ${className || ""}`}>
       <div className="container container-2">
         <h2 className="title">
           Avec Shootizy{" "}
@@ -26,9 +26,9 @@ const ShootizyTarifs = ({ className }) => {
               <div className="top-icon">
                 <Icon name={icon} />
               </div>
-              <h4>
+              <h3 className="title">
                 <Interweave content={title} />
-              </h4>
+              </h3>
               <p className="text">
                 <Interweave content={text} />
               </p>
