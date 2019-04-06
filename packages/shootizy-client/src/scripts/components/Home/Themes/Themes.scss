@@ -1,20 +1,15 @@
 @import "../../../../styles/functions";
 
 .Themes {
-  padding-top: 1px;
+  > .title {
+    margin-bottom: 50px;
+  }
+
   > .row {
     margin-bottom: 32px;
-  }
-}
 
-.Themes-title {
-  margin-top: 86px;
-  margin-bottom: 32px;
-  font-size: font-size(43);
-  font-weight: normal;
-  text-align: center;
-  line-height: 1.1;
-  strong {
-    font-weight: bold;
+    > .card {
+      width: 31.8%;
+    }
   }
 }

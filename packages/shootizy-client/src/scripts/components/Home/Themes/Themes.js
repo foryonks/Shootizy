@@ -9,7 +9,7 @@ const data = keyfix([
     title: "Book modèle / Artistes Comédien",
     sharelink: "http://foobarbook.com",
     description:
-      "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre ... ",
+      "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer",
     bookingLink: "/shooting-1",
     moreLink: "/shooting",
     price: "20€",
@@ -61,10 +61,10 @@ const Themes = props => {
   const dataGrid = keyfix(toMatrix(data, 3, { transform: keyfix, fill: true }));
   return (
     <div className="Themes container-2 grid">
-      <h3 className="Themes-title">
+      <h2 className="title">
         Choisissez le thème de votre shooting, <br />
         <strong>selon votre besoin</strong>
-      </h3>
+      </h2>
 
       {dataGrid.map((row, indexRow) => (
         <div className="row row-3" key={indexRow}>
