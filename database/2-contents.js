@@ -54,7 +54,7 @@ db.contents.insert([
     tags: ["themes"],
     items: [
       {
-        image: "/assets/photos/themes/book-modele.jpg",
+        image: "/assets/photos/themes/book-model.jpg",
         title: "Book modèle / Artistes Comédien",
         sharelink: "http://foobarbook.com",
         description:
