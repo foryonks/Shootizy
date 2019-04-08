@@ -1,11 +1,11 @@
 @import "../../../../styles/functions";
 
 .ThemeCard {
-  padding: 0;
-  border-radius: 15px;
+  padding: 0 0 24px;
+  cursor: pointer;
 
   .ThemeCard-image {
-    border-radius: 15px 15px 0 0;
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
     position: relative;
     padding-bottom: 71.77%;
@@ -24,6 +24,7 @@
     padding: 24px;
     font-size: font-size(18);
     color: #6a6a6a;
+    min-height: 275px;
   }
 
   .ThemeCard-actions {
@@ -45,7 +46,6 @@
   }
 
   .ThemeCard-description {
-    min-height: 125px;
     margin-bottom: 15px;
     line-height: 1;
   }
@@ -73,6 +73,7 @@
     .btn-green {
       font-size: font-size(16px);
       padding: 0.2em 1.7em;
+      margin-bottom: 15px;
     }
   }
 }

@@ -14,4 +14,9 @@
   .icon-svg {
     font-size: font-size(16);
   }
+
+  &:hover {
+    background: #3b5998;
+    color: #fff;
+  }
 }

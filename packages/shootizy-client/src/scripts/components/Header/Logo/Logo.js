@@ -14,7 +14,7 @@ function Logo({ className }) {
         </svg>
       </NavLink>
       <span className="logo-text">
-        Le shooting photo
+        Le Shooting photo
         <br /> qui vous chouchoute
       </span>
     </span>

@@ -1,6 +1,7 @@
 import React from "react";
 import classNamesDedupe from "classnames/dedupe";
 import PropTypes from "prop-types";
+import Interweave from "interweave";
 
 /**
  * Return true if field is error and not pristine
@@ -69,7 +70,9 @@ const Field = ({ id, field, onChange, onBlur }) => {
 
   return label ? (
     <div className={className}>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        <Interweave content={label} />
+      </label>
       {getComponent({ ...props })}
     </div>
   ) : (

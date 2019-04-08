@@ -14,7 +14,7 @@ const Themes = props => {
     <div className="Themes container-2 grid">
       <h2 className="title">
         Choisissez le thème de votre shooting, <br />
-        <strong>selon votre besoin</strong>
+        <strong>selon votre besoin !</strong>
       </h2>
 
       {dataGrid.map((row, indexRow) => (

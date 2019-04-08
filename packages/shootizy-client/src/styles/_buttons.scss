@@ -1,5 +1,7 @@
 @import "./functions";
 
+$button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
+
 .button-container-centered {
   text-align: center;
 }
@@ -11,14 +13,25 @@
   border-radius: 100px;
   font-size: font-size(25);
   font-family: "Brandon Grotesque", "Myriad Pro", sans-serif;
-  font-weight: bold;
+  font-weight: 500;
   padding: 0px 1.1em;
   line-height: 1.8;
   display: inline-block;
-  //min-width: 12em;
   box-sizing: border-box;
   text-align: center;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025ex;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+    box-shadow: $button-box-shadow;
+  }
+
+  &-hover-invert:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: $button-box-shadow;
+  }
 }
 
 .btn-white,
@@ -35,10 +48,17 @@
   line-height: 45px;
   padding-left: $h-padding;
   padding-right: $h-padding;
-  font-weight: normal;
+  font-weight: bold;
+
   .icon-svg {
     font-size: 0.7em;
     margin-right: 0.2em;
+    vertical-align: 0.05em;
+  }
+
+  &:hover {
+    background: #000;
+    color: #fff;
   }
 }
 
@@ -47,10 +67,20 @@
   border: none;
   font-size: font-size(16px);
   font-weight: bold;
+  line-height: 1;
+  min-height: 0;
+
   .icon-svg {
     font-size: 0.6em;
     margin-right: 0.3em;
     vertical-align: 0.05em;
+    //transition: all 0.15s ease-in-out;
+  }
+
+  &:hover {
+    color: #000;
+    background: none;
+    text-decoration: underline;
   }
 }
 
@@ -71,6 +101,10 @@
 }
 
 //TO-DO
-button[disabled] {
-  opacity: 0.3;
+
+[class^="btn-"] {
+  transition: opacity 1s;
+  &:disabled {
+    opacity: 0.4;
+  }
 }

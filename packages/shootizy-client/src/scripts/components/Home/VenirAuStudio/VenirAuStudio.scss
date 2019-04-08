@@ -1,16 +1,22 @@
 @import "../../../../styles/functions";
-
+@import "../../../../styles/misc";
 .VenirAuStudio {
   background: #fff;
 
   .description {
-    margin-bottom: 10px;
-    font-size: font-size(27px);
-    text-align: center;
+    margin-bottom: 27px;
+    @extend.generic-description;
   }
   .googlemaps {
     position: relative;
-
+    .googlemaps-content {
+      position: absolute;
+      top: 1rem;
+      margin-top: 8px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
     iframe {
       position: absolute;
       left: 0;
@@ -50,9 +56,18 @@
   }
 
   .metros {
-    a {
-      float: left;
-      width: 50%;
+    display: table;
+    li {
+      display: table-row;
+    }
+
+    span {
+      display: table-cell;
+      padding-right: 1em;
+      img {
+        width: 1em;
+        margin-left: 0.1em;
+      }
     }
   }
 }

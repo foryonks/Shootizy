@@ -1,12 +1,17 @@
 @import "./functions";
 
 html {
-  font-size: 16px;
+  font-size: $font-size;
 }
 
 body {
   font-family: $font-family;
   font-size: 1rem;
+}
+
+b,
+strong {
+  font-weight: bold;
 }
 
 h2.title {

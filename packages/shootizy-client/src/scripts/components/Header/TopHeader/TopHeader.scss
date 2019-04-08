@@ -47,6 +47,10 @@
   .instagram {
     text-decoration: none;
 
+    &:hover {
+      color: #2ef7cc;
+    }
+
     .icon-svg {
       margin: 0;
     }

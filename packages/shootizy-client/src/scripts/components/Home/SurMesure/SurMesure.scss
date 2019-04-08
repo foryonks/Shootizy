@@ -1,27 +1,21 @@
 @import "../../../../styles/functions";
+@import "../../../../styles/misc";
 
 .SurMesure {
   padding-top: 53px;
   padding-bottom: 54px;
+  margin-top: 70px;
 
   .SurMesure-title {
     font-size: font-size(43);
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 26px;
   }
 
   .SurMesure-description {
-    color: #6a6a6a;
-    font-size: font-size(27);
-    line-height: 1;
+    @extend .generic-description;
     margin-bottom: 35px;
-    strong {
-      color: #000;
-    }
   }
 
   .button-container-centered {
-    margin-top: 30px;
+    margin-top: 56px;
   }
 }

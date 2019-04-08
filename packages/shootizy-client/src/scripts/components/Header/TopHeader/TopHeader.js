@@ -9,7 +9,7 @@ const TopHeader = ({ showAdmLinks }) => {
         <span>Shootizy : Studio photo professionnel à Paris</span>
         <span className="header-reservation">
           <Icon name="phone-circle" />
-          Réservation par téléphone : +33 84 929 21 71
+          Réservation par téléphone : <a href="tel:+3384292171">+33 84 29 21 71</a>
         </span>
       </span>
       <ul className="header-links">
@@ -33,7 +33,7 @@ const TopHeader = ({ showAdmLinks }) => {
         </li>
         <li>
           <a href="/contacts">
-            <Icon name="letter" />
+            <Icon name="email" />
             Contact
           </a>
         </li>
