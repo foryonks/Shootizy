@@ -31,18 +31,18 @@ db.contents.insert([
     tags: ["price", "home"],
     items: [
       {
-        icon: "star",
+        icon: "o-clock",
         title: "Shooting de 45 min = 0 €",
         text:
           "Oui, zéro euro \u{1F601}<br><br>Mais nous sommes sûrs que vous choisirez au moins une photo...",
       },
       {
-        icon: "star",
+        icon: "love",
         title: "Pack de 150 photos = 150 €,<br> soit 1 € la photo<br> ou photo à l'unité = 20 €",
         text: "Rearement un billet de vingt vous aura fait <strong>autant de bien ;-)</strong>",
       },
       {
-        icon: "star",
+        icon: "like",
         title: "Le temps de choisir = 0 €",
         text:
           "Sitôt votre séance terminée, découvrez vos photos.<br><br>Prenez votre temps, <strong>Aucune obligation d'achat. Payez seulement les images qui vous plaisent.",
@@ -54,7 +54,7 @@ db.contents.insert([
     tags: ["themes"],
     items: [
       {
-        image: "/assets/photos/theme1.jpg",
+        image: "/assets/photos/themes/book-modele.jpg",
         title: "Book modèle / Artistes Comédien",
         sharelink: "http://foobarbook.com",
         description:
@@ -62,7 +62,7 @@ db.contents.insert([
         price: "20€",
       },
       {
-        image: "/assets/photos/theme2.jpg",
+        image: "/assets/photos/themes/social-rencontres.jpg",
         title: "Réseaux sociaux / Rencontres",
         sharelink: "http://foobarbook.com",
         description:
@@ -70,7 +70,7 @@ db.contents.insert([
         price: "20€",
       },
       {
-        image: "/assets/photos/theme3.jpg",
+        image: "/assets/photos/themes/couples-duo.jpg",
         title: "Couples / Duo",
         sharelink: "http://foobarbook.com",
         description:
@@ -78,7 +78,7 @@ db.contents.insert([
         price: "20€",
       },
       {
-        image: "/assets/photos/theme4.jpg",
+        image: "/assets/photos/themes/famille.jpg",
         title: "Familles",
         sharelink: "http://foobarbook.com",
         description:
@@ -87,7 +87,7 @@ db.contents.insert([
       },
 
       {
-        image: "/assets/photos/theme5.jpg",
+        image: "/assets/photos/themes/carrieres.jpg",
         title: "Carrières / CV LinkedIn",
         sharelink: "http://foobarbook.com",
         description:
@@ -96,7 +96,7 @@ db.contents.insert([
       },
 
       {
-        image: "/assets/photos/theme1.jpg",
+        image: "/assets/photos/themes/groupes.jpg",
         title: "Groupes",
         sharelink: "http://foobarbook.com",
         description:
@@ -104,7 +104,7 @@ db.contents.insert([
         price: "20€",
       },
       {
-        image: "/assets/photos/theme1.jpg",
+        image: "/assets/photos/themes/fetes-anniversaires.jpg",
         title: "Fêtes / Anniversaires / Mariages",
         sharelink: "http://foobarbook.com",
         description:
@@ -112,7 +112,7 @@ db.contents.insert([
         price: "20€",
       },
       {
-        image: "/assets/photos/theme1.jpg",
+        image: "/assets/photos/themes/evjf.jpg",
         title: "Enterrements de vie de jeune Fille / Garçon",
         sharelink: "http://foobarbook.com",
         description:
@@ -120,7 +120,7 @@ db.contents.insert([
         price: "20€",
       },
       {
-        image: "/assets/photos/theme1.jpg",
+        image: "/assets/photos/themes/grossesses.jpg",
         title: "Grossesses / Naissances",
         sharelink: "http://foobarbook.com",
         description: "Sitôt votre séance terminée, découvrez vos photos. Prenez votre tempsv",

@@ -6,14 +6,14 @@ import { keyfix } from "../../utils/utils";
 
 const data = keyfix([
   {
-    title: "Léa est venue chez nous<br><strong>pour ses 24 Printemps</strong>",
-    buttonText: "Je réserve mon shooting",
+    title: "Léa est venue chez nous<br><strong>pour ses 24 Printemps !</strong>",
+    buttonText: "Je réserve mon Shooting",
     text: "Avec Shootizy payez seulement les photos que vous aimez !",
     img: "/assets/photos/visuel1.jpg",
   },
   {
     title: "Relancer sa carrière avec<br><strong>Shootizy, c'est so Easy !</strong>",
-    buttonText: "Je réserve mon shooting",
+    buttonText: "Je réserve mon Shooting",
     text: "Avec Shootizy payez seulement les photos que vous aimez !",
     img: "/assets/photos/visuel2.jpg",
   },
@@ -39,15 +39,17 @@ const Carousel = props => (
               viewBox="0 0 476 367">
               <path d="M0 0h423.86C456.43 59.2 476 134.94 476 217.7c0 54.44-8.47 103.6-23.53 149.3H0z" />
             </svg>
-            <div className="carousel-item-content">
-              <div className="carousel-item-title">
-                <Interweave content={title} />
+            <a href="/">
+              <div className="carousel-item-content">
+                <div className="carousel-item-title">
+                  <Interweave content={title} />
+                </div>
+                <p className="carousel-item-button-container">
+                  <button className="btn-green carousel-item-button">{buttonText}</button>
+                </p>
+                <p className="carousel-item-text">{text}</p>
               </div>
-              <p className="carousel-item-button-container">
-                <button className="btn-green carousel-item-button">{buttonText}</button>
-              </p>
-              <p className="carousel-item-text">{text}</p>
-            </div>
+            </a>
           </div>
         ))}
       </CarouselResponsive>

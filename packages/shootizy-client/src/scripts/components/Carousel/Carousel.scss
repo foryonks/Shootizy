@@ -47,6 +47,7 @@
       left: 6.7%;
       &:before {
         content: "<";
+        font-weight: 500;
       }
     }
 
@@ -54,6 +55,7 @@
       right: 6.7%;
       &:before {
         content: ">";
+        font-weight: 500;
       }
     }
   }
@@ -79,9 +81,11 @@
   }
 
   .carousel-item-title {
-    font-size: font-size(47);
+    font-size: font-size(50);
     line-height: 1.1;
     text-align-last: left;
+    font-weight: 300;
+    letter-spacing: -0.06ex;
   }
 
   .carousel-item-button-container {

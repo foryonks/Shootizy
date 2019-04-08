@@ -37,8 +37,9 @@
       text-decoration: none;
       color: inherit;
 
+      &.active,
       &:hover {
-        text-decoration: underline;
+        color: #979797;
       }
     }
   }
@@ -56,5 +57,12 @@
     padding: 0 23px;
     font-family: $font-family;
     text-align: center;
+    //transition: all 0.5s linear;
+
+    &:hover {
+      background-color: #2ef7cc;
+      border-color: transparent;
+      box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
+    }
   }
 }

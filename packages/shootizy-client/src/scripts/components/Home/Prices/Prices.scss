@@ -17,6 +17,7 @@
   .price-item {
     text-align: center;
     padding-bottom: 26px;
+    border-radius: 10px;
   }
 
   .price-item-qty {
@@ -36,15 +37,15 @@
   }
 
   .price-item-of {
-    font-size: 1.6em;
-    font-weight: bold;
+    font-size: font-size(27px);
+    font-weight: 500;
     line-height: 1.4;
     letter-spacing: 0.1ex;
   }
 
   .price-item-text {
-    margin: 13px 0 0 0;
-    letter-spacing: 0.1ex;
+    margin: 10px 0 0 0;
+    letter-spacing: 0ex;
     line-height: 1.5;
   }
 }

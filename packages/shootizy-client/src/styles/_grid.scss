@@ -78,7 +78,7 @@ $box-shadow: 0px 0px 35px 18px #2d2d2d15;
 .card-simple {
   background: #fff;
   //box-shadow: $box-shadow;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .card-with-top-icon {
@@ -96,7 +96,7 @@ $box-shadow: 0px 0px 35px 18px #2d2d2d15;
 
     .icon-svg {
       color: #fff;
-      font-size: 40px;
+      font-size: 1.7em;
     }
   }
 
@@ -106,7 +106,7 @@ $box-shadow: 0px 0px 35px 18px #2d2d2d15;
     line-height: 106px;
 
     .icon-svg {
-      font-size: 3em;
+      font-size: 2.2em;
     }
   }
 }

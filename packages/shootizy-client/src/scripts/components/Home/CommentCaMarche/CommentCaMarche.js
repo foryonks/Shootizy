@@ -6,18 +6,18 @@ import { keyfix } from "../../../utils/utils";
 
 const data = keyfix([
   {
-    icon: "star",
+    icon: "calendar",
     title: "Prenez Rendez-vous",
     text:
       "Réservez en ligne la date & l'heure de votre séance photo, 3 clics suffisent. <strong>So easy, so Shootizy</strong>",
   },
   {
-    icon: "star",
+    icon: "during",
     title: "Vivez votre Shooting",
     text: "Au studio, nous révélons <strong>le meilleur de vous-même</strong>",
   },
   {
-    icon: "star",
+    icon: "pics",
     title: "Choisissez vos photos",
     text:
       "Découvez instantanément vos clichés.<br><strong>Achetez seulement ceux que vous aimez</strong>",
