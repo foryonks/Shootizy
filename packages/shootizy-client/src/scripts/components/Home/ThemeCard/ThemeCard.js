@@ -20,7 +20,7 @@ const ThemeCard = ({ image, title, sharelink, price, description, id }) => {
         <div className="ThemeCard-description">{description}</div>
       </div>
       <div className="ThemeCard-buttons">
-        <button className="btn-green">Réserver mon shooting</button>
+        <button className="btn-green">Réserver mon Shooting</button>
         <a href={moreLink} className="btn-white-simple">
           <Icon name="triangle-right" />
           En savoir plus

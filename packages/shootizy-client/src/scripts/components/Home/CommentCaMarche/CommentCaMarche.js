@@ -44,7 +44,7 @@ const CommentCaMarche = ({ className }) => (
     </ul>
     <p>
       <a className="btn-green" href="/shooting">
-        Je réserve mon shooting
+        Je réserve mon Shooting
       </a>
     </p>
   </section>
