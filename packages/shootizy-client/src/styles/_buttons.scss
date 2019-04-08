@@ -15,7 +15,6 @@
   padding: 0px 1.1em;
   line-height: 1.8;
   display: inline-block;
-  //min-width: 12em;
   box-sizing: border-box;
   text-align: center;
   letter-spacing: -0.01em;
@@ -71,6 +70,10 @@
 }
 
 //TO-DO
-button[disabled] {
-  opacity: 0.3;
+
+[class^="btn-"] {
+  transition: opacity 1s;
+  &:disabled {
+    opacity: 0.4;
+  }
 }

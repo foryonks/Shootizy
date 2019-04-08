@@ -71,14 +71,14 @@ $box-shadow: 0px 0px 35px 18px #2d2d2d15;
   box-shadow: $box-shadow;
 }
 
+.card-shadow-hover:hover {
+  box-shadow: 0px 0px 5px 4px #2d2d2d40;
+}
+
 .card-simple {
   background: #fff;
-  box-shadow: $box-shadow;
+  //box-shadow: $box-shadow;
   border-radius: 10px;
-
-  &:hover {
-    box-shadow: 0px 0px 5px 4px #2d2d2d40;
-  }
 }
 
 .card-with-top-icon {

@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { path: "/shooting-studio", title: "Shooting Studio" },
   { path: "/shooting-sur-mesure", title: "Shooting sur mesure" },
   { path: "/tarifs", title: "Tarifs" },
-  { path: "/reservation", title: "Réservation" },
+  { path: "/notre-book", title: "Notre book" },
 ];
 const NavBar = props => (
   <div className="nav-bar">

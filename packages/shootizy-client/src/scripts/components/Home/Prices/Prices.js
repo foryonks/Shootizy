@@ -11,7 +11,7 @@ const Prices = ({ className }) => {
   return (
     <div className={"Prices container-2 row row-3 " + className}>
       {items.map(({ qty, unit, of, html }, index) => (
-        <div className="price-item card card-simple" key={index}>
+        <div className="price-item card card-simple card-shadow" key={index}>
           <span className="price-item-qty">
             {qty}
             <sup>{unit}</sup>
