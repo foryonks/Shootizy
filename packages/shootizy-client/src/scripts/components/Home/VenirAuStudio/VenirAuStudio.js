@@ -7,7 +7,7 @@ import Icon from "../../Icon";
 const VenirAuStudio = props => (
   <section className="VenirAuStudio page-section">
     <div className="container-2">
-      <h2 className="title">Venir au studio !</h2>
+      <h2 className="title">Venir au Studio !</h2>
       <div className="description">
         Pour nous trouver, <strong>c’est so easy dans Paris !</strong> En plein cœur du 9ème
         arrondissement de Paris, venez vivre l’expérience Shootizy,{" "}
@@ -66,9 +66,10 @@ const VenirAuStudio = props => (
             Venir en transport
           </h3>
           <p className="metros">
-            <a href="/maps">
-              Place de clichy <span className="nowrap">St-Lazare</span>
-            </a>
+            <span>
+              Place de clichy <br />
+              <span className="nowrap">St-Lazare</span>
+            </span>
             <img src={metroImg} alt="metros" />
           </p>
         </div>
