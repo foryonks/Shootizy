@@ -6,6 +6,8 @@ import Icon from "../../Icon";
 const ThemeCard = ({ image, title, sharelink, price, description, id }) => {
   let bookingLink = `/booking/${id}`;
   let moreLink = `/theme/`;
+  // TODO : onclick sur tout la carte = reserver mon shooting
+
   return (
     <div className="ThemeCard card card-simple">
       <div className="ThemeCard-image">

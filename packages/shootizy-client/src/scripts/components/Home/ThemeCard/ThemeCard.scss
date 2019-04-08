@@ -2,6 +2,7 @@
 
 .ThemeCard {
   padding: 0 0 24px;
+  cursor: pointer;
 
   .ThemeCard-image {
     border-radius: 20px 20px 0 0;
@@ -72,6 +73,7 @@
     .btn-green {
       font-size: font-size(16px);
       padding: 0.2em 1.7em;
+      margin-bottom: 15px;
     }
   }
 }
