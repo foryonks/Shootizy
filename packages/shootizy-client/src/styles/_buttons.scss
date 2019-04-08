@@ -69,3 +69,8 @@
   display: block;
   width: 100%;
 }
+
+//TO-DO
+button[disabled] {
+  opacity: 0.3;
+}

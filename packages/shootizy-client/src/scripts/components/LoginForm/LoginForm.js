@@ -1,63 +1,39 @@
-import React, { useState, useContext, useCallback } from "react";
+import React, { useContext, useCallback } from "react";
 
 import { ACTIONS, CredentialsContext } from "scripts/contexts/Credentials";
-import { fetchJson, setAppToken } from "scripts/utils/api";
+import { setAppToken } from "scripts/utils/api";
+
+import Form from "scripts/components/Form";
+
+const FORM_FIELDS = [
+  { type: "text", name: "username", label: "Identifiant :", isRequired: true },
+  { type: "password", name: "password", label: "Mot de passe :", isRequired: true },
+];
+const FORM_SUBMIT_BTN = { label: "Valider", className: "btn-green" };
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const { dispatch } = useContext(CredentialsContext);
 
-  const handleSubmit = useCallback(
-    async event => {
-      event.preventDefault();
+  const handleSubmitSuccess = useCallback(response => {
+    const { token, user } = response;
 
-      try {
-        const { token, user } = await fetchJson("/api/user/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, password }),
-        });
-
-        //Save credentials
-        setAppToken(token);
-        dispatch({
-          type: ACTIONS.USER_LOGGED_IN,
-          token,
-          user,
-        });
-      } catch (e) {
-        setError("Login failed");
-      }
-    },
-    [username, password]
-  );
+    //Save credentials
+    setAppToken(token);
+    dispatch({
+      type: ACTIONS.USER_LOGGED_IN,
+      token,
+      user,
+    });
+  }, []);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        placeholder="username"
-        value={username}
-        onChange={ev => setUsername(ev.target.value)}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="password"
-        autoComplete="password"
-        value={password}
-        onChange={ev => setPassword(ev.target.value)}
-      />
-      <button type="submit" disabled={!username || !password}>
-        Login
-      </button>
-      <div>{error}</div>
-    </form>
+    <Form
+      fields={FORM_FIELDS}
+      submitBtn={FORM_SUBMIT_BTN}
+      action="/api/user/login"
+      onSuccess={handleSubmitSuccess}
+      errorMessage="Connexion échouée, veuillez réessayer !"
+    />
   );
 };
 

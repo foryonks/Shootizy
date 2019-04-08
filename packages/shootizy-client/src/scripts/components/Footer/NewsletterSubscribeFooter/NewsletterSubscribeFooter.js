@@ -3,6 +3,23 @@ import React from "react";
 import Icon from "../../Icon";
 import "./NewsletterSubscribeFooter.scss";
 
+import Form from "scripts/components/Form";
+
+const FORM_FIELDS = [
+  {
+    type: "email",
+    name: "email",
+    placeholder: "ex : julien@yahoo.fr",
+    isRequired: true,
+    hideFeedback: true,
+  },
+];
+const FORM_SUBMIT_BTN = {
+  className: "arrow-button",
+  label: <Icon name="arrow-right" />,
+  wrapper: null,
+};
+
 const NewsletterSubscribeFooter = props => (
   <div className="NewsletterSubscribeFooter ">
     <div className="row container-2">
@@ -11,12 +28,13 @@ const NewsletterSubscribeFooter = props => (
         <p>Profitez de nos bons plans réguliers, offres spéciales et partenariats avantageux… </p>
       </div>
       <div className="col">
-        <form action="/newsletter">
-          <input type="email" placeholder="ex : julien@yahoo.fr" />
-          <button type="submit" className="arrow-button">
-            <Icon name="arrow-right" />
-          </button>
-        </form>
+        <Form
+          id="form-newsletter"
+          fields={FORM_FIELDS}
+          submitBtn={FORM_SUBMIT_BTN}
+          action="/api/newsletter"
+          successMessage="Merci pour votre souscription !"
+        />
       </div>
     </div>
   </div>

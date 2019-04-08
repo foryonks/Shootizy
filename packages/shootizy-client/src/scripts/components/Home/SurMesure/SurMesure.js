@@ -1,6 +1,26 @@
 import React from "react";
 //import PropTypes from "prop-types";
+
+import Form from "scripts/components/Form";
+
 import "./SurMesure.scss";
+
+const FORM_FIELDS = [
+  {
+    type: "email",
+    name: "email",
+    label: "Votre mail afin qu’on puisse vous répondre",
+    isRequired: true,
+  },
+  {
+    type: "textarea",
+    name: "message",
+    label: "Expliquez-nous",
+    isRequired: true,
+    props: { rows: "3" },
+  },
+];
+const FORM_SUBMIT_BTN = { label: "Je propose mon thème à Shootizy", className: "btn-green" };
 
 const SurMesure = props => (
   <div className="SurMesure card-simple container-2">
@@ -10,21 +30,13 @@ const SurMesure = props => (
         Un besoin (très) particulier ? Avec ou sans vidéo ? Une solution que vous ne trouvez pas
         encore ? <strong>Dites-nous tout, on s’occupe de vous !</strong>
       </div>
-      <form action="">
-        <div className="form-line label-top">
-          <label htmlFor="surmesureemail">Votre mail afin qu’on puisse vous répondre</label>
-          <input type="text" id="surmesureemail" />
-        </div>
-        <div className="form-line label-top">
-          <label htmlFor="surmesureexplain">Expliquez-nous</label>
-          <textarea id="surmesureexplain" rows="3" />
-        </div>
-        <div className="button-container-centered">
-          <button className="btn-green" type="submit">
-            Je propose mon thème à Shootizy
-          </button>
-        </div>
-      </form>
+      <Form
+        id="form-sur-mesure"
+        fields={FORM_FIELDS}
+        submitBtn={FORM_SUBMIT_BTN}
+        action="/api/sur-mesure"
+        successMessage="Merci pour votre proposition !"
+      />
     </div>
   </div>
 );

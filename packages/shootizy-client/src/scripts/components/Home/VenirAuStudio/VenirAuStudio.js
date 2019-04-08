@@ -3,6 +3,20 @@ import React from "react";
 import "./VenirAuStudio.scss";
 import metroImg from "../../../../assets/misc/metros.png";
 import Icon from "../../Icon";
+import Form from "scripts/components/Form";
+
+const FORM_FIELDS = [
+  { type: "text", name: "name", label: "Nom :", isRequired: true },
+  { type: "email", name: "email", label: "Email :", isRequired: true },
+  {
+    type: "textarea",
+    name: "message",
+    label: "Message (ou numéro de téléphone pour être rappelé)",
+    isRequired: true,
+    props: { rows: "4" },
+  },
+];
+const FORM_SUBMIT_BTN = { label: "Envoyer", className: "btn-green btn-fullwitdh" };
 
 const VenirAuStudio = props => (
   <section className="VenirAuStudio page-section">
@@ -15,28 +29,13 @@ const VenirAuStudio = props => (
       </div>
       <div className="row row-2 row-strech">
         <div className="col">
-          <form action="">
-            <div className="form-line label-top">
-              <label htmlFor="venirstudionom">Nom :</label>
-              <input type="text" id="venirstudionom" />
-            </div>
-            <div className="form-line label-top">
-              <label htmlFor="venirstudioemail">Email :</label>
-              <input type="text" id="venirstudioemail" />
-            </div>
-            <div className="form-line label-top">
-              <label htmlFor="venirstudiomessage">
-                Message (ou numéro de téléphone pour être rappelé)
-              </label>
-              <textarea id="venirstudiomessage" rows="4" />
-            </div>
-            <div className="button-container-centered">
-              <button className="btn-green btn-fullwitdh" type="submit">
-                <Icon name="letter" />
-                Envoyer
-              </button>
-            </div>
-          </form>
+          <Form
+            id="form-venir-au-studio"
+            fields={FORM_FIELDS}
+            submitBtn={FORM_SUBMIT_BTN}
+            action="/api/venir-au-studio"
+            errorMessage="Envoi échoué, veuillez réessayer !"
+          />
         </div>
         <div className="col googlemaps">
           <iframe
