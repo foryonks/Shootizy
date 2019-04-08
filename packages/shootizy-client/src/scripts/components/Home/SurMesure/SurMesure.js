@@ -25,7 +25,9 @@ const FORM_SUBMIT_BTN = { label: "Je propose mon thème à Shootizy", className:
 const SurMesure = props => (
   <div className="SurMesure card-simple container-2">
     <div className="container-inside">
-      <h3 className="SurMesure-title">Sur mesure !</h3>
+      <h2 className="title">
+        <strong>Sur mesure !</strong>
+      </h2>
       <div className="SurMesure-description">
         Un besoin (très) particulier ? Avec ou sans vidéo ? Une solution que vous ne trouvez pas
         encore ? <strong>Dites-nous tout, on s’occupe de vous !</strong>

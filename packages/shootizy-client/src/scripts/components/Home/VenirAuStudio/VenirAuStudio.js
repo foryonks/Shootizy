@@ -1,13 +1,17 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import "./VenirAuStudio.scss";
-import metroImg from "../../../../assets/misc/metros.png";
 import Icon from "../../Icon";
 import Form from "scripts/components/Form";
+import metro3 from "../../../../assets/icons-metro/metro-3.svg";
+import metro12 from "../../../../assets/icons-metro/metro-12.svg";
+import metro13 from "../../../../assets/icons-metro/metro-13.svg";
+import metro14 from "../../../../assets/icons-metro/metro-14.svg";
+import metrom from "../../../../assets/icons-metro/metro-m.svg";
 
 const FORM_FIELDS = [
-  { type: "text", name: "name", label: "Nom :", isRequired: true },
-  { type: "email", name: "email", label: "Email :", isRequired: true },
+  { type: "text", name: "name", label: "Nom*", isRequired: true },
+  { type: "email", name: "email", label: "Email*", isRequired: true },
   {
     type: "textarea",
     name: "message",
@@ -21,7 +25,9 @@ const FORM_SUBMIT_BTN = { label: "Envoyer", className: "btn-green btn-fullwitdh"
 const VenirAuStudio = props => (
   <section className="VenirAuStudio page-section">
     <div className="container-2">
-      <h2 className="title">Venir au Studio !</h2>
+      <h2 className="title">
+        <strong>Venir au Studio !</strong>
+      </h2>
       <div className="description">
         Pour nous trouver, <strong>c’est so easy dans Paris !</strong> En plein cœur du 9ème
         arrondissement de Paris, venez vivre l’expérience Shootizy,{" "}
@@ -38,11 +44,13 @@ const VenirAuStudio = props => (
           />
         </div>
         <div className="col googlemaps">
-          <iframe
-            title="Googlemaps : 100 rue d'Amsterdam 75009 Paris"
-            src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=fr&amp;q=100%20rue%20d'Amsterdam%2075009%20Paris+(Shootizy)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed"
-            scrolling="no"
-          />
+          <div className="googlemaps-content">
+            <iframe
+              title="Googlemaps : 100 rue d'Amsterdam 75009 Paris"
+              src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=fr&amp;q=100%20rue%20d'Amsterdam%2075009%20Paris+(Shootizy)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed"
+              scrolling="no"
+            />
+          </div>
         </div>
       </div>
       <div className="row row-3 moreInfos">
@@ -64,13 +72,25 @@ const VenirAuStudio = props => (
             <Icon name="arrow-right" className="arrow-green" />
             Venir en transport
           </h3>
-          <p className="metros">
-            <span>
-              Place de clichy <br />
-              <span className="nowrap">St-Lazare</span>
-            </span>
-            <img src={metroImg} alt="metros" />
-          </p>
+          <ul className="metros">
+            <li>
+              <span>Place de clichy</span>
+              <span>
+                <img src={metrom} alt="Metro" />
+                <img src={metro13} alt="Metro Ligne 13" />
+              </span>
+            </li>
+            <li>
+              <span>St-Lazare</span>
+              <span>
+                <img src={metrom} alt="Metro" />
+                <img src={metro3} alt="Metro Ligne 3" />
+                <img src={metro12} alt="Metro Ligne 12" />
+                <img src={metro13} alt="Metro Ligne 13" />
+                <img src={metro14} alt="Metro Ligne 14" />
+              </span>
+            </li>
+          </ul>
         </div>
         <div className="col">
           <h3 className="title">

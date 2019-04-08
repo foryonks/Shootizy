@@ -9,3 +9,13 @@
   width: 3em;
   font-weight: bold;
 }
+
+.generic-description {
+  color: #6a6a6a;
+  font-size: font-size(27);
+  line-height: 1.2;
+  text-align: center;
+  strong {
+    color: #000;
+  }
+}
