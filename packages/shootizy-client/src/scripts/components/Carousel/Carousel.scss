@@ -4,6 +4,8 @@
 .Carousel {
   position: relative;
   z-index: 1;
+  overflow: hidden;
+
   .carousel-content {
     position: relative;
     overflow: hidden;
@@ -73,7 +75,7 @@
   }
 
   .carousel-item-content {
-    z-index: 3;
+    z-index: 4;
     position: absolute;
     color: #fff;
     top: 177px;
@@ -113,8 +115,9 @@
     opacity: 0.6;
     position: absolute;
     z-index: 1;
-    top: -7%;
+    //top: -7%;
     left: -0.5%;
+    bottom: 0;
     width: 56%;
   }
 }
