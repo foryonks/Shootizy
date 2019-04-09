@@ -23,7 +23,7 @@ routes.get(
 );
 
 /**
- * For wepapp to retrive content
+ * For wepapp to retrieve content
  */
 routes.get(
   "/:contentId",
