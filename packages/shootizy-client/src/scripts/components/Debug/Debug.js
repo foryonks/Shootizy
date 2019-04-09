@@ -12,8 +12,8 @@ if (reactDebug) {
   // so don't know why
   const style = document.createElement("style");
   style.innerHTML = `
-  body {
-    width: 1920px;
+  html {
+    /*width: 1920px;*/
     margin-left:auto;
     margin-right:auto;
   }
