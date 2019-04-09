@@ -4,8 +4,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: auto;
+  font-size: 1em;
+
   svg {
+    width: 10em;
     fill: currentColor;
     vertical-align: middle;
   }
@@ -13,8 +15,8 @@
 .logo-text {
   vertical-align: middle;
   display: inline-block;
-  width: 120px;
-  font-size: 0.72222rem;
+  width: 10em;
+  font-size: 0.8783783784em;
   margin-left: 1em;
   font-weight: 300;
   line-height: 1.34;

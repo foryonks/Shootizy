@@ -16,6 +16,7 @@ if (reactDebug) {
     width: 1920px;
     margin-left:auto;
     margin-right:auto;
+    padding-bottom:300px;
   }
   `;
   document.body.appendChild(style);

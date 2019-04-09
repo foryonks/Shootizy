@@ -1,24 +1,40 @@
-/* your css code */
+@import "../../../../styles/functions";
+
 .FooterBottom {
   background: #000;
   color: #fff;
   padding-bottom: 150px;
 }
 .footer-bottom-1 {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 70px;
+  padding-bottom: 70px;
   border-bottom: 1px solid #2f2e2e;
+  align-items: center;
+
+  .description {
+    font-size: font-size(17px);
+    width: 42.73%;
+  }
+}
+
+.footer-logo {
+  font-size: font-size(20px);
 }
 
 .footer-bottom-2 {
-  margin-top: 40px;
+  margin-top: 60px;
   .title {
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   .allLinks {
     flex-grow: 4;
     margin-right: 100px;
+
+    li {
+      margin-bottom: 9px;
+      line-height: 1;
+    }
 
     a {
       color: #979797;
@@ -27,7 +43,7 @@
   }
 
   .social-buttons {
-    font-size: 20px;
+    font-size: font-size(25px);
     margin-bottom: 30px;
   }
 
