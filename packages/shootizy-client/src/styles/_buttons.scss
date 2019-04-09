@@ -92,7 +92,13 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 }
 
 .btn-small {
-  font-size: 16px;
+  font-size: font-size(16px);
+  padding: 0.3em 2em;
+
+  .icon-svg {
+    font-size: 0.7em;
+    vertical-align: baseline;
+  }
 }
 
 .btn-fullwitdh {

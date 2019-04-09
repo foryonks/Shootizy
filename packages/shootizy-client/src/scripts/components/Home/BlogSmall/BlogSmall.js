@@ -11,7 +11,8 @@ const data = [
     id: 1,
     image: "/assets/photos/blog1.jpg",
     title: "La photo argentique fait son retour",
-    description: "lorem ipsum doolors pouet amet lol",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam mollis volutpat.",
     link: "/blog/article/1",
   },
   {
@@ -30,6 +31,20 @@ const data = [
   },
   {
     id: 4,
+    image: "/assets/photos/blog2.jpg",
+    title: "L'éclairage la base de la photographie",
+    description: "lorem ipsum doolors pouet amet lol",
+    link: "/blog/article/2",
+  },
+  {
+    id: 5,
+    image: "/assets/photos/blog1.jpg",
+    title: "La photo argentique fait son retour",
+    description: "lorem ipsum doolors pouet amet lol",
+    link: "/blog/article/1",
+  },
+  {
+    id: 6,
     image: "/assets/photos/blog2.jpg",
     title: "L'éclairage la base de la photographie",
     description: "lorem ipsum doolors pouet amet lol",
@@ -63,8 +78,8 @@ const BlogSmall = props => {
                     <div className="mea-desc">
                       <h4>{title}</h4>
                       <p>{description}</p>
-                      <a href={link}>
-                        <Icon name="arrow-right" /> Lire l'article
+                      <a href={link} className="link">
+                        <Icon name="arrow-right" className="circle-icon" /> Lire l'article
                       </a>
                     </div>
                   </div>
@@ -74,7 +89,7 @@ const BlogSmall = props => {
           </CarouselResponsive>
         </div>
         <p className="button-container-centered">
-          <button className="btn-green">
+          <button className="btn-green btn-small">
             <Icon name="triangle-right" />
             &nbsp;Découvrir le blog
           </button>

@@ -1,5 +1,6 @@
 @import "../../../../styles/functions";
 @import "../../../../styles/misc";
+
 .VenirAuStudio {
   background: #fff;
 
@@ -46,15 +47,11 @@
         white-space: nowrap;
         font-weight: 500;
 
-        .icon-svg {
-          background: #2ef7cc;
-          border-radius: 20px;
-          font-size: 11px;
-          padding: 0.3em;
+        .circle-icon {
           position: absolute;
           left: -30px;
-          vertical-align: middle;
-          top: 0.4em;
+          top: 50%;
+          transform: translateY(-50%);
         }
       }
 

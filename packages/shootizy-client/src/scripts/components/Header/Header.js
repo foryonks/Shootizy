@@ -22,7 +22,6 @@ const Header = (props, ref) => {
     const header = headerRef.current;
     if (!gap) {
       const content = window.getComputedStyle(header, ":before");
-      let value = content.getPropertyValue("content");
       gap = parseInt(content.getPropertyValue("content").replace(/"/g, ""), 10);
     }
     sticky = sticky > 0 ? sticky : header.offsetTop - gap;
