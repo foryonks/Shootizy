@@ -1,5 +1,6 @@
 @import "../../../../styles/functions";
 @import "../../../../styles/misc";
+
 .VenirAuStudio {
   background: #fff;
 
@@ -27,25 +28,30 @@
   }
   .moreInfos {
     margin-top: 64px;
-    justify-content: space-around;
 
     .col {
       font-size: 18px;
+      width: 33.33%;
+
+      .col-content {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 40px;
+      }
 
       h3.title {
         position: relative;
         line-height: 1;
         margin-bottom: 18px;
+        white-space: nowrap;
+        font-weight: 500;
 
-        .icon-svg {
-          background: #2ef7cc;
-          border-radius: 20px;
-          font-size: 11px;
-          padding: 0.3em;
+        .circle-icon {
           position: absolute;
           left: -30px;
-          vertical-align: middle;
-          top: 0.4em;
+          top: 50%;
+          transform: translateY(-50%);
         }
       }
 
@@ -64,8 +70,9 @@
     span {
       display: table-cell;
       padding-right: 1em;
+      white-space: nowrap;
       img {
-        width: 1em;
+        width: 1.2em;
         margin-left: 0.1em;
       }
     }

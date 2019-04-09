@@ -55,56 +55,62 @@ const VenirAuStudio = props => (
       </div>
       <div className="row row-3 moreInfos">
         <div className="col">
-          <h3 className="title">
-            <Icon name="arrow-right" />
-            Nous localiser
-          </h3>
-          <p>
-            <a href="/maps">
-              100 rue d'Amsterdam
-              <br />
-              75009 Paris
-            </a>
-          </p>
+          <div className="col-content">
+            <h3 className="title">
+              <Icon name="arrow-right" className="circle-icon" />
+              Nous localiser
+            </h3>
+            <p>
+              <a href="/maps">
+                100 rue d'Amsterdam
+                <br />
+                75009 Paris
+              </a>
+            </p>
+          </div>
         </div>
         <div className="col">
-          <h3 className="title">
-            <Icon name="arrow-right" className="arrow-green" />
-            Venir en transport
-          </h3>
-          <ul className="metros">
-            <li>
-              <span>Place de clichy</span>
-              <span>
-                <img src={metrom} alt="Metro" />
-                <img src={metro13} alt="Metro Ligne 13" />
-              </span>
-            </li>
-            <li>
-              <span>St-Lazare</span>
-              <span>
-                <img src={metrom} alt="Metro" />
-                <img src={metro3} alt="Metro Ligne 3" />
-                <img src={metro12} alt="Metro Ligne 12" />
-                <img src={metro13} alt="Metro Ligne 13" />
-                <img src={metro14} alt="Metro Ligne 14" />
-              </span>
-            </li>
-          </ul>
+          <div className="col-content">
+            <h3 className="title">
+              <Icon name="arrow-right" className="circle-icon" />
+              Venir en transport
+            </h3>
+            <ul className="metros">
+              <li>
+                <span>Place de clichy</span>
+                <span>
+                  <img src={metrom} alt="Metro" />
+                  <img src={metro13} alt="Metro Ligne 13" />
+                </span>
+              </li>
+              <li>
+                <span>St-Lazare</span>
+                <span>
+                  <img src={metrom} alt="Metro" />
+                  <img src={metro3} alt="Metro Ligne 3" />
+                  <img src={metro12} alt="Metro Ligne 12" />
+                  <img src={metro13} alt="Metro Ligne 13" />
+                  <img src={metro14} alt="Metro Ligne 14" />
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="col">
-          <h3 className="title">
-            <Icon name="arrow-right" />
-            Nous contacter
-          </h3>
-          <ul className="list-table">
-            <li>
-              <span>Tél. :</span> <a href="tel:+33984292171">+33 9 84 29 21 71</a>
-            </li>
-            <li>
-              <span>Email :</span> <a href="mailto:contact@shootizy.com">contact@shootizy.com</a>
-            </li>
-          </ul>
+          <div className="col-content">
+            <h3 className="title">
+              <Icon name="arrow-right" className="circle-icon" />
+              Nous contacter
+            </h3>
+            <ul className="list-table">
+              <li>
+                <span>Tél. :</span> <a href="tel:+33984292171">+33 9 84 29 21 71</a>
+              </li>
+              <li>
+                <span>Email :</span> <a href="mailto:contact@shootizy.com">contact@shootizy.com</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

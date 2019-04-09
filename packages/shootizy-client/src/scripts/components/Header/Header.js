@@ -9,19 +9,21 @@ import useWindowScrollPosition from "scripts/hooks/useWindowScrollPosition";
 // import logo from "@axa/web-toolkit/images/axa.svg";
 let sticky = 0;
 let gap = 0;
+
 const Header = (props, ref) => {
   const headerRef = useRef();
   const [className, setClassName] = useState();
   let options = {
-    throttle: 40,
+    throttle: 25,
   };
   let { y } = useWindowScrollPosition(options);
 
   useEffect(() => {
     const header = headerRef.current;
-    const content = window.getComputedStyle(header, ":before");
-    let value = content.getPropertyValue("content");
-    gap = gap === 0 ? parseInt(content.getPropertyValue("content").replace(/"/g, ""), 10) : gap;
+    if (!gap) {
+      const content = window.getComputedStyle(header, ":before");
+      gap = parseInt(content.getPropertyValue("content").replace(/"/g, ""), 10);
+    }
     sticky = sticky > 0 ? sticky : header.offsetTop - gap;
     y > sticky ? setClassName("sticky") : setClassName("");
     return () => {};

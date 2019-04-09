@@ -13,9 +13,10 @@ if (reactDebug) {
   const style = document.createElement("style");
   style.innerHTML = `
   html {
-    /*width: 1920px;*/
+    width: 1920px;
     margin-left:auto;
     margin-right:auto;
+    padding-bottom:300px;
   }
   `;
   document.body.appendChild(style);

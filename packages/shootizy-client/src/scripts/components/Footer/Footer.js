@@ -10,9 +10,13 @@ const Footer = props => (
       <div className="footer-social-section-content">
         <h2 className="title">#Shootizy</h2>
         <div className="description">
-          Rejoignez la communauté Shootizy sur tous <br /> vos réseaux sociaux préférés !
+          Rejoignez la communauté Shootizy sur tous vos réseaux sociaux préférés !
         </div>
         <SocialButtons />
+
+        <a href="/" className="snapcode">
+          <img src="/assets/demo/snapcode.png" alt="" />
+        </a>
       </div>
     </div>
     <NewsletterSubscribeFooter />

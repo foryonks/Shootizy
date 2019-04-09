@@ -1,4 +1,6 @@
-@import "../../../../styles/variables";
+@import "../../../../styles/functions";
+
+$buttons-right-margin: 74px;
 
 .BlogSmall {
   background: url("/assets/design/fond-le-blog.jpg") center center;
@@ -7,9 +9,11 @@
 
   .description {
     text-align: center;
+    margin-top: 12px;
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
+    font-size: font-size(27);
   }
 
   .blog-carousel {
@@ -22,7 +26,7 @@
   }
 
   .slider-wrapper {
-    padding-top: 40px;
+    padding-top: 55px;
     padding-bottom: 60px;
   }
 
@@ -35,11 +39,12 @@
       border-radius: 200px;
       display: block;
       height: 33px;
-      left: 50%;
-      margin-left: $container-2-width/2 - 33px;
+      margin-left: auto;
+      margin-right: -$container-2-width/2 + $buttons-right-margin;
       opacity: 1;
       padding: 0;
-      right: auto;
+      left: auto;
+      right: 50%;
       top: 0;
       width: 33px;
       text-align: center;
@@ -75,19 +80,39 @@
       justify-content: space-between;
 
       .carousel-item {
-        width: 48%;
+        width: 48.6%;
       }
     }
   }
 
   .carousel-item {
     background: #fff;
+    text-align: left;
     img {
       width: auto;
+      max-width: 252px;
     }
+
+    .mea-desc {
+      padding: 42px 36px 20px;
+    }
+
     h4 {
       color: #000;
       font-size: 25px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    p {
+      line-height: 1.1;
+      color: #979797;
+      min-height: 100px;
+    }
+
+    .link {
+      vertical-align: baseline;
     }
   }
 
@@ -99,6 +124,7 @@
     vertical-align: middle;
     width: 8px;
     height: 8px;
+    margin: 0 4px;
 
     &.selected {
       background: #fff;
@@ -120,6 +146,10 @@
         transform: translate(-50%, -50%);
       }
     }
+  }
+
+  .button-container-centered {
+    margin-top: 40px;
   }
 }
 

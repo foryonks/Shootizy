@@ -118,7 +118,7 @@ const FooterBottom = props => (
   <div className="FooterBottom">
     <div className="container-2 footer-bottom-1 row">
       <div className="col">
-        <Logo className="logo-inverted" />
+        <Logo className="logo-inverted footer-logo" />
       </div>
       <div className="description col">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis enim turpis, eu

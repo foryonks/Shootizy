@@ -26,13 +26,12 @@ $stickyGap: 10px;
   top: 0;
   margin-left: auto;
   margin-right: auto;
-  left: 50%;
-  transition: min-height 0.2s ease-in;
 }
 
 .header.sticky {
   .header-main {
     position: fixed;
+    left: 50%;
     top: 10px;
     transform: translateX(-50%);
   }
@@ -58,6 +57,10 @@ $stickyGap: 10px;
   .nav-bar {
     display: inline-block;
     vertical-align: middle;
+  }
+
+  .logo {
+    font-size: font-size(14.8px);
   }
 
   .menu {
