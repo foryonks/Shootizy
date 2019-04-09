@@ -1,14 +1,13 @@
 import React from "react";
-import { keyfix, toMatrix } from "../../../utils/utils";
-import "./Themes.scss";
+import { toMatrix } from "../../../utils/utils";
 import ThemeCard from "../ThemeCard";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 
+import "./Themes.scss";
+
 const Themes = props => {
-  const { contents } = useRemoteContents("/api/contents/themes");
-  const dataGrid = keyfix(
-    toMatrix((contents || {}).items || [], 3, { transform: keyfix, fill: true })
-  );
+  const { contents } = useRemoteContents("/api/produits?tags=theme");
+  const dataGrid = contents && toMatrix(contents, 3, { fill: true });
 
   return (
     <div className="Themes container-2 grid">
@@ -17,17 +16,18 @@ const Themes = props => {
         <strong>selon votre besoin !</strong>
       </h2>
 
-      {dataGrid.map((row, indexRow) => (
-        <div className="row row-3" key={indexRow}>
-          {row.map((theme, indexTheme) =>
-            theme === "" ? (
-              <div className="dummyCard" key={indexTheme} />
-            ) : (
-              <ThemeCard {...theme} key={indexTheme} />
-            )
-          )}
-        </div>
-      ))}
+      {dataGrid &&
+        dataGrid.map((row, indexRow) => (
+          <div className="row row-3" key={indexRow}>
+            {row.map((theme, index) =>
+              theme ? (
+                <ThemeCard {...theme} key={theme.productId} />
+              ) : (
+                <div className="dummyCard" key={index} />
+              )
+            )}
+          </div>
+        ))}
     </div>
   );
 };

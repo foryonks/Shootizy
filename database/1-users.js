@@ -1,5 +1,4 @@
-const conn = new Mongo();
-const db = conn.getDB("shootizy");
+db = db.getSiblingDB("shootizy");
 
 db.users.insert([
   {

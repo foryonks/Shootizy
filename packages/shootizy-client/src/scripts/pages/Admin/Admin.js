@@ -1,6 +1,6 @@
 import React, { useContext, lazy } from "react";
 import { Helmet } from "react-helmet";
-import { Switch, Route, Redirect, NavLink } from "react-router-dom";
+import { Switch, Route, Redirect, Link } from "react-router-dom";
 
 import { CredentialsContext } from "scripts/contexts/Credentials";
 import LazyRoute from "scripts/components/LazyRoute";
@@ -16,7 +16,7 @@ const Admin = () => {
       <Helmet>
         <title>Admin</title>
       </Helmet>
-      <NavLink to="/">Back to Shootizy</NavLink>
+      <Link to="/">Back to Shootizy</Link>
       <br />
       <br />
       <br />

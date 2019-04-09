@@ -1,6 +1,11 @@
-# Init Database
-mongo database/0-init.js
+MONGO_CONN=$1
+
+# Init Database (only in local)
+if [ -z "$MONGO_CONN" ]
+then
+  mongo database/0-init.js
+  MONGO_CONN="mongodb://localhost:27017"
+fi
 
 # Init Data
-mongo database/1-users.js
-mongo database/2-contents.js
+mongo $MONGO_CONN database/data-entrypoint.js

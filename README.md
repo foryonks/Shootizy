@@ -43,6 +43,12 @@ Once Mongo is correctly installed, execute this command to (re)initialize db / u
 npm run init-db
 ```
 
+In order to reinit remote db, pass the connection string in npm -- arg
+
+```
+npm run init-db -- [CONNECTIONSTRING]
+```
+
 ## Bypass login in dev mode
 
 Add these configs to .env files of each packages

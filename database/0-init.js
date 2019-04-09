@@ -1,11 +1,9 @@
-const conn = new Mongo();
-const db = conn.getDB("shootizy");
+db = db.getSiblingDB("shootizy");
 
-// Delete old data
+// Delete old credential
 db.dropAllUsers();
-db.dropDatabase();
 
-// Create app user
+// Create app credential
 db.createUser({
   user: "shootizywebapp",
   pwd: "yourStrong(!)Password",
