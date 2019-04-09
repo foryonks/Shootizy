@@ -1,12 +1,46 @@
 @import "../../../styles/functions";
 
+@mixin btn-big-hover {
+  background-color: #2ef7cc;
+  border-color: transparent;
+  box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
+}
+$stickyGap: 10px;
 .header {
   position: relative;
   z-index: 2;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1408px;
   margin-bottom: -36px;
+  min-height: 107px;
+}
+
+.header-main {
+  &:before {
+    content: $stickyGap + "";
+    font-size: 0;
+    position: absolute;
+  }
+  width: 100%;
+  max-width: 1408px;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 50%;
+  transition: min-height 0.2s ease-in;
+}
+
+.header.sticky {
+  .header-main {
+    position: fixed;
+    top: 10px;
+    transform: translateX(-50%);
+  }
+
+  .btn-big {
+    //font-size: font-size(16px);
+    @include btn-big-hover;
+  }
 }
 
 .header-main {
@@ -49,20 +83,19 @@
   .btn-big {
     border: 1px solid #000;
     border-radius: 200px;
-    min-height: 45px;
+    min-height: 1.8em;
     font-size: font-size(25px);
-    line-height: font-size(41);
+    line-height: 1em;
     vertical-align: middle;
     font-weight: 500;
     padding: 0 23px;
     font-family: $font-family;
     text-align: center;
-    //transition: all 0.5s linear;
+    transition: 0.2s linear;
+    transition-property: height, width, font-size;
 
     &:hover {
-      background-color: #2ef7cc;
-      border-color: transparent;
-      box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
+      @include btn-big-hover;
     }
   }
 }
