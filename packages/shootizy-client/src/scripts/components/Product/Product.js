@@ -5,7 +5,7 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import FacebookShareButton from "scripts/components/_common/FacebookShareButton";
 
 const Product = ({ match }) => {
-  const { contents: product } = useRemoteContents(`/api/produits/${match.params.productId}`);
+  const { contents: product } = useRemoteContents(`/api/products/${match.params.productId}`);
 
   if (!product) {
     return null;
