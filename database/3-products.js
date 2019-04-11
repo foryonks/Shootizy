@@ -17,7 +17,7 @@ db.products.insert([
     productId: "produit-theme-social",
     tags: ["theme", "social"],
     image: "/assets/photos/themes/social-rencontres/thumb.jpg",
-    imageLarge: "/assets/photos/themes/social-rencontres/thumb.jpg",
+    imageLarge: "/assets/photos/themes/social-rencontres/large.jpg",
     title: "Réseaux sociaux / Rencontres",
     descTitle: "Un cliché de haut niveau vous fait vraiment sortir du lot !",
     description: `Comparez la qualité d’un selfie et celle d’un portrait de qualité pro. Il n’y a pas photo. Pourtant, sur le web social, sur les sites de rencontres et même sur des plateformes de type LinkedIn, l’amateurisme reste majoritaire. Dans cette multitude, <strong>un cliché de haut niveau vous fait vraiment sortir du lot.</strong><br><br>
