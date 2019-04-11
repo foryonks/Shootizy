@@ -15,9 +15,7 @@ const useRemoteContents = (apiPath, autoLoad = true) => {
       setLoading(false);
     }
   }, [apiPath]);
-  console.log("apiPath", apiPath);
   useEffect(() => {
-    console.log("useEffect load, autoload");
     if (autoLoad) {
       load();
     }
