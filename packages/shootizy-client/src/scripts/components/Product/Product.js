@@ -5,17 +5,19 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import FacebookShareButton from "scripts/components/_common/FacebookShareButton";
 
 const Product = ({ match }) => {
+  console.log(match.params.productId);
   const { contents: product } = useRemoteContents(`/api/produits/${match.params.productId}`);
-
+  console.log("product", product);
   if (!product) {
     return null;
   }
   const { productId, image, title, sharelink, price, description } = product;
   const bookingLink = `/booking/${productId}`;
 
-  //TO-DO Your page Arnaud
   return (
-    <div className="ThemeCard card card-simple">
+    <div className="ThemePage">
+      <div className="header-image" />
+
       <div className="ThemeCard-image">
         <img src={image} alt="" />
       </div>

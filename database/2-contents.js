@@ -48,6 +48,24 @@ db.contents.insert([
       },
     ],
   },
+  {
+    contentId: "home-carousel",
+    tags: ["carousel", "home"],
+    items: [
+      {
+        title: "Léa est venue chez nous<br><strong>pour ses 24 Printemps !</strong>",
+        buttonText: "Je réserve mon Shooting",
+        text: "Avec Shootizy payez seulement les photos que vous aimez !",
+        img: "/assets/photos/visuel1.jpg",
+      },
+      {
+        title: "Relancer sa carrière avec<br><strong>Shootizy, c'est so Easy !</strong>",
+        buttonText: "Je réserve mon Shooting",
+        text: "Avec Shootizy payez seulement les photos que vous aimez !",
+        img: "/assets/photos/visuel2.jpg",
+      },
+    ],
+  },
 ]);
 
 // Create index for fast search

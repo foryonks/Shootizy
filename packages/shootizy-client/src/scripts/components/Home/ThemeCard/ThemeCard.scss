@@ -1,7 +1,7 @@
 @import "../../../../styles/functions";
 
 .ThemeCard {
-  padding: 0 0 24px;
+  padding: 0 0 24px !important;
   cursor: pointer;
 
   .ThemeCard-image {
@@ -48,6 +48,10 @@
   .ThemeCard-description {
     margin-bottom: 15px;
     line-height: 1;
+
+    a:hover {
+      text-decoration: underline;
+    }
   }
 
   .ThemeCard-title {
