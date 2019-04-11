@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from "react";
 import { fetchJson } from "scripts/utils/api";
 
 const useRemoteContents = (apiPath, autoLoad = true) => {
-  console.log("apiPath", apiPath);
   const [loading, setLoading] = useState(!!autoLoad);
   const [contents, setContents] = useState(() => null);
   const load = useCallback(async () => {
@@ -15,14 +14,14 @@ const useRemoteContents = (apiPath, autoLoad = true) => {
     } finally {
       setLoading(false);
     }
-  }, []);
-
+  }, [apiPath]);
+  console.log("apiPath", apiPath);
   useEffect(() => {
-    console.log("goto load, autoload", autoLoad);
+    console.log("useEffect load, autoload");
     if (autoLoad) {
       load();
     }
-  }, []);
+  }, [apiPath]);
 
   return {
     loading,
