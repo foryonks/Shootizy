@@ -1,0 +1,31 @@
+//TO-DO
+$color-default: lightgray;
+$color-active: black;
+
+.rating-score__item {
+  color: $color-default;
+
+  &--active {
+    color: $color-active;
+  }
+}
+.rating-score {
+  &--editable {
+    cursor: pointer;
+
+    &:hover {
+      .rating-score__item {
+        color: $color-active;
+
+        &:hover {
+          stroke: $color-active;
+
+          ~ .rating-score__item {
+            color: $color-default;
+            stroke: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -15,8 +15,16 @@ const showFieldError = field => field.error && !field.isPristine;
  * Can be input, textarea base on type
  * Field format : { label, name, type, placeholder, value, className, props: object, hideFeedback: false, isRequired: bool, customValidations: [{fn, errorMessage: string}] }
  */
-const Field = ({ id, field, onChange, onBlur }) => {
-  const { label, name, type, placeholder, value, props: extendedProps } = field;
+const Field = ({ id, field, value: currentValue, onChange, onBlur }) => {
+  const {
+    label,
+    name,
+    type,
+    placeholder,
+    value: defaultValue,
+    props: extendedProps,
+    render,
+  } = field;
   const className = field.className || (label ? "form-line label-top" : "");
 
   let getComponent;
@@ -25,6 +33,7 @@ const Field = ({ id, field, onChange, onBlur }) => {
     case "email":
     case "number":
     case "password":
+    case "date":
       getComponent = inputProps => (
         <>
           <input
@@ -54,6 +63,9 @@ const Field = ({ id, field, onChange, onBlur }) => {
         </>
       );
       break;
+    case "custom":
+      getComponent = () => render(currentValue, onChange, showFieldError(field));
+      break;
     default:
       return null;
   }
@@ -62,7 +74,7 @@ const Field = ({ id, field, onChange, onBlur }) => {
     name,
     type,
     placeholder,
-    defaultValue: value,
+    defaultValue,
     onChange: ev => onChange(name, ev.target.value),
     onBlur: () => onBlur(name),
     ...(extendedProps || {}),
@@ -83,6 +95,7 @@ const Field = ({ id, field, onChange, onBlur }) => {
 Field.propTypes = {
   id: PropTypes.string.isRequired,
   field: PropTypes.object.isRequired,
+  value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
 };

@@ -66,7 +66,7 @@ const updateFormField = (formData, fieldName, newValue) => {
 const checkFieldError = field => {
   const { isRequired, customValidations, value } = field;
 
-  if (isRequired && (!value || typeof value === "number")) {
+  if (isRequired && (typeof value === "undefined" || value === null)) {
     return typeof isRequired === "string" ? isRequired : "Veuillez renseigner ce champs";
   }
   if (customValidations) {
@@ -166,10 +166,13 @@ const Form = ({
     setFormData(updatedFormData);
 
     if (isValid) {
-      const postData = Object.keys(updatedFormData).reduce(
-        (acc, name) => ({ ...acc, [name]: updatedFormData[name].value.trim() }),
-        {}
-      );
+      const postData = Object.keys(updatedFormData).reduce((acc, name) => {
+        const value =
+          typeof updatedFormData[name].value === "string"
+            ? updatedFormData[name].value.trim()
+            : updatedFormData[name].value;
+        return { ...acc, [name]: value };
+      }, {});
       try {
         const response = await fetchWithLoader(action, {
           method: "POST",
@@ -196,6 +199,7 @@ const Form = ({
               key={fieldId}
               id={fieldId}
               field={formData[field.name]}
+              value={formData[field.name].value}
               onChange={handleFieldChange}
               onBlur={handleFieldBlur}
             />

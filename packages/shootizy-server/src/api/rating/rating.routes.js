@@ -21,8 +21,8 @@ routes.get(
 routes.post(
   "/",
   asyncRouteWrapper(async (req, res) => {
-    const { name, score, comment } = req.body;
-    const rating = await ratingService.create(name, score, comment);
+    const { name, score, comment, shootingDate } = req.body;
+    const rating = await ratingService.create(name, score, comment, shootingDate);
     res.json(rating);
   })
 );
