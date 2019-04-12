@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-const _throttle = require("lodash.throttle");
+import _throttle from "lodash.throttle";
 
 let supportsPassive = false;
 try {
-  var opts = Object.defineProperty({}, "passive", {
+  let opts = Object.defineProperty({}, "passive", {
     get: function() {
       supportsPassive = true;
       return true;

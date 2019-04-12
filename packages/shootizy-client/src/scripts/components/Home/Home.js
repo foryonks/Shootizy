@@ -2,15 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Carousel from "../Carousel";
-import Prices from "./Prices";
 import CommentCaMarche from "./CommentCaMarche";
-import ShootizyTarifs from "./ShootizyTarifs";
-import Themes from "./Themes/Themes";
-
-import SurMesure from "./SurMesure";
-import VenirAuStudio from "./VenirAuStudio";
-import BlogSmall from "./BlogSmall";
-import Footer from "../Footer";
+import Prices from "../_common/Prices";
 
 const Home = () => {
   return (
@@ -18,17 +11,10 @@ const Home = () => {
       <Helmet>
         <title>Accueil</title>
       </Helmet>
-      <Carousel />
-      <Prices className="Prices-header" />
+      <Carousel>
+        <Prices className="container-2" />
+      </Carousel>
       <CommentCaMarche className="CommentCaMarche-Home" />
-      <ShootizyTarifs />
-      <div className="page-section section-container">
-        <Themes />
-        <SurMesure />
-      </div>
-      <VenirAuStudio />
-      <BlogSmall />
-      <Footer />
     </div>
   );
 };

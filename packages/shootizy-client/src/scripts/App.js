@@ -4,6 +4,12 @@ import { Helmet } from "react-helmet";
 
 import Debug from "./components/Debug";
 import LazyRoute from "./components/LazyRoute";
+import ShootizyTarifs from "./components/Home/ShootizyTarifs";
+import Themes from "./components/Home/Themes/Themes";
+import SurMesure from "./components/Home/SurMesure";
+import VenirAuStudio from "./components/Home/VenirAuStudio";
+import BlogSmall from "./components/Home/BlogSmall";
+import Footer from "./components/Footer";
 
 const DEFAULT_TITLE = "Shootizy";
 
@@ -18,6 +24,14 @@ const App = () => (
       <LazyRoute path="/admin" lazyComponent={AdminPage} />
       <LazyRoute path="/" lazyComponent={PublicPage} />
     </Switch>
+    <ShootizyTarifs />
+    <div className="page-section section-container">
+      <Themes />
+      <SurMesure />
+    </div>
+    <VenirAuStudio />
+    <BlogSmall />
+    <Footer />
   </div>
 );
 
