@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 
 import { fetchJson } from "scripts/utils/api";
 
+const contentsCache = {};
+
 /**
  * Fetch remote contents
  * @param {string} apiPath remote api for fetching
