@@ -1,3 +1,4 @@
+import "core-js/es/array/find";
 import "react-app-polyfill/ie11";
 
 import React from "react";

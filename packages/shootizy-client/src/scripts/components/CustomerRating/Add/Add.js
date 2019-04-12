@@ -6,7 +6,13 @@ import Form from "scripts/components/Form";
 
 const FORM_FIELDS = [
   { type: "text", name: "name", label: "Votre nom et prénom", isRequired: true },
-  { type: "date", name: "shootingDate", label: "Date de votre shooting", isRequired: true },
+  {
+    type: "date",
+    name: "shootingDate",
+    label: "Date de votre shooting",
+    placeholder: "jj/mm/aaaa",
+    isRequired: true,
+  },
   {
     type: "custom",
     name: "score",
