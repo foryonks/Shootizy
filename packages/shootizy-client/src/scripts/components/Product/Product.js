@@ -2,7 +2,6 @@ import React from "react";
 import "./Product.scss";
 import { Link } from "react-router-dom";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import FacebookShareButton from "scripts/components/_common/FacebookShareButton";
 import HeaderImage from "../_common/HeaderImage";
 import ThemesNavigation from "./ThemesNavigation/ThemesNavigation";
 import Prices from "../_common/Prices";
@@ -15,16 +14,7 @@ const Product = ({ match }) => {
     return null;
   }
 
-  const {
-    productId,
-    imageLarge,
-    title,
-    descTitle,
-    sharelink,
-    price,
-    description,
-    gallery,
-  } = product;
+  const { productId, imageLarge, title, descTitle, description, gallery } = product;
   const bookingLink = `/booking/${productId}`;
 
   return (
