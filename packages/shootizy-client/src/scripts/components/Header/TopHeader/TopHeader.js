@@ -1,8 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
 import Icon from "../../Icon";
 
-const TopHeader = ({ showAdmLinks }) => {
+const Links = [
+  { to: "/newsletter", title: "Newsletter", icon: "newsletter" },
+  { to: "/blog", title: "Le Blog", icon: "blog" },
+  { to: "/avis-clients", title: "Avis clients", icon: "star" },
+  { to: "/contacts", title: "Contact", icon: "email" },
+  { to: "/facebook", title: "", icon: "facebook", className: "facebook" },
+  { to: "/instagram", title: "", icon: "instagram", className: "instagram" },
+];
+
+const TopHeader = () => {
   return (
     <div className="header-top">
       <span>
@@ -13,40 +24,14 @@ const TopHeader = ({ showAdmLinks }) => {
         </span>
       </span>
       <ul className="header-links">
-        <li>
-          <a href="/nl">
-            <Icon name="newsletter" />
-            Newsletter
-          </a>
-        </li>
-        <li>
-          <a href="/blog">
-            <Icon name="blog" />
-            Le Blog
-          </a>
-        </li>
-        <li>
-          <a href="/avis-clients">
-            <Icon name="star" />
-            Avis clients
-          </a>
-        </li>
-        <li>
-          <a href="/contacts">
-            <Icon name="email" />
-            Contact
-          </a>
-        </li>
-        <li className="facebook">
-          <a href="/facebook">
-            <Icon name="facebook" />
-          </a>
-        </li>
-        <li className="instagram">
-          <a href="/instagram">
-            <Icon name="instagram" />
-          </a>
-        </li>
+        {Links.map(({ to, title, icon, className }, index) => (
+          <li key={index} className={className}>
+            <Link to={to}>
+              <Icon name={icon} />
+              {title}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

@@ -6,7 +6,7 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./Themes.scss";
 
 const Themes = props => {
-  const { contents } = useRemoteContents("/api/produits?tags=theme");
+  const { contents } = useRemoteContents("/api/products?tags=theme");
   const dataGrid = contents && toMatrix(contents, 3, { fill: true });
 
   return (

@@ -6,3 +6,4 @@ db.dropDatabase();
 load("database/1-users.js");
 load("database/2-contents.js");
 load("database/3-products.js");
+load("database/4-ratings.js");

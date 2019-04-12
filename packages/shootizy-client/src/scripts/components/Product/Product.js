@@ -9,7 +9,8 @@ import Prices from "../_common/Prices";
 import Interweave from "interweave";
 
 const Product = ({ match }) => {
-  const { contents: product } = useRemoteContents(`/api/produits/${match.params.productId}`);
+  const { contents: product } = useRemoteContents(`/api/products/${match.params.productId}`);
+
   if (!product) {
     return null;
   }

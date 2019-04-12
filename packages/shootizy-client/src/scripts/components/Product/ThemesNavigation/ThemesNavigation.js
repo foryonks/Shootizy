@@ -4,7 +4,7 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./ThemesNavigation.scss";
 
 const ThemesNavigation = props => {
-  const { contents } = useRemoteContents("/api/produits?tags=theme");
+  const { contents } = useRemoteContents("/api/products?tags=theme");
   if (!contents) return null;
 
   return (
