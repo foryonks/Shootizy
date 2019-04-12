@@ -32,12 +32,4 @@ const Themes = props => {
   );
 };
 
-Themes.propTypes = {
-  // bla: PropTypes.string,
-};
-
-Themes.defaultProps = {
-  // bla: 'test',
-};
-
 export default Themes;

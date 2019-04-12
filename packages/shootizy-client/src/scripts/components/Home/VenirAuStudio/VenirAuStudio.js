@@ -45,11 +45,11 @@ const VenirAuStudio = props => (
         </div>
         <div className="col googlemaps">
           <div className="googlemaps-content">
-            <iframe
+            {/* <iframe
               title="Googlemaps : 100 rue d'Amsterdam 75009 Paris"
               src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=fr&amp;q=100%20rue%20d'Amsterdam%2075009%20Paris+(Shootizy)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed"
               scrolling="no"
-            />
+            /> */}
           </div>
         </div>
       </div>

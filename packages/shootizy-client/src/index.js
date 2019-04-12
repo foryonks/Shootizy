@@ -11,11 +11,14 @@ import * as serviceWorker from "./serviceWorker";
 
 import "destyle.css";
 import "./styles/index.scss";
+import ScrollToTop from "./scripts/components/_common/ScrollToTop";
 
 ReactDOM.render(
   <BrowserRouter>
     <CredentialsProvider>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </CredentialsProvider>
   </BrowserRouter>,
   document.getElementById("root")
