@@ -3,12 +3,10 @@
 /* your css code */
 .Carousel {
   position: relative;
-  z-index: 1;
-  overflow: hidden;
-
   .carousel-content {
     position: relative;
     overflow: hidden;
+    z-index: 1;
 
     > ul {
       list-style: none;

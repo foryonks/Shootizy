@@ -6,6 +6,7 @@ db.products.insert([
     tags: ["theme", "book-model"],
     image: "/assets/photos/themes/book-artiste/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
     title: "Book modèle / Artistes Comédien",
     descTitle: "Faites de votre book un visa professionnel pour vos succès !",
     description: `Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre carte bancaire pour le créer, l’actualiser ou l’optimiser.<br><br>
@@ -18,6 +19,7 @@ db.products.insert([
     tags: ["theme", "social"],
     image: "/assets/photos/themes/social-rencontres/thumb.jpg",
     imageLarge: "/assets/photos/themes/social-rencontres/large.jpg",
+    gallery: "/assets/photos/themes/social-rencontres/gallery.jpg",
     title: "Réseaux sociaux / Rencontres",
     descTitle: "Un cliché de haut niveau vous fait vraiment sortir du lot !",
     description: `Comparez la qualité d’un selfie et celle d’un portrait de qualité pro. Il n’y a pas photo. Pourtant, sur le web social, sur les sites de rencontres et même sur des plateformes de type LinkedIn, l’amateurisme reste majoritaire. Dans cette multitude, <strong>un cliché de haut niveau vous fait vraiment sortir du lot.</strong><br><br>
@@ -29,7 +31,8 @@ db.products.insert([
     productId: "produit-theme-couple",
     tags: ["theme", "couple"],
     image: "/assets/photos/themes/couples-duo/thumb.jpg",
-    imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    imageLarge: "/assets/photos/themes/couples-duo/large.jpg",
+    gallery: "/assets/photos/themes/couples-duo/gallery.jpg",
     title: "Couples / Duo",
     descTitle: "Offrez à votre histoire d’amour des images à la mesure de sa force.",
     description: `Un cadeau de Saint Valentin, l’anniversaire de votre relation ? Un coup de folie douce, en mode coup de cœur ?<br><br>
@@ -44,6 +47,7 @@ Pour les sessions romantiques, Shootizy personnalise spécialement son approche.
     tags: ["theme", "famille"],
     image: "/assets/photos/themes/familles/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
     title: "Familles",
     descTitle: "Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong>",
     description: `Cras gravida eget arcu in auctor. Donec rutrum tempus diam, eget ultrices erat convallis nec. Vivamus elementum tempus lorem. Nam vel elit eget nisi pulvinar sodales quis a leo. Morbi iaculis viverra arcu, ac tempus purus faucibus nec. In at urna nisl.
@@ -58,6 +62,7 @@ Pour les sessions romantiques, Shootizy personnalise spécialement son approche.
     tags: ["theme"],
     image: "/assets/photos/themes/carrieres/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
     title: "Carrières / CV LinkedIn",
     descTitle:
       "<strong>Faites vraiment la différence</strong>, dans votre présentation professionnelle",
@@ -72,6 +77,7 @@ Question de budget ? Réponse Shootizy : <strong>faites vraiment la différenc
     tags: ["theme"],
     image: "/assets/photos/themes/groupes/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
     title: "Groupes",
     descTitle: "Plus on est de fous, <strong>plus on Shootizy ^^</strong>",
     description: `Associations, clubs, chorales, orchestres…  <strong>Plus on est de fous, plus on Shootizy</strong>. Le photo-portrait de groupe, en studio ou en extérieur, compte parmi nos spécialités.<br><br>
@@ -86,10 +92,12 @@ Autre astuce de pro. Quand la photo de groupe est prise, tout le monde se déten
     tags: ["theme"],
     image: "/assets/photos/themes/fetes-anniversaires/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
     title: "Fêtes / Anniversaires / Mariages",
     descTitle: "Donnez à vos festivités la marque de l’inoubliable !",
     description: `Du mariage à l’arbre de Noël, en passant les anniversaires, les soirées costumées ou les cérémonies en tout genre... <strong>Donnez à vos festivités la marque de l’Inoubliable</strong>.<br><br>
 Bien sûr, le mariage occupe une place à part dans le registre de vos célébrations. Ce jour-là, votre photographe est un acteur-clé par excellence. Préparez sereinement ce jour J avec votre interlocuteur Shootizy. Pour un reportage complet, ou juste une photo de groupe, un portrait en couple...`,
+
     price: "20€",
   },
   {
@@ -97,8 +105,9 @@ Bien sûr, le mariage occupe une place à part dans le registre de vos célébra
     tags: ["theme"],
     image: "/assets/photos/themes/evjf/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
     title: "Enterrements de vie de jeune Fille / Garçon",
-    descTitle: "Ce qui se passe à Shootizy<br><br><strong>reste chez Shootizy !</strong>",
+    descTitle: "Ce qui se passe à Shootizy<br><strong>reste chez Shootizy !</strong>",
     description: `Et si c’était l’un des jours les plus fous de votre vie ? Sans de belles images, ce serait dommage d’en perdre la trace.<br><br>
 La plupart du temps, ce sont les ami(e)s de la future épouse ou du nouveau marié qui organisent cet événement pas comme les autres… Nous avons l’habitude. Nous avons prévu une prestation spécifique pour filmer, photographier, accompagner ces situations à base de gages coquins ou loufoques dans notre studio.<br><br>
 Ne vous embêtez plus avec les soucis techniques : <strong>batteries smartphone à recharger, caméra à se procurer, photographe-vidéaste expert à impliquer...</strong><br><br>
@@ -110,6 +119,7 @@ La prestation Shootizy, toujours à prix mini, permet aux participants de se con
     tags: ["theme"],
     image: "/assets/photos/themes/grossesses/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
+    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
     title: "Grossesses / Naissances",
     descTitle:
       "Future Maman ? Bébé est déjà né ?<br><strong> Shooting est fait pour vous !</strong>",

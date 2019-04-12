@@ -5,7 +5,7 @@ import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import HeaderImageMask from "scripts/components/_common/HeaderImageMask/HeaderImageMask";
 
-const Carousel = props => {
+const Carousel = ({ children }) => {
   const { contents } = useRemoteContents("/api/contents/home-carousel");
   const items = contents ? contents.items : [];
 
@@ -45,8 +45,9 @@ const Carousel = props => {
             </div>
           ))}
         </CarouselResponsive>
+        <HeaderImageMask />
       </div>
-      <HeaderImageMask />
+      {children}
     </div>
   );
 };

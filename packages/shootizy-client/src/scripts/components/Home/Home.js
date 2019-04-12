@@ -2,8 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Carousel from "../Carousel";
-import Prices from "./Prices";
 import CommentCaMarche from "./CommentCaMarche";
+import Prices from "../_common/Prices";
 
 const Home = () => {
   return (
@@ -11,8 +11,9 @@ const Home = () => {
       <Helmet>
         <title>Accueil</title>
       </Helmet>
-      <Carousel />
-      <Prices className="Prices-header" />
+      <Carousel>
+        <Prices className="container-2" />
+      </Carousel>
       <CommentCaMarche className="CommentCaMarche-Home" />
     </div>
   );
