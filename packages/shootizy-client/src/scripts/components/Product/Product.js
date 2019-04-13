@@ -10,11 +10,7 @@ import Interweave from "interweave";
 const Product = ({ match }) => {
   const { contents: product } = useRemoteContents(`/api/products/${match.params.productId}`);
 
-  if (!product) {
-    return null;
-  }
-
-  const { productId, imageLarge, title, descTitle, description, gallery } = product;
+  const { productId, imageLarge, title, descTitle, description, gallery } = product || {};
   const bookingLink = `/booking/${productId}`;
 
   return (

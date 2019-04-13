@@ -119,10 +119,10 @@ La prestation Shootizy, toujours à prix mini, permet aux participants de se con
     tags: ["theme"],
     image: "/assets/photos/themes/grossesses/thumb.jpg",
     imageLarge: "/assets/photos/themes/grossesses/large.jpg",
-    gallery: "/assets/photos/themes/grossesses/gallery.jpg",
+    gallery: null, // "/assets/photos/themes/grossesses/gallery.jpg",
     title: "Grossesses / Naissances",
     descTitle:
-      "Future Maman ? Bébé est déjà né ?<br><strong> Shooting est fait pour vous !</strong>",
+      "Future Maman ? Bébé est déjà né ?<br><strong>Ce Shooting est fait pour vous !</strong>",
     description: `<strong>Future maman ?</strong> Nous réalisons régulièrement des séances photos, en général entre le 6ème et le 8ème mois de grossesse, le plus photogénique. En studio, en extérieur, à domicile. Dites-nous vos préférences. Le papa est le bienvenu. Les frères et sœurs aussi.<br><br>
 <strong>Bébé est déjà né ?</strong> Certains parents adorent immortaliser les premiers jours leur bout de chou, ces moments où il dort. D’autres préfèrent attendre au moins 3 mois, pour capter les risettes. Aux alentours du 12ème mois, <strong>un Must : la séance du premier pas. En photo ou en vidéo</strong>.<br><br>
 Au delà des naissances, quelle que soit votre tribu, <strog>nnous créons avec vous des souvenirs pleins d’avenir</strong>.
