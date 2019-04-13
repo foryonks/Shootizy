@@ -13,20 +13,17 @@
     }
   }
 
-  .title {
-    font-size: font-size(43px);
-    line-height: 1;
-    text-align: left;
-    strong {
-      font-weight: bold;
-    }
-  }
-
   .product-description {
     margin-top: 60px;
 
     .title {
+      font-size: font-size(43px);
+      line-height: 1;
+      text-align: left;
       margin-bottom: 30px;
+      strong {
+        font-weight: bold;
+      }
     }
 
     .description {

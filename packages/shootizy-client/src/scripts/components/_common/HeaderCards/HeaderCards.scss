@@ -1,0 +1,28 @@
+@import "../../../../styles/functions";
+
+.HeaderCards {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 100%;
+
+  .card {
+    border-radius: 10px;
+    text-align: center;
+    color: #000;
+
+    .card-title,
+    .card-text {
+      color: #000;
+    }
+  }
+}
+
+.with-header-cards {
+  margin-bottom: 120px;
+}

@@ -19,8 +19,8 @@ const Product = ({ match }) => {
         src={imageLarge}
         preTitle="Shooting photo :"
         title={title}
-        link={bookingLink}
-        textButton="Je réserve">
+        buttonLink={bookingLink}
+        buttonText="Je réserve">
         <Prices className="Prices-header-product" textKey="product" />
       </HeaderImage>
 
