@@ -41,15 +41,20 @@
   justify-content: space-between;
 }
 
+.row-margin {
+  margin-top: 30pxx;
+  margin-bottom: 30px;
+}
+
 .row-strech {
   align-items: stretch;
 }
 
+.row-3 > * {
+  width: 32%;
+}
+
 .row-3 {
-  > .card,
-  > .dummyCard {
-    width: 32%;
-  }
 }
 
 /***********

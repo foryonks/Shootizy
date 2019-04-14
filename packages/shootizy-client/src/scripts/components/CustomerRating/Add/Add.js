@@ -10,7 +10,8 @@ const FORM_FIELDS = [
     type: "date",
     name: "shootingDate",
     label: "Date de votre shooting",
-    placeholder: "jj/mm/aaaa",
+    //TO-DO add date picker for IE
+    placeholder: "aaaa-mm-jj",
     isRequired: true,
   },
   {
@@ -19,7 +20,7 @@ const FORM_FIELDS = [
     label: "Votre avis",
     value: MAX_SCORE,
     isRequired: true,
-    render: (value, onChange, isError) => {
+    render: (value, isError, onChange) => {
       return (
         <RatingScore
           score={value}
@@ -32,7 +33,7 @@ const FORM_FIELDS = [
   {
     type: "textarea",
     name: "comment",
-    label: "Votre commentaire",
+    className: "form-line field--full-width",
     isRequired: true,
     props: { rows: "3" },
   },

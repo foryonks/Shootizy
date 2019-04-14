@@ -64,7 +64,8 @@ const Field = ({ id, field, value: currentValue, onChange, onBlur }) => {
       );
       break;
     case "custom":
-      getComponent = () => render(currentValue, onChange, showFieldError(field));
+      getComponent = () =>
+        render ? render(currentValue, showFieldError(field), onChange, onBlur) : null;
       break;
     default:
       return null;

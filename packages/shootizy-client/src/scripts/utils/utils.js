@@ -11,9 +11,9 @@ export const keyfix = array => {
   return array;
 };
 
-/** Convert simple array to matrix
+/** Convert simple array to matrix (array in array)
  * @param {Array} arr
- * @param {Number} width
+ * @param {Number} width of array
  * @returns Array
  */
 export const toMatrix = (myArr, width, { transform = item => item, fill = false }) => {

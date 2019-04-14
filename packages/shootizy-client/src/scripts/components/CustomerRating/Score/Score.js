@@ -1,29 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNamesDedupe from "classnames/dedupe";
-
-import Icon from "scripts/components/Icon";
+import RatingStarIcon from "./RatingStarIcon/RatingStarIcon";
 
 import "./Score.scss";
 
 export const MAX_SCORE = 5;
 const Score = ({ score, onItemClick, className }) => {
   const editable = !!onItemClick;
+  let fillScore = score; //score;
   return (
     <span
       className={classNamesDedupe("rating-score", className, {
         "rating-score--editable": editable,
       })}>
-      {[...Array(MAX_SCORE)].map((item, index) => (
-        <Icon
-          key={index}
-          name="star"
-          className={classNamesDedupe("rating-score__item", {
-            "rating-score__item--active": index < score,
-          })}
-          {...(!!onItemClick ? { onClick: () => onItemClick(index + 1) } : {})}
-        />
-      ))}
+      {[...Array(MAX_SCORE)].map((item, index) => {
+        return (
+          <RatingStarIcon
+            className="rating-score__item"
+            key={index}
+            name="star"
+            fill={Math.trunc(fillScore-- * 100)}
+            {...(!!onItemClick ? { onClick: () => onItemClick(MAX_SCORE - index) } : {})}
+          />
+        );
+      })}
     </span>
   );
 };

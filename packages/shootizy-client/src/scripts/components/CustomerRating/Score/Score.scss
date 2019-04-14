@@ -1,29 +1,39 @@
 //TO-DO
-$color-default: lightgray;
-$color-active: black;
+$color-default: gray;
+$color-active: #000;
 
-.rating-score__item {
-  color: $color-default;
+.rating-score {
+  .RatingStarIcon {
+    margin-left: 4px;
 
-  &--active {
-    color: $color-active;
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
+
 .rating-score {
+  display: inline-block;
+
   &--editable {
+    direction: rtl;
     cursor: pointer;
 
-    &:hover {
-      .rating-score__item {
-        color: $color-active;
+    .rating-score__item {
+      color: $color-default;
+      margin-right: 4px;
+      margin-left: 0;
+      &:last-child {
+        margin-left: 0;
+      }
+    }
 
-        &:hover {
-          stroke: $color-active;
+    .rating-score__item:hover {
+      color: inherit;
 
-          ~ .rating-score__item {
-            color: $color-default;
-            stroke: none;
-          }
+      &:hover {
+        ~ .rating-score__item {
+          color: inherit;
         }
       }
     }

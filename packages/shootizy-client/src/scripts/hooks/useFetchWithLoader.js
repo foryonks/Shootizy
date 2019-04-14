@@ -17,6 +17,7 @@ export default (
     try {
       setLoading(true);
       const result = await apiFunction(...args);
+      setError("");
       setLoading(false);
       return result;
     } catch (e) {

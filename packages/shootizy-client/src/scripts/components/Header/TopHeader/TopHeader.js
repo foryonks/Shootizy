@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import Icon from "../../Icon";
 
@@ -26,10 +26,10 @@ const TopHeader = () => {
       <ul className="header-links">
         {Links.map(({ to, title, icon, className }, index) => (
           <li key={index} className={className}>
-            <Link to={to}>
+            <NavLink to={to}>
               <Icon name={icon} />
               {title}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

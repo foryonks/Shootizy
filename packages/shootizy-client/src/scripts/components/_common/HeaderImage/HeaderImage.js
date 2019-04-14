@@ -17,17 +17,19 @@ import { Link } from "react-router-dom";
 const HeaderImage = ({ src, preTitle, title, buttonLink, buttonText, children, className }) => (
   <section className={`HeaderImage container ${className}`}>
     <div className="HeaderImage-content">
-      <img src={src} alt="" />
+      {src && <img src={src} alt="" />}
 
-      <div className="text">
-        {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
-        <h2 className="title bigTitle">{title}</h2>
-        {buttonLink && (
-          <Link to={buttonLink} className="btn-white">
-            {buttonText}
-          </Link>
-        )}
-      </div>
+      {(preTitle || title || buttonLink) && (
+        <div className="text">
+          {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
+          {title && <h2 className="title bigTitle">{title}</h2>}
+          {buttonLink && (
+            <Link to={buttonLink} className="btn-white">
+              {buttonText}
+            </Link>
+          )}
+        </div>
+      )}
       <HeaderImageMask />
     </div>
     {children}

@@ -3,6 +3,7 @@ import React from "react";
 import Logo from "../../Header/Logo";
 import "./FooterBottom.scss";
 import SocialButtons from "../../_common/SocialButtons";
+import WidgetTotalRating from "../../CustomerRating/WidgetTotalRating/WidgetTotalRating";
 
 const data = [
   {
@@ -125,7 +126,7 @@ const FooterBottom = props => (
         vehicula nisl lacinia ut. Ut urna ligula.
       </div>
       <div className="col">
-        <img src="/assets/demo/footer-avis-client.png" alt="" />
+        <WidgetTotalRating className="WidgetTotalRating-footer" />
       </div>
     </div>
 

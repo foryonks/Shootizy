@@ -1,7 +1,9 @@
 const mongoDb = require("db");
+const { CustomError } = require("api/api.errors");
 
 const formatEntry = ({ _id, shootingDate, ...others }) => ({
   ratingId: _id,
+  //TO-DO: may be moment js ???
   shootingDate: shootingDate.toDateString(),
   ...others,
 });
@@ -28,6 +30,11 @@ const list = async () => {
  * @param {date} shootingDate
  */
 const create = async (name, score, comment, shootingDate) => {
+  if (!name || !score || !comment || !shootingDate) {
+    //TO-DO Check shooting date valid
+    throw new CustomError("Input error", 400);
+  }
+
   const db = await mongoDb.getInstance();
 
   const result = await db.collection("ratings").insertOne({
