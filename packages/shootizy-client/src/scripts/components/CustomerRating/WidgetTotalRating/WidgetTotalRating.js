@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./WidgetTotalRating.scss";
 import Score from "../Score";
 
@@ -11,12 +10,12 @@ const WidgetTotalRating = ({ className }) => (
   </div>
 );
 
-WidgetTotalRating.propTypes = {
-  // bla: PropTypes.string,
-};
+// WidgetTotalRating.propTypes = {
+//   // bla: PropTypes.string,
+// };
 
-WidgetTotalRating.defaultProps = {
-  // bla: 'test',
-};
+// WidgetTotalRating.defaultProps = {
+//   // bla: 'test',
+// };
 
 export default WidgetTotalRating;

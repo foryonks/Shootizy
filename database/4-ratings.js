@@ -115,7 +115,8 @@ db.ratings.insert([
     shootingDate: new Date(),
     name: "Arnaud Gueras",
     score: 4,
-    comment: "Shootizy is fucking great !",
+    comment:
+      "Shootizy is fucking great ! Shootizy is fucking great ! Shootizy is fucking great ! Shootizy is fucking great !Shootizy is fucking great !Shootizy is fucking great ! Shootizy is fucking great ! Shootizy is fucking great !",
     isConfirmed: true,
     ratingId: 13,
   },
