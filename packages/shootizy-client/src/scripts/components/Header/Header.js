@@ -4,9 +4,6 @@ import NavBar from "./NavBar";
 import Logo from "./Logo";
 import useWindowScrollPosition from "scripts/hooks/useWindowScrollPosition";
 
-// import { Link } from "react-router-dom";
-
-// import logo from "@axa/web-toolkit/images/axa.svg";
 let sticky = 0;
 let gap = 0;
 

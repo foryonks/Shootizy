@@ -10,12 +10,4 @@ const WidgetTotalRating = ({ className }) => (
   </div>
 );
 
-// WidgetTotalRating.propTypes = {
-//   // bla: PropTypes.string,
-// };
-
-// WidgetTotalRating.defaultProps = {
-//   // bla: 'test',
-// };
-
 export default WidgetTotalRating;
