@@ -38,7 +38,7 @@ const Product = ({ match }) => {
 
           <div class="button">
             <Link to={bookingLink} className="btn-green">
-              Réserver mon shooting
+              Je réserve mon Shooting
             </Link>
           </div>
           {gallery && (
