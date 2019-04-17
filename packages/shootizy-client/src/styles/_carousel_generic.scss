@@ -1,0 +1,31 @@
+body {
+  .carousel.carousel-slider {
+    .control-arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:before {
+        font-size: 1em;
+        color: inherit;
+        border: none !important;
+        content: "";
+        font-family: icomoon;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: auto;
+      }
+    }
+    .control-prev {
+      &:before {
+        content: "\e900";
+      }
+    }
+
+    .control-next {
+      &:before {
+        content: "\e901";
+      }
+    }
+  }
+}

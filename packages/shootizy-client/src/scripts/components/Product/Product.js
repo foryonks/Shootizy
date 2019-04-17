@@ -11,6 +11,7 @@ const Product = ({ match }) => {
   const { contents: product } = useRemoteContents(`/api/products/${match.params.productId}`);
 
   const { productId, imageLarge, title, descTitle, description, gallery } = product || {};
+
   const bookingLink = `/booking/${productId}`;
 
   return (
@@ -32,17 +33,17 @@ const Product = ({ match }) => {
             <Interweave content={descTitle} />
           </h2>
 
-          <div class="description">
+          <div className="description">
             <Interweave content={description} />
           </div>
 
-          <div class="button">
+          <div className="button">
             <Link to={bookingLink} className="btn-green">
               Je réserve mon Shooting
             </Link>
           </div>
           {gallery && (
-            <div class="centered-gallery">
+            <div className="centered-gallery">
               <img src={gallery} alt="Gallerie" />
             </div>
           )}

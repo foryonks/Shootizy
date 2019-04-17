@@ -120,7 +120,7 @@ La prestation Shootizy, toujours à prix mini, permet aux participants de se con
     tags: ["theme"],
     image: "/assets/photos/themes/grossesses/thumb.jpg",
     imageLarge: "/assets/photos/themes/grossesses/large.jpg",
-    gallery: null, // "/assets/photos/themes/grossesses/gallery.jpg",
+    gallery: "/assets/photos/themes/grossesses/gallery.jpg",
     title: "Grossesses / Naissances",
     descTitle:
       "Future Maman ? Bébé est déjà né ?<br><strong>Ce Shooting est fait pour vous !</strong>",

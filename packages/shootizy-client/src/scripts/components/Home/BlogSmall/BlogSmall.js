@@ -1,8 +1,7 @@
 import React from "react";
-//import PropTypes from "prop-types";
+import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 import "./BlogSmall.scss";
 import titleBlog from "../../../../assets/misc/le-blog-title.svg";
-import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 import Icon from "../../Icon";
 import { toMatrix } from "../../../utils/utils";
 
@@ -12,7 +11,7 @@ const data = [
     image: "/assets/photos/blog1.jpg",
     title: "La photo argentique fait son retour",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam mollis volutpat.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscin elit. Cras aliquam mollis volutpat.",
     link: "/blog/article/1",
   },
   {

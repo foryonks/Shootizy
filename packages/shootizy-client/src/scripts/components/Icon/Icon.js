@@ -8,7 +8,7 @@ const Icon = ({ name, className, onClick }) => {
   const icon = icons[name];
 
   return (
-    <svg className={`icon-svg ${className || ""}`} viewBox={icon.viewBox} onClick={onClick}>
+    <svg className={`svg-icon ${className || ""}`} viewBox={icon.viewBox} onClick={onClick}>
       {icon.paths.map((path, i) => (
         <path key={i} {...path} />
       ))}

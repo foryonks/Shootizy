@@ -9,8 +9,8 @@ const ThemesNavigation = props => {
 
   return (
     <ul className="ThemesNavigation container-2">
-      {contents.map(({ title, productId }) => (
-        <li>
+      {contents.map(({ title, productId }, index) => (
+        <li key={index}>
           <NavLink to={`/produit/${productId}`}>{title}</NavLink>
         </li>
       ))}

@@ -22,8 +22,7 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   letter-spacing: -0.025ex;
 
   &:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: #39ffd4;
     box-shadow: $button-box-shadow;
   }
 
@@ -50,7 +49,7 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   padding-right: $h-padding;
   font-weight: bold;
 
-  .icon-svg {
+  .svg-icon {
     font-size: 0.7em;
     margin-right: 0.2em;
     vertical-align: 0.05em;
@@ -70,7 +69,7 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   line-height: 1;
   min-height: 0;
 
-  .icon-svg {
+  .svg-icon {
     font-size: 0.6em;
     margin-right: 0.3em;
     vertical-align: 0.05em;
@@ -85,7 +84,7 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 }
 
 .btn-green {
-  .icon-svg {
+  .svg-icon {
     vertical-align: -0.2em;
     margin-right: 0.3em;
   }
@@ -95,7 +94,7 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   font-size: font-size(16px);
   padding: 0.3em 2em;
 
-  .icon-svg {
+  .svg-icon {
     font-size: 0.7em;
     vertical-align: baseline;
   }
@@ -106,11 +105,17 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   width: 100%;
 }
 
-//TO-DO
-
 [class^="btn-"] {
   transition: opacity 1s;
   &:disabled {
     opacity: 0.4;
+  }
+}
+
+.link {
+  .circle-icon {
+    font-size: 1em;
+    vertical-align: bottom;
+    padding: 0.25em;
   }
 }

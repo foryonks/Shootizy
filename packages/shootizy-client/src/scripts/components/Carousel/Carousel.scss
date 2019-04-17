@@ -20,6 +20,7 @@
     }
 
     .control-arrow {
+      font-size: 1.1em;
       $size: 57px;
       width: $size;
       height: $size;
@@ -30,33 +31,14 @@
       vertical-align: middle;
       padding: 0;
       top: 42.3%;
-
-      &:before {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        border: none !important;
-        color: #fff;
-        margin: 0;
-        -webkit-transform: scaleY(1.9);
-        transform: scaleY(1.9) translate3D(-50%, -30%, 0);
-        font-weight: 200;
-      }
+      color: #fff;
     }
     .control-prev {
       left: 6.7%;
-      &:before {
-        content: "<";
-        font-weight: 500;
-      }
     }
 
     .control-next {
       right: 6.7%;
-      &:before {
-        content: ">";
-        font-weight: 500;
-      }
     }
   }
 
@@ -105,7 +87,6 @@
     opacity: 0.6;
     position: absolute;
     z-index: 1;
-    //top: -7%;
     left: -0.5%;
     bottom: 0;
     width: 56%;

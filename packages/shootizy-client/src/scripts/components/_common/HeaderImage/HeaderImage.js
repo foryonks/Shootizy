@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
  * @param {string} props.className - className
  * @param {string} props.children - Other elements to show inside
  */
-const HeaderImage = ({ src, preTitle, title, buttonLink, buttonText, children, className }) => (
+const HeaderImage = ({ src, preTitle, title, buttonLink, buttonText, className, children }) => (
   <section className={`HeaderImage container ${className}`}>
     <div className="HeaderImage-content">
       {src && <img src={src} alt="" />}
@@ -24,7 +24,7 @@ const HeaderImage = ({ src, preTitle, title, buttonLink, buttonText, children, c
           {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
           {title && <h2 className="title bigTitle">{title}</h2>}
           {buttonLink && (
-            <Link to={buttonLink} className="btn-white">
+            <Link to={buttonLink} className="btn-green">
               {buttonText}
             </Link>
           )}
@@ -41,7 +41,6 @@ HeaderImage.propTypes = {
   preTitle: string,
   link: string,
   textButton: string,
-  children: string,
   className: string,
 };
 
