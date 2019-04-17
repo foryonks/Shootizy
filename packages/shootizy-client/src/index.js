@@ -1,4 +1,5 @@
-import "core-js/es/array/find";
+//import "core-js/es/array/find";
+import "./scripts/utils/polyfill";
 import "react-app-polyfill/ie11";
 
 import React from "react";
