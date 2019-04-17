@@ -3,7 +3,7 @@ import React from "react";
 import Logo from "../../Header/Logo";
 import "./FooterBottom.scss";
 import SocialButtons from "../../_common/SocialButtons";
-import WidgetTotalRating from "../../CustomerRating/WidgetTotalRating/WidgetTotalRating";
+import GlobalRating from "../../CustomerRating/GlobalRating/GlobalRating";
 
 const data = [
   {
@@ -126,7 +126,7 @@ const FooterBottom = props => (
         vehicula nisl lacinia ut. Ut urna ligula.
       </div>
       <div className="col">
-        <WidgetTotalRating className="WidgetTotalRating-footer" />
+        <GlobalRating title="Avis de nos clients" className="GlobalRating-footer" />
       </div>
     </div>
 

@@ -1,6 +1,6 @@
 const mongoDb = require("db");
 const { CustomError } = require("api/api.errors");
-
+const { formatDecimal } = require("utils");
 const formatEntry = ({ _id, shootingDate, ...others }) => ({
   ratingId: _id,
   //TO-DO: may be moment js ???
@@ -20,6 +20,33 @@ const list = async () => {
     .find({ isConfirmed: true })
     .toArray();
   return ratings.map(formatEntry);
+};
+
+/**
+ * Return average score
+ * @returns {number}
+ */
+const getAverageScore = async () => {
+  const db = await mongoDb.getInstance();
+
+  const result = await db
+    .collection("ratings")
+    .aggregate([
+      {
+        $group: {
+          _id: null,
+          avgScore: { $avg: "$score" },
+          count: { $sum: 1 },
+        },
+      },
+    ])
+    .next();
+  return (
+    result && {
+      score: formatDecimal(result.avgScore, 1),
+      count: result.count,
+    }
+  );
 };
 
 /**
@@ -52,4 +79,5 @@ const create = async (name, score, comment, shootingDate) => {
 module.exports = {
   list,
   create,
+  getAverageScore,
 };

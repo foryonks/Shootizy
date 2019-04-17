@@ -8,7 +8,6 @@ import "./Score.scss";
 export const MAX_SCORE = 5;
 const Score = ({ score, onItemClick, className }) => {
   const editable = !!onItemClick;
-  let fillScore = score; //score;
   return (
     <span
       className={classNamesDedupe("rating-score", className, {
@@ -20,8 +19,8 @@ const Score = ({ score, onItemClick, className }) => {
             className="rating-score__item"
             key={index}
             name="star"
-            fill={Math.trunc(fillScore-- * 100)}
-            {...(!!onItemClick ? { onClick: () => onItemClick(MAX_SCORE - index) } : {})}
+            fill={Math.round((score - index) * 100)}
+            {...(!!onItemClick ? { onClick: () => onItemClick(index + 1) } : {})}
           />
         );
       })}

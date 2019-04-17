@@ -16,6 +16,17 @@ routes.get(
 );
 
 /**
+ * Get average score
+ */
+routes.get(
+  "/average",
+  asyncRouteWrapper(async (req, res) => {
+    const result = await ratingService.getAverageScore();
+    res.json(result);
+  })
+);
+
+/**
  * For wepapp to retrive rating
  */
 routes.post(

@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import RatingScore, { MAX_SCORE } from "../Score";
 import Form from "scripts/components/Form";
 
+import "./Add.scss";
+
 const FORM_FIELDS = [
   { type: "text", name: "name", label: "Votre nom et prénom", isRequired: true },
   {
@@ -33,7 +35,7 @@ const FORM_FIELDS = [
   {
     type: "textarea",
     name: "comment",
-    className: "form-line field--full-width",
+    className: "field--full-width",
     isRequired: true,
     props: { rows: "3" },
   },
@@ -43,7 +45,8 @@ const FORM_SUBMIT_BTN = { label: "Publier", className: "btn-green" };
 const Add = ({ onSubmit }) => {
   return (
     <Form
-      id="form-newsletter"
+      id="form-rating"
+      className="form-rating"
       fields={FORM_FIELDS}
       submitBtn={FORM_SUBMIT_BTN}
       action="/api/ratings"

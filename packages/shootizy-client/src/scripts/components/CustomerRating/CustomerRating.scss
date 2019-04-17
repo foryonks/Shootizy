@@ -1,1 +1,9 @@
-//TO-DO
+.customer-rating__total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > * {
+    margin-bottom: 1rem;
+  }
+}

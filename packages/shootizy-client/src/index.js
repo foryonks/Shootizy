@@ -6,6 +6,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import { CredentialsProvider } from "scripts/contexts/Credentials";
+import { AppProvider } from "scripts/contexts/App";
+
 import App from "./scripts/App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -16,9 +18,11 @@ import ScrollToTop from "./scripts/components/_common/ScrollToTop";
 ReactDOM.render(
   <BrowserRouter>
     <CredentialsProvider>
-      <ScrollToTop>
-        <App />
-      </ScrollToTop>
+      <AppProvider>
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
+      </AppProvider>
     </CredentialsProvider>
   </BrowserRouter>,
   document.getElementById("root")

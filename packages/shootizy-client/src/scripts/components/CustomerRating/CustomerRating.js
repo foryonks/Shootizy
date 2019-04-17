@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { AppContext } from "scripts/contexts/App";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import RatingScore from "./Score";
 import AddRating from "./Add";
+import List from "./List";
 
 import "./CustomerRating.scss";
 import HeaderImage from "../_common/HeaderImage";
+import TotalRating from "./GlobalRating";
 
 const CustomerRating = () => {
-  const { contents: ratings, load } = useRemoteContents("/api/ratings", []);
+  const { contents: ratings, load: reloadList } = useRemoteContents("/api/ratings", []);
+  const { loadGlobalRating } = useContext(AppContext);
 
   return (
     <div className="Page">
@@ -23,28 +26,23 @@ const CustomerRating = () => {
       </div>
       <div className="page-section section-container">
         <div className="container container-2">
-          <ul className="row row-3 row-stretch row-margin row-wrap">
-            {ratings.map(({ ratingId, name, shootingDate, score, comment }, index) =>
-              ratingId ? (
-                <li key={ratingId || index} className="card card-simple">
-                  <h3>{name}</h3>
-                  {shootingDate}
-                  <div>
-                    Rating {score} <RatingScore score={score} />
-                  </div>
-                  <p>{comment}</p>
-                </li>
-              ) : (
-                <div className="dummyCard" key={index} />
-              )
-            )}
-          </ul>
+          <div className="container-inside">
+            <div className="card card-simple">
+              <TotalRating className="customer-rating__total" showDetails />
+            </div>
+          </div>
+          <List ratings={ratings} />
           <div className="container-inside">
             <div className="card card-simple">
               <h1>Votre avis compte !</h1>
               <h2>Vous êtes venus, laissez nous votre avis sur votre séance</h2>
               <br />
-              <AddRating onSubmit={load} />
+              <AddRating
+                onSubmit={() => {
+                  loadGlobalRating();
+                  reloadList();
+                }}
+              />
             </div>
           </div>
         </div>
