@@ -18,7 +18,7 @@ const Carousel = ({ children }) => {
           showThumbs={false}
           showIndicators={false}
           showStatus={false}
-          interval={4000}>
+          interval={6000}>
           {items.map(({ title, buttonText, text, img, key }, index) => (
             <div className="carousel-item" key={index}>
               <img src={img} alt="" className="carousel-image" />

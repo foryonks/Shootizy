@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Icon from "../../Icon";
 
-const Action = ({ className, label, disabled, wrapper, children }) => {
+const Action = ({ className, label, icon, disabled, wrapper, children }) => {
   const Button = (
     <>
       <button disabled={disabled} className={className}>
+        {icon && <Icon name={icon} />}
         {label}
       </button>
       {children}
@@ -14,6 +16,7 @@ const Action = ({ className, label, disabled, wrapper, children }) => {
 };
 
 Action.propTypes = {
+  icon: PropTypes.string,
   className: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   disabled: PropTypes.bool,

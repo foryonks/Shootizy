@@ -37,19 +37,26 @@
     }
 
     a {
-      color: #979797;
+      color: $color-grey;
       font-size: 18px;
+
+      &:hover {
+        color: #fff;
+      }
     }
   }
 
   .social-buttons {
     font-size: font-size(25px);
     margin-bottom: 30px;
+    a:hover {
+      color: #fff;
+    }
   }
 
   .follow-us {
     text-align: right;
-    color: #979797;
+    color: $color-grey;
   }
 }
 

@@ -20,7 +20,7 @@ const FORM_FIELDS = [
     props: { rows: "4" },
   },
 ];
-const FORM_SUBMIT_BTN = { label: "Envoyer", className: "btn-green btn-fullwitdh" };
+const FORM_SUBMIT_BTN = { icon: "letter", label: "Envoyer", className: "btn-green btn-fullwitdh" };
 
 const VenirAuStudio = props => (
   <section className="VenirAuStudio page-section">

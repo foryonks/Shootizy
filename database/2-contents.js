@@ -40,18 +40,18 @@ db.contents.insert([
     items: [
       {
         icon: "o-clock",
-        title: "Shooting de 45 min = 0 €",
+        title: "Shooting de 45 min = 0€",
         text:
           "Oui, zéro euro \u{1F601}<br><br>Mais nous sommes sûrs que vous choisirez au moins une photo...",
       },
       {
         icon: "love",
-        title: "Pack de 150 photos = 150 €,<br> soit 1 € la photo<br> ou photo à l'unité = 20 €",
+        title: "Pack de 150 photos = 150€,<br> soit 1€ la photo<br> ou photo à l'unité = 20€",
         text: "Rearement un billet de vingt vous aura fait <strong>autant de bien ;-)</strong>",
       },
       {
         icon: "like",
-        title: "Le temps de choisir = 0 €",
+        title: "Le temps de choisir = 0€",
         text:
           "Sitôt votre séance terminée, découvrez vos photos.<br><br>Prenez votre temps, <strong>Aucune obligation d'achat. Payez seulement les images qui vous plaisent.",
       },

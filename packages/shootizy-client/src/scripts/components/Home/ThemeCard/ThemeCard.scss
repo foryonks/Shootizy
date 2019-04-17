@@ -49,6 +49,10 @@
     margin-bottom: 15px;
     line-height: 1;
 
+    .read-more {
+      color: #000;
+      white-space: nowrap;
+    }
     a:hover {
       text-decoration: underline;
     }

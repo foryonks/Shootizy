@@ -8,7 +8,7 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 
 .btn-green {
   color: #000;
-  background: #2ef7cc;
+  background: $btn-green-bg-color;
   border: none;
   border-radius: 100px;
   font-size: font-size(25);
@@ -22,8 +22,8 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   letter-spacing: -0.025ex;
 
   &:hover {
-    background-color: #39ffd4;
-    box-shadow: $button-box-shadow;
+    background-color: $btn-green-hover-bg-color !important;
+    box-shadow: $button-box-shadow !important;
   }
 
   &-hover-invert:hover {

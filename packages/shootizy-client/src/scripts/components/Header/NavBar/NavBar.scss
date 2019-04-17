@@ -1,8 +1,55 @@
 @import "../../../../styles/inline-menu";
+@import "../../../../styles/variables";
 body {
 }
-.nav-bar {
+
+.header .nav-bar {
   .menu {
     @extend .inline-menu;
+    display: flex;
+    align-items: stretch;
+    margin-right: 25px;
+
+    li {
+      margin-left: 24px;
+      font-size: 18px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      text-align: center;
+      &:hover {
+        color: $secondary-color;
+      }
+      &.active {
+        color: #000;
+        &:after {
+          display: inline-block;
+          position: absolute;
+          bottom: 0;
+          content: "";
+          width: 100%;
+          height: 3px;
+          left: 50%;
+          background: $secondary-color;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  &,
+  .menu,
+  li,
+  a {
+    display: flex;
+    align-items: stretch;
+  }
+
+  li a {
+    height: 100%;
+    align-items: center;
   }
 }

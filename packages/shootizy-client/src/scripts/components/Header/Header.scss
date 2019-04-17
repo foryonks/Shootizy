@@ -15,19 +15,6 @@ $stickyGap: 10px;
   min-height: 107px;
 }
 
-.header-main {
-  &:before {
-    content: $stickyGap + "";
-    font-size: 0;
-    position: absolute;
-  }
-  width: 100%;
-  max-width: 1408px;
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .header.sticky {
   .header-main {
     position: fixed;
@@ -37,52 +24,42 @@ $stickyGap: 10px;
   }
 
   .btn-big {
-    //font-size: font-size(16px);
-    @include btn-big-hover;
+    background: $btn-green-bg-color;
+    border-color: transparent;
   }
 }
 
 .header-main {
+  &:before {
+    content: $stickyGap + "";
+    font-size: 0;
+    position: absolute;
+  }
+  align-items: stretch;
   background: #fff;
   border-radius: 11px;
-  min-height: 73px;
-  display: flex;
-  align-items: center;
   box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.05);
-  padding: 0 18px 0 21px;
-  justify-content: space-between;
+  display: flex;
   font-weight: 500;
-}
-.header-main {
-  .nav-bar {
-    display: inline-block;
-    vertical-align: middle;
-  }
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1408px;
+  min-height: 73px;
+  padding: 0 18px 0 21px;
+  position: relative;
+  top: 0;
+  width: 100%;
 
   .logo {
     font-size: font-size(14.8px);
   }
-
-  .menu {
-    margin-right: 25px;
-    li {
-      margin-left: 24px;
-      font-size: 18px;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-
-      &.active,
-      &:hover {
-        color: #979797;
-      }
-    }
-  }
 }
 
 .navigation {
+  display: flex;
+  align-items: stretch;
+
   .btn-big {
     border: 1px solid #000;
     border-radius: 200px;
@@ -96,6 +73,7 @@ $stickyGap: 10px;
     text-align: center;
     transition: 0.2s linear;
     transition-property: height, width, font-size;
+    align-self: center;
 
     &:hover {
       @include btn-big-hover;

@@ -41,8 +41,9 @@ const ThemeCard = ({ productId, image, title, sharelink, price, description, his
         </div>
         <h4 className="ThemeCard-title">{title}</h4>
         <div className="ThemeCard-description">
-          {sliceAndRemoveHTML(description)}{" "}
-          <Link to={productLink} onClick={stopPropagation}>
+          {sliceAndRemoveHTML(description)}
+          {"\xA0"}
+          <Link className="read-more" to={productLink} onClick={stopPropagation}>
             Lire la suite
           </Link>
         </div>

@@ -217,6 +217,7 @@ const Form = ({
           );
         })}
         <FormAction
+          icon={submitBtn.icon}
           disabled={loading || submitted}
           className={submitBtn.className}
           label={submitBtn.label}
