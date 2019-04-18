@@ -31,34 +31,4 @@ RatingStarIcon.propTypes = {
   onClick: PropTypes.func,
 };
 
-RatingStarIcon.defaultProps = {
-  // bla: 'test',
-};
-
-//let gradientsDefined = false;
-
-// function defineGradients() {
-//   if (gradientsDefined) return;
-
-//   let div = document.createElement("div");
-//   div.setAttribute("aria-hidden", "true");
-//   div.setAttribute("style", "width:0;height:0;position:absolute");
-//   div.setAttribute("focusable", "false");
-//   div.innerHTML = [...Array(11)]
-//     .map((item, index) => {
-//       const i = index * 10;
-//       return `
-// <svg style="width:0;height:0;position:absolute" aria-hidden="true" focusable="false">
-//   <linearGradient id="svgGradient-${i}" class="star-gradient">
-//     <stop stop-opacity="1" offset="0" stop-color="var(--stop-color)></stop>
-//     <stop stop-opacity="0" offset="${i}%"></stop>
-//   </linearGradient>
-// </svg>`;
-//     })
-//     .join("");
-//   document.body.appendChild(div);
-//   console.log(div);
-//   gradientsDefined = true;
-// }
-
 export default RatingStarIcon;

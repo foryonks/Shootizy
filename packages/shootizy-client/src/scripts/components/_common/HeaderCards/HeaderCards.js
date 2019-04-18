@@ -13,7 +13,7 @@ const Prices = ({ className, data }) => {
               <Interweave content={html} />
             ) : (
               <div>
-                <h3 class="card-title">{title}</h3>
+                <h3 className="card-title">{title}</h3>
                 {text && (
                   <div className="card-text">
                     <Interweave content={text} />
