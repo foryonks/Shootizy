@@ -9,7 +9,7 @@ const FORM_FIELDS = [
   { type: "text", name: "username", label: "Identifiant :", isRequired: true },
   { type: "password", name: "password", label: "Mot de passe :", isRequired: true },
 ];
-const FORM_SUBMIT_BTN = { label: "Valider", className: "btn-green" };
+const FORM_SUBMIT_BTN = { label: "Se connecter", className: "btn-green" };
 
 const LoginForm = () => {
   const { dispatch } = useContext(CredentialsContext);
@@ -27,13 +27,16 @@ const LoginForm = () => {
   }, []);
 
   return (
-    <Form
-      fields={FORM_FIELDS}
-      submitBtn={FORM_SUBMIT_BTN}
-      action="/api/user/login"
-      onSuccess={handleSubmitSuccess}
-      errorMessage="Connexion échouée, veuillez réessayer !"
-    />
+    <div className="app-login-form">
+      <h2 className="title">Connexion</h2>
+      <Form
+        fields={FORM_FIELDS}
+        submitBtn={FORM_SUBMIT_BTN}
+        action="/api/user/login"
+        onSuccess={handleSubmitSuccess}
+        errorMessage="Connexion échouée, veuillez réessayer !"
+      />
+    </div>
   );
 };
 

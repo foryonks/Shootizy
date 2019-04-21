@@ -3,6 +3,8 @@ import classNamesDedupe from "classnames/dedupe";
 import PropTypes from "prop-types";
 import Interweave from "interweave";
 
+import Datepicker from "scripts/components/_common/Datepicker";
+
 /**
  * Return true if field is error and not pristine
  * @param {object} field field object
@@ -13,9 +15,9 @@ const showFieldError = field => field.error && !field.isPristine;
 /**
  * Field Component
  * Can be input, textarea base on type
- * Field format : { label, name, type, placeholder, value, className, props: object, hideFeedback: false, isRequired: bool, customValidations: [{fn, errorMessage: string}] }
+ * Field format : { label, name, type, placeholder, value, className, fullWidth: bool, wrapperClassName props: object, hideFeedback: false, isRequired: bool, customValidations: [{fn, errorMessage: string}] }
  */
-const Field = ({ id, field, value: currentValue, onChange, onBlur }) => {
+const Field = ({ id, field, value: currentValue, onChange, onValidate }) => {
   const {
     label,
     name,
@@ -25,72 +27,81 @@ const Field = ({ id, field, value: currentValue, onChange, onBlur }) => {
     props: extendedProps,
     render,
   } = field;
-  const className = field.className || (label ? "form-line label-top" : "");
 
-  let getComponent;
+  const className = classNamesDedupe(field.className, {
+    "form-field--is-error": showFieldError(field),
+    "form-field--full-width": field.fullWidth,
+  });
+  const wrapperClassname = classNamesDedupe(field.wrapperClassname, {
+    "form-line label-top": !!label,
+  });
+
+  let Input;
   switch (field.type) {
     case "text":
     case "email":
     case "number":
     case "password":
-    case "date":
-      getComponent = inputProps => (
-        <>
-          <input
-            {...inputProps}
-            className={classNamesDedupe(inputProps.className, {
-              "form-field--is-error": showFieldError(field),
-            })}
-          />
-          {!field.hideFeedback && showFieldError(field) && (
-            <div className="form-feedback--error">{field.error}</div>
-          )}
-        </>
-      );
+      const inputProps = {
+        id,
+        className,
+        name,
+        type,
+        placeholder,
+        defaultValue,
+        onChange: ev => onChange(name, ev.target.value),
+        onBlur: () => onValidate(name),
+        ...(extendedProps || {}),
+      };
+      Input = <input {...inputProps} />;
       break;
     case "textarea":
-      getComponent = inputProps => (
-        <>
-          <textarea
-            {...inputProps}
-            className={classNamesDedupe(inputProps.className, {
-              "form-field--is-error": showFieldError(field),
-            })}
-          />
-          {!field.hideFeedback && showFieldError(field) && (
-            <div className="form-feedback--error">{field.error}</div>
-          )}
-        </>
+      const textAreaProps = {
+        id,
+        className,
+        name,
+        type,
+        placeholder,
+        defaultValue,
+        onChange: ev => onChange(name, ev.target.value),
+        onBlur: () => onValidate(name),
+        ...(extendedProps || {}),
+      };
+      Input = <textarea {...textAreaProps} />;
+      break;
+    case "date":
+      Input = (
+        <Datepicker
+          onChange={date => {
+            onChange(name, date);
+            onValidate(name);
+          }}
+          value={currentValue}
+          className={className}
+        />
       );
       break;
     case "custom":
-      getComponent = () =>
-        render ? render(currentValue, showFieldError(field), onChange, onBlur) : null;
+      Input = render ? render(currentValue, showFieldError(field), onChange, onValidate) : null;
       break;
     default:
       return null;
   }
-  const props = {
-    id,
-    name,
-    type,
-    placeholder,
-    defaultValue,
-    onChange: ev => onChange(name, ev.target.value),
-    onBlur: () => onBlur(name),
-    ...(extendedProps || {}),
-  };
 
-  return label ? (
-    <div className={className}>
-      <label htmlFor={id}>
-        <Interweave content={label} />
-      </label>
-      {getComponent({ ...props })}
-    </div>
-  ) : (
-    getComponent({ ...props, className })
+  const Field = (
+    <>
+      {label && (
+        <label htmlFor={id}>
+          <Interweave content={label} />
+        </label>
+      )}
+      {Input}
+      {!field.hideFeedback && showFieldError(field) && (
+        <div className="form-feedback--error">{field.error}</div>
+      )}
+    </>
   );
+  return wrapperClassname ? <div className={wrapperClassname}>{Field}</div> : Field;
 };
 
 Field.propTypes = {
@@ -98,6 +109,6 @@ Field.propTypes = {
   field: PropTypes.object.isRequired,
   value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
+  onValidate: PropTypes.func.isRequired,
 };
 export default Field;

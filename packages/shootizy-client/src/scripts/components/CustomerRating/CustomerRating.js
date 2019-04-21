@@ -7,7 +7,7 @@ import List from "./List";
 
 import "./CustomerRating.scss";
 import HeaderImage from "../_common/HeaderImage";
-import TotalRating from "./GlobalRating";
+import GlobalRating from "./GlobalRating";
 
 const CustomerRating = () => {
   const { contents: ratings, load: reloadList } = useRemoteContents("/api/ratings", []);
@@ -28,7 +28,7 @@ const CustomerRating = () => {
         <div className="container container-2">
           <div className="container-inside">
             <div className="card card-simple">
-              <TotalRating className="customer-rating__total" showDetails />
+              <GlobalRating className="customer-rating__total" showDetails />
             </div>
           </div>
           <List ratings={ratings} />

@@ -1,0 +1,29 @@
+.date-picker {
+  &.form-field--full-width {
+    display: block;
+    width: 100%;
+  }
+  &.form-field--is-error {
+    border: 0 !important;
+
+    .react-date-picker__wrapper {
+      border-color: red !important;
+    }
+  }
+
+  .react-date-picker__wrapper {
+    border: 1px solid #979797;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    padding: 0.4em 0.3em;
+  }
+
+  .react-date-picker__inputGroup {
+    align-items: center;
+
+    input {
+      padding: 0;
+      border-color: transparent;
+    }
+  }
+}

@@ -12,9 +12,8 @@ const FORM_FIELDS = [
     type: "date",
     name: "shootingDate",
     label: "Date de votre shooting",
-    //TO-DO add date picker for IE
-    placeholder: "aaaa-mm-jj",
     isRequired: true,
+    fullWidth: true,
   },
   {
     type: "custom",
@@ -35,8 +34,8 @@ const FORM_FIELDS = [
   {
     type: "textarea",
     name: "comment",
-    className: "field--full-width",
     isRequired: true,
+    fullWidth: true,
     props: { rows: "3" },
   },
 ];
