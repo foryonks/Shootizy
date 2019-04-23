@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 import RatingScore from "../Score";
 import usePagination from "scripts/hooks/usePagination";
 
-const PAGE_LENGTH = 9;
+const ITEMS_PER_PAGE = 9;
 
 const List = ({ ratings }) => {
-  const { getPage, PaginationComponent } = usePagination(ratings || [], PAGE_LENGTH);
+  const { getCurrentPage, PaginationComponent } = usePagination(ratings || [], ITEMS_PER_PAGE);
 
   return (
     <>
       <ul className="row row-3 row-stretch row-margin row-wrap">
-        {getPage().map(({ ratingId, name, shootingDate, score, comment }, index) =>
+        {getCurrentPage().map(({ ratingId, name, shootingDate, score, comment }, index) =>
           ratingId ? (
             <li key={ratingId} className="card card-simple">
               <h3>{name}</h3>

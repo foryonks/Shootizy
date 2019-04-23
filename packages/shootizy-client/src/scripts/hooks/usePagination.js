@@ -26,7 +26,7 @@ const usePagination = (list, defaultLimit = 5) => {
    * Get page (only for local pagination)
    * @returns {array}
    */
-  const getPage = () => list.slice(offset, Math.min(offset + limit, list.length));
+  const getCurrentPage = () => list.slice(offset, Math.min(offset + limit, list.length));
 
   const PaginationComponent = useMemo(
     () => (
@@ -48,7 +48,7 @@ const usePagination = (list, defaultLimit = 5) => {
     handleNextClick,
     handlePreviousClick,
     handleChangeLimit,
-    getPage,
+    getCurrentPage,
     PaginationComponent,
   };
 };
