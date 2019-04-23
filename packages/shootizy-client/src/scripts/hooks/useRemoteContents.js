@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 
 import { fetchJson } from "scripts/utils/api";
 
-const contentsCache = {};
+const CONTENTS_CACHE = {};
 
 /**
  * Fetch remote contents
@@ -13,27 +13,28 @@ const contentsCache = {};
 const useRemoteContents = (apiPath, initialState = null, autoLoad = true) => {
   const [loading, setLoading] = useState(!!autoLoad);
   const [contents, setContents] = useState(initialState);
-  const load = useCallback(async () => {
-    try {
-      setLoading(true);
-      if (contentsCache[apiPath]) {
-        setContents(contentsCache[apiPath]);
-      } else {
-        const contents = await fetchJson(apiPath);
-        contentsCache[apiPath] = contents;
-        setContents(contents);
+  const load = useCallback(
+    async useCache => {
+      try {
+        setLoading(true);
+        let newContents = useCache && CONTENTS_CACHE[apiPath];
+        if (!newContents) {
+          newContents = await fetchJson(apiPath);
+
+          // Update cache
+          CONTENTS_CACHE[apiPath] = newContents;
+        }
+        setContents(newContents);
+      } catch (e) {
+      } finally {
+        setLoading(false);
       }
-      const contents = await fetchJson(apiPath);
-      contentsCache[apiPath] = contents;
-      setContents(contents);
-    } catch (e) {
-    } finally {
-      setLoading(false);
-    }
-  }, [apiPath]);
+    },
+    [apiPath]
+  );
   useEffect(() => {
     if (autoLoad) {
-      load();
+      load(true);
     }
   }, [apiPath]);
 

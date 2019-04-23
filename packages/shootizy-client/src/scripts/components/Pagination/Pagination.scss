@@ -1,0 +1,21 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+.pagination__nav-button[disabled] {
+  opacity: 0.4;
+}
+.pagination__page-list {
+  margin: 0 10px;
+}
+.pagination__page-list__separator {
+  margin: 0 5px;
+}
+.pagination__page-list__item {
+  cursor: pointer;
+
+  &--active {
+    font-weight: bold;
+  }
+}

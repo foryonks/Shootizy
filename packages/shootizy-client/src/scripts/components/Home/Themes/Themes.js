@@ -1,13 +1,13 @@
-import React from "react";
-import { toMatrix } from "../../../utils/utils";
+import React, { useContext } from "react";
+
+import { AppContext } from "scripts/contexts/App";
 import ThemeCard from "../ThemeCard";
-import useRemoteContents from "scripts/hooks/useRemoteContents";
 
 import "./Themes.scss";
 
 const Themes = props => {
-  const { contents } = useRemoteContents("/api/products?tags=theme");
-  const dataGrid = contents && toMatrix(contents, 3, { fill: true });
+  const { state: appState } = useContext(AppContext);
+  const list = appState.themes || [];
 
   return (
     <div className="Themes container-2 grid">
@@ -16,18 +16,15 @@ const Themes = props => {
         <strong>selon votre besoin !</strong>
       </h2>
 
-      {dataGrid &&
-        dataGrid.map((row, indexRow) => (
-          <div className="row row-3" key={indexRow}>
-            {row.map((theme, index) =>
-              theme ? (
-                <ThemeCard {...theme} key={theme.productId} />
-              ) : (
-                <div className="dummyCard" key={index} />
-              )
-            )}
-          </div>
-        ))}
+      <div className="row row-3 row-wrap">
+        {list.map((theme, index) =>
+          theme ? (
+            <ThemeCard {...theme} key={theme.productId} />
+          ) : (
+            <div className="dummyCard" key={index} />
+          )
+        )}
+      </div>
     </div>
   );
 };

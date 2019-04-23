@@ -5,6 +5,7 @@ const AppContext = createContext();
 
 const ACTIONS = {
   GLOBAL_RATING_RECEIVED: "GLOBAL_RATING_RECEIVED",
+  THEME_PRODUCTS_RECEIVED: "THEME_PRODUCTS_RECEIVED",
 };
 
 const INITIAL_STATE = {};
@@ -13,6 +14,9 @@ const reducer = (state, action) => {
     case ACTIONS.GLOBAL_RATING_RECEIVED:
       const { score, count } = action;
       return { ...state, rating: { score, count } };
+    case ACTIONS.THEME_PRODUCTS_RECEIVED:
+      const { themes } = action;
+      return { ...state, themes };
     default:
       return state;
   }
@@ -27,6 +31,16 @@ const actions = dispatch => ({
         type: ACTIONS.GLOBAL_RATING_RECEIVED,
         score,
         count,
+      });
+    } catch (e) {}
+  },
+  // Theme products
+  loadThemeProducts: async () => {
+    try {
+      const themes = await fetchJson("/api/products?tags=theme");
+      dispatch({
+        type: ACTIONS.THEME_PRODUCTS_RECEIVED,
+        themes,
       });
     } catch (e) {}
   },

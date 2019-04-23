@@ -13,7 +13,7 @@ const Score = ({ score, onItemClick, className }) => {
       className={classNamesDedupe("rating-score", className, {
         "rating-score--editable": editable,
       })}>
-      {[...Array(MAX_SCORE)].map((item, index) => {
+      {[...Array(MAX_SCORE)].map((_, index) => {
         return (
           <RatingStarIcon
             className="rating-score__item"
