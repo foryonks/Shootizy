@@ -2,6 +2,7 @@ import React from "react";
 import "./ShootingStudio.scss";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import Themes from "../Home/Themes/Themes";
+import { Link } from "react-router-dom";
 
 const ShootingStudio = props => (
   <div className="ShootingStudioPage">
@@ -14,7 +15,7 @@ const ShootingStudio = props => (
       //<Prices className="Prices-header-product" textKey="product"
     />
 
-    <div className="container-2">
+    <div className="main container-2">
       <h2 className="title">Shooting studio </h2>
       <div className="desc">
         Nous immortalisons toutes vos thématiques et vous mettons en scène{" "}
@@ -37,6 +38,12 @@ const ShootingStudio = props => (
           sint occoecat cupidatot non proident, sunt in culpa qui officia deserunt mollit onim id
           est loborum{" "}
         </div>
+      </div>
+
+      <div className="button-container-centered">
+        <Link to="/booking" className="btn-green">
+          Je réserve mon Shooting
+        </Link>
       </div>
     </div>
     <div className="page-section section-container">
