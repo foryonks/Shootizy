@@ -44,3 +44,15 @@ if (!Array.prototype.find) {
     writable: true,
   });
 }
+
+if (!Object.values) {
+  Object.values = function(obj) {
+    var res = [];
+    for (var i in obj) {
+      if (obj.hasOwnProperty(i)) {
+        res.push(obj[i]);
+      }
+    }
+    return res;
+  };
+}

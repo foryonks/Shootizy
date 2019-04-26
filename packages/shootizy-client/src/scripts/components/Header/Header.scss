@@ -61,6 +61,8 @@ $stickyGap: 10px;
   align-items: stretch;
 
   .btn-big {
+    display: flex;
+    align-items: center;
     border: 1px solid #000;
     border-radius: 200px;
     min-height: 1.8em;

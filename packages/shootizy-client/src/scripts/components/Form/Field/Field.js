@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import classNamesDedupe from "classnames/dedupe";
 import PropTypes from "prop-types";
 import Interweave from "interweave";
@@ -15,9 +15,9 @@ const showFieldError = field => field.error && !field.isPristine;
 /**
  * Field Component
  * Can be input, textarea base on type
- * Field format : { label, name, type, placeholder, value, className, fullWidth: bool, wrapperClassName props: object, hideFeedback: false, isRequired: bool, customValidations: [{fn, errorMessage: string}] }
+ * Field format : { label, name, type, placeholder, value, className, fullWidth: bool, wrapperClassName props: object, isRequired: bool, customValidations: [{fn, errorMessage: string}] }
  */
-const Field = ({ id, field, value: currentValue, onChange, onValidate }) => {
+const Field = ({ id, field, value: currentValue, onChange, onValidate, showErrorFeedback }) => {
   const {
     label,
     name,
@@ -28,8 +28,9 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate }) => {
     render,
   } = field;
 
+  const isError = showFieldError(field);
   const className = classNamesDedupe(field.className, {
-    "form-field--is-error": showFieldError(field),
+    "form-field--is-error": isError,
     "form-field--full-width": field.fullWidth,
   });
   const wrapperClassname = classNamesDedupe(field.wrapperClassname, {
@@ -78,11 +79,17 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate }) => {
           }}
           value={currentValue}
           className={className}
+          {...extendedProps || {}}
         />
       );
       break;
     case "custom":
-      Input = render ? render(currentValue, showFieldError(field), onChange, onValidate) : null;
+      Input = render
+        ? useMemo(() => render(currentValue, isError, onChange, onValidate), [
+            currentValue,
+            isError,
+          ])
+        : null;
       break;
     default:
       return null;
@@ -96,9 +103,7 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate }) => {
         </label>
       )}
       {Input}
-      {!field.hideFeedback && showFieldError(field) && (
-        <div className="form-feedback--error">{field.error}</div>
-      )}
+      {showErrorFeedback && isError && <div className="form-feedback--error">{field.error}</div>}
     </>
   );
   return wrapperClassname ? <div className={wrapperClassname}>{Field}</div> : Field;
@@ -110,5 +115,6 @@ Field.propTypes = {
   value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
   onValidate: PropTypes.func.isRequired,
+  showErrorFeedback: PropTypes.bool,
 };
 export default Field;

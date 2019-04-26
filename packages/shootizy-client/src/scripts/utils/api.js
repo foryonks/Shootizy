@@ -31,7 +31,7 @@ const fetchApi = (path, options) => {
     // By default 404 is considered as a resolved request in REST, we force to reject
     if (!res.ok || res.status === 404) {
       const resBody = res.json ? await res.json() : res;
-      return Promise.resolve(resBody);
+      return Promise.reject(resBody);
     } else {
       return Promise.resolve(res);
     }

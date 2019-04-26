@@ -2,7 +2,7 @@ import React from "react";
 import { string } from "prop-types";
 import "./HeaderImage.scss";
 import HeaderImageMask from "../HeaderImageMask";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 /**
  * Affiche un header avec une image de fond et un texte qui peut être custom
@@ -24,9 +24,9 @@ const HeaderImage = ({ src, preTitle, title, buttonLink, buttonText, className, 
           {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
           {title && <h2 className="title bigTitle">{title}</h2>}
           {buttonLink && (
-            <Link to={buttonLink} className="btn-green">
+            <NavLink to={buttonLink} className="header-image__btn-link btn-green">
               {buttonText}
-            </Link>
+            </NavLink>
           )}
         </div>
       )}

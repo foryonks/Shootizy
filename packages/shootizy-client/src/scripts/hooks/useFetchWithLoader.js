@@ -21,7 +21,8 @@ export default (
       setLoading(false);
       return result;
     } catch (e) {
-      setError(error.isCustomError ? error.message : defaultErrorMessage);
+      console.log();
+      setError(e.isCustomError ? e.message : defaultErrorMessage);
       setLoading(false);
       throw e;
     }

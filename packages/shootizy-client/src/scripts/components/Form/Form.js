@@ -125,6 +125,7 @@ const Form = ({
   fields,
   submitBtn,
   action,
+  showFieldErrorFeedback,
   errorMessage,
   successMessage,
   onSuccess,
@@ -141,14 +142,14 @@ const Form = ({
     resetForm();
   }, [fields]);
 
-  const handleFieldChange = (name, value) => {
+  const handleFieldChange = useCallback((name, value) => {
     setFormData(currentForm => {
       const newFormData = updateFormField(currentForm, name, value);
       return newFormData;
     });
-  };
+  }, []);
 
-  const hanldeFieldValidate = name => {
+  const hanldeFieldValidate = useCallback(name => {
     setFormData(currentForm => {
       const { updatedField } = validateField(currentForm[name]);
       return {
@@ -156,7 +157,7 @@ const Form = ({
         [name]: updatedField,
       };
     });
-  };
+  }, []);
 
   const handleSubmit = async ev => {
     ev.preventDefault();
@@ -202,6 +203,7 @@ const Form = ({
               value={formData[field.name].value}
               onChange={handleFieldChange}
               onValidate={hanldeFieldValidate}
+              showErrorFeedback={showFieldErrorFeedback}
             />
           );
         })}
@@ -212,9 +214,9 @@ const Form = ({
           label={submitBtn.label}
           wrapper={submitBtn.wrapper}>
           {submitted && successMessage && (
-            <p className="form-feedback--success">{successMessage}</p>
+            <div className="form-feedback--success">{successMessage}</div>
           )}
-          {error && <p className="form-feedback--error">{error}</p>}
+          {error && <div className="form-feedback--error">{error}</div>}
         </FormAction>
       </form>
     )
@@ -231,6 +233,7 @@ Form.propTypes = {
   errorMessage: PropTypes.string,
   successMessage: PropTypes.string,
   submitBtn: PropTypes.object,
+  showFieldErrorFeedback: PropTypes.bool,
 };
 
 Form.defaultProps = {
@@ -238,6 +241,7 @@ Form.defaultProps = {
   submitBtn: { label: "Envoyer", className: "btn-green" },
   errorMessage: "Une erreur est survenue, veuillez réessayer plus tard !",
   successMessage: "Votre demande sera traitée prochainement, merci !",
+  showFieldErrorFeedback: true,
 };
 
 export default Form;

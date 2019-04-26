@@ -6,6 +6,8 @@ import Form from "scripts/components/Form";
 
 import "./Add.scss";
 
+const TODAY = new Date();
+
 const FORM_FIELDS = [
   { type: "text", name: "name", label: "Votre nom et prénom", isRequired: true },
   {
@@ -14,6 +16,9 @@ const FORM_FIELDS = [
     label: "Date de votre shooting",
     isRequired: true,
     fullWidth: true,
+    props: {
+      maxDate: TODAY,
+    },
   },
   {
     type: "custom",
@@ -21,12 +26,15 @@ const FORM_FIELDS = [
     label: "Votre avis",
     value: MAX_SCORE,
     isRequired: true,
-    render: (value, isError, onChange) => {
+    render: (value, isError, onChange, onValidate) => {
       return (
         <RatingScore
           score={value}
-          className={!value && isError ? "form-field--is-error" : ""}
-          onItemClick={score => onChange("score", score)}
+          className={isError ? "form-field--is-error" : ""}
+          onItemClick={score => {
+            onChange("score", score);
+            onValidate("score");
+          }}
         />
       );
     },

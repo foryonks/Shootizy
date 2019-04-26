@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 //import PropTypes from "prop-types";
 import Logo from "../../Header/Logo";
 import "./FooterBottom.scss";
@@ -152,9 +154,9 @@ const FooterBottom = props => (
       <div className="col follow-us">
         <h3 className="title">Suivez-nous !</h3>
         <SocialButtons />
-        <a href="/" className="btn-green btn-small">
+        <Link to="/booking" className="btn-green btn-small">
           Réserver mon Shooting
-        </a>
+        </Link>
       </div>
     </div>
   </div>

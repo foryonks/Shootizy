@@ -33,7 +33,7 @@ routes.post(
   "/",
   asyncRouteWrapper(async (req, res) => {
     const { name, score, comment, shootingDate } = req.body;
-    const rating = await ratingService.create(name, score, comment, shootingDate);
+    const rating = await ratingService.create(name, score, comment, new Date(shootingDate));
     res.json(rating);
   })
 );

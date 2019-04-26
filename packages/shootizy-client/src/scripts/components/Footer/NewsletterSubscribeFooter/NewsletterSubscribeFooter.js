@@ -11,7 +11,6 @@ const FORM_FIELDS = [
     name: "email",
     placeholder: "ex : julien@yahoo.fr",
     isRequired: true,
-    hideFeedback: true,
   },
 ];
 const FORM_SUBMIT_BTN = {
@@ -34,6 +33,7 @@ const NewsletterSubscribeFooter = props => (
           submitBtn={FORM_SUBMIT_BTN}
           action="/api/newsletter"
           successMessage="Merci pour votre souscription !"
+          showFieldErrorFeedback={false}
         />
       </div>
     </div>

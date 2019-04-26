@@ -3,7 +3,6 @@
  * @param {Array} array
  * @returns Array
  */
-
 export const keyfix = array => {
   array.forEach((item, i) => {
     item.key = `${i}-${~~(Math.random() * 10000000)}`;
@@ -31,3 +30,11 @@ export const toMatrix = (myArr, width, { transform = item => item, fill = false 
   }
   return myArr;
 };
+
+/**
+ * Get formated date string without timezone
+ * @param {Date} date
+ * @return {string} yyyy-mm-dd
+ */
+export const getDateWithoutTimeZone = date =>
+  `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;

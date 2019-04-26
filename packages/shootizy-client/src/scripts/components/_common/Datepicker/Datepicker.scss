@@ -1,7 +1,15 @@
+@import "~styles/variables";
+
 .date-picker {
   &.form-field--full-width {
     display: block;
     width: 100%;
+
+    .react-date-picker__calendar,
+    .react-calendar {
+      width: 100%;
+      max-width: 100%;
+    }
   }
   &.form-field--is-error {
     border: 0 !important;
@@ -25,5 +33,25 @@
       padding: 0;
       border-color: transparent;
     }
+  }
+
+  .react-date-picker__calendar {
+    box-shadow: $big-shadow;
+    top: 100% !important;
+    bottom: unset !important;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+
+    .react-calendar {
+      border: 0;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      // IE again, can't make overflow: hidden in parent
+      overflow: hidden;
+    }
+  }
+  .react-calendar__tile--active {
+    background-color: $btn-green-bg-color;
+    color: #000;
   }
 }

@@ -14,6 +14,41 @@ const formatDecimal = (number, places = NB_PLACES_DECIMAL_MAX) =>
       : 0
     : NaN;
 
+/**
+ * Check if date is valid
+ * @param {*} date
+ * @returns {boolean}
+ */
+const isValidDate = date => !!date && date instanceof Date && !isNaN(date);
+
+/**
+ * Get UTC date
+ * @param {Date} date
+ * @returns {Date}
+ */
+const getUTCDate = date => {
+  return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+};
+
+/**
+ * Get today UTC date
+ * @returns {Date}
+ */
+const getTodayUTCDate = () => {
+  const today = new Date();
+  return getUTCDate(today);
+};
+
+/**
+ * Add leading zero for date
+ * @param {[string|number]} value
+ */
+const addLeadingZero = value => (Number(value) < 10 ? `0${value}` : value);
+
 module.exports = {
   formatDecimal,
+  isValidDate,
+  getUTCDate,
+  getTodayUTCDate,
+  addLeadingZero,
 };

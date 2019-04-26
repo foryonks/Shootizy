@@ -11,6 +11,7 @@ import SurMesure from "scripts/components/Home/SurMesure";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import BlogSmall from "scripts/components/Home/BlogSmall";
 import Footer from "scripts/components/Footer";
+import Booking from "scripts/components/Booking";
 
 //TO-DO Make your own component
 const SampleComponent = () => <div>TO-DO</div>;
@@ -27,6 +28,7 @@ const Public = () => (
       <Route path="/notre-book" component={SampleComponent} />
       <Route path="/produit/:productId" component={Product} />
       <Route path="/avis-clients" component={CustomerRating} />
+      <Route path="/booking" component={Booking} />
       <Redirect from="/" to="/accueil" />
     </Switch>
     <ShootizyTarifs />

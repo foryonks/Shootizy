@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Interweave from "interweave";
 import Icon from "../../Icon";
 import { keyfix } from "../../../utils/utils";
@@ -43,9 +44,9 @@ const CommentCaMarche = ({ className }) => (
       ))}
     </ul>
     <p>
-      <a className="btn-green" href="/shooting">
+      <Link className="btn-green" to="/booking">
         Je réserve mon Shooting
-      </a>
+      </Link>
     </p>
   </section>
 );

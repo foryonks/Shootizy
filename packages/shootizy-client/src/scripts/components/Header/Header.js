@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import TopHeader from "./TopHeader";
 import NavBar from "./NavBar";
 import Logo from "./Logo";
@@ -35,7 +37,9 @@ const Header = (props, ref) => {
           <Logo />
           <span className="navigation">
             <NavBar />
-            <button className="btn-big">Réserver mon Shooting</button>
+            <Link to="/booking" className="btn-big">
+              Réserver mon Shooting
+            </Link>
           </span>
         </div>
       </div>

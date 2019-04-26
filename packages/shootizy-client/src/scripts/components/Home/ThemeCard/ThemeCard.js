@@ -22,7 +22,7 @@ const stopPropagation = e => {
 };
 
 const ThemeCard = ({ productId, image, title, sharelink, price, description, history }) => {
-  const bookingLink = `/booking/${productId}`;
+  const bookingLink = `/produit/${productId}/booking`;
   const productLink = `/produit/${productId}`;
 
   return (

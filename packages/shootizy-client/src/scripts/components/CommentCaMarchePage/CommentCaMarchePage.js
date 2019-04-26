@@ -1,7 +1,10 @@
 import React from "react";
-import "./CommentCaMarchePage.scss";
+import { Link } from "react-router-dom";
+
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import HeaderCards from "scripts/components/_common/HeaderCards";
+
+import "./CommentCaMarchePage.scss";
 
 const headerData = [
   {
@@ -50,9 +53,9 @@ const CommentCaMarchePage = props => (
     </div>
 
     <p className="button-container-centered">
-      <a href="/booking" className="btn-green">
+      <Link to="/booking" className="btn-green">
         Réserver ma séance
-      </a>
+      </Link>
     </p>
   </article>
 );

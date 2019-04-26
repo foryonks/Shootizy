@@ -9,8 +9,14 @@ const CONTENTS_CACHE = {};
  * @param {string} apiPath remote api for fetching
  * @param {*} [initialState]
  * @param {boolean} [autoLoad]
+ * @param {boolean} [defaultUseCache] use cache on init
  */
-const useRemoteContents = (apiPath, initialState = null, autoLoad = true) => {
+const useRemoteContents = (
+  apiPath,
+  initialState = null,
+  autoLoad = true,
+  defaultUseCache = true
+) => {
   const [loading, setLoading] = useState(!!autoLoad);
   const [contents, setContents] = useState(initialState);
   const load = useCallback(
@@ -26,6 +32,7 @@ const useRemoteContents = (apiPath, initialState = null, autoLoad = true) => {
         }
         setContents(newContents);
       } catch (e) {
+        setContents(initialState);
       } finally {
         setLoading(false);
       }
@@ -34,7 +41,7 @@ const useRemoteContents = (apiPath, initialState = null, autoLoad = true) => {
   );
   useEffect(() => {
     if (autoLoad) {
-      load(true);
+      load(defaultUseCache);
     }
   }, [apiPath]);
 

@@ -29,16 +29,17 @@ const usePagination = (list, defaultLimit = 5) => {
   const getCurrentPage = () => list.slice(offset, Math.min(offset + limit, list.length));
 
   const PaginationComponent = useMemo(
-    () => (
-      <Pagination
-        total={list.length}
-        limit={limit}
-        offset={offset}
-        onNextClick={handleNextClick}
-        onPreviousClick={handlePreviousClick}
-        onPageClick={handlePageClick}
-      />
-    ),
+    () =>
+      list.length > defaultLimit && (
+        <Pagination
+          total={list.length}
+          limit={limit}
+          offset={offset}
+          onNextClick={handleNextClick}
+          onPreviousClick={handlePreviousClick}
+          onPageClick={handlePageClick}
+        />
+      ),
     [list, limit, offset]
   );
 

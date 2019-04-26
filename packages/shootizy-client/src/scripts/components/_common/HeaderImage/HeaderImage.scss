@@ -33,3 +33,9 @@
     font-weight: 500;
   }
 }
+
+.header-image__btn-link {
+  &.active {
+    display: none;
+  }
+}

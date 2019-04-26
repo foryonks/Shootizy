@@ -1,6 +1,6 @@
 const mongoDb = require("db");
 const { CustomError } = require("api/api.errors");
-const { formatDecimal } = require("utils");
+const { formatDecimal, isValidDate } = require("utils");
 const formatEntry = ({ _id, shootingDate, ...others }) => ({
   ratingId: _id,
   //TO-DO: may be moment js ???
@@ -54,11 +54,11 @@ const getAverageScore = async () => {
  * @param {string} name
  * @param {number} score
  * @param {string} comment
- * @param {date} shootingDate
+ * @param {Date} shootingDate
+ * @returns {object} newly created entry
  */
 const create = async (name, score, comment, shootingDate) => {
-  if (!name || !score || !comment || !shootingDate) {
-    //TO-DO Check shooting date valid
+  if (!name || !score || !comment || !isValidDate(shootingDate)) {
     throw new CustomError("Input error", 400);
   }
 
@@ -66,7 +66,7 @@ const create = async (name, score, comment, shootingDate) => {
 
   const result = await db.collection("ratings").insertOne({
     date: new Date(),
-    shootingDate: new Date(shootingDate),
+    shootingDate: shootingDate,
     name,
     score,
     comment,

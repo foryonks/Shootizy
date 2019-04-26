@@ -63,12 +63,16 @@ db.contents.insert([
     items: [
       {
         title: "Léa est venue chez nous<br><strong>pour ses 24 Printemps !</strong>",
+        contentLink: "/produit/produit-theme-fete",
+        buttonLink: "/booking",
         buttonText: "Je réserve mon Shooting",
         text: "Avec Shootizy payez seulement les photos que vous aimez !",
         img: "/assets/photos/visuel1.jpg",
       },
       {
         title: "Relancer sa carrière avec<br><strong>Shootizy, c'est so Easy !</strong>",
+        contentLink: "/produit/produit-theme-carriere",
+        buttonLink: "/booking",
         buttonText: "Je réserve mon Shooting",
         text: "Avec Shootizy payez seulement les photos que vous aimez !",
         img: "/assets/photos/visuel2.jpg",
