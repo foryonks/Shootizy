@@ -37,7 +37,7 @@ const Product = ({ match }) => {
             <Interweave content={description} />
           </div>
 
-          <div className="button">
+          <div className="button-container-centered">
             <Link to={bookingLink} className="btn-green">
               Je réserve mon Shooting
             </Link>
