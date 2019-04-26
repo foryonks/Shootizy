@@ -14,7 +14,7 @@ const ThemesNavigation = ({ showImage }) => {
     <ul className="ThemesNavigation container-2">
       {list.map(({ title, image, productId }, index) => (
         <li key={index}>
-          <NavLink to={`/produit/${productId}`}>
+          <NavLink to={`/shooting-studio/${productId}`}>
             {showImage && <img src={image} alt="" />} {title}
           </NavLink>
         </li>

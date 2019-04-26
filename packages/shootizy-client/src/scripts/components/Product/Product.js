@@ -19,7 +19,7 @@ const Product = ({ match }) => {
 
   const { productId, imageLarge, title, descTitle, description, gallery } = product;
 
-  const bookingLink = `/produit/${productId}/booking`;
+  const bookingLink = `/shooting-studio/${productId}/booking`;
 
   return (
     <div className="ProductPage">
@@ -34,7 +34,7 @@ const Product = ({ match }) => {
 
       <Switch>
         <Route
-          path="/produit/:productId/booking"
+          path="/shooting-studio/:productId/booking"
           render={() => (
             <div className="container container-2">
               <h2 className="title">Réservez votre séance</h2>
@@ -46,7 +46,7 @@ const Product = ({ match }) => {
         />
         <Route
           exact
-          path="/produit/:productId"
+          path="/shooting-studio/:productId"
           render={() => (
             <div className="page-content">
               <ThemesNavigation />
@@ -71,7 +71,7 @@ const Product = ({ match }) => {
             </div>
           )}
         />
-        <Redirect to="/produit/:productId" />
+        <Redirect to="/shooting-studio/:productId" />
       </Switch>
     </div>
   );

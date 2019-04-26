@@ -12,6 +12,7 @@ import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import BlogSmall from "scripts/components/Home/BlogSmall";
 import Footer from "scripts/components/Footer";
 import Booking from "scripts/components/Booking";
+import ShootingStudio from "../../components/ShootingStudio/ShootingStudio";
 
 //TO-DO Make your own component
 const SampleComponent = () => <div>TO-DO</div>;
@@ -22,18 +23,19 @@ const Public = () => (
     <Switch>
       <Route path="/accueil" component={Home} />
       <Route path="/comment-ca-marche" component={CommentCaMarchePage} />
-      <Route path="/shooting-studio" component={SampleComponent} />
+
       <Route path="/shooting-sur-mesure" component={SampleComponent} />
       <Route path="/tarifs" component={SampleComponent} />
       <Route path="/notre-book" component={SampleComponent} />
-      <Route path="/produit/:productId" component={Product} />
+      <Route path="/shooting-studio/:productId" component={Product} />
+      <Route path="/shooting-studio" component={ShootingStudio} />
       <Route path="/avis-clients" component={CustomerRating} />
       <Route path="/booking" component={Booking} />
       <Redirect from="/" to="/accueil" />
     </Switch>
     <ShootizyTarifs />
     <div className="page-section section-container">
-      <Themes />
+      <Themes locationHideRegex={/shooting-studio/} />
       <SurMesure />
     </div>
     <VenirAuStudio />

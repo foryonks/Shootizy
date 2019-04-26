@@ -22,8 +22,8 @@ const stopPropagation = e => {
 };
 
 const ThemeCard = ({ productId, image, title, sharelink, price, description, history }) => {
-  const bookingLink = `/produit/${productId}/booking`;
-  const productLink = `/produit/${productId}`;
+  const bookingLink = `/shooting-studio/${productId}/booking`;
+  const productLink = `/shooting-studio/${productId}`;
 
   return (
     <div
