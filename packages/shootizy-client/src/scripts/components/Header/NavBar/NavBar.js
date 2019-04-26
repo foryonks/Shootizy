@@ -5,7 +5,7 @@ import ThemesNavigation from "scripts/components/Product/ThemesNavigation/Themes
 const NAV_LINKS = [
   { path: "/comment-ca-marche", title: "Comment ça marche ?" },
   {
-    path: "/produit",
+    path: "/shooting-studio",
     title: "Shooting Studio",
     subNav: (
       <div className="sub-nav-content">
