@@ -11,7 +11,7 @@ import "./Booking.scss";
 const ITEMS_PER_PAGE = 3;
 
 const Booking = () => {
-  const { contents: reservations, load: reloadList } = useRemoteContents(
+  const { contents: reservations, loading: loadingList, load: reloadList } = useRemoteContents(
     `/api/booking/reservations`,
     []
   );
@@ -35,6 +35,12 @@ const Booking = () => {
 
   return (
     <div className="container container-2">
+      <p>
+        {!loadingList && !reservations.length
+          ? "Aucune réservation à venir"
+          : "Les réservations à venir :"}
+      </p>
+
       <ul className="booking-list">
         {getCurrentPage().map(({ bookingId, name, email, product, date, startTime, endTime }) => (
           <li
