@@ -20,9 +20,36 @@ const listReservations = async () => {
   const db = await mongoDb.getInstance();
   const list = await db
     .collection("bookings")
-    .find({
-      startDate: { $gte: getTodayUTCDate() },
-    })
+    .aggregate([
+      {
+        $match: { startDate: { $gte: getTodayUTCDate() } },
+      },
+      {
+        $lookup: {
+          from: "products",
+          localField: "productId",
+          foreignField: "productId",
+          as: "product",
+        },
+      },
+      {
+        $unwind: {
+          path: "$product",
+          preserveNullAndEmptyArrays: true,
+        },
+      },
+      {
+        $project: {
+          "product._id": 0,
+          "product.tags": 0,
+          "product.gallery": 0,
+          "product.descTitle": 0,
+          "product.description": 0,
+          "product.price": 0,
+        },
+      },
+    ])
+    .sort({ startDate: 1 })
     .toArray();
 
   return list.map(formatEntry);
@@ -87,7 +114,7 @@ const getUTCBookingDate = (date, startTime, endTime) => {
 };
 
 /**
- * Create reservation
+ * Create a reservation
  * @param {object} reservation to be created
  * @returns {object} newly created reservation
  */
@@ -137,8 +164,20 @@ const createReservation = async reservation => {
   return formatEntry(rating);
 };
 
+/**
+ * Cancel a reservation
+ * @param {string} bookingId
+ */
+const cancelReservation = async bookingId => {
+  const db = await mongoDb.getInstance();
+  db.collection("bookings").remove({
+    _id: mongoDb.getObjectId(bookingId),
+  });
+};
+
 module.exports = {
   listReservations,
   listAvailability,
   createReservation,
+  cancelReservation,
 };

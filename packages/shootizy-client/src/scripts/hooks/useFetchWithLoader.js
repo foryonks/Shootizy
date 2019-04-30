@@ -21,10 +21,9 @@ export default (
       setLoading(false);
       return result;
     } catch (e) {
-      console.log();
       setError(e.isCustomError ? e.message : defaultErrorMessage);
       setLoading(false);
-      throw e;
+      return Promise.reject(e);
     }
   }, []);
 

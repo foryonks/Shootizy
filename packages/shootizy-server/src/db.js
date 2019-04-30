@@ -1,4 +1,4 @@
-const MongoClient = require("mongodb").MongoClient;
+const { MongoClient, ObjectID } = require("mongodb");
 const logger = require("logger");
 
 let instance;
@@ -14,4 +14,6 @@ const getInstance = async () => {
   return instance;
 };
 
-module.exports = { getInstance };
+const getObjectId = _id => new ObjectID(_id);
+
+module.exports = { getInstance, getObjectId };

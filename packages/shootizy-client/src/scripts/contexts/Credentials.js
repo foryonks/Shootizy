@@ -36,7 +36,7 @@ const CredentialsProvider = ({ children }) => {
     if (token || process.env.REACT_APP_USE_DEV_TOKEN === "true") {
       (async () => {
         try {
-          const user = await fetchJson("/api/user/me");
+          const user = await fetchJson("/api/user/me", null, false);
           dispatch({
             type: ACTIONS.USER_LOGGED_IN,
             token,

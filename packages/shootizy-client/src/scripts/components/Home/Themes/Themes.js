@@ -35,7 +35,7 @@ const Themes = ({ location, locationHideRegex }) => {
   );
 };
 Themes.propTypes = {
-  locationHideRegex: PropTypes.bool,
+  locationHideRegex: PropTypes.any,
 };
 
 Themes.defaultProps = {

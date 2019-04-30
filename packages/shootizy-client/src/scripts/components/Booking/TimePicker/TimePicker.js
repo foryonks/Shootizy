@@ -5,7 +5,7 @@ import classNamesDedupe from "classnames/dedupe";
 import Datepicker from "scripts/components/_common/Datepicker";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import useToggleState from "scripts/hooks/useToggleState";
-import { getDateWithoutTimeZone } from "scripts/utils/utils";
+import { getDateWithoutTimeZone, getDateStr } from "scripts/utils/utils";
 
 import "./TimePicker.scss";
 
@@ -78,7 +78,7 @@ const TimePicker = ({ className, onChange }) => {
                 "time-picker-popover--open": isOpen,
               })}>
               <div className="time-picker-popover__contents">
-                <h3>{date.toLocaleDateString("fr-FR")}</h3>
+                <h3>{getDateStr(date)}</h3>
                 {loading ? (
                   <div className="time-picker-popover__info">Chargement...</div>
                 ) : !timetable.length ? (

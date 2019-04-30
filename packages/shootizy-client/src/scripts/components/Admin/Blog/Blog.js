@@ -22,7 +22,7 @@ const Blog = () => {
     <div className="container container-2">
       <ul className="blog-list">
         {data.map(({ title, image, description, id }) => (
-          <li className="blog-list__item card card-simple card-shadow" key={id}>
+          <li className="blog-list__item card card-simple card-shadow card-margin" key={id}>
             <img className="mea-img" src={image} alt="blog" />
             <div className="mea-desc">
               <h4>{title}</h4>

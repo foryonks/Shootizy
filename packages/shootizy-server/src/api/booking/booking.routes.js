@@ -37,6 +37,19 @@ routes.post(
 );
 
 /**
+ * Create new reservation
+ */
+routes.delete(
+  "/reservations/:bookingId",
+  loginMiddleware.checkLogin(true),
+  asyncRouteWrapper(async (req, res) => {
+    const { bookingId } = req.params;
+    await bookingService.cancelReservation(bookingId);
+    res.json({ bookingId });
+  })
+);
+
+/**
  * List availability for given date
  */
 routes.get(

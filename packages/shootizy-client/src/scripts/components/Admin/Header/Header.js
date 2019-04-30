@@ -5,9 +5,10 @@ import Logo from "scripts/components/Header/Logo";
 import "./Header.scss";
 
 const NAV_LINKS = [
-  { path: "/admin/blog", title: "Gestion du blog" },
-  { path: "/admin/contents", title: "Gestion des contenus" },
-  { path: "/admin/ratings", title: "Gestion des avis clients" },
+  { path: "/admin/booking", title: "Réservations" },
+  { path: "/admin/blog", title: "Blog" },
+  { path: "/admin/contents", title: "Contenus" },
+  { path: "/admin/ratings", title: "Avis clients" },
 ];
 const Header = props => (
   <header className="admin-header">

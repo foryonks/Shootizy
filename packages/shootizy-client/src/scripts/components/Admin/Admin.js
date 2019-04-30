@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "./Header";
 import Blog from "./Blog";
+import Booking from "./Booking";
 
 import "./Admin.scss";
 
@@ -14,10 +15,11 @@ const Admin = () => {
       <Header />
       <div className="admin-home__body">
         <Switch>
+          <Route path="/admin/booking" component={Booking} />
           <Route path="/admin/blog" component={Blog} />
           <Route path="/admin/contents" component={SampleComponent} />
           <Route path="/admin/ratings" component={SampleComponent} />
-          <Redirect to="/admin/blog" />
+          <Redirect to="/admin/booking" />
         </Switch>
       </div>
     </div>
