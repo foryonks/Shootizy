@@ -35,7 +35,7 @@ const Public = () => (
     </Switch>
     <ShootizyTarifs />
     <div className="page-section section-container">
-      <Themes locationHideRegex={/shooting-studio/} />
+      <Themes locationHideRegex={/shooting-studio\/?$/} />
       <SurMesure />
     </div>
     <VenirAuStudio />
