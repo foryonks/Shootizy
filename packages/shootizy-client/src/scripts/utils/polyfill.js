@@ -7,10 +7,10 @@ if (!Array.prototype.find) {
         throw new TypeError('"this" is null or not defined');
       }
 
-      var o = Object(this);
+      let o = Object(this);
 
       // 2. Let len be ? ToLength(? Get(O, "length")).
-      var len = o.length >>> 0;
+      const len = o.length >>> 0;
 
       // 3. If IsCallable(predicate) is false, throw a TypeError exception.
       if (typeof predicate !== "function") {
@@ -18,10 +18,10 @@ if (!Array.prototype.find) {
       }
 
       // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
-      var thisArg = arguments[1];
+      let thisArg = arguments[1];
 
       // 5. Let k be 0.
-      var k = 0;
+      let k = 0;
 
       // 6. Repeat, while k < len
       while (k < len) {
@@ -45,6 +45,7 @@ if (!Array.prototype.find) {
   });
 }
 
+/** Object.values polyfill */
 if (!Object.values) {
   Object.values = function(obj) {
     var res = [];
@@ -55,4 +56,36 @@ if (!Object.values) {
     }
     return res;
   };
+}
+
+if (!Array.prototype.fillMultiple) {
+  Object.defineProperty((Array || {}).prototype, "fillMultiple", {
+    value: function(number, fill) {
+      // 1. Let O be ? ToObject(this value).
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
+
+      let o = Object(this);
+
+      // 2. Let len be ? ToLength(? Get(O, "length")).
+      const len = o.length >>> 0;
+
+      // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+      const cloned = this.slice();
+
+      const modulo = len % number;
+      if (modulo > 0) {
+        let addLen = number - modulo;
+        for (let i = 0; i < addLen; i++) {
+          cloned.push(fill || {});
+        }
+      }
+
+      // 7. Return undefined.
+      return cloned;
+    },
+    configurable: true,
+    writable: true,
+  });
 }

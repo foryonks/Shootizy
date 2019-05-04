@@ -46,3 +46,21 @@ export const getDateWithoutTimeZone = date =>
  */
 export const getDateStr = date =>
   (date instanceof Date ? date : new Date(date)).toLocaleDateString("fr-FR");
+
+/**
+ * Return clean string without html and trucate by number
+ * @param {string} str
+ * @param {number} length
+ */
+
+export const sliceAndRemoveHTML = (str, length) => {
+  const div = document.createElement("div");
+  div.innerHTML = str;
+  const text = div.textContent;
+  return text.length > length
+    ? text
+        .split(" ")
+        .slice(0, length)
+        .join(" ") + "..."
+    : text;
+};

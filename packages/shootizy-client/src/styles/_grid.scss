@@ -64,27 +64,20 @@
 
 //TO-DO Temporary, may be you should do with col rather than row
 $nb-cols: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+$nb-cols-len: length($nb-cols);
 @each $nb in $nb-cols {
   .row-#{$nb} > * {
     width: #{100 / $nb - 1}% !important;
   }
   .row > .col-#{$nb} {
-    width: #{100 * $nb/12 - 1}% !important;
+    width: #{100 * $nb/$nb-cols-len - 1}% !important;
   }
 }
-// .row-3 > * {
-//   width: 32%;
-// }
 
-// /***********
-// * col
-// ************/
-
-// .row-2 {
 //   > .col {
 //     width: 48%;
 //   }
-// }
+//
 
 /***********
 * CARD

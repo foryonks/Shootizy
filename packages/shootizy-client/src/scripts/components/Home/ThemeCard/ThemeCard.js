@@ -3,19 +3,8 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import FacebookShareButton from "scripts/components/_common/FacebookShareButton";
 import Icon from "../../Icon";
-
+import { sliceAndRemoveHTML } from "scripts/utils/utils.js";
 import "./ThemeCard.scss";
-
-function sliceAndRemoveHTML(str) {
-  const div = document.createElement("div");
-  div.innerHTML = str;
-  return (
-    div.textContent
-      .split(" ")
-      .slice(0, 25)
-      .join(" ") + "..."
-  );
-}
 
 const stopPropagation = e => {
   e.stopPropagation();
@@ -41,7 +30,7 @@ const ThemeCard = ({ productId, image, title, sharelink, price, description, his
         </div>
         <h4 className="ThemeCard-title">{title}</h4>
         <div className="ThemeCard-description">
-          {sliceAndRemoveHTML(description)}
+          {sliceAndRemoveHTML(description, 25)}
           {"\xA0"}
           <Link className="read-more" to={productLink} onClick={stopPropagation}>
             Lire la suite
