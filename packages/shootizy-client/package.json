@@ -20,23 +20,23 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "cross-env": "^5.2.0",
     "destyle": "^0.3.1",
     "destyle.css": "^1.0.5",
     "interweave": "^10.1.3",
     "lodash.throttle": "^4.1.1",
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.5",
     "react-app-polyfill": "^0.2.2",
     "react-date-picker": "^7.5.0",
     "react-dom": "^16.8.5",
     "react-helmet": "^5.2.0",
+    "react-lazyload": "^2.5.0",
     "react-responsive-carousel": "^3.1.47",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
-    "cross-env": "^5.2.0",
-    "node-sass": "^4.11.0",
-    "npm-run-all": "^4.1.5"
+    "react-scripts": "2.1.8"
   },
-
   "devDependencies": {
     "dom-parser": "^0.1.5",
     "node-watch": "^0.6.0"

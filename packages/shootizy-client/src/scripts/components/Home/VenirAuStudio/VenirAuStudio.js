@@ -1,6 +1,7 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import "./VenirAuStudio.scss";
+import LazyLoad from "react-lazyload";
 import Icon from "../../Icon";
 import Form from "scripts/components/Form";
 import metro3 from "../../../../assets/icons-metro/metro-3.svg";
@@ -45,11 +46,13 @@ const VenirAuStudio = props => (
         </div>
         <div className="col googlemaps">
           <div className="googlemaps-content">
-            <iframe
-              title="Googlemaps : 100 rue d'Amsterdam 75009 Paris"
-              src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=fr&amp;q=100%20rue%20d'Amsterdam%2075009%20Paris+(Shootizy)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed"
-              scrolling="no"
-            />
+            <LazyLoad height={200}>
+              <iframe
+                title="Googlemaps : 100 rue d'Amsterdam 75009 Paris"
+                src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=fr&amp;q=100%20rue%20d'Amsterdam%2075009%20Paris+(Shootizy)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed"
+                scrolling="no"
+              />
+            </LazyLoad>
           </div>
         </div>
       </div>

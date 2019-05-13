@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
+
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import HeaderImage from "../_common/HeaderImage";
 import ThemesNavigation from "./ThemesNavigation/ThemesNavigation";
@@ -62,11 +64,13 @@ const Product = ({ match }) => {
                     Je réserve mon Shooting
                   </Link>
                 </div>
-                {gallery && (
-                  <div className="centered-gallery">
-                    <img src={gallery} alt="Gallerie" />
-                  </div>
-                )}
+                <LazyLoad height={400}>
+                  {gallery && (
+                    <div className="centered-gallery">
+                      <img src={gallery} alt="Gallerie" />
+                    </div>
+                  )}
+                </LazyLoad>
               </div>
             </div>
           )}
