@@ -1,0 +1,35 @@
+//TO-DO
+$color-active: inherit;
+
+.rating-score {
+  display: inline-block;
+  .rating-score__item {
+    margin-left: 4px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &--editable {
+    cursor: pointer;
+
+    .rating-score__item {
+      margin: 0px;
+      // Avoid blink effect between star
+      padding-right: 4px;
+    }
+    &:hover {
+      .rating-score__item {
+        svg {
+          fill: currentColor;
+        }
+        &:hover {
+          ~ .rating-score__item svg {
+            fill: transparent;
+          }
+        }
+      }
+    }
+  }
+}

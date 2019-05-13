@@ -1,0 +1,166 @@
+@import "../../../../styles/functions";
+
+$buttons-right-margin: 74px;
+
+body {
+  .BlogSmall {
+    background: url("/assets/design/fond-le-blog.jpg") center center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    .description {
+      text-align: center;
+      margin-top: 12px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      font-size: font-size(27);
+    }
+
+    .blog-carousel {
+      margin-top: -40px;
+      margin-bottom: 20px;
+    }
+
+    .BlogSmall-title {
+      text-align: center;
+    }
+
+    .slider-wrapper {
+      padding-top: 55px;
+      padding-bottom: 60px;
+    }
+
+    .carousel {
+      /** Le container principal des fleches fait la largeur de la page,
+    mais afin de contenir les flèches dans une zone précise, j'ai du faire un calcul sioux
+    */
+      .control-arrow {
+        background: #000;
+        border-radius: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 33px;
+        margin-left: auto;
+        margin-right: -$container-2-width/2 + $buttons-right-margin;
+        opacity: 1;
+        padding: 0;
+        left: auto;
+        right: 50%;
+        top: 0;
+        width: 33px;
+        color: #fff;
+        font-size: 15px;
+      }
+
+      .control-prev {
+        transform: translateX(-40px);
+        &:before {
+          transform: translateX(-10%);
+        }
+      }
+
+      .control-next:before {
+        transform: translateX(10%);
+      }
+
+      .slide {
+        background: none;
+      }
+
+      .slideRow {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+
+        .carousel-item {
+          width: 48.6%;
+        }
+      }
+    }
+
+    .carousel-item {
+      background: #fff;
+      text-align: left;
+      img {
+        width: auto;
+        max-width: 252px;
+      }
+
+      .mea-desc {
+        padding: 42px 36px 20px;
+      }
+
+      h4 {
+        color: #000;
+        font-size: 25px;
+        font-weight: 500;
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+
+      p {
+        line-height: 1.1;
+        color: $color-grey;
+        min-height: 92px;
+      }
+
+      .link {
+        vertical-align: baseline;
+      }
+    }
+
+    .control-dots .dot {
+      background: black;
+      opacity: 1;
+      box-shadow: none;
+      position: relative;
+      vertical-align: middle;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+
+      &.selected {
+        background: #fff;
+        border: 2px solid #000;
+        width: 20px;
+        height: 20px;
+
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 10px;
+          height: 10px;
+          border-radius: 20px;
+          background: #fff;
+          border: 2px solid #000;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .button-container-centered {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: $container-2-width) {
+  .BlogSmall {
+    .carousel {
+      .control-arrow {
+        left: auto;
+        right: 0;
+      }
+
+      .control-prev {
+        margin-right: 0;
+      }
+    }
+  }
+}

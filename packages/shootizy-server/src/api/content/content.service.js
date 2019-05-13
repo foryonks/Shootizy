@@ -1,4 +1,4 @@
-const _pick = require("lodash/pick");
+const _omit = require("lodash/omit");
 
 const mongoDb = require("db");
 const { CustomError } = require("api/api.errors");
@@ -10,14 +10,14 @@ const { CustomError } = require("api/api.errors");
  */
 const getByContentId = async contentId => {
   const db = await mongoDb.getInstance();
-  const content = await db.collection("htmlContents").findOne({
+  const content = await db.collection("contents").findOne({
     contentId,
   });
 
   if (!content) {
     throw new CustomError("Content not found", 404);
   }
-  return _pick(content, ["contentId", "items"]);
+  return _omit(content, ["_id"]);
 };
 
 /**
@@ -27,11 +27,18 @@ const getByContentId = async contentId => {
  */
 const list = async (filters = {}) => {
   const db = await mongoDb.getInstance();
+
+  let query = {};
+  if (filters.tags) {
+    query.tags = {
+      $in: filters.tags,
+    };
+  }
   const contents = await db
-    .collection("htmlContents")
-    .find(filters)
+    .collection("contents")
+    .find(query)
     .toArray();
-  return contents.map(item => _pick(item, ["contentId", "items"]));
+  return contents.map(item => _omit(item, ["_id"]));
 };
 
 module.exports = {

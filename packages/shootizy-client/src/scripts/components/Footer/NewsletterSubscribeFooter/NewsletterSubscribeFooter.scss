@@ -1,0 +1,29 @@
+/* your css code */
+.NewsletterSubscribeFooter {
+  background: #2ef7cc;
+  padding: 40px 0;
+  .title {
+    margin-bottom: 3px;
+  }
+
+  p {
+    margin: 0;
+  }
+  .row {
+    align-items: center;
+  }
+
+  form input[type="email"] {
+    height: 62px;
+    vertical-align: middle;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    min-width: 344px;
+    padding: 0 15px;
+  }
+
+  .arrow-button {
+    font-size: 1.11em;
+  }
+}

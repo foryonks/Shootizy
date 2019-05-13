@@ -1,72 +1,84 @@
 @import "../../../styles/functions";
 
+@mixin btn-big-hover {
+  background-color: #2ef7cc;
+  border-color: transparent;
+  box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
+}
+$stickyGap: 10px;
 .header {
   position: relative;
-  z-index: 2;
+  z-index: 30;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -36px;
+  min-height: 107px;
+}
+
+.header.sticky {
+  .header-main {
+    position: fixed;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+  }
+
+  .btn-big {
+    background: $btn-green-bg-color;
+    border-color: transparent;
+  }
+}
+
+.header-main {
+  &:before {
+    content: $stickyGap + "";
+    font-size: 0;
+    position: absolute;
+  }
+  align-items: stretch;
+  background: #fff;
+  border-radius: 11px;
+  box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  font-weight: 500;
+  justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
   max-width: 1408px;
-  margin-bottom: -36px;
-}
-
-.header-main {
-  background: #fff;
-  border-radius: 0 11px 11px 0;
-  min-height: 74px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0px 0px 5px 0px rgba(239, 239, 239, 1);
+  min-height: 73px;
   padding: 0 18px 0 21px;
-  justify-content: space-between;
-}
-.logo {
-  img {
-    vertical-align: middle;
-  }
-}
-.logo-text {
-  vertical-align: middle;
-  display: inline-block;
-  width: 120px;
-  font-size: 0.8em;
-  margin-left: 0.8em;
-}
+  position: relative;
+  top: 0;
+  width: 100%;
 
-.header-main {
-  .nav-bar {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .menu {
-    margin-right: 25px;
-    li {
-      margin-left: 24px;
-      font-size: 18px;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  .logo {
+    font-size: font-size(14.8px);
   }
 }
 
 .navigation {
+  display: flex;
+  align-items: stretch;
+
   .btn-big {
-    border: 2px solid #000;
-    border-radius: 26px;
-    min-height: 45px;
-    font-size: font-size(25);
-    line-height: font-size(41);
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 200px;
+    min-height: 1.8em;
+    font-size: font-size(25px);
+    line-height: 1em;
     vertical-align: middle;
-    font-weight: bold;
+    font-weight: 500;
     padding: 0 23px;
     font-family: $font-family;
     text-align: center;
+    transition: 0.2s linear;
+    transition-property: height, width, font-size;
+    align-self: center;
+
+    &:hover {
+      @include btn-big-hover;
+    }
   }
 }

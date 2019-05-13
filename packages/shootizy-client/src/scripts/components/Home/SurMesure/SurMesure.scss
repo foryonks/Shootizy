@@ -1,0 +1,21 @@
+@import "../../../../styles/functions";
+@import "../../../../styles/misc";
+
+.SurMesure {
+  padding-top: 53px;
+  padding-bottom: 54px;
+  margin-top: 70px;
+
+  .SurMesure-title {
+    font-size: font-size(43);
+  }
+
+  .SurMesure-description {
+    @extend .generic-description;
+    margin-bottom: 35px;
+  }
+
+  .button-container-centered {
+    margin-top: 56px;
+  }
+}

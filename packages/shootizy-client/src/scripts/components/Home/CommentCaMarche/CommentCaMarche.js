@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Interweave from "interweave";
 import Icon from "../../Icon";
 import { keyfix } from "../../../utils/utils";
@@ -6,18 +7,18 @@ import { keyfix } from "../../../utils/utils";
 
 const data = keyfix([
   {
-    icon: "star",
+    icon: "calendar",
     title: "Prenez Rendez-vous",
     text:
       "Réservez en ligne la date & l'heure de votre séance photo, 3 clics suffisent. <strong>So easy, so Shootizy</strong>",
   },
   {
-    icon: "star",
+    icon: "during",
     title: "Vivez votre Shooting",
     text: "Au studio, nous révélons <strong>le meilleur de vous-même</strong>",
   },
   {
-    icon: "star",
+    icon: "pics",
     title: "Choisissez vos photos",
     text:
       "Découvez instantanément vos clichés.<br><strong>Achetez seulement ceux que vous aimez</strong>",
@@ -25,8 +26,10 @@ const data = keyfix([
 ]);
 
 const CommentCaMarche = ({ className }) => (
-  <div className={"CommentCaMarche container container-2 " + className}>
-    <h3>Comment ça marche ?</h3>
+  <section className={`CommentCaMarche container container-2 page-section ${className}`}>
+    <h2 className="title">
+      <strong>Comment ça marche ?</strong>
+    </h2>
     <ul className="row row-3">
       {data.map(({ icon, title, text, key }) => (
         <li className="CommentCaMarche-item item-with-arrow card card-with-top-icon" key={key}>
@@ -41,11 +44,11 @@ const CommentCaMarche = ({ className }) => (
       ))}
     </ul>
     <p>
-      <a className="btn-green" href="/shooting">
-        Je réserve mon shooting
-      </a>
+      <Link className="btn-green" to="/booking">
+        Je réserve mon Shooting
+      </Link>
     </p>
-  </div>
+  </section>
 );
 
 CommentCaMarche.propTypes = {

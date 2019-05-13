@@ -1,46 +1,121 @@
 @import "./functions";
 
+$button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
+
 .button-container-centered {
   text-align: center;
 }
 
 .btn-green {
   color: #000;
-  background: #2ef7cc;
+  background: $btn-green-bg-color;
   border: none;
   border-radius: 100px;
   font-size: font-size(25);
   font-family: "Brandon Grotesque", "Myriad Pro", sans-serif;
-  font-weight: bold;
-  padding: 0px 0.5em;
+  font-weight: 500;
+  padding: 0px 1.1em;
   line-height: 1.8;
   display: inline-block;
-  min-width: 12em;
   box-sizing: border-box;
   text-align: center;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025ex;
+
+  &:hover {
+    background-color: $btn-green-hover-bg-color !important;
+    box-shadow: $button-box-shadow !important;
+  }
+
+  &-hover-invert:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: $button-box-shadow;
+  }
 }
 
 .btn-white,
 .btn-white-simple {
+  $h-padding: 30px;
   color: #000;
-  font-weight: bold;
   font-size: font-size(20);
   min-height: 45px;
   display: inline-block;
   vertical-align: middle;
   background: #fff;
+  letter-spacing: -0.05ex;
   border-radius: 20px;
   line-height: 45px;
-  $h-padding: 45px;
   padding-left: $h-padding;
   padding-right: $h-padding;
-  .icon-svg {
-    font-size: 0.8em;
+  font-weight: bold;
+
+  .svg-icon {
+    font-size: 0.7em;
+    margin-right: 0.2em;
+    vertical-align: 0.05em;
+  }
+
+  &:hover {
+    background: #000;
+    color: #fff;
   }
 }
 
 .btn-white-simple {
   padding: 0;
   border: none;
+  font-size: font-size(16px);
+  font-weight: bold;
+  line-height: 1;
+  min-height: 0;
+
+  .svg-icon {
+    font-size: 0.6em;
+    margin-right: 0.3em;
+    vertical-align: 0.05em;
+    //transition: all 0.15s ease-in-out;
+  }
+
+  &:hover {
+    color: #000;
+    background: none;
+    text-decoration: underline;
+  }
+}
+
+.btn-green {
+  .svg-icon {
+    vertical-align: -0.2em;
+    margin-right: 0.3em;
+  }
+}
+
+.btn-small {
+  font-size: font-size(16px);
+  padding: 0.3em 2em;
+
+  .svg-icon {
+    font-size: 0.7em;
+    vertical-align: baseline;
+  }
+}
+
+.btn-fullwitdh {
+  display: block;
+  width: 100%;
+}
+
+[class^="btn-"] {
+  transition: opacity 1s;
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.link {
+  .circle-icon {
+    font-size: 1em;
+    vertical-align: bottom;
+    padding: 0.25em;
+  }
 }

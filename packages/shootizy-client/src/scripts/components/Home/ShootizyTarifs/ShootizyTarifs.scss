@@ -3,17 +3,10 @@
 /* your css code */
 .ShootizyTarifs {
   background: #2ef7cc;
-  padding-top: 84px;
-  padding-bottom: 1px;
-  margin-top: 104px;
 
   > .container {
-    > h3 {
-      font-size: font-size(43);
-      font-weight: normal;
-      line-height: 1;
-      text-align: center;
-      margin-bottom: 80px;
+    > .title {
+      margin-bottom: 84px;
     }
 
     > ul {
@@ -27,22 +20,27 @@
     color: #6a6a6a;
     font-size: font-size(18);
     text-align: center;
-    padding: 0 45px 30px 45px;
+    padding: 0 34px 30px;
 
-    > h4 {
-      font-size: 27px;
-      color: #000;
-      font-weight: bold;
+    .top-icon {
+      margin-bottom: 22px;
+    }
+
+    .title {
       margin-bottom: 20px;
     }
 
     strong {
       color: #000;
     }
+
+    .text {
+      letter-spacing: -0.1ex;
+    }
   }
 
   .button-container-centered {
     text-align: center;
-    margin: 62px 0;
+    margin: 62px 0 20px;
   }
 }

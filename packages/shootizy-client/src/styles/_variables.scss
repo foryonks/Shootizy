@@ -1,2 +1,15 @@
 $font-family: "Brandon Grotesque", "Myriad Pro", sans-serif;
-$font-size: 16px;
+$font-size: 18px;
+
+$container-width: 1628px;
+$container-2-width: 1170px;
+
+// colors
+$primary-color: #000;
+$secondary-color: #2ef7cc;
+$color-grey: #979797;
+$btn-green-bg-color: $secondary-color;
+$btn-green-hover-bg-color: #39ffd4;
+
+// shadow
+$big-shadow: 0px 0px 35px 18px #2d2d2d15;

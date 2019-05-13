@@ -12,11 +12,14 @@ if (reactDebug) {
   // so don't know why
   const style = document.createElement("style");
   style.innerHTML = `
-  body {
+  html {
     width: 1920px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:300px;
   }
   `;
-  document.head.appendChild(style);
+  document.body.appendChild(style);
 }
 
 class Debug extends React.Component {
@@ -30,7 +33,7 @@ class Debug extends React.Component {
   componentDidMount() {
     if (reactDebug) {
       setTimeout(() => {
-        window.scrollTo(0, 1500);
+        window.scrollTo(0, 400);
       }, 500);
     }
   }

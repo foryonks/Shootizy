@@ -1,88 +1,45 @@
-import React from "react";
-import { keyfix, toMatrix } from "../../../utils/utils";
-import "./Themes.scss";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+
+import { AppContext } from "scripts/contexts/App";
 import ThemeCard from "../ThemeCard";
 
-const data = keyfix([
-  {
-    image: "/assets/photos/theme1.jpg",
-    title: "Book modèle / Artistes Comédien",
-    sharelink: "http://foobarbook.com",
-    description:
-      "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre ... ",
-    bookingLink: "/shooting-1",
-    moreLink: "/shooting",
-    price: "20€",
-  },
-  {
-    image: "/assets/photos/theme1.jpg",
-    title: "Book modèle / Artistes Comédien",
-    sharelink: "http://foobarbook.com",
-    description:
-      "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre ... ",
-    bookingLink: "/shooting-1",
-    moreLink: "/shooting",
-    price: "20€",
-  },
-  {
-    image: "/assets/photos/theme1.jpg",
-    title: "Book modèle / Artistes Comédien",
-    sharelink: "http://foobarbook.com",
-    description:
-      "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre ... ",
-    bookingLink: "/shooting-1",
-    moreLink: "/shooting",
-    price: "20€",
-  },
-  {
-    image: "/assets/photos/theme1.jpg",
-    title: "Book modèle / Artistes Comédien",
-    sharelink: "http://foobarbook.com",
-    description:
-      "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre ... ",
-    bookingLink: "/shooting-1",
-    moreLink: "/shooting",
-    price: "20€",
-  },
+import "./Themes.scss";
 
-  {
-    image: "/assets/photos/theme1.jpg",
-    title: "Book modèle / Artistes Comédien",
-    sharelink: "http://foobarbook.com",
-    description:
-      "Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre ... ",
-    bookingLink: "/shooting-1",
-    moreLink: "/shooting",
-    price: "20€",
-  },
-]);
+const Themes = ({ location, locationHideRegex }) => {
+  if (location.pathname.match(locationHideRegex)) {
+    return null;
+  }
 
-const Themes = props => {
-  const dataGrid = keyfix(toMatrix(data, 3, { transform: keyfix, fill: true }));
+  const { state: appState } = useContext(AppContext);
+  const list = appState.themes || [];
+
   return (
     <div className="Themes container-2 grid">
-      <h3 className="Themes-title">
+      <h2 className="title">
         Choisissez le thème de votre shooting, <br />
-        <strong>selon votre besoin</strong>
-      </h3>
+        <strong>selon votre besoin !</strong>
+      </h2>
 
-      {dataGrid.map(row => (
-        <div className="row row-3" key={row.key}>
-          {row.map(theme =>
-            theme === "" ? <div className="dummyCard" /> : <ThemeCard {...theme} key={theme.key} />
-          )}
-        </div>
-      ))}
+      <div className="row row-3 row-wrap">
+        {list.map((theme, index) =>
+          theme ? (
+            <ThemeCard {...theme} key={theme.productId} />
+          ) : (
+            <div className="dummyCard" key={index} />
+          )
+        )}
+      </div>
     </div>
   );
 };
-
 Themes.propTypes = {
-  // bla: PropTypes.string,
+  locationHideRegex: PropTypes.any,
 };
 
 Themes.defaultProps = {
-  // bla: 'test',
+  locationHideRegex: new RegExp(/^$/),
 };
 
-export default Themes;
+export default withRouter(Themes);

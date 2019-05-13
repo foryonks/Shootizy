@@ -1,0 +1,41 @@
+.HeaderImage {
+  position: relative;
+  background: #f6f6f6;
+  .HeaderImage-content {
+    overflow: hidden;
+    padding-bottom: 30.7314075%;
+  }
+  img {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .text {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    color: #fff;
+  }
+  .title {
+    color: #fff;
+  }
+
+  .preTitle,
+  .bigTitle {
+    font-weight: bold;
+  }
+
+  .bigTitle {
+    font-weight: 500;
+  }
+}
+
+.header-image__btn-link {
+  &.active {
+    display: none;
+  }
+}

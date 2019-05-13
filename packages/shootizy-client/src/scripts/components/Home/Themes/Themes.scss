@@ -1,20 +1,28 @@
 @import "../../../../styles/functions";
+@import "../../../../styles/buttons";
 
 .Themes {
-  padding-top: 1px;
-  > .row {
-    margin-bottom: 32px;
+  > .title {
+    margin-bottom: 50px;
   }
-}
 
-.Themes-title {
-  margin-top: 86px;
-  margin-bottom: 32px;
-  font-size: font-size(43);
-  font-weight: normal;
-  text-align: center;
-  line-height: 1.1;
-  strong {
-    font-weight: bold;
+  > .row {
+    margin-bottom: 33px;
+
+    > .card {
+      width: 31.8%;
+    }
+
+    .ThemeCard {
+      transition: all 0.2s;
+
+      &:hover {
+        box-shadow: 0 5px 24px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05);
+        .btn-green {
+          @extend .btn-green:hover;
+        }
+      }
+    }
   }
 }

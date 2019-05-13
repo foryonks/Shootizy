@@ -1,52 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
+
 import Icon from "../../Icon";
 
-const TopHeader = ({ showAdmLinks }) => {
+const Links = [
+  { to: "/newsletter", title: "Newsletter", icon: "newsletter" },
+  { to: "/blog", title: "Le Blog", icon: "blog" },
+  { to: "/avis-clients", title: "Avis clients", icon: "star" },
+  { to: "/contacts", title: "Contact", icon: "email" },
+  { to: "/facebook", title: "", icon: "facebook", className: "facebook" },
+  { to: "/instagram", title: "", icon: "instagram", className: "instagram" },
+];
+
+const TopHeader = () => {
   return (
     <div className="header-top">
       <span>
         <span>Shootizy : Studio photo professionnel à Paris</span>
         <span className="header-reservation">
           <Icon name="phone-circle" />
-          Réservation par téléphone : +33 84 929 21 71
+          Réservation par téléphone : <a href="tel:+3384292171">+33 84 29 21 71</a>
         </span>
       </span>
       <ul className="header-links">
-        <li>
-          <a href="/nl">
-            <Icon name="newsletter" />
-            Newsletter
-          </a>
-        </li>
-        <li>
-          <a href="/blog">
-            <Icon name="blog" />
-            Le Blog
-          </a>
-        </li>
-        <li>
-          <a href="/avis-clients">
-            <Icon name="star" />
-            Avis clients
-          </a>
-        </li>
-        <li>
-          <a href="/contacts">
-            <Icon name="letter" />
-            Contact
-          </a>
-        </li>
-        <li className="facebook">
-          <a href="/facebook">
-            <Icon name="facebook" />
-          </a>
-        </li>
-        <li className="instagram">
-          <a href="/instagram">
-            <Icon name="instagram" />
-          </a>
-        </li>
+        {Links.map(({ to, title, icon, className }, index) => (
+          <li key={index} className={className}>
+            <NavLink to={to}>
+              <Icon name={icon} />
+              {title}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </div>
   );

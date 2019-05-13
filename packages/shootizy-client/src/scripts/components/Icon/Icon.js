@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 // Icons.json is automatically generated
 import icons from "./Icons.json";
 
-const Icon = props => {
-  const icon = icons[props.name];
+const Icon = ({ name, className, onClick }) => {
+  const icon = icons[name];
 
   return (
-    <svg className="icon-svg" viewBox={icon.viewBox}>
+    <svg className={`svg-icon ${className || ""}`} viewBox={icon.viewBox} onClick={onClick}>
       {icon.paths.map((path, i) => (
         <path key={i} {...path} />
       ))}
@@ -17,7 +17,9 @@ const Icon = props => {
 };
 
 Icon.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Icon;

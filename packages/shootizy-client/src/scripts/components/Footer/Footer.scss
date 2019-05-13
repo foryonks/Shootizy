@@ -1,0 +1,46 @@
+@import "../../../styles/functions";
+
+.footer-social-section {
+  background: url("/assets/design/footer-social.jpg") top center;
+  min-height: 704px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social-section-content {
+  width: 355px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  .title {
+    font-size: font-size(56px);
+    font-weight: 500;
+  }
+
+  .description {
+    margin-bottom: 20px;
+    font-size: font-size(22px);
+    line-height: 1.3;
+  }
+
+  .social-buttons {
+    font-size: font-size(32px);
+    margin-bottom: 40px;
+    a {
+      margin: 0 0.7em;
+
+      &:first-child,
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .snapcode {
+    img {
+      max-width: 140px;
+    }
+  }
+}

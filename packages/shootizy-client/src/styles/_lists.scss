@@ -1,0 +1,21 @@
+/**
+* show a list like table
+*/
+
+.list-table {
+  display: table;
+  width: 100%;
+
+  > li {
+    display: table-row;
+  }
+
+  span,
+  a {
+    display: table-cell;
+  }
+
+  span {
+    padding-right: 10px;
+  }
+}

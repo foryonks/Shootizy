@@ -1,38 +1,53 @@
 import React from "react";
-import "./ThemeCard.scss";
-import FacebookShareButton from "../../Common/FacebookShareButton/FacebookShareButton";
-import Icon from "../../Icon";
 
-const ThemeCard = ({ image, title, sharelink, price, description, bookingLink, moreLink }) => {
+import { Link, withRouter } from "react-router-dom";
+import FacebookShareButton from "scripts/components/_common/FacebookShareButton";
+import Icon from "../../Icon";
+import { sliceAndRemoveHTML } from "scripts/utils/utils.js";
+import "./ThemeCard.scss";
+
+const stopPropagation = e => {
+  e.stopPropagation();
+};
+
+const ThemeCard = ({ productId, image, title, sharelink, price, description, history }) => {
+  const bookingLink = `/shooting-studio/${productId}/booking`;
+  const productLink = `/shooting-studio/${productId}`;
+
   return (
-    <div className="ThemeCard card card-simple">
+    <div
+      className="ThemeCard card card-simple"
+      onClick={() => {
+        history.push(bookingLink);
+      }}>
       <div className="ThemeCard-image">
         <img src={image} alt="" />
       </div>
       <div className="ThemeCard-content">
         <div className="ThemeCard-actions">
           <button className="ThemeCard-price">Dès {price} la photo</button>
-          <FacebookShareButton />
+          <FacebookShareButton link={sharelink} />
         </div>
         <h4 className="ThemeCard-title">{title}</h4>
-        <div className="ThemeCard-description">{description}</div>
-        <div className="ThemeCard-buttons">
-          <button className="btn-green">Réserver mon shooting</button>
-          <button className="btn-white-simple">
-            <Icon name="triangle-right" />
-            En savoir plus
-          </button>
+        <div className="ThemeCard-description">
+          {sliceAndRemoveHTML(description, 25)}
+          {"\xA0"}
+          <Link className="read-more" to={productLink} onClick={stopPropagation}>
+            Lire la suite
+          </Link>
         </div>
+      </div>
+      <div className="ThemeCard-buttons">
+        <Link to={bookingLink} className="btn-green">
+          Réserver mon shooting
+        </Link>
+        <Link to={productLink} className="btn-white-simple" onClick={stopPropagation}>
+          <Icon name="triangle-right" />
+          En savoir plus
+        </Link>
       </div>
     </div>
   );
 };
 
-ThemeCard.propTypes = {
-  // bla: PropTypes.string,
-};
-
-ThemeCard.defaultProps = {
-  // bla: 'test',
-};
-export default ThemeCard;
+export default withRouter(ThemeCard);
