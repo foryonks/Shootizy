@@ -1,30 +1,28 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
 //import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./Article.scss";
-import { sliceAndRemoveHTML } from "../../../utils/utils";
+import useRemoteContents from "scripts/hooks/useRemoteContents";
+import HeaderImage from "scripts/components/_common/HeaderImage";
+import Interweave from "interweave";
+import { blog } from "scripts/utils/routesManager";
 
-const Article = ({ article, mode, node }) => {
-  let className = "";
+const Article = ({ match }) => {
+  const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
 
-  let { title, text, slug, category } = article;
+  if (!article) return null;
+  const { title, text, category } = article;
 
-  if (mode === "card") {
-    text = sliceAndRemoveHTML(text, 50);
-    className += " card card-simple card-shadow";
-  }
-
-  return React.createElement(
-    node || "div",
-    { className: `Article ${className}` },
-    <div>
-      <Link to={`/blog/article/${slug}`}>
-        <h3 className="title">{title}</h3>
-      </Link>
-      <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
-      <Link to={`/blog/article/${slug}`}>
-        <div>{text}</div>
-      </Link>
+  return (
+    <div className="Article">
+      <HeaderImage src="" title={title} />
+      <div className="container">
+        <h2 className="title">{title}</h2>
+        <Link to={blog.categoryUrl(category.slug)}>{category.name}</Link>
+        <div className="text">
+          <Interweave content={text} />
+        </div>
+      </div>
     </div>
   );
 };
@@ -37,4 +35,4 @@ Article.defaultProps = {
   // bla: 'test',
 };
 
-export default withRouter(Article);
+export default Article;

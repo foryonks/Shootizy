@@ -130,13 +130,23 @@ const Form = ({
   successMessage,
   onSuccess,
   onError,
+  defaultFormData,
 }) => {
   const [formData, setFormData] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const { loading, fetchWithLoader, error } = useFetchWithLoader(fetchJson, errorMessage);
 
   const resetForm = useCallback(() => {
-    setFormData(generateFormData(fields));
+    const formData = generateFormData(fields);
+    if (defaultFormData && formData) {
+      let newFormData = { ...formData };
+      for (let key in defaultFormData) {
+        if (formData[key]) {
+          newFormData[key].value = defaultFormData[key];
+        }
+      }
+    }
+    setFormData(formData);
   }, [fields]);
   useEffect(() => {
     resetForm();
@@ -145,6 +155,7 @@ const Form = ({
   const handleFieldChange = useCallback((name, value) => {
     setFormData(currentForm => {
       const newFormData = updateFormField(currentForm, name, value);
+
       return newFormData;
     });
   }, []);

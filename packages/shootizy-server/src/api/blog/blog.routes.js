@@ -6,14 +6,48 @@ const loginMiddleware = require("middleware/login");
 const routes = express.Router();
 
 /**
- * Only for admin to view/cancel booking
+ * Return all articles
  */
 routes.get(
   "/articles",
-  //loginMiddleware.checkLogin(true),
   asyncRouteWrapper(async (req, res) => {
-    const bookings = await blogService.listArticles();
-    res.json(bookings);
+    const articles = await blogService.listArticles();
+    res.json(articles);
+  })
+);
+
+/**
+ * Return only one article
+ */
+routes.get(
+  "/article/:slug",
+  asyncRouteWrapper(async (req, res) => {
+    const { slug } = req.params;
+    const article = await blogService.getArticleBySlug(slug);
+    res.json(article);
+  })
+);
+
+/**
+ * Return only one article
+ */
+routes.post(
+  "/article",
+  asyncRouteWrapper(async (req, res) => {
+    await blogService.getArticleBySlug(slug);
+    res.json({ ok });
+  })
+);
+
+/**
+ * Return only category with all articles
+ */
+routes.get(
+  "/category/:slug",
+  asyncRouteWrapper(async (req, res) => {
+    const { slug } = req.params;
+    const category = await blogService.getCategoryBySlug(slug);
+    res.json(category);
   })
 );
 

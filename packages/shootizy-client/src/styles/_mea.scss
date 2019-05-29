@@ -7,6 +7,10 @@
 
   .mea-img {
     float: left;
+
+    img {
+      display: block;
+    }
   }
   .mea-desc {
     display: table-cell;

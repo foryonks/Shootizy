@@ -1,0 +1,15 @@
+{
+  "allowFiles": true,
+  "allowFileMove": true,
+  "allowFileUpload": true,
+  "allowFileUploadRemote": false,
+  "allowFileRemove": true,
+  "allowFileRename": true,
+  "allowFolders": true,
+  "allowFolderMove": true,
+  "allowFolderCreate": true,
+  "allowFolderRemove": true,
+  "allowFolderRename": true,
+  "allowImageResize": false,
+  "allowImageCrop": false
+}

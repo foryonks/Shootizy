@@ -1,0 +1,37 @@
+@import "../../../../styles/functions";
+
+.ArticleCard {
+  background: #fff;
+  text-align: left;
+  padding: 0;
+
+  img {
+    width: auto;
+    max-width: 42%;
+  }
+
+  .mea-desc {
+    $padding: 24px;
+    padding: $padding $padding 20px;
+  }
+
+  h4 {
+    color: #000;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  p {
+    line-height: 1.1;
+    color: $color-grey;
+    min-height: 84px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .link svg {
+    vertical-align: text-top;
+  }
+}

@@ -8,6 +8,7 @@ const productRoutes = require("./product/product.routes");
 const ratingRoutes = require("./rating/rating.routes");
 const bookingRoutes = require("./booking/booking.routes");
 const blogRoutes = require("./blog/blog.routes");
+const fileRoutes = require("./file/file.routes");
 
 const routes = express.Router();
 
@@ -28,5 +29,8 @@ routes.use("/booking", bookingRoutes);
 
 // Blog
 routes.use("/blog", blogRoutes);
+
+// Files
+routes.use("/file", fileRoutes);
 
 module.exports = routes;

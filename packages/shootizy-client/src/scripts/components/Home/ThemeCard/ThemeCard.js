@@ -38,13 +38,12 @@ const ThemeCard = ({ productId, image, title, sharelink, price, description, his
             </Link>
           </div>
         </div>
-        <div className="ThemeCard-buttons">
-          <Link to={bookingLink} className="btn-green">
-            Réserver mon shooting
-          </Link>
-          <Link to={productLink} className="btn-white-simple" onClick={stopPropagation}>
-            <Icon name="triangle-right" />
-            En savoir plus
+        <h4 className="ThemeCard-title">{title}</h4>
+        <div className="ThemeCard-description">
+          {sliceAndRemoveHTML(description, 25)}
+          {"\xA0"}
+          <Link className="read-more" to={productLink} onClick={stopPropagation}>
+            Lire la suite
           </Link>
         </div>
       </LazyLoad>

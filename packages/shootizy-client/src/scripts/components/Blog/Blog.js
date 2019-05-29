@@ -2,7 +2,7 @@ import React from "react";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 
 import "./Blog.scss";
-import Articles from "./Articles";
+import List from "./List";
 
 const Blog = props => {
   return (
@@ -11,7 +11,7 @@ const Blog = props => {
 
       <div className="container">
         <h2 className="title">Articles</h2>
-        <Articles />
+        <List />
       </div>
     </div>
   );

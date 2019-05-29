@@ -1,4 +1,6 @@
 const mongoDb = require("db");
+const _omit = require("lodash/omit");
+
 const { isValidDate, getUTCDate, getTodayUTCDate, addLeadingZero } = require("utils");
 const { CustomError } = require("api/api.errors");
 
@@ -27,6 +29,56 @@ const listCategories = async () => {
     .find()
     .toArray();
   return categories;
+};
+
+const getArticleBySlug = async slug => {
+  const db = await mongoDb.getInstance();
+  const article = await db.collection("blog.articles").findOne({
+    slug,
+  });
+
+  if (!article) {
+    throw new CustomError("Article not found", 404);
+  }
+
+  const categories = await listCategories();
+
+  delete article._id;
+  return {
+    ...article,
+    category: categories.find(category => category.categoryId == article.categoryId),
+  };
+
+  //return _omit(article, ["_id"]);
+};
+
+const getCategoryBySlug = async slug => {
+  const db = await mongoDb.getInstance();
+  const category = await db.collection("blog.categories").findOne({
+    slug,
+  });
+
+  if (!category) {
+    throw new CustomError("Category not found", 404);
+  }
+
+  const articles = await db
+    .collection("blog.articles")
+    .find({
+      categoryId: category.categoryId,
+    })
+    .toArray();
+
+  delete category._id;
+  return {
+    ...category,
+    articles: articles.map(article => ({
+      ...article,
+      category: { ...category },
+    })),
+  };
+
+  //return _omit(article, ["_id"]);
 };
 
 // const formatEntry = ({ _id, startDate, endDate, ...others }) => ({
@@ -204,6 +256,8 @@ const listCategories = async () => {
 
 module.exports = {
   listArticles,
+  getArticleBySlug,
+  getCategoryBySlug,
   // listReservations,
   // listAvailability,
   // createReservation,

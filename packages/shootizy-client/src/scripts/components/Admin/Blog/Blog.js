@@ -1,36 +1,21 @@
 import React from "react";
+import useRemoteContents from "scripts/hooks/useRemoteContents";
+import ArticleCard from "scripts/components/Blog/ArticleCard";
 
-const data = [
-  {
-    id: 1,
-    image: "/assets/photos/blog1.jpg",
-    title: "La photo argentique fait son retour",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscin elit. Cras aliquam mollis volutpat.",
-    link: "/blog/article/1",
-  },
-  {
-    id: 2,
-    image: "/assets/photos/blog2.jpg",
-    title: "L'éclairage la base de la photographie",
-    description: "lorem ipsum doolors pouet amet lol",
-    link: "/blog/article/2",
-  },
-];
 const Blog = () => {
+  let { contents: articles } = useRemoteContents("/api/blog/articles", [], true, false);
+  if (!articles) return null;
   return (
-    <div className="container container-2">
-      <ul className="blog-list">
-        {data.map(({ title, image, description, id }) => (
-          <li className="blog-list__item card card-simple card-shadow card-margin" key={id}>
-            <img className="mea-img" src={image} alt="blog" />
-            <div className="mea-desc">
-              <h4>{title}</h4>
-              <p>{description}</p>
-            </div>
-          </li>
+    <div className="container ">
+      <div className="blog-list row row-3 row-stretch row-margin row-wrap">
+        {articles.map(article => (
+          <ArticleCard
+            article={article}
+            key={article.articleId}
+            getArticleUrl={({ slug }) => `/admin/blog/article/${slug}`}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

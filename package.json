@@ -22,10 +22,13 @@
     "heroku-remote": "lerna run start-heroku-server"
   },
   "dependencies": {
+    "express-fileupload": "^1.1.4",
     "husky": "^1.3.1",
     "lerna": "^3.13.4",
     "lint-staged": "^8.1.5",
-    "prettier": "^1.16.4"
+    "numeral": "^2.0.6",
+    "prettier": "^1.16.4",
+    "sharp": "^0.22.1"
   },
   "husky": {
     "hooks": {
