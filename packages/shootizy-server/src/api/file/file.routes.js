@@ -6,6 +6,8 @@ const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const { CustomError } = require("api/api.errors");
 const fileService = require("./file.service");
+const loginMiddleware = require("middleware/login");
+
 const {
   getFolderUpload,
   isImage,
@@ -29,6 +31,7 @@ routes.use(bodyParser.urlencoded({ extended: true }));
  */
 routes.post(
   "/upload",
+  loginMiddleware.checkLogin(true),
   asyncRouteWrapper(async (req, res) => {
     if (Object.keys(req.files).length == 0) {
       throw new CustomError("No files were uploaded.", 400);
@@ -56,7 +59,6 @@ routes.get(
     if (!isImage(file)) {
       throw new CustomError("Forbidden", 400);
     }
-    //const filePath = `${folder}/${file}`;
     res.sendFile(filePath);
   })
 );
@@ -79,6 +81,7 @@ routes.get(
 
 routes.post(
   "/files",
+  loginMiddleware.checkLogin(true),
   asyncRouteWrapper((req, res) => {
     const { action, path, source, name, from } = req.body;
     let response;

@@ -18,8 +18,6 @@ const {
   sanitizePath,
 } = require("./helpers");
 
-//console.log("FileService StorageDirectory", getFolderUpload());
-
 const formatEntry = ({ ...others }) => ({
   success: true,
   time: dateNow(),
@@ -113,7 +111,6 @@ const move = (from, folderPath) => {
 };
 
 const createThumb = async file => {
-  console.log("====CREATE THUMB====");
   if (fs.existsSync(file)) {
     return;
   }

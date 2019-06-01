@@ -131,6 +131,7 @@ const Form = ({
   onSuccess,
   onError,
   defaultFormData,
+  onBeforePost = data => data,
 }) => {
   const [formData, setFormData] = useState(null);
   const [submitted, setSubmitted] = useState(false);
@@ -178,13 +179,16 @@ const Form = ({
     setFormData(updatedFormData);
 
     if (isValid) {
-      const postData = Object.keys(updatedFormData).reduce((acc, name) => {
+      let postData = Object.keys(updatedFormData).reduce((acc, name) => {
         const value =
           typeof updatedFormData[name].value === "string"
             ? updatedFormData[name].value.trim()
             : updatedFormData[name].value;
         return { ...acc, [name]: value };
       }, {});
+
+      if (onBeforePost) postData = onBeforePost(postData);
+
       try {
         const response = await fetchWithLoader(action, {
           method: "POST",
@@ -220,7 +224,7 @@ const Form = ({
         })}
         <FormAction
           icon={submitBtn.icon}
-          disabled={loading || submitted}
+          disabled={loading || submitBtn.disableOnSubmit ? submitted : false}
           className={submitBtn.className}
           label={submitBtn.label}
           wrapper={submitBtn.wrapper}>

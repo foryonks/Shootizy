@@ -1,0 +1,13 @@
+.editable-image {
+  position: relative;
+  display: inline-block;
+
+  .file-browser {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    padding: 3px;
+    background: #fff;
+  }
+}

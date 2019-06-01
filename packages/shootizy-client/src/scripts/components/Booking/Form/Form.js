@@ -41,7 +41,7 @@ const FORM_FIELDS = [
     props: { rows: "3" },
   },
 ];
-const FORM_SUBMIT_BTN = { label: "Réserver", className: "btn-green" };
+const FORM_SUBMIT_BTN = { disableOnSubmit: true, label: "Réserver", className: "btn-green" };
 
 const BookingForm = ({ productId }) => {
   const actionUrl = `/api/booking/reservations${productId ? `?productId=${productId}` : ""}`;

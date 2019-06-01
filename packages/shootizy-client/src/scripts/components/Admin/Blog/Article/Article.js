@@ -4,7 +4,7 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import Form from "scripts/components/Form";
 import "./Article.scss";
 
-import Editor from "./Editor";
+import Editor from "scripts/components/_common/Editor";
 
 const FORM_FIELDS = [
   { type: "text", name: "title", label: "Titre", isRequired: true },
@@ -28,6 +28,7 @@ const FORM_FIELDS = [
       );
     },
   },
+  { type: "image", name: "image", label: "Image miniature", props: { maxWidth: "200" } },
 ];
 const FORM_SUBMIT_BTN = { label: "Sauver", className: "btn-green" };
 
@@ -35,23 +36,26 @@ const Article = ({ match }) => {
   const [articleState, setArticleState] = useState(null);
   const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
 
+  const onBeforePost = data => ({
+    ...article,
+    ...data,
+  });
   useEffect(() => {
     setArticleState(article);
   });
 
   if (!articleState) return null;
-  const { image } = articleState;
   return (
-    <div className="blog-list__item mea container-2">
-      <img className="mea-img" src={image} alt="blog" />
+    <div className="blog-article-form blog-list__item mea container-2">
       <div className="mea-desc">
         <Form
           id="form-rating"
           className="form-rating"
           fields={FORM_FIELDS}
           submitBtn={FORM_SUBMIT_BTN}
-          action="/api/blog/article/post"
-          successMessage="Merci pour votre avis !"
+          action="/api/blog/article"
+          successMessage="Article mis à jour"
+          onBeforePost={onBeforePost}
           onSuccess={() => {}}
           defaultFormData={articleState}
         />

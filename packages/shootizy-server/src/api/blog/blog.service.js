@@ -31,9 +31,10 @@ const listCategories = async () => {
   return categories;
 };
 
-const getArticleBySlug = async slug => {
+const getArticleByAny = async ({ slug, id }) => {
   const db = await mongoDb.getInstance();
   const article = await db.collection("blog.articles").findOne({
+    id,
     slug,
   });
 
@@ -48,8 +49,14 @@ const getArticleBySlug = async slug => {
     ...article,
     category: categories.find(category => category.categoryId == article.categoryId),
   };
+};
 
-  //return _omit(article, ["_id"]);
+const getArticleById = async id => {
+  return getArticleByAny({ id });
+};
+
+const getArticleBySlug = async slug => {
+  return getArticleByAny({ slug });
 };
 
 const getCategoryBySlug = async slug => {
@@ -77,189 +84,32 @@ const getCategoryBySlug = async slug => {
       category: { ...category },
     })),
   };
-
-  //return _omit(article, ["_id"]);
 };
 
-// const formatEntry = ({ _id, startDate, endDate, ...others }) => ({
-//   bookingId: _id,
-//   date: startDate,
-//   startTime: `${addLeadingZero(startDate.getUTCHours())}:${addLeadingZero(
-//     startDate.getUTCMinutes()
-//   )}`,
-//   endTime: `${addLeadingZero(endDate.getUTCHours())}:${addLeadingZero(endDate.getUTCMinutes())}`,
-//   ...others,
-// });
-
-/**
- * List all upcoming schedule
- * @returns {array}
- */
-// const listReservations = async () => {
-//   const db = await mongoDb.getInstance();
-//   const list = await db
-//     .collection("bookings")
-//     .aggregate([
-//       {
-//         $match: { startDate: { $gte: getTodayUTCDate() } },
-//       },
-//       {
-//         $lookup: {
-//           from: "products",
-//           localField: "productId",
-//           foreignField: "productId",
-//           as: "product",
-//         },
-//       },
-//       {
-//         $unwind: {
-//           path: "$product",
-//           preserveNullAndEmptyArrays: true,
-//         },
-//       },
-//       {
-//         $project: {
-//           "product._id": 0,
-//           "product.tags": 0,
-//           "product.gallery": 0,
-//           "product.descTitle": 0,
-//           "product.description": 0,
-//           "product.price": 0,
-//         },
-//       },
-//     ])
-//     .sort({ startDate: 1 })
-//     .toArray();
-
-//   return list.map(formatEntry);
-// };
-
-/**
- * List availability for given date
- * @param {Date} date
- * @returns {array} { startTime, endTime, isAvailable }
- */
-/* const listAvailability = async date => {
-  if (!isValidDate(date)) {
-    throw new CustomError("Date invalide", 400);
-  }
-  const day = date.getDay();
-
+const updateArticle = async article => {
   const db = await mongoDb.getInstance();
+  const { articleId } = article;
 
-  const theFollowingDay = new Date(getUTCDate(date).setDate(date.getDate() + 1));
-  const existedBookings = await db
-    .collection("bookings")
-    .find({
-      startDate: {
-        $gte: getUTCDate(date),
-        $lt: theFollowingDay,
-      },
-    })
-    .toArray();
+  article = _omit(article, ["category", "article"]);
 
-  const result = await db.collection("workingSchedules").findOne({ day });
-  return result.timetable.map(({ startTime, endTime }) => {
-    const { startDate, endDate } = getUTCBookingDate(date, startTime, endTime);
-    const isAvailable = existedBookings.every(
-      booking => booking.endDate <= startDate || booking.startDate >= endDate
-    );
-    return { startTime, endTime, isAvailable };
-  });
-}; */
+  const result = await db
+    .collection("blog.articles")
+    .updateOne({ articleId }, { $set: article }, { upsert: true });
 
-/**
- * Get UTC datetime to avoid timezone
- * @param {Date} date
- * @param {string} startTime
- * @param {string} endTime
- * @returns {object} {startDate, endDate}
- */
-// const getUTCBookingDate = (date, startTime, endTime) => {
-//   if (!isValidDate(date) || !startTime || !endTime) {
-//     throw new CustomError("Date input error", 400);
-//   }
-//   const year = date.getFullYear();
-//   const month = date.getMonth();
-//   const day = date.getDate();
+  let resArticle;
+  if (result.upsertedId) {
+    resArticle = await db.collection("blog.articles").findOne({ _id: result.insertedId });
+  } else {
+    resArticle = await db.collection("blog.articles").findOne({ articleId });
+  }
 
-//   const [startHour, startMinute] = startTime.split(":");
-//   const [endHour, endMinute] = endTime.split(":");
-
-//   const startDate = new Date(Date.UTC(year, month, day, startHour, startMinute || 0));
-//   const endDate = new Date(Date.UTC(year, month, day, endHour, endMinute || 0));
-
-//   return { startDate, endDate };
-// };
-
-/**
- * Create a reservation
- * @param {object} reservation to be created
- * @returns {object} newly created reservation
- */
-// const createReservation = async reservation => {
-//   const { name, email, message, bookingTime, productId } = reservation;
-//   if (!name || !email || !message || !bookingTime) {
-//     throw new CustomError("Input error", 400);
-//   }
-
-//   const { startDate, endDate } = getUTCBookingDate(
-//     new Date(bookingTime.date),
-//     bookingTime.startTime,
-//     bookingTime.endTime
-//   );
-
-//   const db = await mongoDb.getInstance();
-
-//   // Check existed booking at same time
-//   const existedBooking = await db.collection("bookings").findOne({
-//     $or: [
-//       {
-//         startDate: {
-//           $gte: startDate,
-//           $lt: endDate,
-//         },
-//       },
-//       {
-//         endDate: {
-//           $gt: startDate,
-//           $lte: endDate,
-//         },
-//       },
-//     ],
-//   });
-//   if (existedBooking) {
-//     throw new CustomError("Créneau indisponible, veuillez sélectionner un autre créneau", 400);
-//   }
-//   const result = await db.collection("bookings").insertOne({
-//     name,
-//     email,
-//     message,
-//     productId,
-//     startDate,
-//     endDate,
-//   });
-//   const rating = await db.collection("bookings").findOne({ _id: result.insertedId });
-//   return formatEntry(rating);
-// };
-
-/**
- * Cancel a reservation
- * @param {string} bookingId
- */
-// const cancelReservation = async bookingId => {
-//   const db = await mongoDb.getInstance();
-//   db.collection("bookings").remove({
-//     _id: mongoDb.getObjectId(bookingId),
-//   });
-// };
+  return resArticle;
+};
 
 module.exports = {
   listArticles,
   getArticleBySlug,
   getCategoryBySlug,
-  // listReservations,
-  // listAvailability,
-  // createReservation,
-  // cancelReservation,
+  getArticleById,
+  updateArticle,
 };

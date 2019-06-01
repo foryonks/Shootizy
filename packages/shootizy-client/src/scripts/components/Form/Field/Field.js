@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Interweave from "interweave";
 
 import Datepicker from "scripts/components/_common/Datepicker";
+import EditableImage from "scripts/components/_common/Editor/EditableImage";
 
 /**
  * Return true if field is error and not pristine
@@ -83,6 +84,19 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
         />
       );
       break;
+    case "image":
+      Input = (
+        <EditableImage
+          onChange={image => {
+            onChange(name, image);
+            onValidate(name);
+          }}
+          src={currentValue}
+          {...extendedProps || {}}
+        />
+      );
+      break;
+
     case "custom":
       Input = render
         ? useMemo(() => render(currentValue, isError, onChange, onValidate), [

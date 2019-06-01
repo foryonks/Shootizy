@@ -29,13 +29,17 @@ routes.get(
 );
 
 /**
- * Return only one article
+ * update admin article
  */
 routes.post(
   "/article",
+  loginMiddleware.checkLogin(true),
   asyncRouteWrapper(async (req, res) => {
-    await blogService.getArticleBySlug(slug);
-    res.json({ ok });
+    const article = req.body;
+    const response = await blogService.updateArticle(article);
+    console.log("response ======");
+    console.log(response);
+    res.json(response);
   })
 );
 
@@ -44,55 +48,12 @@ routes.post(
  */
 routes.get(
   "/category/:slug",
+
   asyncRouteWrapper(async (req, res) => {
     const { slug } = req.params;
     const category = await blogService.getCategoryBySlug(slug);
     res.json(category);
   })
 );
-
-/**
- * Create new reservation
- */
-// routes.post(
-//   "/reservations",
-//   asyncRouteWrapper(async (req, res) => {
-//     const { productId } = req.query;
-//     const { name, email, message, bookingTime } = req.body;
-//     const newBooking = await blogService.createReservation({
-//       name,
-//       email,
-//       message,
-//       bookingTime,
-//       productId,
-//     });
-//     res.json(newBooking);
-//   })
-// );
-
-/**
- * Create new reservation
- */
-// routes.delete(
-//   "/reservations/:bookingId",
-//   loginMiddleware.checkLogin(true),
-//   asyncRouteWrapper(async (req, res) => {
-//     const { bookingId } = req.params;
-//     await blogService.cancelReservation(bookingId);
-//     res.json({ bookingId });
-//   })
-// );
-
-/**
- * List availability for given date
- */
-// routes.get(
-//   "/availability",
-//   asyncRouteWrapper(async (req, res) => {
-//     const { date } = req.query;
-//     const list = await blogService.listAvailability(new Date(date));
-//     res.json(list);
-//   })
-// );
 
 module.exports = routes;
