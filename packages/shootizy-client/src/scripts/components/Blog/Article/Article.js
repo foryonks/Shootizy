@@ -11,11 +11,11 @@ const Article = ({ match }) => {
   const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
 
   if (!article) return null;
-  const { title, text, category } = article;
+  const { title, text, category, imageLarge } = article;
 
   return (
     <div className="Article">
-      <HeaderImage src="" title={title} />
+      <HeaderImage src={imageLarge} title={title} />
       <div className="container">
         <h2 className="title">{title}</h2>
         <Link to={blog.categoryUrl(category.slug)}>{category.name}</Link>

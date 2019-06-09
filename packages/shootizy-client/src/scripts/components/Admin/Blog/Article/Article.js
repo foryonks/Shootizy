@@ -28,7 +28,8 @@ const FORM_FIELDS = [
       );
     },
   },
-  { type: "image", name: "image", label: "Image miniature", props: { maxWidth: "200" } },
+  { type: "image", name: "imageMini", label: "Image miniature", props: { maxWidth: "200" } },
+  { type: "image", name: "imageLarge", label: "Image Large", props: { maxWidth: "200" } },
 ];
 const FORM_SUBMIT_BTN = { label: "Sauver", className: "btn-green" };
 
