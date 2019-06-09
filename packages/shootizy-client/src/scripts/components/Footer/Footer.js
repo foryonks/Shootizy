@@ -4,6 +4,7 @@ import LazyLoad from "react-lazyload";
 import NewsletterSubscribeFooter from "./NewsletterSubscribeFooter";
 import FooterBottom from "./FooterBottom/FooterBottom";
 import SocialButtons from "../_common/SocialButtons";
+import FacebookChatBot from "./FacebookChatBot/FacebookChatBot";
 
 const Footer = props => (
   <div className="Footer">
@@ -21,9 +22,10 @@ const Footer = props => (
           </a>
         </div>
       </div>
-      <NewsletterSubscribeFooter />
-      <FooterBottom />
     </LazyLoad>
+    <NewsletterSubscribeFooter />
+    <FooterBottom />
+    <FacebookChatBot />
   </div>
 );
 

@@ -1,5 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import LazyLoad from "react-lazyload";
+
 import Home from "scripts/components/Home";
 import Product from "scripts/components/Product";
 import Header from "scripts/components/Header";
@@ -46,8 +48,12 @@ const Public = () => (
       <Themes locationHideRegex={/shooting-studio\/?$/} />
       <SurMesure />
     </div>
-    <VenirAuStudio />
-    <BlogSmall />
+    <LazyLoad height={400}>
+      <VenirAuStudio />
+    </LazyLoad>
+    <LazyLoad height={200}>
+      <BlogSmall />
+    </LazyLoad>
     <Footer />
   </>
 );
