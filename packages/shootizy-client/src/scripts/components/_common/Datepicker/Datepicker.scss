@@ -32,6 +32,7 @@
     input {
       padding: 0;
       border-color: transparent;
+      border: 0;
     }
   }
 
@@ -41,6 +42,7 @@
     bottom: unset !important;
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
+    z-index: 2;
 
     .react-calendar {
       border: 0;

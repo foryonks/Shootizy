@@ -43,25 +43,26 @@ const Article = ({ match }) => {
   });
   useEffect(() => {
     setArticleState(article);
-  });
+  }, [article]);
 
-  if (!articleState) return null;
   return (
-    <div className="blog-article-form blog-list__item mea container-2">
-      <div className="mea-desc">
-        <Form
-          id="form-rating"
-          className="form-rating"
-          fields={FORM_FIELDS}
-          submitBtn={FORM_SUBMIT_BTN}
-          action="/api/blog/article"
-          successMessage="Article mis à jour"
-          onBeforePost={onBeforePost}
-          onSuccess={() => {}}
-          defaultFormData={articleState}
-        />
+    !!articleState && (
+      <div className="blog-article-form blog-list__item mea container-2">
+        <div className="mea-desc">
+          <Form
+            id="form-rating"
+            className="form-rating"
+            fields={FORM_FIELDS}
+            submitBtn={FORM_SUBMIT_BTN}
+            action="/api/blog/article"
+            successMessage="Article mis à jour"
+            onBeforePost={onBeforePost}
+            onSuccess={() => {}}
+            defaultFormData={articleState}
+          />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

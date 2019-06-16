@@ -23,8 +23,7 @@ routes.get(
 routes.post(
   "/reservations",
   asyncRouteWrapper(async (req, res) => {
-    const { productId } = req.query;
-    const { name, email, message, bookingTime } = req.body;
+    const { name, email, message, bookingTime, productId } = req.body;
     const newBooking = await bookingService.createReservation({
       name,
       email,

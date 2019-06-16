@@ -66,7 +66,7 @@ const updateFormField = (formData, fieldName, newValue) => {
 const checkFieldError = field => {
   const { isRequired, customValidations, value } = field;
 
-  if (isRequired && (typeof value === "undefined" || value === null)) {
+  if (isRequired && (typeof value === "undefined" || value === null || value === "")) {
     return typeof isRequired === "string" ? isRequired : "Veuillez renseigner ce champs";
   }
   if (customValidations) {
@@ -208,7 +208,7 @@ const Form = ({
   return (
     formData && (
       <form className={classNamesDedupe("form", className)} onSubmit={handleSubmit}>
-        {fields.map(field => {
+        {Object.values(formData).map(field => {
           const fieldId = `${id}__${field.name}`;
           return (
             <Field

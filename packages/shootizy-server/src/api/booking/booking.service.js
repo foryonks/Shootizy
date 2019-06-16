@@ -120,7 +120,7 @@ const getUTCBookingDate = (date, startTime, endTime) => {
  */
 const createReservation = async reservation => {
   const { name, email, message, bookingTime, productId } = reservation;
-  if (!name || !email || !message || !bookingTime) {
+  if (!name || !email || !message || !bookingTime || !productId) {
     throw new CustomError("Input error", 400);
   }
 
