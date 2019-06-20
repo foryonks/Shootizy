@@ -47,7 +47,7 @@ const FORM_FIELDS = [
     props: { rows: "3" },
   },
 ];
-const FORM_SUBMIT_BTN = { disableOnSubmit: true, label: "Publier", className: "btn-green" };
+const FORM_SUBMIT_BTN = { hiddenOnSubmit: true, label: "Publier", className: "btn-green" };
 
 const Add = ({ onSubmit }) => {
   return (

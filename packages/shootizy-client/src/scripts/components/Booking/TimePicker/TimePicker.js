@@ -19,7 +19,7 @@ const TimePicker = ({ className, onChange }) => {
   const [time, setTime] = useState(null);
 
   const dateStr = date && getDateWithoutTimeZone(date);
-  const { contents: timetable, loading, load: loadTimeTable } = useRemoteContents(
+  const { contents: timetable, loading } = useRemoteContents(
     `/api/booking/availability?date=${dateStr}`,
     [],
     !!date,
@@ -29,7 +29,7 @@ const TimePicker = ({ className, onChange }) => {
 
   const hanldeSelectDate = newDate => {
     setDate(newDate);
-    //Reset time if date changed
+    // Reset time if date changed
     setTime(null);
     // Call parent
     onChange(null);
@@ -41,12 +41,14 @@ const TimePicker = ({ className, onChange }) => {
     onChange(date && { date, startTime, endTime });
   };
 
-  const handleOnTimeClick = isOpen => {
-    if (!isOpen && date) {
-      // Reload timetable to assure REAL TIME factor (or in case someone else reserve)
-      loadTimeTable();
-    }
-  };
+  // const handleOnTimeClick = isOpen => {
+  //   if (!isOpen && date) {
+  //     // Reload timetable to assure REAL TIME factor (or in case someone else reserve)
+  //     loadTimeTable();
+  //     // Reset value
+  //     onChange(null);
+  //   }
+  // };
 
   return (
     <div className={classNamesDedupe("booking-time-picker row", className)}>
@@ -74,10 +76,10 @@ const TimePicker = ({ className, onChange }) => {
           getItemLabel={({ startTime, endTime }) => `${startTime} - ${endTime}`}
           isItemDisabled={timeSlot => !timeSlot.isAvailable}
           disabled={!date}
-          isOpen={!!date}
+          openValue={date && date.getTime()}
           value={time}
           loading={loading}
-          onClick={handleOnTimeClick}
+          //onClick={handleOnTimeClick}
           onChange={handleSelectTime}
         />
       </div>

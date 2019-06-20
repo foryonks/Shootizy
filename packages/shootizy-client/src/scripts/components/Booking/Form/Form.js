@@ -8,7 +8,7 @@ import DropdownPopover from "scripts/components/_common/DropdownPopover";
 
 import "./Form.scss";
 
-const FORM_SUBMIT_BTN = { disableOnSubmit: true, label: "Réserver", className: "btn-green" };
+const FORM_SUBMIT_BTN = { hiddenOnSubmit: true, label: "Réserver", className: "btn-green" };
 
 const BookingForm = ({ productId }) => {
   const { state: appState } = useContext(AppContext);
@@ -78,11 +78,11 @@ const BookingForm = ({ productId }) => {
         isRequired: true,
       },
       {
-        type: "textarea",
-        name: "message",
-        label: "Message (ou numéro de téléphone pour être rappelé)",
+        type: "phone",
+        name: "phone",
+        label: "Votre numéro de téléphone",
+        placeholder: "0- -- -- -- --",
         isRequired: true,
-        props: { rows: "3" },
       },
     ],
     [list]

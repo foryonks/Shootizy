@@ -17,17 +17,34 @@ import "./Form.scss";
 const generateFormData = fields =>
   fields.reduce((acc, field) => {
     let otherSettings = {};
-    if (field.type === "email") {
-      // Auto add a default email validation
-      //otherSettings.type = "text";
-      otherSettings.customValidations = (field.customValidations || []).concat({
-        validate: value => {
-          const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return !!value && regex.test(value);
-        },
-        errorMessage: "Veuillez saisir un email valide",
-      });
+
+    switch (field.type) {
+      case "email":
+        // Auto add a default email validation
+        //otherSettings.type = "text";
+        otherSettings.customValidations = (field.customValidations || []).concat({
+          validate: value => {
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return !!value && regex.test(value.trim());
+          },
+          errorMessage: "Veuillez saisir un email valide",
+        });
+        break;
+      case "phone":
+        // Auto add a default french phone validation
+        otherSettings.type = "text";
+        otherSettings.customValidations = (field.customValidations || []).concat({
+          validate: value => {
+            const regex = /^(0[1-68])(?:[ _.-]?(\d{2})){4}$/;
+            return !!value && regex.test(value.trim());
+          },
+          errorMessage: "Veuillez saisir un téléphone valide",
+        });
+        break;
+      default:
+        break;
     }
+
     return {
       ...acc,
       [field.name]: {
@@ -224,8 +241,10 @@ const Form = ({
         })}
         <FormAction
           icon={submitBtn.icon}
-          disabled={loading || submitBtn.disableOnSubmit ? submitted : false}
-          className={submitBtn.className}
+          disabled={!!loading}
+          className={classNamesDedupe(submitBtn.className, {
+            hidden: submitBtn.hiddenOnSubmit && submitted,
+          })}
           label={submitBtn.label}
           wrapper={submitBtn.wrapper}>
           {submitted && successMessage && (

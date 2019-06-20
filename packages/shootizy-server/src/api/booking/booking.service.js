@@ -1,6 +1,7 @@
 const mongoDb = require("db");
-const { isValidDate, getUTCDate, getTodayUTCDate, addLeadingZero } = require("utils");
+const { isValidDate, getUTCDate, getTodayUTCDate, getDateStr, addLeadingZero } = require("utils");
 const { CustomError } = require("api/api.errors");
+const { sendEmail, TEMPLATES } = require("email");
 
 const formatEntry = ({ _id, startDate, endDate, ...others }) => ({
   bookingId: _id,
@@ -119,8 +120,8 @@ const getUTCBookingDate = (date, startTime, endTime) => {
  * @returns {object} newly created reservation
  */
 const createReservation = async reservation => {
-  const { name, email, message, bookingTime, productId } = reservation;
-  if (!name || !email || !message || !bookingTime || !productId) {
+  const { name, email, phone, bookingTime, productId } = reservation;
+  if (!name || !email || !phone || !bookingTime || !productId) {
     throw new CustomError("Input error", 400);
   }
 
@@ -155,13 +156,20 @@ const createReservation = async reservation => {
   const result = await db.collection("bookings").insertOne({
     name,
     email,
-    message,
+    phone,
     productId,
     startDate,
     endDate,
   });
-  const rating = await db.collection("bookings").findOne({ _id: result.insertedId });
-  return formatEntry(rating);
+  const newReservation = await db.collection("bookings").findOne({ _id: result.insertedId });
+
+  // Confirmation mail
+  sendEmail(email, TEMPLATES.BOOKING_CONFIRM, {
+    DATE: getDateStr(startDate),
+    TIMESLOT: bookingTime.startTime,
+  });
+
+  return formatEntry(newReservation);
 };
 
 /**
@@ -170,9 +178,21 @@ const createReservation = async reservation => {
  */
 const cancelReservation = async bookingId => {
   const db = await mongoDb.getInstance();
-  db.collection("bookings").remove({
+  const reservation = await db.collection("bookings").findOne({
     _id: mongoDb.getObjectId(bookingId),
   });
+  if (reservation) {
+    db.collection("bookings").deleteOne({
+      _id: mongoDb.getObjectId(bookingId),
+    });
+
+    // Confirmation mail
+    sendEmail(reservation.email, TEMPLATES.BOOKING_CANCEL, {
+      DATE: getDateStr(reservation.startDate),
+      TIMESLOT: formatEntry(reservation).startTime,
+    });
+  }
+  return { bookingId };
 };
 
 module.exports = {

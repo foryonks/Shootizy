@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import classNamesDedupe from "classnames/dedupe";
 import Interweave from "interweave";
@@ -16,7 +16,7 @@ const DropdownPopover = ({
   getItemKey,
   getItemLabel,
   isItemDisabled,
-  isOpen: defaultOpen,
+  openValue,
   value,
   title,
   placeholder,
@@ -27,6 +27,7 @@ const DropdownPopover = ({
   onChange,
   onClick,
 }) => {
+  const elementRef = useRef();
   const { isOpen, toggle } = useToggleState(false);
   const [valueLabel, setValueLabel] = useState("");
 
@@ -36,8 +37,17 @@ const DropdownPopover = ({
   }, [list, value]);
 
   useEffect(() => {
-    toggle(defaultOpen);
-  }, [defaultOpen]);
+    toggle(!!openValue);
+  }, [openValue]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("mousedown", handleBlur);
+      return () => {
+        document.removeEventListener("mousedown", handleBlur);
+      };
+    }
+  }, [isOpen]);
 
   const handleSelectItem = item => {
     toggle();
@@ -45,13 +55,20 @@ const DropdownPopover = ({
     onChange(getItemValue(item));
   };
 
-  const handleOnClick = () => {
+  const handleClick = () => {
     onClick && onClick(isOpen);
     toggle();
   };
 
+  const handleBlur = e => {
+    if (isOpen && elementRef.current && !elementRef.current.contains(e.target)) {
+      // outside click, close popover
+      toggle(false);
+    }
+  };
+
   return (
-    <div className="dropdown-popover-wrapper">
+    <div ref={elementRef} className="dropdown-popover-wrapper">
       <input
         type="text"
         className={classNamesDedupe("dropdown-popover-input form-field--full-width", className)}
@@ -59,7 +76,7 @@ const DropdownPopover = ({
         placeholder={placeholder}
         disabled={disabled}
         value={valueLabel}
-        onClick={handleOnClick}
+        onClick={handleClick}
       />
       {!disabled && (
         <div
@@ -100,7 +117,7 @@ DropdownPopover.propTypes = {
   getItemKey: PropTypes.func,
   getItemLabel: PropTypes.func,
   isItemDisabled: PropTypes.func,
-  isOpen: PropTypes.bool,
+  openValue: PropTypes.any,
   disabled: PropTypes.bool,
   value: PropTypes.any,
   className: PropTypes.string,
@@ -113,7 +130,6 @@ DropdownPopover.propTypes = {
 };
 DropdownPopover.defaultProps = {
   list: [],
-  isOpen: false,
   renderListItem: item => <Interweave content={String(item)} />,
   getItemValue: item => item,
   getItemLabel: item => String(item),

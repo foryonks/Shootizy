@@ -40,6 +40,16 @@ const getTodayUTCDate = () => {
 };
 
 /**
+ * Return date str in FR format
+ * @param {[Date,string]} date
+ * @returns {string}
+ */
+const getDateStr = date => {
+  const dateObj = date instanceof Date ? date : new Date(date);
+  return `${dateObj.getDate()}/${dateObj.getMonth() + 1}/${dateObj.getFullYear()}`;
+};
+
+/**
  * Add leading zero for date
  * @param {[string|number]} value
  */
@@ -49,6 +59,7 @@ module.exports = {
   formatDecimal,
   isValidDate,
   getUTCDate,
+  getDateStr,
   getTodayUTCDate,
   addLeadingZero,
 };

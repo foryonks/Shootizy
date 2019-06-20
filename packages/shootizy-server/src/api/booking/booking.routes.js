@@ -23,11 +23,11 @@ routes.get(
 routes.post(
   "/reservations",
   asyncRouteWrapper(async (req, res) => {
-    const { name, email, message, bookingTime, productId } = req.body;
+    const { name, email, phone, bookingTime, productId } = req.body;
     const newBooking = await bookingService.createReservation({
       name,
       email,
-      message,
+      phone,
       bookingTime,
       productId,
     });
@@ -36,7 +36,7 @@ routes.post(
 );
 
 /**
- * Create new reservation
+ * Cancel a reservation
  */
 routes.delete(
   "/reservations/:bookingId",
