@@ -217,6 +217,7 @@ const Form = ({
         setSubmitted(true);
         onSuccess && onSuccess(response);
       } catch (e) {
+        setSubmitted(false);
         onError && onError(e);
       }
     }
@@ -274,7 +275,7 @@ Form.defaultProps = {
   id: `form-${Math.floor(Math.random() * 10)}`,
   submitBtn: { label: "Envoyer", className: "btn-green" },
   errorMessage: "Une erreur est survenue, veuillez réessayer plus tard !",
-  successMessage: "Votre demande sera traitée prochainement, merci !",
+  successMessage: "Votre demande est enregistrée, merci !",
   showFieldErrorFeedback: true,
 };
 

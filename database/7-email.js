@@ -30,6 +30,34 @@ db.emailTemplates.insert([
       Shootizy
     `,
   },
+  {
+    templateId: "CONTACT_GENERAL",
+    subject: "Votre demande a été enregistrée",
+    html: `
+      Bonjour,<br/>
+      <br/>
+      Votre demande de contact a été enregistrée. Nous allons vous répondre dès que possible.<br/>
+      <br/>
+      Merci de votre confiance !<br/>
+      <br/>
+      Cordialement,<br/>
+      Shootizy
+    `,
+  },
+  {
+    templateId: "NEWSLETTER_SUBSCRIPTION",
+    subject: "Abonnement Newsletter Shootizy",
+    html: `
+      Bonjour,<br/>
+      <br/>
+      Votre demande d'abonnement à nos newsletters a été prise en compte.<br/>
+      <br/>
+      Merci de votre confiance !<br/>
+      <br/>
+      Cordialement,<br/>
+      Shootizy
+    `,
+  },
 ]);
 
 // Create index for fast search

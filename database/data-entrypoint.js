@@ -10,3 +10,4 @@ load("database/4-ratings.js");
 load("database/5-booking.js");
 load("database/6-blog.js");
 load("database/7-email.js");
+load("database/8-newsletter.js");

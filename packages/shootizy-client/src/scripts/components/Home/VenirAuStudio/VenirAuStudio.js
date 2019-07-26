@@ -21,7 +21,12 @@ const FORM_FIELDS = [
     props: { rows: "4" },
   },
 ];
-const FORM_SUBMIT_BTN = { icon: "letter", label: "Envoyer", className: "btn-green btn-fullwitdh" };
+const FORM_SUBMIT_BTN = {
+  hiddenOnSubmit: true,
+  icon: "letter",
+  label: "Envoyer",
+  className: "btn-green btn-fullwitdh",
+};
 
 const VenirAuStudio = props => (
   <section className="VenirAuStudio page-section">
@@ -40,8 +45,7 @@ const VenirAuStudio = props => (
             id="form-venir-au-studio"
             fields={FORM_FIELDS}
             submitBtn={FORM_SUBMIT_BTN}
-            action="/api/venir-au-studio"
-            errorMessage="Envoi échoué, veuillez réessayer !"
+            action="/api/contact/venir-au-studio"
           />
         </div>
         <div className="col googlemaps">

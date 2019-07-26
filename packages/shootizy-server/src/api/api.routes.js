@@ -7,6 +7,8 @@ const contentRoutes = require("./content/content.routes");
 const productRoutes = require("./product/product.routes");
 const ratingRoutes = require("./rating/rating.routes");
 const bookingRoutes = require("./booking/booking.routes");
+const contactRoutes = require("./contact/contact.routes");
+const newsletterRoutes = require("./newsletter/newsletter.routes");
 const blogRoutes = require("./blog/blog.routes");
 const fileRoutes = require("./file/file.routes");
 
@@ -26,6 +28,12 @@ routes.use("/ratings", ratingRoutes);
 
 // Booking
 routes.use("/booking", bookingRoutes);
+
+// Contact
+routes.use("/contact", contactRoutes);
+
+// Newsletter
+routes.use("/newsletter", newsletterRoutes);
 
 // Blog
 routes.use("/blog", blogRoutes);

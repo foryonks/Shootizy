@@ -67,3 +67,6 @@ package-lock.json
 
 ### storage local folder
 upload/
+
+# vscode config
+.vscode

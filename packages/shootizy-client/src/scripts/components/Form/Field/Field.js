@@ -44,6 +44,7 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
     case "email":
     case "number":
     case "password":
+    case "hidden":
       const inputProps = {
         id,
         className,

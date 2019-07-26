@@ -20,7 +20,11 @@ const FORM_FIELDS = [
     props: { rows: "3" },
   },
 ];
-const FORM_SUBMIT_BTN = { label: "Je propose mon thème à Shootizy", className: "btn-green" };
+const FORM_SUBMIT_BTN = {
+  hiddenOnSubmit: true,
+  label: "Je propose mon thème à Shootizy",
+  className: "btn-green",
+};
 
 const SurMesure = props => (
   <div className="SurMesure card-simple container-2">
@@ -36,8 +40,7 @@ const SurMesure = props => (
         id="form-sur-mesure"
         fields={FORM_FIELDS}
         submitBtn={FORM_SUBMIT_BTN}
-        action="/api/sur-mesure"
-        successMessage="Merci pour votre proposition !"
+        action="/api/contact/sur-mesure"
       />
     </div>
   </div>
