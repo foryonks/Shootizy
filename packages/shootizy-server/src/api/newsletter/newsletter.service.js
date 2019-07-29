@@ -20,7 +20,6 @@ const upsert = async (email, optins = { general: true }) => {
     { upsert: true }
   );
 
-  console.log(">>>> modified ", response.result);
   if (response.result.nModified === 0) {
     // Inserted new email => send subscription mail
     sendEmail(email, TEMPLATES.NEWSLETTER_SUBSCRIPTION);
