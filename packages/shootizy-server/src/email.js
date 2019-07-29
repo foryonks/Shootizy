@@ -70,4 +70,28 @@ const sendEmail = async (to, templateId, contents = {}) => {
   }
 };
 
-module.exports = { sendEmail, TEMPLATES };
+/**
+ * Send notification email to admin
+ * @param {string} subject email subject
+ * @param {object} data form data
+ */
+const adminNotificationEmail = async (subject, data) => {
+  const admin = process.env.EMAIL_NOTIFICATION;
+
+  if (admin) {
+    try {
+      const instance = getInstance();
+      const info = await instance.sendMail({
+        from: admin,
+        to: admin,
+        subject: `[SHOOTIZY-NOTIF] ${subject}`,
+        html: JSON.stringify(data, null, 4),
+      });
+      logger.info(`Admin notification email sent: ${JSON.stringify(info)}`);
+    } catch (e) {
+      logger.error(`Error sending mail: ${e}`);
+    }
+  }
+};
+
+module.exports = { sendEmail, adminNotificationEmail, TEMPLATES };

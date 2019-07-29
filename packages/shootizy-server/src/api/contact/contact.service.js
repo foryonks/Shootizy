@@ -1,5 +1,5 @@
 const mongoDb = require("db");
-const { sendEmail, TEMPLATES } = require("email");
+const { sendEmail, adminNotificationEmail, TEMPLATES } = require("email");
 const _pick = require("lodash/pick");
 
 /**
@@ -10,15 +10,17 @@ const _pick = require("lodash/pick");
  */
 const add = async (type, formData, fields) => {
   const db = await mongoDb.getInstance();
-
+  const data = _pick(formData, fields);
   await db.collection("contacts").insertOne({
     type,
-    data: {
-      ..._pick(formData, fields),
-    },
+    date: new Date(),
+    data,
   });
 
-  // Confirmation mail
+  // Notification email admin - async in background
+  adminNotificationEmail("Une nouvelle demande de contact", data);
+
+  // Confirmation mail - async in background
   if (formData.email) {
     sendEmail(formData.email, TEMPLATES.CONTACT_GENERAL);
   }

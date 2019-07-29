@@ -1,6 +1,8 @@
 const mongoDb = require("db");
+const { adminNotificationEmail } = require("email");
 const { CustomError } = require("api/api.errors");
 const { formatDecimal, isValidDate } = require("utils");
+
 const formatEntry = ({ _id, shootingDate, ...others }) => ({
   ratingId: _id,
   //TO-DO: may be moment js ???
@@ -74,7 +76,12 @@ const create = async (name, score, comment, shootingDate) => {
     isConfirmed: true,
   });
   const rating = await db.collection("ratings").findOne({ _id: result.insertedId });
-  return formatEntry(rating);
+  const formattedResult = formatEntry(rating);
+
+  // Notification email admin - async in background
+  adminNotificationEmail("Un nouveau avis client", formattedResult);
+
+  return formattedResult;
 };
 module.exports = {
   list,

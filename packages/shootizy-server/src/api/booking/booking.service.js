@@ -1,7 +1,7 @@
 const mongoDb = require("db");
 const { isValidDate, getUTCDate, getTodayUTCDate, getDateStr, addLeadingZero } = require("utils");
 const { CustomError } = require("api/api.errors");
-const { sendEmail, TEMPLATES } = require("email");
+const { sendEmail, adminNotificationEmail, TEMPLATES } = require("email");
 
 const formatEntry = ({ _id, startDate, endDate, ...others }) => ({
   bookingId: _id,
@@ -162,14 +162,18 @@ const createReservation = async reservation => {
     endDate,
   });
   const newReservation = await db.collection("bookings").findOne({ _id: result.insertedId });
+  const formattedResult = formatEntry(newReservation);
 
-  // Confirmation mail
+  // Notification email admin - async in background
+  adminNotificationEmail("Une nouvelle réservation", formattedResult);
+
+  // Confirmation mail - async in background
   sendEmail(email, TEMPLATES.BOOKING_CONFIRM, {
     DATE: getDateStr(startDate),
     TIMESLOT: bookingTime.startTime,
   });
 
-  return formatEntry(newReservation);
+  return formattedResult;
 };
 
 /**
@@ -186,7 +190,7 @@ const cancelReservation = async bookingId => {
       _id: mongoDb.getObjectId(bookingId),
     });
 
-    // Confirmation mail
+    // Confirmation mail - async in background
     sendEmail(reservation.email, TEMPLATES.BOOKING_CANCEL, {
       DATE: getDateStr(reservation.startDate),
       TIMESLOT: formatEntry(reservation).startTime,
