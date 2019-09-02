@@ -5,13 +5,14 @@ import "./Blog.scss";
 import List from "./List";
 
 const Blog = props => {
+  const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
+   Shootizy !`;
+
   return (
     <Layout>
       <div className="BlogWrapper">
-        <HeaderImage src="" preTitle="Blog" title="Articles" />
-        <h2 className="title">Articles</h2>
+        <HeaderImage src="" preTitle="Blog" title={title} reverseColor={true} />
         <div className="container">
-          <h2 className="title">Articles</h2>
           <List />
         </div>
       </div>
