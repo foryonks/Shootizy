@@ -29,21 +29,22 @@ const Header = (props, ref) => {
   }, [y]);
 
   return (
-    <header className={`header ${className}`}>
-      <div className="header-content">
-        <TopHeader />
-
-        <div className="header-main" ref={headerRef}>
-          <Logo />
-          <span className="navigation">
-            <NavBar />
-            <Link to="/booking" className="btn-big">
-              Réserver mon Shooting
-            </Link>
-          </span>
+    <div className="header-wrapper">
+      <header className={`header ${className}`}>
+        <div className="header-content">
+          <TopHeader />
+          <div className="header-main" ref={headerRef}>
+            <Logo />
+            <span className="navigation">
+              <NavBar />
+              <Link to="/booking" className="btn-big">
+                Réserver mon Shooting
+              </Link>
+            </span>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 };
 
