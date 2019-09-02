@@ -9,6 +9,7 @@ import ThemesNavigation from "./ThemesNavigation/ThemesNavigation";
 import Prices from "../_common/Prices";
 import Interweave from "interweave";
 import BookingForm from "scripts/components/Booking/Form";
+import Layout from "scripts/pages/Layout";
 
 import "./Product.scss";
 
@@ -24,60 +25,62 @@ const Product = ({ match }) => {
   const bookingLink = `/shooting-studio/${productId}/booking`;
 
   return (
-    <div className="ProductPage">
-      <HeaderImage
-        src={imageLarge}
-        preTitle="Shooting photo :"
-        title={title}
-        buttonLink={bookingLink}
-        buttonText="Je réserve mon Shooting">
-        <Prices className="Prices-header-product" textKey="product" />
-      </HeaderImage>
+    <Layout>
+      <div className="ProductPage">
+        <HeaderImage
+          src={imageLarge}
+          preTitle="Shooting photo :"
+          title={title}
+          buttonLink={bookingLink}
+          buttonText="Je réserve mon Shooting">
+          <Prices className="Prices-header-product" textKey="product" />
+        </HeaderImage>
 
-      <Switch>
-        <Route
-          path="/shooting-studio/:productId/booking"
-          render={() => (
-            <div className="container container-2">
-              <h2 className="title">Réservez votre séance</h2>
-              <div className="container-inside">
-                <BookingForm productId={productId} />
-              </div>
-            </div>
-          )}
-        />
-        <Route
-          exact
-          path="/shooting-studio/:productId"
-          render={() => (
-            <div className="page-content">
-              <ThemesNavigation />
-              <div className="product-description container-2">
-                <h2 className="title">
-                  <Interweave content={descTitle} />
-                </h2>
-                <div className="description">
-                  <Interweave content={description} />
+        <Switch>
+          <Route
+            path="/shooting-studio/:productId/booking"
+            render={() => (
+              <div className="container container-2">
+                <h2 className="title">Réservez votre séance</h2>
+                <div className="container-inside">
+                  <BookingForm productId={productId} />
                 </div>
-                <div className="button-container-centered">
-                  <Link to={bookingLink} className="btn-green">
-                    Je réserve mon Shooting
-                  </Link>
-                </div>
-                <LazyLoad height={400}>
-                  {gallery && (
-                    <div className="centered-gallery">
-                      <img src={gallery} alt="Gallerie" />
-                    </div>
-                  )}
-                </LazyLoad>
               </div>
-            </div>
-          )}
-        />
-        <Redirect to="/shooting-studio/:productId" />
-      </Switch>
-    </div>
+            )}
+          />
+          <Route
+            exact
+            path="/shooting-studio/:productId"
+            render={() => (
+              <div className="page-content">
+                <ThemesNavigation />
+                <div className="product-description container-2">
+                  <h2 className="title">
+                    <Interweave content={descTitle} />
+                  </h2>
+                  <div className="description">
+                    <Interweave content={description} />
+                  </div>
+                  <div className="button-container-centered">
+                    <Link to={bookingLink} className="btn-green">
+                      Je réserve mon Shooting
+                    </Link>
+                  </div>
+                  <LazyLoad height={400}>
+                    {gallery && (
+                      <div className="centered-gallery">
+                        <img src={gallery} alt="Gallerie" />
+                      </div>
+                    )}
+                  </LazyLoad>
+                </div>
+              </div>
+            )}
+          />
+          <Redirect to="/shooting-studio/:productId" />
+        </Switch>
+      </div>
+    </Layout>
   );
 };
 

@@ -4,6 +4,7 @@ import "./VenirAuStudio.scss";
 import LazyLoad from "react-lazyload";
 import Icon from "../../Icon";
 import Form from "scripts/components/Form";
+
 import metro3 from "../../../../assets/icons-metro/metro-3.svg";
 import metro12 from "../../../../assets/icons-metro/metro-12.svg";
 import metro13 from "../../../../assets/icons-metro/metro-13.svg";
