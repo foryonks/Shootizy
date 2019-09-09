@@ -6,7 +6,7 @@ import CarouselRenderer from "./CarouselRenderer";
 import "./BlogCarousel.scss";
 
 const BlogCarousel = ({ className }) => {
-  let { contents: articles } = useRemoteContents("/api/blog/articles", []);
+  let { contents: articles } = useRemoteContents("/api/blog/articles", { initialState: [] });
   if (!articles) return null;
 
   //let dataMatrix = toMatrix(articles, 2, { fill: true });

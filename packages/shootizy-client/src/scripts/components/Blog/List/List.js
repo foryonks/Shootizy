@@ -4,9 +4,9 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./List.scss";
 import ArticleCard from "../ArticleCard";
 
-const List = ({ items, render, cols, hidden, className }) => {
+const List = ({ items, render, cols, hidden, className, sortBy }) => {
   if (!items) {
-    let { contents: articles } = useRemoteContents("/api/blog/articles", []);
+    let { contents: articles } = useRemoteContents("/api/blog/articles", { initialState: [] });
     items = articles;
   }
   if (!items) return null;

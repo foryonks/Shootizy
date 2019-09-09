@@ -34,7 +34,7 @@ db.blog.articles.insert([
         <li><a href="/">Wurscht</a></li>
       </ul>`,
     author: "medy",
-    date: new Date(),
+    date: new Date(2019, 10, 05),
     categoryId: "1",
     slug: "photo-truc",
   },
@@ -50,7 +50,7 @@ db.blog.articles.insert([
 
       <p>Tu restes pour le lotto-owe ce soir, y'a baecke`,
     author: "medy",
-    date: new Date(),
+    date: new Date(2019, 4, 7),
     categoryId: "1",
     slug: "shootizy-the-site",
   },
@@ -74,7 +74,7 @@ db.blog.articles.insert([
         <li><a href="/">Wurscht</a></li>
       </ul>`,
     author: "medy",
-    date: new Date(),
+    date: new Date(2018, 7, 3),
     categoryId: "2",
     slug: "ouverture-exceptionnelle",
   },
@@ -96,7 +96,7 @@ db.blog.articles.insert([
         <li><a href="/">Wurscht</a></li>
       </ul>`,
     author: "medy",
-    date: new Date(),
+    date: new Date(2019, 3, 8),
     categoryId: "2",
     slug: "encore-un-article",
   },

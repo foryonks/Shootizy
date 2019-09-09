@@ -4,7 +4,7 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./ListCategories.scss";
 
 const ListCategories = props => {
-  let { contents: categories } = useRemoteContents("/api/blog/categories", []);
+  let { contents: categories } = useRemoteContents("/api/blog/categories", { initialState: [] });
   categories = categories || [];
 
   return (

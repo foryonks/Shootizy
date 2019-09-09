@@ -3,7 +3,10 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import ArticleCard from "scripts/components/Blog/ArticleCard";
 
 const Blog = () => {
-  let { contents: articles } = useRemoteContents("/api/blog/articles", [], true, false);
+  let { contents: articles } = useRemoteContents("/api/blog/articles", {
+    initialState: [],
+    defaultUseCache: false,
+  });
   if (!articles) return null;
   return (
     <div className="container ">

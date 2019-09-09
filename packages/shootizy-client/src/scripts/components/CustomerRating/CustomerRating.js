@@ -11,7 +11,9 @@ import GlobalRating from "./GlobalRating";
 import Layout from "scripts/pages/Layout";
 
 const CustomerRating = () => {
-  const { contents: ratings, load: reloadList } = useRemoteContents("/api/ratings", []);
+  const { contents: ratings, load: reloadList } = useRemoteContents("/api/ratings", {
+    initialState: [],
+  });
   const { loadGlobalRating } = useContext(AppContext);
 
   return (

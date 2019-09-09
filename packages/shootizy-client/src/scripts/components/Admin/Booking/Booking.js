@@ -13,7 +13,7 @@ const ITEMS_PER_PAGE = 3;
 const Booking = () => {
   const { contents: reservations, loading: loadingList, load: reloadList } = useRemoteContents(
     `/api/booking/reservations`,
-    []
+    { initialState: [] }
   );
   const { getCurrentPage, PaginationComponent } = usePagination(reservations || [], ITEMS_PER_PAGE);
   const { loading: canceling, fetchWithLoader, error } = useFetchWithLoader(

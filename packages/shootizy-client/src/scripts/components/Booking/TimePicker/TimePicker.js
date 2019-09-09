@@ -21,10 +21,12 @@ const TimePicker = ({ className, onChange }) => {
   const dateStr = date && getDateWithoutTimeZone(date);
   const { contents: timetable, loading } = useRemoteContents(
     `/api/booking/availability?date=${dateStr}`,
-    [],
-    !!date,
-    // real time reservation, no cache
-    false
+    {
+      initialState: [],
+      autoLoad: !!date,
+      // real time reservation, no cache
+      defaultUseCache: false,
+    }
   );
 
   const hanldeSelectDate = newDate => {
