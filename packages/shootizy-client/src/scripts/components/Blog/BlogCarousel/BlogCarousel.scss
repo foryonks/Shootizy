@@ -1,4 +1,26 @@
 @import "../../../../styles/functions";
 
 .BlogCarousel {
+  .carousel.carousel-slider {
+    .control-arrow {
+      font-size: 1.1em;
+      $size: 57px;
+      text-align: center;
+      background: #fff;
+      opacity: 1;
+      box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.05);
+      &:hover {
+        background: #00f6d6;
+      }
+    }
+
+    .control-next {
+      right: 0;
+      transform: translateX(50%);
+    }
+    .control-prev {
+      left: 0;
+      transform: translateX(-50%);
+    }
+  }
 }
