@@ -3,7 +3,6 @@ import { formatDateStd } from "scripts/utils/utils.js";
 import "./CarouselRenderer.scss";
 
 const CarouselRenderer = ({ item, index, key }) => {
-  console.log(item);
   const { imageLarge, title, date, category } = item;
   const formattedDate = formatDateStd(date);
   return (
