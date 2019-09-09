@@ -1,3 +1,4 @@
+import fecha from "fecha";
 /**
  * This function generate unique key for each item in an array and return the array
  * @param {Array} array
@@ -46,6 +47,46 @@ export const getDateWithoutTimeZone = date =>
  */
 export const getDateStr = date =>
   (date instanceof Date ? date : new Date(date)).toLocaleDateString("fr-FR");
+
+fecha.i18n = {
+  dayNamesShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+  dayNames: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+  monthNamesShort: [
+    "Jan",
+    "Fév",
+    "Mar",
+    "Avr",
+    "Mai",
+    "Juin",
+    "Juil",
+    "Aout",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Déc",
+  ],
+  monthNames: [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre",
+  ],
+  amPm: ["am", "pm"],
+  // D is the day of the month, function returns something like...  3rd or 11th
+  DoFn: function(D) {
+    return D === 1 ? D + "er" : D;
+  },
+};
+
+export const formatDateStd = date => fecha.format(new Date(date), "dddd D MMMM");
 
 /**
  * Return clean string without html and trucate by number

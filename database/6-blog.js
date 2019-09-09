@@ -101,5 +101,6 @@ db.blog.articles.insert([
     slug: "encore-un-article",
   },
 ]);
+
 // Create index for fast search
 db.blog.articles.createIndex({ articleId: 1 }, { unique: true });

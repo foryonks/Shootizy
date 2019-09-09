@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import Carousel from "../Carousel";
+import Carousel from "../CarouselHome";
 import CommentCaMarche from "./CommentCaMarche";
 import Prices from "../_common/Prices";
 import Layout from "scripts/pages/Layout";
