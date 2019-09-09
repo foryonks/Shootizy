@@ -1,5 +1,5 @@
 import React from "react";
-import { formatDateStd } from "scripts/utils/utils.js";
+import { formatDateStd } from "scripts/utils/DateUtils.js";
 import "./CarouselRenderer.scss";
 
 const CarouselRenderer = ({ item, index, key }) => {

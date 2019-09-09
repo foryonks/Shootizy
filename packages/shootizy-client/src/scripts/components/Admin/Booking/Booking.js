@@ -4,7 +4,7 @@ import usePagination from "scripts/hooks/usePagination";
 import useFetchWithLoader from "scripts/hooks/useFetchWithLoader";
 import { fetchJson } from "scripts/utils/api";
 
-import { getDateStr } from "scripts/utils/utils";
+import { getDateStr } from "scripts/utils/DateUtils";
 
 import "./Booking.scss";
 

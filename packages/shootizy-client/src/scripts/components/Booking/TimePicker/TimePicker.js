@@ -6,7 +6,7 @@ import Datepicker from "scripts/components/_common/Datepicker";
 import DropdownPopover from "scripts/components/_common/DropdownPopover";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import { getDateWithoutTimeZone, getDateStr } from "scripts/utils/utils";
+import { getDateWithoutTimeZone, getDateStr } from "scripts/utils/DateUtils";
 
 import "./TimePicker.scss";
 

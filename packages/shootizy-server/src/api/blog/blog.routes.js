@@ -37,9 +37,18 @@ routes.post(
   asyncRouteWrapper(async (req, res) => {
     const article = req.body;
     const response = await blogService.updateArticle(article);
-    console.log("response ======");
-    console.log(response);
     res.json(response);
+  })
+);
+
+/**
+ * Return all articles
+ */
+routes.get(
+  "/categories",
+  asyncRouteWrapper(async (req, res) => {
+    const categories = await blogService.listCategories();
+    res.json(categories);
   })
 );
 
