@@ -20,12 +20,4 @@ const ListCategories = props => {
   );
 };
 
-// ListCategories.propTypes = {
-//   // bla: PropTypes.string,
-// };
-
-// ListCategories.defaultProps = {
-//   // bla: 'test',
-// };
-
 export default ListCategories;
