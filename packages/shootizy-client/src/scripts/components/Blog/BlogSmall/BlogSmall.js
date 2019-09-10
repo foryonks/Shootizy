@@ -54,7 +54,7 @@ import ArticleCard from "../ArticleCard";
 // ];
 
 const BlogSmall = props => {
-  let { contents: articles } = useRemoteContents("/api/blog/articles", []);
+  let { contents: articles } = useRemoteContents("/api/blog/articles", { initialiState: [] });
   if (!articles) return null;
 
   let dataMatrix = toMatrix(articles, 2, { fill: true });

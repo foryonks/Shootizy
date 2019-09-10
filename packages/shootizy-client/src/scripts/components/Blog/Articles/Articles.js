@@ -5,7 +5,7 @@ import "./Articles.scss";
 import Article from "../Article";
 
 const Articles = () => {
-  const { contents: articles } = useRemoteContents("/api/blog/articles", []);
+  const { contents: articles } = useRemoteContents("/api/blog/articles", { initialState: [] });
 
   return (
     <ul className="BlogArticles row row-3 row-stretch row-margin row-wrap">

@@ -14,8 +14,11 @@
 }
 
 .container-2 {
-  max-width: $container-2-width;
+  max-width: $container-2-width + $container-padding * 2;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
 }
+
 .container-inside {
   max-width: 750px;
   padding-left: 20px;

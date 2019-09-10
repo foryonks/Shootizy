@@ -1,6 +1,9 @@
+@import "../../../../styles/functions";
+
 .HeaderImage {
   position: relative;
-  background: #f6f6f6;
+  background: none; // #f6f6f6;
+
   .HeaderImage-content {
     overflow: hidden;
     padding-bottom: 30.7314075%;
@@ -30,8 +33,19 @@
     font-weight: bold;
   }
 
+  .preTitle {
+    font-size: font-size(25px);
+  }
+
   .bigTitle {
     font-weight: 500;
+  }
+
+  &-reverse {
+    .title,
+    .text {
+      color: #000;
+    }
   }
 }
 

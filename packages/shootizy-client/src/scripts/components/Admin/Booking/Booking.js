@@ -4,7 +4,7 @@ import usePagination from "scripts/hooks/usePagination";
 import useFetchWithLoader from "scripts/hooks/useFetchWithLoader";
 import { fetchJson } from "scripts/utils/api";
 
-import { getDateStr } from "scripts/utils/utils";
+import { getDateStr } from "scripts/utils/DateUtils";
 
 import "./Booking.scss";
 
@@ -13,7 +13,7 @@ const ITEMS_PER_PAGE = 3;
 const Booking = () => {
   const { contents: reservations, loading: loadingList, load: reloadList } = useRemoteContents(
     `/api/booking/reservations`,
-    []
+    { initialState: [] }
   );
   const { getCurrentPage, PaginationComponent } = usePagination(reservations || [], ITEMS_PER_PAGE);
   const { loading: canceling, fetchWithLoader, error } = useFetchWithLoader(

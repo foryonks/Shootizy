@@ -1,11 +1,13 @@
-@import "../../../styles/functions";
+@import "../../../../styles/functions";
 
 /* your css code */
 .Carousel {
   position: relative;
+  .slide {
+    background: none;
+  }
   .carousel-content {
     position: relative;
-    overflow: hidden;
     z-index: 1;
 
     > ul {
@@ -26,12 +28,13 @@
       height: $size;
       line-height: $size;
       text-align: center;
-      background: rgba(0, 0, 0, 20);
+      background: #fff;
       border-radius: 100px;
       vertical-align: middle;
       padding: 0;
       top: 42.3%;
-      color: #fff;
+      color: #000;
+      opacity: 1;
     }
     .control-prev {
       left: 6.7%;

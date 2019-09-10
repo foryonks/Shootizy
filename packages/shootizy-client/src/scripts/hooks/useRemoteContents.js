@@ -13,9 +13,7 @@ const CONTENTS_CACHE = {};
  */
 const useRemoteContents = (
   apiPath,
-  initialState = null,
-  autoLoad = true,
-  defaultUseCache = true
+  { initialState = null, autoLoad = true, defaultUseCache = true } = {}
 ) => {
   const [loading, setLoading] = useState(!!autoLoad);
   const [contents, setContents] = useState(initialState);

@@ -108,6 +108,7 @@ const updateArticle = async article => {
 
 module.exports = {
   listArticles,
+  listCategories,
   getArticleBySlug,
   getCategoryBySlug,
   getArticleById,

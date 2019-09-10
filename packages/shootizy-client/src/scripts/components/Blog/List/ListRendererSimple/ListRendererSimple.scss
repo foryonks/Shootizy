@@ -1,0 +1,29 @@
+/* your css code */
+@import "../../../../../styles/functions";
+.listRendererSimple {
+  margin-bottom: 20px;
+  font-size: font-size(14px);
+
+  .image {
+    max-width: 80px;
+    width: 100%;
+    margin-right: 15px;
+  }
+
+  .mea-desc {
+    padding: 0;
+  }
+}
+
+.listRendererSimple-infos {
+  color: #000000;
+  letter-spacing: 0;
+
+  time {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+.listRendererSimple-title {
+  margin-top: font-size(5);
+  font-weight: bold;
+}
