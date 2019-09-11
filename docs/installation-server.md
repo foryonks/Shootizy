@@ -35,7 +35,7 @@ dokku git:set shootizy-dev deploy-branch develop
 ```
 sudo dokku mongodb:create shootizy
 sudo dokku mongo:expose shootizy
-sudo dokky mogo:link shootizy shootizy-dev
+sudo dokku mongo:link shootizy shootizy-dev
 ```
 
 Pour récupérer les infos de la db :
