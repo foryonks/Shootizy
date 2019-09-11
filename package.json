@@ -19,7 +19,8 @@
     "start-debug": "lerna run start-debug --stream",
     "build": "lerna run build",
     "init-db": "sh database-init.sh",
-    "heroku-remote": "lerna run start-heroku-server"
+    "heroku-remote": "lerna run start-heroku-server --stream",
+    "dev-publish": "git push dev develop"
   },
   "dependencies": {
     "express-fileupload": "^1.1.4",
