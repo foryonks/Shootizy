@@ -2,7 +2,6 @@
 @import "../../../../../styles/functions";
 
 .BlogCarouselRenderer-contentwrapper {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   position: relative;
   padding-bottom: 56.28%;
   background: center center no-repeat;
@@ -10,30 +9,27 @@
   overflow: hidden;
   border-radius: 20px;
   position: relative;
-}
 
-.BlogCarousel-content {
-  color: #fff;
-  position: absolute;
-  bottom: size-rem(90);
-  left: font-size(90);
-  right: font-size(90);
-  text-align: left;
-  font-size: 1rem;
-}
+  .BlogCarousel-content {
+    color: #fff;
+    position: absolute;
+    bottom: size-rem(90);
+    left: font-size(90);
+    right: font-size(90);
+    text-align: left;
+    font-size: 1rem;
+  }
 
-.BlogCarousel-firstline {
-  font-size: 1.33em;
-}
+  .blog-cat-datetime {
+    color: #fff;
+    font-size: 1.333em;
+    font-weight: normal;
+  }
+  .BlogCarouselRenderer-light {
+    color: #000;
+  }
 
-.BlogCarousel-content-date {
-  opacity: 0.7;
-}
-
-.BlogCarouselRenderer-light {
-  color: #000;
-}
-
-.BlogCarousel-content-title {
-  font-size: 2.44em;
+  .BlogCarousel-content-title {
+    font-size: 2.44em;
+  }
 }

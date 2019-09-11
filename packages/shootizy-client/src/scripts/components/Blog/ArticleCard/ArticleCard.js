@@ -5,9 +5,10 @@ import "./ArticleCard.scss";
 import { sliceAndRemoveHTML } from "../../../utils/utils";
 import Icon from "scripts/components/Icon";
 import { blog } from "scripts/utils/routesManager";
+import { formatDateStd } from "../../../utils/DateUtils";
 
 const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.articleUrl }) => {
-  let { title, text, category, imageMini } = article;
+  let { title, text, category, imageMini, date } = article;
   const articleLink = getArticleUrl(article);
 
   text = sliceAndRemoveHTML(text, 20);
@@ -16,19 +17,27 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
   return React.createElement(
     node || "div",
     { className: `ArticleCard ${className}` },
-    <div className="mea">
-      <img className="mea-img" src={imageMini} alt="" />
-      <div className="mea-desc">
-        <Link to={articleLink}>
+    <div>
+      <div className="img" style={{ backgroundImage: `url(${imageMini})` }} />
+      <div className="card-desc">
+        <div className="blog-cat-datetime">
+          <Link className="content-theme" to={`/blog/category/${category.slug}`}>
+            {category.name}
+          </Link>
+          {" / "}
+          <span className="content-date">{formatDateStd(date)}</span>
+        </div>
+
+        <Link to={articleLink} className="title-link">
           <h4 className="title">{title}</h4>
         </Link>
-        <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
+
         <Link to={articleLink}>
           <p>{text}</p>
         </Link>
-        <Link to={articleLink} className="link">
+        {/* <Link to={articleLink} className="link">
           <Icon name="arrow-right" className="circle-icon" /> Lire l'article
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

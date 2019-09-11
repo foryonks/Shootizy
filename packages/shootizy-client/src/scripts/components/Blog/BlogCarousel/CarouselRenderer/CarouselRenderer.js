@@ -4,17 +4,16 @@ import "./CarouselRenderer.scss";
 
 const CarouselRenderer = ({ item, index, key }) => {
   const { imageLarge, title, date, category } = item;
-  const formattedDate = formatDateStd(date);
   return (
     <div className="BlogCarouselRenderer" key={key}>
       <div
         className="BlogCarouselRenderer-contentwrapper"
         style={{ backgroundImage: `url(${imageLarge})` }}>
         <div className="BlogCarousel-content">
-          <div className="BlogCarousel-firstline">
-            <span className="BlogCarousel-content-theme">{category.name}</span>
+          <div className="blog-cat-datetime">
+            <span className="content-theme">{category.name}</span>
             {" / "}
-            <span className="BlogCarousel-content-date">{formattedDate}</span>
+            <span className="content-date">{formatDateStd(date)}</span>
           </div>
           <h3 className="BlogCarousel-content-title">{title}</h3>
         </div>

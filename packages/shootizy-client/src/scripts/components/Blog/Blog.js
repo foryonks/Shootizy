@@ -1,7 +1,9 @@
+import "./Blog.scss";
+import "./Common.scss";
+
 import React from "react";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import Layout from "scripts/pages/Layout";
-import "./Blog.scss";
 import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";

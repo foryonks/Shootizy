@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./ListRendererSimple.scss";
-import { formatDate } from "scripts/utils/DateUtils";
+import { formatDate } from "../../../../utils/DateUtils";
 
 const ListRendererSimple = ({ article }) => (
-  <div class="listRendererSimple mea">
+  <div className="listRendererSimple mea">
     <img className="mea-img image" src={article.imageMini} alt="" />
-    <div class="listRendererSimple-content mea-desc">
-      <div className="listRendererSimple-infos">
-        <strong>{article.category.name}</strong>
+    <div className="listRendererSimple-content mea-desc">
+      <div className="blog-cat-datetime">
+        <span className="content-theme">{article.category.name}</span>
         {" / "}
-        <time datetime={article.date}>{formatDate(article.date)}</time>
+        <span className="content-date">{formatDate(article.date)}</span>
       </div>
       <div className="listRendererSimple-title">{article.title}</div>
     </div>

@@ -15,13 +15,11 @@
   }
 }
 
-.listRendererSimple-infos {
-  color: #000000;
+.blog-cat-datetime {
   letter-spacing: 0;
-
-  time {
-    color: rgba(0, 0, 0, 0.5);
-  }
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #000;
 }
 .listRendererSimple-title {
   margin-top: font-size(5);
