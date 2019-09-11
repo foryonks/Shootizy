@@ -1,8 +1,10 @@
-/* your css code */
+@import "../../../../styles/variables";
+
 .header-image-mask {
   position: absolute;
   width: 100%;
   bottom: 0;
   left: 0;
   z-index: 3;
+  color: $background-color;
 }

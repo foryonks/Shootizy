@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import "./ListRendererSimple.scss";
 import { formatDate } from "../../../../utils/DateUtils";
 
-const ListRendererSimple = ({ article }) => (
-  <div className="listRendererSimple mea">
+const ListRendererSimple = ({ article, key }) => (
+  <div className="listRendererSimple mea" key={key}>
     <img className="mea-img image" src={article.imageMini} alt="" />
     <div className="listRendererSimple-content mea-desc">
       <div className="blog-cat-datetime">

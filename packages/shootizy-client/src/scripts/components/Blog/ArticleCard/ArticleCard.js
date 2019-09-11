@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 //import PropTypes from "prop-types";
 import "./ArticleCard.scss";
 import { sliceAndRemoveHTML } from "../../../utils/utils";
-import Icon from "scripts/components/Icon";
+//import Icon from "scripts/components/Icon";
 import { blog } from "scripts/utils/routesManager";
 import { formatDateStd } from "../../../utils/DateUtils";
 
