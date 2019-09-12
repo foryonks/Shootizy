@@ -1,10 +1,12 @@
 /* your css code */
 .Article {
   .article-image {
+    overflow: hidden;
     padding-bottom: 56.27%;
     background: center center no-repeat;
     background-size: cover;
     position: relative;
+    border-radius: 20px;
 
     .title,
     .blog-cat-datetime {
@@ -24,5 +26,9 @@
     left: 8.4%;
     right: 8.4%;
     text-align: left;
+  }
+
+  .Blog-Content {
+    margin-top: 100px;
   }
 }
