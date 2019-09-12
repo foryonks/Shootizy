@@ -30,5 +30,21 @@
 
   .Blog-Content {
     margin-top: 100px;
+    margin-right: 0;
+
+    > content {
+      width: 57.62%;
+    }
+  }
+
+  .rte-content {
+    color: rgba(0, 0, 0, 0.5);
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: #000;
+    }
   }
 }

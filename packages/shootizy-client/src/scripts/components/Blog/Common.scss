@@ -24,13 +24,13 @@
   display: flex;
   flex: auto initial;
   flex-direction: row;
+  justify-content: space-between;
 
   > content {
-    max-width: 788px;
-    margin-right: 45px;
+    width: 66.1%;
   }
 
   > aside {
-    max-width: 350px;
+    width: 29.66%;
   }
 }

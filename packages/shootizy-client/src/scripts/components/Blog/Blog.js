@@ -7,7 +7,6 @@ import Layout from "scripts/pages/Layout";
 import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";
-import ListRenderedSimple from "./List/ListRendererSimple";
 import MostReadArticles from "./MostReadArticles/MostReadArticles";
 
 const Blog = props => {

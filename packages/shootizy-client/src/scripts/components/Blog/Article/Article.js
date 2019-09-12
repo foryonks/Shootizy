@@ -34,7 +34,9 @@ const Article = ({ match }) => {
         <main className="Blog-Content">
           <content>
             <div className="article-content">
-              <Interweave content={text} />
+              <div className="rte-content">
+                <Interweave content={text} />
+              </div>
             </div>
           </content>
           <aside>

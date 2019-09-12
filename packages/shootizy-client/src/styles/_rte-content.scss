@@ -1,0 +1,41 @@
+@import "./functions";
+
+.rte-content {
+  font-size: 16px;
+
+  h1 {
+    font-size: font-size(34px);
+    margin-bottom: size-rem(40px);
+    margin-top: size-rem(30px);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-size: font-size(28px);
+  }
+
+  h3 {
+    font-size: font-size(20px);
+  }
+
+  h4 {
+    font-size: font-size(16px);
+  }
+
+  ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    li {
+      margin-left: 2rem;
+      list-style: disc;
+    }
+  }
+
+  .fullsize {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
