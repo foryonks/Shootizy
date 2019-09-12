@@ -3,10 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Article.scss";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import HeaderImage from "scripts/components/_common/HeaderImage";
 import Interweave from "interweave";
 import { blog } from "scripts/utils/routesManager";
 import Layout from "scripts/pages/Layout";
+import MostReadArticles from "../MostReadArticles";
+import { formatDateStd } from "../../../utils/DateUtils";
 
 const Article = ({ match }) => {
   const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
@@ -16,15 +17,30 @@ const Article = ({ match }) => {
 
   return (
     <Layout>
-      <div className="Article">
-        <HeaderImage src={imageLarge} title={title} />
-        <div className="container">
-          <h2 className="title">{title}</h2>
-          <Link to={blog.categoryUrl(category.slug)}>{category.name}</Link>
-          <div className="text">
-            <Interweave content={text} />
+      <div className="Article container-2 header-height-space">
+        <div className="article-image" style={{ backgroundImage: `url(${imageLarge})` }}>
+          <div className="article-header">
+            <div className="blog-cat-datetime">
+              <Link className="content-theme" to={blog.categoryUrl(category.slug)}>
+                {category.name}
+              </Link>
+              {" / "}
+              <span className="content-date">{formatDateStd(article.date)}</span>
+            </div>
+            <h2 className="title">{title}</h2>
           </div>
         </div>
+
+        <main className="Blog-Content">
+          <content>
+            <div className="article-content">
+              <Interweave content={text} />
+            </div>
+          </content>
+          <aside>
+            <MostReadArticles />
+          </aside>
+        </main>
       </div>
     </Layout>
   );

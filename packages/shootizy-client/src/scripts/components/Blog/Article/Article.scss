@@ -1,1 +1,28 @@
 /* your css code */
+.Article {
+  .article-image {
+    padding-bottom: 56.27%;
+    background: center center no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .title,
+    .blog-cat-datetime {
+      text-align: left;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .title {
+      margin-top: 15px;
+    }
+  }
+
+  .article-header {
+    position: absolute;
+    bottom: 9.66%;
+    left: 8.4%;
+    right: 8.4%;
+    text-align: left;
+  }
+}

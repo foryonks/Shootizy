@@ -8,6 +8,7 @@ import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";
 import ListRenderedSimple from "./List/ListRendererSimple";
+import MostReadArticles from "./MostReadArticles/MostReadArticles";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
@@ -26,13 +27,7 @@ const Blog = props => {
             <List cols={2} hidden={true} remoteContents="/api/blog/articles" />
           </content>
           <aside>
-            <h3 className="Blog-block-title">Derniers articles</h3>
-            <List
-              sortBy="date"
-              limit="3"
-              render={ListRenderedSimple}
-              remoteContents="/api/blog/articles"
-            />
+            <MostReadArticles />
           </aside>
         </main>
       </div>
