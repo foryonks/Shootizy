@@ -31,6 +31,16 @@ const listCategories = async () => {
   return categories;
 };
 
+const getCommentsByArticleId = async articleId => {
+  const db = await mongoDb.getInstance();
+  const comments = await db
+    .collection("blog.comments")
+    .find({ articleId: articleId * 1 })
+    .toArray();
+  console.log(comments);
+  return comments.map(formatEntry);
+};
+
 const getArticleByAny = async ({ slug, id }) => {
   const db = await mongoDb.getInstance();
   const article = await db.collection("blog.articles").findOne({
@@ -113,4 +123,5 @@ module.exports = {
   getCategoryBySlug,
   getArticleById,
   updateArticle,
+  getCommentsByArticleId,
 };

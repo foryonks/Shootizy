@@ -41,6 +41,7 @@ const Article = ({ match }) => {
     ...article,
     ...data,
   });
+
   useEffect(() => {
     setArticleState(article);
   }, [article]);

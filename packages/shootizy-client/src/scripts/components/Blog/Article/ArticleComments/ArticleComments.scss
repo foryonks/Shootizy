@@ -1,0 +1,12 @@
+/* your css code */
+.ArticleCommentsWrapper {
+  .comments {
+    li {
+      margin-bottom: 10px;
+
+      > div {
+        margin-bottom: 2px;
+      }
+    }
+  }
+}

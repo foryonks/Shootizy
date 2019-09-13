@@ -8,6 +8,7 @@ import { blog } from "scripts/utils/routesManager";
 import Layout from "scripts/pages/Layout";
 import MostReadArticles from "../MostReadArticles";
 import { formatDateStd } from "../../../utils/DateUtils";
+import ArticleComments from "./ArticleComments/ArticleComments";
 
 const Article = ({ match }) => {
   const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
@@ -38,6 +39,7 @@ const Article = ({ match }) => {
                 <Interweave content={text} />
               </div>
             </div>
+            <ArticleComments articleId={article.articleId} />
           </content>
           <aside>
             <MostReadArticles />

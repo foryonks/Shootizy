@@ -27,6 +27,8 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
     value: defaultValue,
     props: extendedProps,
     render,
+    rows,
+    cols,
   } = field;
 
   const isError = showFieldError(field);
@@ -66,6 +68,8 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
         type,
         placeholder,
         defaultValue,
+        rows,
+        cols,
         onChange: ev => onChange(name, ev.target.value),
         onBlur: () => onValidate(name),
         ...(extendedProps || {}),

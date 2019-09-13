@@ -42,6 +42,30 @@ routes.post(
 );
 
 /**
+ * Return comments from one article (by articleId)
+ */
+routes.get(
+  "/comments/article/:articleId",
+  asyncRouteWrapper(async (req, res) => {
+    const { articleId } = req.params;
+    const comments = await blogService.getCommentsByArticleId(articleId);
+    res.json(comments);
+  })
+);
+
+/**
+ * update admin article
+ */
+// routes.post(
+//   "/comment",
+//   asyncRouteWrapper(async (req, res) => {
+//     const article = req.body;
+//     const response = await blogService.updateArticle(article);
+//     res.json(response);
+//   })
+// );
+
+/**
  * Return all articles
  */
 routes.get(

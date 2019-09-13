@@ -32,7 +32,7 @@ class Editor extends Component {
           onChange={this.onChange}
         />
 
-        <div class="help">
+        <div className="help">
           <a href="#help">Aide</a>
           <ul>
             <li>
