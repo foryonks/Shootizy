@@ -31,16 +31,6 @@ const listCategories = async () => {
   return categories;
 };
 
-const getCommentsByArticleId = async articleId => {
-  const db = await mongoDb.getInstance();
-  const comments = await db
-    .collection("blog.comments")
-    .find({ articleId: articleId * 1 })
-    .toArray();
-  console.log(comments);
-  return comments.map(formatEntry);
-};
-
 const getArticleByAny = async ({ slug, id }) => {
   const db = await mongoDb.getInstance();
   const article = await db.collection("blog.articles").findOne({
@@ -96,6 +86,31 @@ const getCategoryBySlug = async slug => {
   };
 };
 
+const getCommentsByArticleId = async articleId => {
+  const db = await mongoDb.getInstance();
+  const comments = await db
+    .collection("blog.comments")
+    .find({ articleId: articleId * 1 })
+    .toArray();
+  return comments.map(formatEntry);
+};
+
+const addComment = async ({ author, comment, articleId }) => {
+  if (!author || !comment || articleId === null) {
+    throw new CustomError("Input error", 400);
+  }
+  const db = await mongoDb.getInstance();
+  const result = await db.collection("blog.comments").insertOne({
+    date: new Date(),
+    author,
+    comment,
+    articleId: articleId * 1,
+  });
+  const resultComment = await db.collection("blog.comments").findOne({ _id: result.insertedId });
+  delete resultComment._id;
+  return resultComment;
+};
+
 const updateArticle = async article => {
   const db = await mongoDb.getInstance();
   const { articleId } = article;
@@ -123,5 +138,6 @@ module.exports = {
   getCategoryBySlug,
   getArticleById,
   updateArticle,
+  addComment,
   getCommentsByArticleId,
 };

@@ -54,6 +54,18 @@ routes.get(
 );
 
 /**
+ * Post comment for article with articleId
+ */
+routes.post(
+  "/comment",
+  asyncRouteWrapper(async (req, res) => {
+    const comment = req.body;
+    const response = await blogService.addComment(comment);
+    res.json(response);
+  })
+);
+
+/**
  * update admin article
  */
 // routes.post(

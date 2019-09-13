@@ -11,13 +11,13 @@ const FORM_SUBMIT_BTN = { label: "Envoyer", className: "btn-green" };
 
 const CommentForm = ({ articleId }) => {
   const onBeforePost = data => ({
-    ...articleId,
     ...data,
+    articleId,
   });
 
   return (
     <div className="CommentFormWrapper">
-      <h3>Ajouter un commentaire</h3>
+      <h3 className="title mb10">Ajouter un commentaire</h3>
       <Form
         id="form-comment"
         className="form-comment"

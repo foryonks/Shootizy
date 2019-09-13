@@ -109,4 +109,4 @@ db.blog.comments.insert([
     date: new Date(2019, 3, 8, 12, 3, 4),
   },
 ]);
-db.blog.comments.createIndex({ commentId: 1 }, { unique: true });
+db.blog.articles.createIndex({ commentId: 1 }, { unique: true });
