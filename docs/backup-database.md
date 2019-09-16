@@ -49,3 +49,10 @@ $ scp remoteuser@remoteserver:/remote/folder/myfile.txt  myfile.txt
 ```
 scp myfile.txt remoteuser@remoteserver:/remote/folder/
 ```
+
+# Pour faire restaurer un quand mongo est installé via dokku :
+
+installer mongo-tools
+apt-get install mongotools
+
+mongorestore --host localhost:27017 --upsert --gzip --archive=shootizy.dump.gz --db shootizy

@@ -6,7 +6,10 @@ import CommentForm from "./CommentForm/CommentForm";
 import { formatDate } from "scripts/utils/DateUtils";
 
 const ArticleComments = ({ articleId }) => {
-  const { contents: comments } = useRemoteContents(`/api/blog/comments/article/${articleId}`);
+  const { contents: comments, load: reloadList } = useRemoteContents(
+    `/api/blog/comments/article/${articleId}`,
+    { initialState: [] }
+  );
   //if (!comments || !comments.length) return null;
   return (
     <div className="ArticleCommentsWrapper">
@@ -26,7 +29,12 @@ const ArticleComments = ({ articleId }) => {
         "Aucun commentaire n'a encore été posté"
       )}
 
-      <CommentForm articleId={articleId} />
+      <CommentForm
+        articleId={articleId}
+        onSubmit={() => {
+          reloadList();
+        }}
+      />
     </div>
   );
 };
