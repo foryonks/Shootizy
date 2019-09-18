@@ -34,10 +34,10 @@ const listCategories = async () => {
 
 const getArticleByAny = async ({ slug, id }) => {
   const db = await mongoDb.getInstance();
-  console.log("article id request:", id, id.length);
-  const article = await db.collection("blog.articles").findOne({
-    _id: mongoDb.getObjectId(id),
-  });
+  const request = {};
+  if (slug) request.slug = slug;
+  if (id) request._id = mongoDb.getObjectId(id);
+  const article = await db.collection("blog.articles").findOne(request);
 
   if (!article) {
     throw new CustomError("Article not found", 404);
@@ -123,7 +123,7 @@ const getComments = async ({ count = 10, sortBy = "date", order = "asc" }) => {
 
   for (let i = 0; i < comments.length; i++) {
     const { title } = await getArticleById(comments[i].articleId);
-    comments.article = { title };
+    comments[i].article = { title };
   }
 
   return comments;

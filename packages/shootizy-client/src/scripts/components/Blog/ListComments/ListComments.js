@@ -18,10 +18,10 @@ const ListComments = ({ sortBy, order, count, title }) => {
       <h3 className="Blog-block-title">{title || "Nouveaux Com'"}</h3>
       <ul className="comments">
         {comments &&
-          comments.map(({ commentId, author, articleTitle }) => (
+          comments.map(({ commentId, author, article }) => (
             <li key={commentId}>
               <div>
-                <strong>{author}</strong> sur {articleTitle}
+                <strong>{author}</strong> sur <strong>{article.title}</strong>
               </div>
             </li>
           ))}
