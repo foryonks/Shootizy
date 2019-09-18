@@ -8,6 +8,7 @@ import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";
 import MostReadArticles from "./MostReadArticles/MostReadArticles";
+import ListComments from "./ListComments";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
@@ -27,6 +28,7 @@ const Blog = props => {
           </content>
           <aside>
             <MostReadArticles />
+            <ListComments sortBy="date" order="desc" count="3" />
           </aside>
         </main>
       </div>

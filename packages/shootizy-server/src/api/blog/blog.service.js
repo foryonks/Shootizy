@@ -18,6 +18,7 @@ const listArticles = async () => {
 
   return articles.map(formatEntry).map(article => ({
     ...article,
+    articleId: article._id,
     category: categories.find(category => category.categoryId == article.categoryId),
   }));
 };
@@ -33,9 +34,9 @@ const listCategories = async () => {
 
 const getArticleByAny = async ({ slug, id }) => {
   const db = await mongoDb.getInstance();
+  console.log("article id request:", id, id.length);
   const article = await db.collection("blog.articles").findOne({
-    id,
-    slug,
+    _id: mongoDb.getObjectId(id),
   });
 
   if (!article) {
@@ -44,7 +45,9 @@ const getArticleByAny = async ({ slug, id }) => {
 
   const categories = await listCategories();
 
-  delete article._id;
+  article._id;
+  article.articleId = article._id;
+
   return {
     ...article,
     category: categories.find(category => category.categoryId == article.categoryId),
@@ -90,7 +93,7 @@ const getCommentsByArticleId = async articleId => {
   const db = await mongoDb.getInstance();
   const comments = await db
     .collection("blog.comments")
-    .find({ articleId: articleId * 1 })
+    .find({ articleId })
     .toArray();
   return comments.map(formatEntry);
 };
@@ -104,12 +107,29 @@ const addComment = async ({ author, comment, articleId }) => {
     date: new Date(),
     author,
     comment,
-    articleId: articleId * 1,
+    articleId,
   });
   const resultComment = await db.collection("blog.comments").findOne({ _id: result.insertedId });
   delete resultComment._id;
   return resultComment;
 };
+
+const getComments = async ({ count = 10, sortBy = "date", order = "asc" }) => {
+  const db = await mongoDb.getInstance();
+  const comments = await db
+    .collection("blog.comments")
+    .find({}, { sort: [[sortBy, order]], limit: count * 1 })
+    .toArray();
+
+  for (let i = 0; i < comments.length; i++) {
+    const { title } = await getArticleById(comments[i].articleId);
+    comments.article = { title };
+  }
+
+  return comments;
+};
+
+//const asyncCommentGetArticle = ;
 
 const updateArticle = async article => {
   const db = await mongoDb.getInstance();
@@ -119,7 +139,7 @@ const updateArticle = async article => {
 
   const result = await db
     .collection("blog.articles")
-    .updateOne({ articleId }, { $set: article }, { upsert: true });
+    .updateOne({ _id: articleId }, { $set: article }, { upsert: true });
 
   let resArticle;
   if (result.upsertedId) {
@@ -127,7 +147,7 @@ const updateArticle = async article => {
   } else {
     resArticle = await db.collection("blog.articles").findOne({ articleId });
   }
-
+  resArticle.articleId = _id;
   return resArticle;
 };
 
@@ -139,5 +159,6 @@ module.exports = {
   getArticleById,
   updateArticle,
   addComment,
+  getComments,
   getCommentsByArticleId,
 };

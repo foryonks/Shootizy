@@ -21,12 +21,17 @@ const removeAppToken = () => localStorage.removeItem("shootizyAuthToken");
 const fetchApi = (path, options, redirectLogin401 = true) => {
   let fetchOptions = options || {};
   const authToken = getAppToken();
+  const headers = new Headers(fetchOptions.headers || {});
   if (authToken) {
-    const headers = new Headers(fetchOptions.headers || {});
-    //headers.append("Accept", "application/json");
     headers.append("authorization", `Bearer ${authToken}`);
-    fetchOptions.headers = headers;
   }
+  if (fetchOptions.method === "POST") {
+    fetchOptions.body = JSON.stringify(fetchOptions.body || {});
+    headers.append("Accept", "application/json");
+    headers.append("Content-Type", "application/json");
+  }
+  fetchOptions.headers = headers;
+  console.log("go fetch", path, fetchOptions);
   return fetch(path, fetchOptions)
     .then(async res => {
       // MDN: fetch not return error on 500 : https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful

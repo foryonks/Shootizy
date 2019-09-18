@@ -13,7 +13,7 @@ const CONTENTS_CACHE = {};
  */
 const useRemoteContents = (
   apiPath,
-  { initialState = null, autoLoad = true, defaultUseCache = true } = {}
+  { initialState = null, autoLoad = true, defaultUseCache = true, method, body } = {}
 ) => {
   const [loading, setLoading] = useState(!!autoLoad);
   const [contents, setContents] = useState(initialState);
@@ -23,7 +23,7 @@ const useRemoteContents = (
         setLoading(true);
         let newContents = useCache && CONTENTS_CACHE[apiPath];
         if (!newContents) {
-          newContents = await fetchJson(apiPath);
+          newContents = await fetchJson(apiPath, { method, body });
 
           // Update cache
           CONTENTS_CACHE[apiPath] = newContents;

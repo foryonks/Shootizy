@@ -41,6 +41,15 @@ routes.post(
   })
 );
 
+routes.post(
+  "/comments",
+  asyncRouteWrapper(async (req, res) => {
+    const params = req.body;
+    const comments = await blogService.getComments(params);
+    res.json(comments);
+  })
+);
+
 /**
  * Return comments from one article (by articleId)
  */
@@ -59,7 +68,7 @@ routes.get(
 routes.post(
   "/comment",
   asyncRouteWrapper(async (req, res) => {
-    const comment = req.body;
+    const comment = req.json();
     const response = await blogService.addComment(comment);
     res.json(response);
   })

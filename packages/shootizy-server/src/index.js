@@ -22,6 +22,11 @@ app.use(compression());
 app.use(loginMiddleware.retrieveUser());
 
 // API
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 app.use(bodyParser.json());
 app.use("/api", apiRouters);
 
@@ -34,6 +39,7 @@ app.use(errorMiddleware);
 
 // Start server
 const PORT = process.env.PORT || 3001;
+console.log(PORT);
 (async () => {
   try {
     const db = await mongoDb.getInstance();

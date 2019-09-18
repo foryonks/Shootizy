@@ -18,7 +18,7 @@ db.blog.categories.createIndex({ categoryId: 1 }, { unique: true });
 
 db.blog.articles.insert([
   {
-    articleId: "1",
+    _id: ObjectId("0d815e93794dca7b1e789200"),
     title: "La photo argentique fait son retour",
     imageMini: "/assets/photos/blog1.jpg",
     imageLarge: "/assets/photos/blog1.jpg",
@@ -34,7 +34,7 @@ db.blog.articles.insert([
     slug: "photo-truc",
   },
   {
-    articleId: "2",
+    _id: ObjectId("0d815e93794dca7b1e789202"),
     title: "L'éclairage la base de la photographie",
     imageMini: "/assets/photos/blog2.jpg",
     imageLarge: "/assets/photos/blog2.jpg",
@@ -50,7 +50,7 @@ db.blog.articles.insert([
     slug: "shootizy-the-site",
   },
   {
-    articleId: "3",
+    _id: ObjectId("0d815e93794dca7b1e789201"),
     title: "ouverture exceptionnelle",
     imageMini: "/assets/photos/blog2.jpg",
     imageLarge: "/assets/photos/blog2.jpg",
@@ -73,9 +73,8 @@ db.blog.articles.insert([
     categoryId: "2",
     slug: "ouverture-exceptionnelle",
   },
-  ,
   {
-    articleId: "4",
+    _id: ObjectId("0d815e93794dca7b1e789203"),
     title: "encore un article",
     imageMini: "/assets/photos/blog1.jpg",
     imageLarge: "/assets/photos/blog1.jpg",
@@ -97,16 +96,30 @@ db.blog.articles.insert([
   },
 ]);
 
-// Create index for fast search
-db.blog.articles.createIndex({ articleId: 1 }, { unique: true });
-
 db.blog.comments.insert([
   {
-    commentId: 1,
-    articleId: 1,
+    articleId: "0d815e93794dca7b1e789201",
     author: "Moha",
     comment: "ceci est mon premier commentaire",
     date: new Date(2019, 3, 8, 12, 3, 4),
   },
+  {
+    articleId: "0d815e93794dca7b1e789201",
+    author: "author2",
+    comment: "ceci est encore un commentaire",
+    date: new Date(2019, 4, 8, 12, 3, 4),
+  },
+  {
+    articleId: "0d815e93794dca7b1e789200",
+    author: "author3",
+    comment: "ceci est encore un commentaire",
+    date: new Date(2019, 3, 8, 12, 3, 4),
+  },
+  {
+    articleId: "0d815e93794dca7b1e789203",
+    author: "author3",
+    comment: "ceci est encore un commentaire",
+    date: new Date(2019, 10, 23, 12, 3, 4),
+  },
 ]);
-db.blog.articles.createIndex({ commentId: 1 }, { unique: true });
+db.blog.comments.createIndex({}, { unique: true, name: "commentId" });

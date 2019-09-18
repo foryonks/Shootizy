@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src/ nodemon --delay 2 src/index.js",
-    "start-debug": "cross-env NODE_PATH=src/ nodemon --delay 2 src/index.js",
+    "start-debug": "cross-env NODE_PATH=src/ nodemon --inspect src/index.js",
     "start-heroku-server": "cross-env NODE_PATH=src/ node src/index.js"
   },
   "dependencies": {
