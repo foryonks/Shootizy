@@ -16,7 +16,7 @@ const listArticles = async () => {
     .toArray();
   const categories = await listCategories();
 
-  return articles.map(formatEntry).map(article => ({
+  return articles.map(article => ({
     ...article,
     articleId: article._id,
     category: categories.find(category => category.categoryId == article.categoryId),
@@ -79,7 +79,7 @@ const getCategoryBySlug = async slug => {
     })
     .toArray();
 
-  delete category._id;
+  //delete category._id;
   return {
     ...category,
     articles: articles.map(article => ({

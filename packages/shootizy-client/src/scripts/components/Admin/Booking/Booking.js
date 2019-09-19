@@ -25,9 +25,6 @@ const Booking = () => {
     try {
       await fetchWithLoader(`/api/booking/reservations/${bookingId}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
       reloadList();
     } catch (e) {}

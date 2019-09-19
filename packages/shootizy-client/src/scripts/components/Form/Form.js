@@ -209,9 +209,9 @@ const Form = ({
       try {
         const response = await fetchWithLoader(action, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          // },
           body: JSON.stringify(postData),
         });
         setSubmitted(true);

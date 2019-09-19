@@ -12,8 +12,12 @@ import ArticleComments from "./ArticleComments/ArticleComments";
 
 const Article = ({ match }) => {
   const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
-
-  if (!article) return null;
+  if (!article)
+    return (
+      <Layout>
+        <div className="Article container-2 header-height-space">Article Introuvable</div>
+      </Layout>
+    );
   const { title, text, category, imageLarge } = article;
 
   return (

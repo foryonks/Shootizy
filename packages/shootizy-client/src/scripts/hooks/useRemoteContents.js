@@ -24,7 +24,6 @@ const useRemoteContents = (
         let newContents = useCache && CONTENTS_CACHE[apiPath];
         if (!newContents) {
           newContents = await fetchJson(apiPath, { method, body });
-
           // Update cache
           CONTENTS_CACHE[apiPath] = newContents;
         }
