@@ -19,8 +19,8 @@ const ArticleComments = ({ articleId }) => {
       {comments && comments.length ? (
         <div>
           <ul className="comments">
-            {getCurrentPage().map(({ commentId, author, date, comment }) => (
-              <li key={commentId}>
+            {getCurrentPage().map(({ _id, author, date, comment }) => (
+              <li key={_id}>
                 <div>
                   <strong>{author}</strong> / {formatDate(date)}
                 </div>

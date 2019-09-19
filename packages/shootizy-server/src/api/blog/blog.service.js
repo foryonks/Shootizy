@@ -95,7 +95,7 @@ const getCommentsByArticleId = async articleId => {
     .collection("blog.comments")
     .find({ articleId })
     .toArray();
-  return comments.map(formatEntry);
+  return comments;
 };
 
 const addComment = async ({ author, comment, articleId }) => {
