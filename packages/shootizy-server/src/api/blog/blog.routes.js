@@ -69,7 +69,6 @@ routes.post(
   "/comment",
   asyncRouteWrapper(async (req, res) => {
     console.log(req.body);
-    debugger;
     const comment = req.body;
     const response = await blogService.addComment(comment);
     res.json(response);
