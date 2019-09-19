@@ -39,7 +39,6 @@ app.use(errorMiddleware);
 
 // Start server
 const PORT = process.env.PORT || 3001;
-console.log(PORT);
 (async () => {
   try {
     const db = await mongoDb.getInstance();
