@@ -4,7 +4,7 @@ import "./ListRendererSimple.scss";
 import { formatDate } from "../../../../utils/DateUtils";
 
 const ListRendererSimple = ({ article, key }) => (
-  <div className="listRendererSimple mea" key={key}>
+  <a href={`/blog/article/${article.slug}`} className="listRendererSimple mea" key={key}>
     <img className="mea-img image" src={article.imageMini} alt="" />
     <div className="listRendererSimple-content mea-desc">
       <div className="blog-cat-datetime">
@@ -14,7 +14,7 @@ const ListRendererSimple = ({ article, key }) => (
       </div>
       <div className="listRendererSimple-title">{article.title}</div>
     </div>
-  </div>
+  </a>
 );
 
 ListRendererSimple.propTypes = {

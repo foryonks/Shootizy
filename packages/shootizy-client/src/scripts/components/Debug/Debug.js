@@ -5,7 +5,7 @@
 
 import React from "react";
 
-const reactDebug = process.env.REACT_APP_DEBUG === "true";
+const reactDebug = false; // process.env.REACT_APP_DEBUG === "true";
 
 if (reactDebug) {
   // using conditionnal CSS creation is mandatory because require is always actived :(

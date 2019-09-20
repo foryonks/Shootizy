@@ -8,11 +8,7 @@ const LazyRoute = props => {
     <Route
       {...routeProps}
       render={componentProps => (
-        <Suspense
-          fallback={
-            //TO-DO
-            <div>Chargement en cours...</div>
-          }>
+        <Suspense fallback={<div>Chargement en cours...</div>}>
           <RouteComponent {...componentProps} {...extendedProps} />
         </Suspense>
       )}

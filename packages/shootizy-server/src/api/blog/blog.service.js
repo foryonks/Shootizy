@@ -122,8 +122,8 @@ const getComments = async ({ count = 10, sortBy = "date", order = "asc" }) => {
     .toArray();
 
   for (let i = 0; i < comments.length; i++) {
-    const { title } = await getArticleById(comments[i].articleId);
-    comments[i].article = { title };
+    const { title, slug } = await getArticleById(comments[i].articleId);
+    comments[i].article = { title, slug };
   }
 
   return comments;

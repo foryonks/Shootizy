@@ -10,9 +10,9 @@ const ListCategories = props => {
   return (
     <div className="ListCategoriesWrapper">
       <ul>
-        {categories.map(category => (
-          <li>
-            <a href={`/blog/category/${category.slug}`}>{category.name}</a>
+        {categories.map(({ _id, slug, name }) => (
+          <li key={_id}>
+            <a href={`/blog/category/${slug}`}>{name}</a>
           </li>
         ))}
       </ul>
