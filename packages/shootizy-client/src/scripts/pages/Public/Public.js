@@ -12,11 +12,21 @@ import Blog from "scripts/components/Blog";
 import BlogArticle from "scripts/components/Blog/Article";
 import BlogCategory from "scripts/components/Blog/Category";
 
+import Header from "scripts/components/Header";
+import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
+import Themes from "scripts/components/Home/Themes/Themes";
+import SurMesure from "scripts/components/Home/SurMesure";
+import LazyLoad from "react-lazyload";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
+import BlogSmall from "scripts/components/Blog/BlogSmall";
+import Footer from "scripts/components/Footer";
+
 //TO-DO Make your own component
 const SampleComponent = () => <div>TO-DO</div>;
 
 const Public = () => (
   <>
+    <Header />
     <Switch>
       {/* Top Links */}
       <Route path="/avis-clients" component={CustomerRating} />
@@ -35,6 +45,19 @@ const Public = () => (
       <Route path="/booking" component={Booking} />
       <Redirect from="/" to="/accueil" />
     </Switch>
+
+    <ShootizyTarifs />
+    <div className="page-section section-container">
+      <Themes locationHideRegex={/shooting-studio\/?$/} />
+      <SurMesure />
+    </div>
+    <LazyLoad height={400}>
+      <VenirAuStudio />
+    </LazyLoad>
+    <LazyLoad height={200}>
+      <BlogSmall />
+    </LazyLoad>
+    <Footer />
   </>
 );
 

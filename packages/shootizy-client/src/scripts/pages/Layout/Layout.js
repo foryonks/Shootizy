@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "scripts/components/Header";
 import "./Layout.scss";
 
+import Header from "scripts/components/Header";
 import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
 import Themes from "scripts/components/Home/Themes/Themes";
 import SurMesure from "scripts/components/Home/SurMesure";

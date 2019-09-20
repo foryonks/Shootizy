@@ -3,7 +3,7 @@ import "./Category.scss";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import List from "../List";
-import Layout from "scripts/pages/Layout";
+
 import ListRenderedSimple from "../List/ListRendererSimple";
 
 const Category = ({ match }) => {
@@ -12,22 +12,20 @@ const Category = ({ match }) => {
   const title = `<strong>${category.name}</strong>`;
 
   return (
-    <Layout>
-      <div className="CategoryWrapper container-2">
-        <HeaderImage src="" preTitle="Blog" title={title} reverseColor={true} />
+    <div className="CategoryWrapper container-2">
+      <HeaderImage src="" preTitle="Blog" title={title} reverseColor={true} />
 
-        <main className="Blog-Content">
-          <content>
-            <h3 className="Blog-block-title">Articles</h3>
-            <List cols={2} hidden={true} items={category.articles} />
-          </content>
-          <aside>
-            <h3 className="Blog-block-title">Derniers articles</h3>
-            <List sortBy="date" limit="3" render={ListRenderedSimple} items={category.articles} />
-          </aside>
-        </main>
-      </div>
-    </Layout>
+      <main className="Blog-Content">
+        <content>
+          <h3 className="Blog-block-title">Articles</h3>
+          <List cols={2} hidden={true} items={category.articles} />
+        </content>
+        <aside>
+          <h3 className="Blog-block-title">Derniers articles</h3>
+          <List sortBy="date" limit="3" render={ListRenderedSimple} items={category.articles} />
+        </aside>
+      </main>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ import "./Article.scss";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import Interweave from "interweave";
 import { blog } from "scripts/utils/routesManager";
-import Layout from "scripts/pages/Layout";
+
 import MostReadArticles from "../MostReadArticles";
 import { formatDateStd } from "../../../utils/DateUtils";
 import ArticleComments from "./ArticleComments/ArticleComments";
@@ -13,44 +13,38 @@ import ArticleComments from "./ArticleComments/ArticleComments";
 const Article = ({ match }) => {
   const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
   if (!article)
-    return (
-      <Layout>
-        <div className="Article container-2 header-height-space">Article Introuvable</div>
-      </Layout>
-    );
+    return <div className="Article container-2 header-height-space">Article Introuvable</div>;
   const { title, text, category, imageLarge } = article;
 
   return (
-    <Layout>
-      <div className="Article container-2 header-height-space">
-        <div className="article-image" style={{ backgroundImage: `url(${imageLarge})` }}>
-          <div className="article-header">
-            <div className="blog-cat-datetime">
-              <Link className="content-theme" to={blog.categoryUrl(category.slug)}>
-                {category.name}
-              </Link>
-              {" / "}
-              <span className="content-date">{formatDateStd(article.date)}</span>
-            </div>
-            <h2 className="title">{title}</h2>
+    <div className="Article container-2 header-height-space">
+      <div className="article-image" style={{ backgroundImage: `url(${imageLarge})` }}>
+        <div className="article-header">
+          <div className="blog-cat-datetime">
+            <Link className="content-theme" to={blog.categoryUrl(category.slug)}>
+              {category.name}
+            </Link>
+            {" / "}
+            <span className="content-date">{formatDateStd(article.date)}</span>
           </div>
+          <h2 className="title">{title}</h2>
         </div>
-
-        <main className="Blog-Content">
-          <content>
-            <div className="article-content">
-              <div className="rte-content">
-                <Interweave content={text} />
-              </div>
-            </div>
-            <ArticleComments articleId={article.articleId} />
-          </content>
-          <aside>
-            <MostReadArticles />
-          </aside>
-        </main>
       </div>
-    </Layout>
+
+      <main className="Blog-Content">
+        <content>
+          <div className="article-content">
+            <div className="rte-content">
+              <Interweave content={text} />
+            </div>
+          </div>
+          <ArticleComments articleId={article.articleId} />
+        </content>
+        <aside>
+          <MostReadArticles />
+        </aside>
+      </main>
+    </div>
   );
 };
 
