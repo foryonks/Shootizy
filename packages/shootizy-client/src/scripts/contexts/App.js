@@ -16,7 +16,11 @@ const reducer = (state, action) => {
       return { ...state, rating: { score, count } };
     case ACTIONS.THEME_PRODUCTS_RECEIVED:
       const { themes } = action;
-      return { ...state, themes };
+      const themesById = {};
+      themes.forEach(theme => {
+        themesById[theme.productId] = theme;
+      });
+      return { ...state, themes, themesById };
     default:
       return state;
   }

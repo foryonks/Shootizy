@@ -8,11 +8,11 @@ import Prices from "../_common/Prices";
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Accueil</title>
+        <body className="topheader-reverse" />
+      </Helmet>
       <div className="HomeWrapper">
-        <Helmet>
-          <title>Accueil</title>
-          <body className="topheader-reverse" />
-        </Helmet>
         <Carousel>
           <Prices className="container-2" />
         </Carousel>

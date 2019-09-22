@@ -12,7 +12,8 @@ const BlogCarousel = ({ className }) => {
   //let dataMatrix = toMatrix(articles, 2, { fill: true });
 
   return (
-    <section className={`BlogCarousel ${className}`}>
+    <section
+      className={`BlogCarousel carousel-green-arrows  carousel-arrows-position-middle-border ${className}`}>
       <Carousel items={articles} render={CarouselRenderer} />
     </section>
   );

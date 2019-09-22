@@ -19,33 +19,55 @@
       }
     }
 
-    .control-arrow {
-      font-size: 1.1em;
-      $size: 57px;
-      width: $size;
-      height: $size;
-      line-height: $size;
-      text-align: center;
-      background: rgba(0, 0, 0, 20);
-      border-radius: 100px;
-      vertical-align: middle;
-      padding: 0;
-      top: 42.3%;
-      color: #fff;
-    }
-    .control-prev {
-      left: 6.7%;
-    }
+    // .control-arrow {
+    //   font-size: 1.1em;
+    //   $size: 57px;
+    //   width: $size;
+    //   height: $size;
+    //   line-height: $size;
+    //   text-align: center;
+    //   background: rgba(0, 0, 0, 20);
+    //   border-radius: 100px;
+    //   vertical-align: middle;
+    //   padding: 0;
+    //   top: 42.3%;
+    //   color: #fff;
+    // }
+    // .control-prev {
+    //   left: 6.7%;
+    // }
 
-    .control-next {
-      right: 6.7%;
-    }
+    // .control-next {
+    //   right: 6.7%;
+    // }
   }
 
   .carouselHome-item {
+    background: center center no-repeat;
+    background-size: 100% auto;
     position: relative;
     padding-bottom: 41.4%;
     overflow: hidden;
+
+    @media (max-width: $header-width) {
+      min-height: 600px;
+      background-size: auto 100%;
+    }
+  }
+
+  .carouselHome-item-wrapper {
+    max-width: $container-2-width;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+
+    @media (max-width: $header-width) {
+      left: $arrow-size + 30px;
+      transform: none;
+    }
   }
 
   .carouselHome-image {
@@ -55,34 +77,39 @@
   }
 
   .carouselHome-item-content {
-    z-index: 4;
     position: absolute;
     color: #fff;
-    top: 177px;
-    left: 20.2%;
+    top: 30.3%;
+    left: 0%;
+    text-align: left;
 
     &--link {
       cursor: pointer;
     }
   }
+  .carouselHome-item-category {
+    font-size: font-size(24px);
+    font-weight: bold;
+    a {
+      color: $secondary-color;
+    }
+  }
 
   .carouselHome-item-title {
-    font-size: font-size(50);
+    font-size: font-size(60);
     line-height: 1.1;
-    text-align: right;
-    font-weight: 300;
+    font-weight: bold;
     letter-spacing: -0.06ex;
+    margin-top: 30px;
   }
 
   .carouselHome-item-button-container {
-    text-align: right;
     margin: 27px 0;
   }
 
   .carouselHome-item-text {
     font-size: 21px;
     max-width: 268px;
-    text-align: right;
     margin: 42px 3px 0 auto;
     line-height: 1.3;
   }
