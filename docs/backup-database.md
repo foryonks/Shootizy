@@ -8,34 +8,48 @@ scp <user>@chezgatsu.ovh:/home/<user>/shootizy.dump shootizy.dump
 
 # Importer la base locale et l'exporter vers le serveur
 
+```
+$ mongodump -d shootizy --gzip --archive=shootizy.dump.gzip
+$ scp shootizy.dump.gzip <user>@chezgatsu.ovh:~/shootizy.dump.gzip
+$ ssh -t gatsu@chezgatsu.ovh "mongorestore --host localhost:27017 --upsert --gzip --archive=~/shootizy.dump.gz --db shootizy"
+```
+
 # En local sur son PC de dev
 
 ## Sauvegarder la base en local :
 
 ```
-mongodump -d shootizy --gzip --archive=shootizy.dump
+mongodump -d shootizy --gzip --archive=shootizy.dump.gzip
 ```
 
 ## Importer la base en local depuis un dump :
 
 ```
-mongorestore --gzip --archive=shootizy.dump
+mongorestore --gzip --archive=shootizy.dump.gzip
 ```
 
 # Sur le serveur
 
 Différentes commandes à connaîtres au cas où
 
-## Exporter la base :
+## Exporter la base avec dokku :
 
 ```
 dokku mongo:export shootizy > shootizy.dump
 ```
 
-## Importer la base :
+## Importer la base avec dokku (non recommandé) voir méthode avec mongorestore:
+
+_Methode Mongorestore : _
 
 ```
 dokku mongo:import shootizy < shootizy.dump
+```
+
+_Methode Mongorestore : _
+
+```
+mongorestore --host localhost:27017 --upsert --gzip --archive=shootizy.dump.gz --db shootizy
 ```
 
 # Pour copier le dump depuis le serveur en local
