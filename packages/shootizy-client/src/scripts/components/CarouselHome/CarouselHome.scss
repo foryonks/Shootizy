@@ -3,6 +3,7 @@
 /* your css code */
 .CarouselHome {
   position: relative;
+
   .carouselHome-content {
     position: relative;
     overflow: hidden;
@@ -44,14 +45,18 @@
 
   .carouselHome-item {
     background: center center no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     position: relative;
     padding-bottom: 41.4%;
     overflow: hidden;
 
     @media (max-width: $header-width) {
       min-height: 600px;
-      background-size: auto 100%;
+    }
+
+    @media (min-width: 1920px) {
+      height: 810px;
+      padding: 0;
     }
   }
 

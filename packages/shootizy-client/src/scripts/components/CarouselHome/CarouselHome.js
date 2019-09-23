@@ -16,7 +16,7 @@ const CarouselHome = ({ history, children }) => {
   } = useContext(AppContext);
   const items = contents ? contents.items : [];
   return (
-    <div className="CarouselHome container">
+    <div className="CarouselHome">
       <div className="carouselHome-content carousel-green-arrows carousel-position-full-width-header">
         <CarouselResponsive
           infiniteLoop
