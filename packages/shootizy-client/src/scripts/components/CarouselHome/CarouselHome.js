@@ -17,7 +17,7 @@ const CarouselHome = ({ history, children }) => {
   const items = contents ? contents.items : [];
   return (
     <div className="CarouselHome">
-      <div className="carouselHome-content carousel-green-arrows carousel-position-full-width-header">
+      <div className="carouselHome-content carousel-default-arrows carousel-position-full-width-header">
         <CarouselResponsive
           infiniteLoop
           autoPlay
