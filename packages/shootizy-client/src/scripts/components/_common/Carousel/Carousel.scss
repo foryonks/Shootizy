@@ -90,8 +90,9 @@
 
 // TODO: Refactore control-arrows later
 /* Green arrows for carousel */
-.carousel-green-arrows .carousel.carousel-slider {
-  .control-arrow {
+.carousel-green-arrows,
+.carousel-default-arrows {
+  .carousel.carousel-slider .control-arrow {
     width: $arrow-size;
     height: $arrow-size;
     line-height: $arrow-size;
@@ -99,35 +100,28 @@
     vertical-align: middle;
     padding: 0;
     bottom: auto;
-    color: #000;
-    opacity: 1;
     font-size: 1.1em;
     text-align: center;
-    background: #fff;
     box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.1);
     top: 50%;
     transform: translateY(-50%);
-
-    &:hover {
-      background: #00f6d6;
-    }
   }
+}
 
-  .carousel-default-arrows .carousel.carousel-slider {
-    .control-arrow {
-      font-size: 1.1em;
-      width: $arrow-size;
-      height: $arrow-size;
-      line-height: $arrow-size;
-      text-align: center;
-      background: rgba(0, 0, 0, 20);
-      border-radius: 100px;
-      vertical-align: middle;
-      padding: 0;
-      color: #fff;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+.carousel-green-arrows .carousel.carousel-slider .control-arrow {
+  color: #000;
+  opacity: 1;
+  background: #fff;
+  &:hover {
+    background: #00f6d6;
+  }
+}
+
+.carousel-default-arrows .carousel.carousel-slider .control-arrow {
+  background: rgba(0, 0, 0, 20);
+  color: #fff;
+  &:hover {
+    opacity: 1;
   }
 }
 
@@ -191,8 +185,6 @@
   }
 }
 
-.carousel-green-arrows,
-.carousel-default-arrows,
 .carousel-position-full-width-container-2 {
   .carousel.carousel-slider {
     @media (max-width: $container-2-width + $arrow-size + $container-padding * 2) {
