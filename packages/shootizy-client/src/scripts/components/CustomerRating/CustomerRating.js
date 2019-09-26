@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import { Helmet } from "react-helmet";
 import { AppContext } from "scripts/contexts/App";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import AddRating from "./Add";
@@ -10,15 +10,20 @@ import HeaderImage from "../_common/HeaderImage";
 import GlobalRating from "./GlobalRating";
 
 const CustomerRating = () => {
-  const { contents: ratings, load: reloadList } = useRemoteContents("/api/ratings", {
+  const { contents: ratings /*, load: reloadList */ } = useRemoteContents("/api/ratings", {
     initialState: [],
   });
   const { loadGlobalRating } = useContext(AppContext);
 
   return (
-    <div className="Page">
-      <HeaderImage src="" />
-
+    <div className="CustomerRatingWrapper page-container">
+      <Helmet bodyAttributes={{ class: "header-padding-page" }} />
+      <HeaderImage
+        className="header-image-generic header-image-reverse"
+        // src="/assets/design/headers/header-shooting-studio.png"
+        preTitle="Shooting sur mesure"
+        title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
+      />
       <div className="container  container-2">
         <h2 className="title">Avis de nos clients</h2>
         <p>
@@ -42,7 +47,7 @@ const CustomerRating = () => {
               <AddRating
                 onSubmit={() => {
                   loadGlobalRating();
-                  reloadList();
+                  //  reloadList();
                 }}
               />
             </div>

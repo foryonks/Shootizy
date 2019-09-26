@@ -8,13 +8,12 @@
   right: 0;
 }
 
-.header-padding-page .HeaderImage .header-image-content {
+.header-padding-page .header-image-content {
   top: $header-padding-page-height;
 }
 
 .HeaderImage {
   position: relative;
-  background: none; // #f6f6f6;
   color: #000;
   .HeaderImage-content {
     overflow: hidden;
@@ -34,8 +33,13 @@
     left: 50%;
     text-align: center;
     transform: translateX(-50%);
+
+    @media (max-width: $header-width) {
+      top: 20px;
+    }
   }
   .title {
+    color: inherit;
   }
 
   .preTitle,
@@ -97,5 +101,16 @@
       height: 527px;
       padding: 0;
     }
+  }
+}
+
+.header-image-reverse {
+  .header-image {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &.title {
+    color: inherit;
   }
 }
