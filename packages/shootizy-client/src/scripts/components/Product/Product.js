@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import HeaderImage from "../_common/HeaderImage";
 import ThemesNavigation from "./ThemesNavigation/ThemesNavigation";
 import Prices from "../_common/Prices";
 import Interweave from "interweave";
 import BookingForm from "scripts/components/Booking/Form";
+import HeaderImage from "scripts/components/_common/HeaderImage";
+import { Helmet } from "react-helmet";
 
 import "./Product.scss";
 
@@ -25,8 +26,11 @@ const Product = ({ match }) => {
 
   return (
     <div className="ProductPage">
+      <Helmet bodyAttributes={{ class: "header-padding-page header-image-reverse" }} />
+
       <HeaderImage
         src={imageLarge}
+        className="header-image-shooting"
         preTitle="Shooting photo :"
         title={title}
         buttonLink={bookingLink}

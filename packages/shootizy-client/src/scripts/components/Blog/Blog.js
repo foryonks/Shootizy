@@ -2,13 +2,14 @@ import "./Blog.scss";
 import "./Common.scss";
 
 import React from "react";
-import HeaderImage from "scripts/components/_common/HeaderImage";
 
 import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";
 import MostReadArticles from "./MostReadArticles/MostReadArticles";
 import ListComments from "./ListComments";
+import HeaderImage from "scripts/components/_common/HeaderImage";
+import { Helmet } from "react-helmet";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
@@ -16,7 +17,9 @@ const Blog = props => {
 
   return (
     <div className="BlogWrapper container-2">
-      <HeaderImage src="" preTitle="Blog" title={title} reverseColor={true} />
+      <Helmet bodyAttributes={{ class: "header-padding-page" }} />
+      <HeaderImage preTitle="Blog" title={title} reverseColor={true} />
+
       <BlogCarousel className="" />
       <ListCategories />
 

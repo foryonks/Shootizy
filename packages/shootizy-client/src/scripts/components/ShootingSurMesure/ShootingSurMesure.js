@@ -1,13 +1,12 @@
 import React from "react";
 import "./ShootingSurMesure.scss";
-import HeaderImage from "scripts/components/_common/HeaderImage";
 import Themes from "../Home/Themes/Themes";
+import HeaderImage from "scripts/components/_common/HeaderImage";
 import { Helmet } from "react-helmet";
 
 const ShootingStudio = props => (
   <div className="ShootingSurMesure page-container">
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
-
     <HeaderImage
       className="header-image-generic"
       src="/assets/design/headers/header-shooting-studio.png"

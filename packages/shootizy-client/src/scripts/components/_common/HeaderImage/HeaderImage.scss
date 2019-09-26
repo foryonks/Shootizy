@@ -15,6 +15,23 @@
 .HeaderImage {
   position: relative;
   color: #000;
+
+  .header-image {
+    padding-bottom: 27.44%;
+    overflow: hidden;
+    &:before {
+      content: url(attr("attr-bg-image"));
+    }
+
+    @media (max-width: $header-width) {
+      min-height: 300px;
+    }
+    @media (min-width: 1920px) {
+      height: 527px;
+      padding: 0;
+    }
+  }
+
   .HeaderImage-content {
     overflow: hidden;
     padding-bottom: 30.7314075%;
@@ -86,21 +103,11 @@
 }
 
 .header-image-generic {
-  .header-image {
-    padding-bottom: 27.44%;
-    background-color: #00f6d6;
-    overflow: hidden;
-    &:before {
-      content: url(attr("attr-bg-image"));
-    }
+  background-color: #00f6d6;
+}
 
-    @media (max-width: $header-width) {
-      min-height: 300px;
-    }
-    @media (min-width: 1920px) {
-      height: 527px;
-      padding: 0;
-    }
+.header-image-shooting {
+  .header-image {
   }
 }
 

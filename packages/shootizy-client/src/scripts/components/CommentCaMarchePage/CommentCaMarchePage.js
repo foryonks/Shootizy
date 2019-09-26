@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import HeaderCards from "scripts/components/_common/HeaderCards";
-
+import { Helmet } from "react-helmet";
 import "./CommentCaMarchePage.scss";
 
 const headerData = [
@@ -25,6 +25,7 @@ const headerData = [
 
 const CommentCaMarchePage = props => (
   <article className="CommentCaMarchePageWrapper">
+    <Helmet bodyAttributes={{ class: "header-padding-page" }} />
     <HeaderImage
       className="header-image-generic with-header-cards"
       src="/assets/design/headers/header-generic-bg1.png"
