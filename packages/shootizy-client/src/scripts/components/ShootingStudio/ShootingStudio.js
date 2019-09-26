@@ -12,16 +12,14 @@ const ShootingStudio = props => (
     </Helmet>
     <HeaderImage
       className="header-image-generic"
-      src="/assets/design/headers/header-generic-bg1.png"
+      src="/assets/design/headers/header-shooting-studio.png"
       preTitle="Comment ça marche"
       title="Votre shooting en 3 étapes"
     />
 
     <div className="main container-2">
-      <h2 className="title">Shooting studio </h2>
-      <div className="desc">
-        Nous immortalisons toutes vos thématiques et vous mettons en scène{" "}
-      </div>
+      <h2 className="title">Shooting studio</h2>
+      <div className="desc">Nous immortalisons toutes vos thématiques et vous mettons en scène</div>
 
       <div className="mea">
         <div className="mea-img">

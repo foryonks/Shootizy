@@ -7,7 +7,8 @@ import Product from "scripts/components/Product";
 import CustomerRating from "scripts/components/CustomerRating";
 import CommentCaMarchePage from "scripts/components/CommentCaMarchePage";
 import Booking from "scripts/components/Booking";
-import ShootingStudio from "scripts/components/ShootingStudio/ShootingStudio";
+import ShootingStudio from "scripts/components/ShootingStudio";
+import ShootingSurMesure from "scripts/components/ShootingSurMesure";
 import Blog from "scripts/components/Blog";
 import BlogArticle from "scripts/components/Blog/Article";
 import BlogCategory from "scripts/components/Blog/Category";
@@ -37,7 +38,7 @@ const Public = () => (
       {/* Main links */}
       <Route path="/accueil" component={Home} />
       <Route path="/comment-ca-marche" component={CommentCaMarchePage} />
-      <Route path="/shooting-sur-mesure" component={SampleComponent} />
+      <Route path="/shooting-sur-mesure" component={ShootingSurMesure} />
       <Route path="/tarifs" component={SampleComponent} />
       <Route path="/notre-book" component={SampleComponent} />
       <Route path="/shooting-studio/:productId" component={Product} />

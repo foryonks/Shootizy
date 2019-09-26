@@ -26,11 +26,13 @@ const headerData = [
 const CommentCaMarchePage = props => (
   <article className="CommentCaMarchePageWrapper">
     <HeaderImage
-      src="/assets/photos/themes/book-artiste/large.jpg"
-      title="Comment ça marche"
-      className="with-header-cards">
-      <HeaderCards data={headerData} className="container-2" />
+      className="header-image-generic with-header-cards"
+      src="/assets/design/headers/header-generic-bg1.png"
+      preTitle="Comment ça marche"
+      title="Votre shooting en 3 étapes">
+      <HeaderCards data={headerData} className="container-2" />>
     </HeaderImage>
+
     <div className="text container-2">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo ex, scelerisque vel turpis
