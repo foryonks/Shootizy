@@ -4,6 +4,7 @@ import "./HeaderImage.scss";
 import HeaderImageMask from "../HeaderImageMask";
 import { NavLink } from "react-router-dom";
 import Interweave from "interweave";
+
 /**
  * Affiche un header avec une image de fond et un texte qui peut être custom
  * @param {Object} props - Props object
@@ -24,26 +25,25 @@ const HeaderImage = ({
   children,
   reverseColor,
 }) => (
-  <section
-    className={`HeaderImage container ${className} ${reverseColor ? "HeaderImage-reverse" : ""}`}>
-    <div className="HeaderImage-content">
-      {src && <img src={src} alt="" />}
-
-      {(preTitle || title || buttonLink) && (
-        <div className="text">
-          {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
-          {title && (
-            <h2 className="title bigTitle">
-              <Interweave content={title} />
-            </h2>
-          )}
-          {buttonLink && (
-            <NavLink to={buttonLink} className="header-image__btn-link btn-green">
-              {buttonText}
-            </NavLink>
-          )}
-        </div>
-      )}
+  <section className={`HeaderImage  ${className} ${reverseColor ? "HeaderImage-reverse" : ""}`}>
+    <div className="HeaderImage-content header-image" style={{ backgroundImage: `url(${src})` }}>
+      <div className="header-image-content">
+        {(preTitle || title || buttonLink) && (
+          <div className="text">
+            {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
+            {title && (
+              <h2 className="title bigTitle">
+                <Interweave content={title} />
+              </h2>
+            )}
+            {buttonLink && (
+              <NavLink to={buttonLink} className="header-image__btn-link btn-green">
+                {buttonText}
+              </NavLink>
+            )}
+          </div>
+        )}
+      </div>
       <HeaderImageMask />
     </div>
     {children}

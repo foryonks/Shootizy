@@ -1,9 +1,21 @@
 @import "../../../../styles/functions";
 
+.header-image-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.header-padding-page .HeaderImage .header-image-content {
+  top: $header-padding-page-height;
+}
+
 .HeaderImage {
   position: relative;
   background: none; // #f6f6f6;
-
+  color: #000;
   .HeaderImage-content {
     overflow: hidden;
     padding-bottom: 30.7314075%;
@@ -11,9 +23,9 @@
   }
   img {
     width: 100%;
-    top: 0;
     left: 0;
     position: absolute;
+    opacity: 0.3;
   }
 
   .text {
@@ -22,10 +34,8 @@
     left: 50%;
     text-align: center;
     transform: translateX(-50%);
-    color: #fff;
   }
   .title {
-    color: #fff;
   }
 
   .preTitle,
@@ -52,5 +62,40 @@
 .header-image__btn-link {
   &.active {
     display: none;
+  }
+}
+
+/** Warning Use also in home carousel */
+.header-image {
+  background: center center no-repeat;
+  background-size: cover;
+  padding-bottom: 41.92%;
+
+  @media (max-width: $header-width) {
+    min-height: 600px;
+  }
+
+  @media (min-width: 1920px) {
+    height: 805px;
+    padding: 0;
+  }
+}
+
+.header-image-generic {
+  .header-image {
+    padding-bottom: 27.44%;
+    background-color: #00f6d6;
+    overflow: hidden;
+    &:before {
+      content: url(attr("attr-bg-image"));
+    }
+
+    @media (max-width: $header-width) {
+      min-height: 300px;
+    }
+    @media (min-width: 1920px) {
+      height: 527px;
+      padding: 0;
+    }
   }
 }

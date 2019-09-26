@@ -3,16 +3,18 @@ import "./ShootingStudio.scss";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import Themes from "../Home/Themes/Themes";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const ShootingStudio = props => (
-  <div className="ShootingStudioPage">
+  <div className="ShootingStudioPage page-container">
+    <Helmet>
+      <body className="header-padding-page" />
+    </Helmet>
     <HeaderImage
-      //src={imageLarge}
-      //preTitle="Shooting Studio"
-      title="Shooting Studio"
-      //buttonLink={bookingLink}
-      //buttonText="Je réserve mon Shooting">
-      //<Prices className="Prices-header-product" textKey="product"
+      className="header-image-generic"
+      src="/assets/design/headers/header-generic-bg1.png"
+      preTitle="Comment ça marche"
+      title="Votre shooting en 3 étapes"
     />
 
     <div className="main container-2">

@@ -2,10 +2,10 @@ import React from "react";
 import "./HeaderImageMask.scss";
 
 const HeaderImageMask = props => (
-  <svg className="header-image-mask" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 814 44">
+  <svg className="header-image-mask" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4070 220">
     <path
-      d="M0 0c97.9 23.5 245.7 37.4 411.2 37.4C571.4 37.4 715.1 22.2 814 0v44H0V0z"
-      fill="currentColor"
+      d="M0,0 C489.5,117.5 1228.5,187 2056,187 C2857,187 3575.5,111 4070,0 L4070,220 L0,220 L0,0 Z"
+      id="Path"
     />
   </svg>
 );

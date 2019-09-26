@@ -30,7 +30,7 @@ const CarouselHome = ({ history, children }) => {
               const theme = themesById[themeId];
               return (
                 <div
-                  className="carouselHome-item"
+                  className="carouselHome-item header-image"
                   key={index}
                   style={{ backgroundImage: `url(${img})` }}>
                   {/* <img src={img} alt="" className="carouselHome-image" /> */}

@@ -44,20 +44,8 @@
   }
 
   .carouselHome-item {
-    background: center center no-repeat;
-    background-size: cover;
     position: relative;
-    padding-bottom: 41.4%;
     overflow: hidden;
-
-    @media (max-width: $header-width) {
-      min-height: 600px;
-    }
-
-    @media (min-width: 1920px) {
-      height: 810px;
-      padding: 0;
-    }
   }
 
   .carouselHome-item-wrapper {
