@@ -2,11 +2,20 @@ import React from "react";
 
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import BookingForm from "./Form";
+import { Helmet } from "react-helmet";
 
 const Booking = () => {
   return (
     <div className="Page booking-page">
-      <HeaderImage src="" />
+      <Helmet>
+        <body className="header-padding-page" />
+      </Helmet>
+      <HeaderImage
+        className="header-image-generic"
+        //src="/assets/design/headers/header-shooting-studio.png"
+        preTitle="Tarifs"
+        title="Un peu de tarifs <strong>blabla</strong>"
+      />
       <div className="container  container-2">
         <h2 className="title">Réservez votre séance</h2>
         <p>

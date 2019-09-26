@@ -1,6 +1,17 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+// Global Layout components :
+import Header from "scripts/components/Header";
+import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
+import Themes from "scripts/components/Home/Themes/Themes";
+import SurMesure from "scripts/components/Home/SurMesure";
+import LazyLoad from "react-lazyload";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
+import BlogSmall from "scripts/components/Blog/BlogSmall";
+import Footer from "scripts/components/Footer";
+
+// Pages
 import Home from "scripts/components/Home";
 import Product from "scripts/components/Product";
 //import Header from "scripts/components/Header";
@@ -12,15 +23,8 @@ import ShootingSurMesure from "scripts/components/ShootingSurMesure";
 import Blog from "scripts/components/Blog";
 import BlogArticle from "scripts/components/Blog/Article";
 import BlogCategory from "scripts/components/Blog/Category";
-
-import Header from "scripts/components/Header";
-import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
-import Themes from "scripts/components/Home/Themes/Themes";
-import SurMesure from "scripts/components/Home/SurMesure";
-import LazyLoad from "react-lazyload";
-import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
-import BlogSmall from "scripts/components/Blog/BlogSmall";
-import Footer from "scripts/components/Footer";
+import NotreBook from "scripts/components/NotreBook";
+import Tarifs from "scripts/components/Tarifs";
 
 //TO-DO Make your own component
 const SampleComponent = () => <div>TO-DO</div>;
@@ -39,8 +43,8 @@ const Public = () => (
       <Route path="/accueil" component={Home} />
       <Route path="/comment-ca-marche" component={CommentCaMarchePage} />
       <Route path="/shooting-sur-mesure" component={ShootingSurMesure} />
-      <Route path="/tarifs" component={SampleComponent} />
-      <Route path="/notre-book" component={SampleComponent} />
+      <Route path="/tarifs" component={Tarifs} />
+      <Route path="/notre-book" component={NotreBook} />
       <Route path="/shooting-studio/:productId" component={Product} />
       <Route path="/shooting-studio" component={ShootingStudio} />
       <Route path="/booking" component={Booking} />
