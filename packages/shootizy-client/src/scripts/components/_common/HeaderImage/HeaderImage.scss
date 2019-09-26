@@ -50,6 +50,7 @@
     left: 50%;
     text-align: center;
     transform: translateX(-50%);
+    width: 100%;
 
     @media (max-width: $header-width) {
       top: 20px;
@@ -65,11 +66,13 @@
   }
 
   .preTitle {
-    font-size: font-size(25px);
+    font-size: font-size(24px);
+    font-weight: bold;
   }
 
   .bigTitle {
-    font-weight: 500;
+    font-weight: normal;
+    font-size: font-size(60px);
   }
 
   &-reverse {
