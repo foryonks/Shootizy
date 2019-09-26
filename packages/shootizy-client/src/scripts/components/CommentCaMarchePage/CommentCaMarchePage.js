@@ -31,7 +31,7 @@ const CommentCaMarchePage = props => (
       src="/assets/design/headers/header-generic-bg1.png"
       preTitle="Comment ça marche"
       title="Votre shooting en 3 étapes">
-      <HeaderCards data={headerData} className="container-2" />>
+      <HeaderCards data={headerData} className="container-2" />
     </HeaderImage>
 
     <div className="text container-2">
