@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
+
 // Global Layout components :
 import Header from "scripts/components/Header";
 import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
@@ -13,43 +15,46 @@ import Footer from "scripts/components/Footer";
 
 // Pages
 import Home from "scripts/components/Home";
-import Product from "scripts/components/Product";
-//import Header from "scripts/components/Header";
 import CustomerRating from "scripts/components/CustomerRating";
 import CommentCaMarchePage from "scripts/components/CommentCaMarchePage";
 import Booking from "scripts/components/Booking";
 import ShootingStudio from "scripts/components/ShootingStudio";
 import ShootingSurMesure from "scripts/components/ShootingSurMesure";
 import Blog from "scripts/components/Blog";
-import BlogArticle from "scripts/components/Blog/Article";
-import BlogCategory from "scripts/components/Blog/Category";
 import NotreBook from "scripts/components/NotreBook";
 import Tarifs from "scripts/components/Tarifs";
-
-//TO-DO Make your own component
-const SampleComponent = () => <div>TO-DO</div>;
 
 const Public = () => (
   <>
     <Header />
-    <Switch>
-      {/* Top Links */}
-      <Route path="/avis-clients" component={CustomerRating} />
-      <Route path="/blog/article/:slug" component={BlogArticle} />
-      <Route path="/blog/category/:slug" component={BlogCategory} />
-      <Route path="/blog/categories" component={SampleComponent} />
-      <Route path="/blog" component={Blog} />
-      {/* Main links */}
-      <Route path="/accueil" component={Home} />
-      <Route path="/comment-ca-marche" component={CommentCaMarchePage} />
-      <Route path="/shooting-sur-mesure" component={ShootingSurMesure} />
-      <Route path="/tarifs" component={Tarifs} />
-      <Route path="/notre-book" component={NotreBook} />
-      <Route path="/shooting-studio/:productId" component={Product} />
-      <Route path="/shooting-studio" component={ShootingStudio} />
-      <Route path="/booking" component={Booking} />
-      <Redirect from="/" to="/accueil" />
-    </Switch>
+    <CrumbRoute
+      title="Accueil"
+      path="/"
+      render={() => (
+        <Switch>
+          {/* Top Links */}
+          <CrumbRoute title="Avis Clients" path="/avis-clients" component={CustomerRating} />
+          <CrumbRoute title="Blog" path="/blog" component={Blog} />
+          {/* Main links */}
+          <CrumbRoute
+            title="Comment ca marche?"
+            path="/comment-ca-marche"
+            component={CommentCaMarchePage}
+          />
+          <CrumbRoute
+            path="/shooting-sur-mesure"
+            title="Shooting sur mesure"
+            component={ShootingSurMesure}
+          />
+          <CrumbRoute path="/tarifs" title="Tarifs" component={Tarifs} />
+          <CrumbRoute path="/notre-book" title="Notre book" component={NotreBook} />
+          <CrumbRoute title="Shooting Studio" path="/shooting-studio" component={ShootingStudio} />
+          <CrumbRoute path="/booking" title="Réservation" component={Booking} />
+          <Route path="/accueil" component={Home} />
+          <Redirect to="/accueil" />
+        </Switch>
+      )}
+    />
 
     <ShootizyTarifs />
     <div className="page-section section-container">

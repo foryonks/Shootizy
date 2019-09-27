@@ -1,5 +1,6 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 
@@ -38,49 +39,55 @@ const Product = ({ match }) => {
         <Prices className="Prices-header-product" textKey="product" />
       </HeaderImage>
 
-      <Switch>
-        <Route
-          path="/shooting-studio/:productId/booking"
-          render={() => (
-            <div className="container container-2">
-              <h2 className="title">Réservez votre séance</h2>
-              <div className="container-inside">
-                <BookingForm productId={productId} />
-              </div>
-            </div>
-          )}
-        />
-        <Route
-          exact
-          path="/shooting-studio/:productId"
-          render={() => (
-            <div className="page-content">
-              <ThemesNavigation />
-              <div className="product-description container-2">
-                <h2 className="title">
-                  <Interweave content={descTitle} />
-                </h2>
-                <div className="description">
-                  <Interweave content={description} />
+      <CrumbRoute
+        title={title}
+        path="/shooting-studio/:productId"
+        render={() => (
+          <Switch>
+            <CrumbRoute
+              title="Réservation"
+              path="/shooting-studio/:productId/booking"
+              render={() => (
+                <div className="container container-2">
+                  <h2 className="title">Réservez votre séance</h2>
+                  <div className="container-inside">
+                    <BookingForm productId={productId} />
+                  </div>
                 </div>
-                <div className="button-container-centered">
-                  <Link to={bookingLink} className="btn-green">
-                    Je réserve mon Shooting
-                  </Link>
-                </div>
-                <LazyLoad height={400}>
-                  {gallery && (
-                    <div className="centered-gallery">
-                      <img src={gallery} alt="Gallerie" />
+              )}
+            />
+            <Route
+              exact
+              path="/shooting-studio/:productId"
+              render={() => (
+                <div className="page-content">
+                  <ThemesNavigation />
+                  <div className="product-description container-2">
+                    <h2 className="title">
+                      <Interweave content={descTitle} />
+                    </h2>
+                    <div className="description">
+                      <Interweave content={description} />
                     </div>
-                  )}
-                </LazyLoad>
-              </div>
-            </div>
-          )}
-        />
-        <Redirect to="/shooting-studio/:productId" />
-      </Switch>
+                    <div className="button-container-centered">
+                      <Link to={bookingLink} className="btn-green">
+                        Je réserve mon Shooting
+                      </Link>
+                    </div>
+                    <LazyLoad height={400}>
+                      {gallery && (
+                        <div className="centered-gallery">
+                          <img src={gallery} alt="Gallerie" />
+                        </div>
+                      )}
+                    </LazyLoad>
+                  </div>
+                </div>
+              )}
+            />
+          </Switch>
+        )}
+      />
     </div>
   );
 };

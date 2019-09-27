@@ -1,15 +1,15 @@
 import React from "react";
-import "./ShootingStudio.scss";
-import HeaderImage from "scripts/components/_common/HeaderImage";
-import Themes from "../Home/Themes/Themes";
-import { Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-const ShootingStudio = props => (
-  <div className="ShootingStudioPage page-container">
-    <Helmet>
-      <body className="header-padding-page" />
-    </Helmet>
+import HeaderImage from "scripts/components/_common/HeaderImage";
+import Themes from "../Home/Themes/Themes";
+import Product from "scripts/components/Product";
+
+import "./ShootingStudio.scss";
+
+const Main = () => (
+  <>
     <HeaderImage
       className="header-image-generic"
       src="/assets/design/headers/header-shooting-studio.png"
@@ -49,6 +49,18 @@ const ShootingStudio = props => (
     <div className="page-section section-container">
       <Themes />
     </div>
+  </>
+);
+
+const ShootingStudio = props => (
+  <div className="ShootingStudioPage page-container">
+    <Helmet>
+      <body className="header-padding-page" />
+    </Helmet>
+    <Switch>
+      <Route path="/shooting-studio/:productId" component={Product} />
+      <Route exact path="/shooting-studio" component={Main} />
+    </Switch>
   </div>
 );
 

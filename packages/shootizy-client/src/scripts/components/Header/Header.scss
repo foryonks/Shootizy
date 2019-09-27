@@ -50,6 +50,7 @@ $stickyGap: 10px;
   position: relative;
   top: 0;
   width: 100%;
+  z-index: 1;
 
   .logo {
     font-size: font-size(14.8px);
@@ -80,5 +81,17 @@ $stickyGap: 10px;
     &:hover {
       @include btn-big-hover;
     }
+  }
+}
+
+//TO-DO
+.header__breadcrumbs {
+  position: absolute;
+  top: 110%;
+
+  //To be modified :D
+  .breadcrumbs__section {
+    background-color: #000;
+    color: #fff;
   }
 }

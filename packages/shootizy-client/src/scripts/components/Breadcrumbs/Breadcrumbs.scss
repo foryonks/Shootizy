@@ -1,0 +1,14 @@
+.breadcrumbs__crumb {
+  cursor: pointer;
+  &:not(.breadcrumbs__crumb--active):hover {
+    text-decoration: underline;
+  }
+  &--active {
+    font-weight: bold;
+    cursor: default;
+  }
+}
+
+.breadcrumbs__separator {
+  margin: 0 0.5rem;
+}

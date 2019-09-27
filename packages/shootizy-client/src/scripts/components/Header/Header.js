@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Breadcrumbs from "scripts/components/Breadcrumbs";
 import TopHeader from "./TopHeader";
 import NavBar from "./NavBar";
 import Logo from "./Logo";
@@ -43,6 +44,7 @@ const Header = (props, ref) => {
             </span>
           </div>
         </div>
+        <Breadcrumbs className="header__breadcrumbs container-2" />
       </header>
     </div>
   );
