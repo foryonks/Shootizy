@@ -12,10 +12,16 @@ import "./Form.scss";
 /**
  * Generate form data object
  * @param {array} fields { label, name, type, placeholder, value, className, props: object, isRequired: bool, customValidations: [{validate: () => true, errorMessage: string}] }
+ * @param {object} defaultFormData default values of form
  * @returns {object}
  */
-const generateFormData = fields =>
-  fields.reduce((acc, field) => {
+const generateFormData = (fields, defaultFormData) => {
+  const allFields = fields.reduce(
+    (acc, field) => acc.concat(field.type === "fieldset" ? field.children : field),
+    []
+  );
+
+  return allFields.reduce((acc, field) => {
     let otherSettings = {};
 
     switch (field.type) {
@@ -49,12 +55,17 @@ const generateFormData = fields =>
       ...acc,
       [field.name]: {
         ...field,
+        // Apply default form values
+        ...(defaultFormData && defaultFormData[field.name]
+          ? { value: defaultFormData[field.name] }
+          : {}),
         isPristine: true,
         error: null,
         ...otherSettings,
       },
     };
   }, {});
+};
 
 /**
  * Update formData object with modified field value
@@ -148,24 +159,17 @@ const Form = ({
   onSuccess,
   onError,
   defaultFormData,
-  onBeforePost = data => data,
+  formatPostData,
 }) => {
   const [formData, setFormData] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const { loading, fetchWithLoader, error } = useFetchWithLoader(fetchJson, errorMessage);
 
   const resetForm = useCallback(() => {
-    const formData = generateFormData(fields);
-    if (defaultFormData && formData) {
-      let newFormData = { ...formData };
-      for (let key in defaultFormData) {
-        if (formData[key]) {
-          newFormData[key].value = defaultFormData[key];
-        }
-      }
-    }
+    const formData = generateFormData(fields, defaultFormData);
     setFormData(formData);
   }, [fields]);
+
   useEffect(() => {
     resetForm();
   }, [fields]);
@@ -204,7 +208,9 @@ const Form = ({
         return { ...acc, [name]: value };
       }, {});
 
-      if (onBeforePost) postData = onBeforePost(postData);
+      if (formatPostData) {
+        postData = formatPostData(postData);
+      }
 
       try {
         const response = await fetchWithLoader(action, {
@@ -223,23 +229,38 @@ const Form = ({
     }
   };
 
+  const renderField = field => {
+    const fieldId = `${id}__${field.name}`;
+    return (
+      formData[field.name] && (
+        <Field
+          key={fieldId}
+          id={fieldId}
+          field={formData[field.name]}
+          onChange={handleFieldChange}
+          onValidate={hanldeFieldValidate}
+          showErrorFeedback={showFieldErrorFeedback}
+        />
+      )
+    );
+  };
+
   return (
     formData && (
       <form className={classNamesDedupe("form", className)} onSubmit={handleSubmit}>
-        {Object.values(formData).map(field => {
-          const fieldId = `${id}__${field.name}`;
-          return (
-            <Field
-              key={fieldId}
-              id={fieldId}
-              field={formData[field.name]}
-              value={formData[field.name].value}
-              onChange={handleFieldChange}
-              onValidate={hanldeFieldValidate}
-              showErrorFeedback={showFieldErrorFeedback}
-            />
-          );
-        })}
+        {fields.map((field, index) =>
+          field.type === "fieldset" ? (
+            <div
+              key={`form-fieldset-${field.name || index}`}
+              className={classNamesDedupe("form-fieldset", field.className)}>
+              {field.renderHeader && field.renderHeader()}
+              {field.children.map(renderField)}
+              {field.renderFooter && field.renderFooter()}
+            </div>
+          ) : (
+            renderField(field)
+          )
+        )}
         <FormAction
           icon={submitBtn.icon}
           disabled={!!loading}

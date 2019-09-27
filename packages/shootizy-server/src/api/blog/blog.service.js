@@ -1,10 +1,12 @@
 const mongoDb = require("db");
-const _omit = require("lodash/omit");
+const _pick = require("lodash/pick");
 
-const { isValidDate, getUTCDate, getTodayUTCDate, addLeadingZero } = require("utils");
 const { CustomError } = require("api/api.errors");
 
+const UPDATABLE_FIELDS = ["author", "imageLarge", "imageMini", "slug", "text", "title"];
+
 const formatEntry = ({ _id, ...others }) => ({
+  articleId: _id,
   ...others,
 });
 
@@ -17,9 +19,8 @@ const listArticles = async () => {
   const categories = await listCategories();
 
   return articles.map(article => ({
-    ...article,
-    articleId: article._id,
-    category: categories.find(category => category.categoryId == article.categoryId),
+    ...formatEntry(article),
+    category: categories.find(category => category.categoryId === article.categoryId),
   }));
 };
 
@@ -133,22 +134,18 @@ const getComments = async ({ count = 10, sortBy = "date", order = "asc" }) => {
 
 const updateArticle = async article => {
   const db = await mongoDb.getInstance();
-  const { articleId } = article;
+  const articleId = mongoDb.getObjectId(article.articleId);
 
-  article = _omit(article, ["category", "article"]);
+  article = _pick(article, UPDATABLE_FIELDS);
 
   const result = await db
     .collection("blog.articles")
     .updateOne({ _id: articleId }, { $set: article }, { upsert: true });
 
-  let resArticle;
-  if (result.upsertedId) {
-    resArticle = await db.collection("blog.articles").findOne({ _id: result.insertedId });
-  } else {
-    resArticle = await db.collection("blog.articles").findOne({ articleId });
-  }
-  resArticle.articleId = _id;
-  return resArticle;
+  const _id = result.upsertedId || articleId;
+  const resArticle = await db.collection("blog.articles").findOne({ _id });
+
+  return formatEntry(resArticle);
 };
 
 module.exports = {

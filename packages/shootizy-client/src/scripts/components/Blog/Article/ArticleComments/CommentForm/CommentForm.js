@@ -10,7 +10,7 @@ const FORM_FIELDS = [
 const FORM_SUBMIT_BTN = { label: "Envoyer", className: "btn-green" };
 
 const CommentForm = ({ articleId, onSubmit }) => {
-  const onBeforePost = data => ({
+  const formatPostData = data => ({
     ...data,
     articleId,
   });
@@ -30,7 +30,7 @@ const CommentForm = ({ articleId, onSubmit }) => {
         submitBtn={FORM_SUBMIT_BTN}
         action="/api/blog/comment"
         successMessage="Article mis à jour"
-        onBeforePost={onBeforePost}
+        formatPostData={formatPostData}
         onSuccess={() => {
           hideCommentForm();
           onSubmit();

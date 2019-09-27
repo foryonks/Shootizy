@@ -31,20 +31,6 @@ class Editor extends Component {
           config={this.editorConfig}
           onChange={this.onChange}
         />
-
-        <div className="help">
-          <a href="#help">Aide</a>
-          <ul>
-            <li>
-              <h3>Pour mettre une image en pleine largeur</h3>
-              <ul>
-                <li>Cliquez sur l'image</li>
-                <li>Cliquez sur le crayon au dessus ou en dessous (Edit)</li>
-                <li>Cliquez sur avancé, et mettez la class "fullsize"</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
       </div>
     );
   }

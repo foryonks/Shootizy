@@ -1,8 +1,9 @@
 @import "~styles/variables";
+@import "~styles/forms";
 
 .dropdown-popover-wrapper {
   border: 0;
-  font-size: 1.5rem;
+  font-size: $form-input-font-size;
   padding: 0;
   position: relative;
 }

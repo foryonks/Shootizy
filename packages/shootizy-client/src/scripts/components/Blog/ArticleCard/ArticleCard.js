@@ -20,13 +20,15 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
     <div>
       <div className="img" style={{ backgroundImage: `url(${imageMini})` }} />
       <div className="card-desc">
-        <div className="blog-cat-datetime">
-          <Link className="content-theme" to={`/blog/category/${category.slug}`}>
-            {category.name}
-          </Link>
-          {" / "}
-          <span className="content-date">{formatDateStd(date)}</span>
-        </div>
+        {category && (
+          <div className="blog-cat-datetime">
+            <Link className="content-theme" to={`/blog/category/${category.slug}`}>
+              {category.name}
+            </Link>
+            {" / "}
+            <span className="content-date">{formatDateStd(date)}</span>
+          </div>
+        )}
 
         <Link to={articleLink} className="title-link">
           <h4 className="title">{title}</h4>

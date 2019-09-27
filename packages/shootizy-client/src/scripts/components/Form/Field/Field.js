@@ -18,18 +18,8 @@ const showFieldError = field => field.error && !field.isPristine;
  * Can be input, textarea base on type
  * Field format : { label, name, type, placeholder, value, className, fullWidth: bool, wrapperClassName props: object, isRequired: bool, customValidations: [{fn, errorMessage: string}] }
  */
-const Field = ({ id, field, value: currentValue, onChange, onValidate, showErrorFeedback }) => {
-  const {
-    label,
-    name,
-    type,
-    placeholder,
-    value: defaultValue,
-    props: extendedProps,
-    render,
-    rows,
-    cols,
-  } = field;
+const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
+  const { label, name, type, placeholder, value, props: extendedProps, render, rows, cols } = field;
 
   const isError = showFieldError(field);
   const className = classNamesDedupe(field.className, {
@@ -53,7 +43,7 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
         name,
         type,
         placeholder,
-        defaultValue,
+        value: value || "",
         onChange: ev => onChange(name, ev.target.value),
         onBlur: () => onValidate(name),
         ...(extendedProps || {}),
@@ -67,7 +57,7 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
         name,
         type,
         placeholder,
-        defaultValue,
+        value: value || "",
         rows,
         cols,
         onChange: ev => onChange(name, ev.target.value),
@@ -83,7 +73,7 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
             onChange(name, date);
             onValidate(name);
           }}
-          value={currentValue}
+          value={value}
           className={className}
           {...extendedProps || {}}
         />
@@ -96,7 +86,7 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
             onChange(name, image);
             onValidate(name);
           }}
-          src={currentValue}
+          src={value}
           {...extendedProps || {}}
         />
       );
@@ -104,10 +94,7 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
 
     case "custom":
       Input = render
-        ? useMemo(() => render(currentValue, isError, onChange, onValidate), [
-            currentValue,
-            isError,
-          ])
+        ? useMemo(() => render(value, isError, onChange, onValidate), [value, isError])
         : null;
       break;
     default:
@@ -131,7 +118,6 @@ const Field = ({ id, field, value: currentValue, onChange, onValidate, showError
 Field.propTypes = {
   id: PropTypes.string.isRequired,
   field: PropTypes.object.isRequired,
-  value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
   onValidate: PropTypes.func.isRequired,
   showErrorFeedback: PropTypes.bool,

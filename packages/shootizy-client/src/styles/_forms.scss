@@ -1,10 +1,12 @@
 @import "./functions";
 $inputSelectors: "textarea, input[type='text'], input[type='date'], input[type='datetime-local'], input[type='email'], input[type='file'], input[type='month'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='time'], input[type='url'], input[type='week']";
 
+$form-input-font-size: font-size(27);
+
 #{$inputSelectors} {
   border: 1px solid $color-grey;
   border-radius: 4px;
-  font-size: font-size(27);
+  font-size: $form-input-font-size;
   padding: 0.4em 0.3em;
   background: #fff;
 }

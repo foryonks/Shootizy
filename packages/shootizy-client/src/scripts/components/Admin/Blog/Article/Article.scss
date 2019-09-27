@@ -1,11 +1,22 @@
 /* your css code */
 
-.blog-article-form {
-  .mea-img {
-    max-width: 150px;
+// Just an example as row col
+.form-blog-article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-    img {
-      width: 100%;
+  .form-fieldset {
+    width: 49%;
+  }
+  .form-actions {
+    margin: 1rem;
+    width: 100%;
+  }
+  .help {
+    ul {
+      list-style: disc;
+      list-style-position: inside;
     }
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNamesDedupe from "classnames/dedupe";
 import Icon from "../../Icon";
 
 const Action = ({ className, label, icon, disabled, wrapper, children }) => {
@@ -12,7 +13,11 @@ const Action = ({ className, label, icon, disabled, wrapper, children }) => {
       {children}
     </>
   );
-  return wrapper ? <div className={wrapper.className}>{Button}</div> : Button;
+  return wrapper ? (
+    <div className={classNamesDedupe("form-actions", wrapper.className)}>{Button}</div>
+  ) : (
+    Button
+  );
 };
 
 Action.propTypes = {

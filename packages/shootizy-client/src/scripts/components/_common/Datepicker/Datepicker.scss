@@ -1,4 +1,5 @@
 @import "~styles/variables";
+@import "~styles/forms";
 
 .date-picker {
   &.form-field--full-width {
@@ -22,7 +23,7 @@
   .react-date-picker__wrapper {
     border: 1px solid #979797;
     border-radius: 4px;
-    font-size: 1.5rem;
+    font-size: $form-input-font-size;
     padding: 0.4em 0.3em;
   }
 
