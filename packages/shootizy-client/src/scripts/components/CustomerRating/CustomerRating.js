@@ -17,7 +17,7 @@ const CustomerRating = () => {
 
   return (
     <div className="CustomerRatingWrapper page-container">
-      <Helmet bodyAttributes={{ class: "header-padding-page" }} />
+      <Helmet bodyAttributes={{ class: "header-padding-page topheader-reverse" }} />
       <HeaderImage
         className="header-image-generic header-image-reverse"
         // src="/assets/design/headers/header-shooting-studio.png"

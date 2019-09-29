@@ -6,6 +6,14 @@
   box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 }
 $stickyGap: 10px;
+
+.header-wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: $header-width;
+  width: 100%;
+}
+
 .header {
   position: relative;
   z-index: 30;
@@ -86,12 +94,17 @@ $stickyGap: 10px;
 
 //TO-DO
 .header__breadcrumbs {
+  margin: 30px auto 0;
   position: absolute;
-  top: 110%;
+  top: auto;
+  width: 100%;
+  max-width: $header-width;
 
   //To be modified :D
   .breadcrumbs__section {
-    background-color: #000;
-    color: #fff;
+    color: #000;
+    @at-root .topheader-reverse & {
+      color: #fff;
+    }
   }
 }

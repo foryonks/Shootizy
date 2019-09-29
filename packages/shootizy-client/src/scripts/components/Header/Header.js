@@ -44,7 +44,7 @@ const Header = (props, ref) => {
             </span>
           </div>
         </div>
-        <Breadcrumbs className="header__breadcrumbs container-2" />
+        <Breadcrumbs className="header__breadcrumbs" />
       </header>
     </div>
   );
