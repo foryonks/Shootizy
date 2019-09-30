@@ -8,7 +8,7 @@ import Prices from "../_common/Prices";
 const Home = () => {
   return (
     <>
-      <Helmet bodyAttributes={{ class: "header-padding-page topheader-reverse" }} title="Accueil" />
+      <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} title="Accueil" />
       <div className="HomeWrapper">
         <Carousel>
           <Prices className="container-2" />

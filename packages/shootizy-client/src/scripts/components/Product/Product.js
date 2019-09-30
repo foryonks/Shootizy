@@ -27,7 +27,7 @@ const Product = ({ match }) => {
 
   return (
     <div className="ProductPage">
-      <Helmet bodyAttributes={{ class: "header-padding-page header-image-reverse" }} />
+      <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} />
 
       <HeaderImage
         src={imageLarge}

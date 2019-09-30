@@ -14,7 +14,7 @@
 
 .HeaderImage {
   position: relative;
-  color: #000;
+  color: inherit;
 
   .header-image {
     padding-bottom: 27.44%;
@@ -111,16 +111,5 @@
 
 .header-image-shooting {
   .header-image {
-  }
-}
-
-.header-image-reverse {
-  .header-image {
-    background-color: #000;
-    color: #fff;
-  }
-
-  &.title {
-    color: inherit;
   }
 }

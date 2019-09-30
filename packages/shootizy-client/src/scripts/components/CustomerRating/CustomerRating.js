@@ -17,9 +17,9 @@ const CustomerRating = () => {
 
   return (
     <div className="CustomerRatingWrapper page-container">
-      <Helmet bodyAttributes={{ class: "header-padding-page topheader-reverse" }} />
+      <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} />
       <HeaderImage
-        className="header-image-generic header-image-reverse"
+        className="header-image-generic header-reverse"
         // src="/assets/design/headers/header-shooting-studio.png"
         preTitle="Shooting sur mesure"
         title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"

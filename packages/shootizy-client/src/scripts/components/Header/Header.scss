@@ -21,6 +21,7 @@ $stickyGap: 10px;
   margin-right: auto;
   margin-bottom: -107px;
   min-height: 107px;
+  color: inherit;
 }
 
 .header.sticky {
@@ -45,6 +46,7 @@ $stickyGap: 10px;
   }
   align-items: stretch;
   background: #fff;
+  color: #000;
   border-radius: 11px;
   box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -92,19 +94,15 @@ $stickyGap: 10px;
   }
 }
 
-//TO-DO
 .header__breadcrumbs {
   margin: 30px auto 0;
   position: absolute;
   top: auto;
   width: 100%;
   max-width: $header-width;
+}
 
-  //To be modified :D
-  .breadcrumbs__section {
-    color: #000;
-    @at-root .topheader-reverse & {
-      color: #fff;
-    }
-  }
+/** Modifiers parents class **/
+.header-reverse {
+  color: #fff;
 }
