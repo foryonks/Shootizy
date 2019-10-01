@@ -123,3 +123,9 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 .btn-big {
   line-height: 2.8;
 }
+
+.btn-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

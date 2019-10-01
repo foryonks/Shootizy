@@ -6,9 +6,7 @@ import { Helmet } from "react-helmet";
 
 const Tarifs = props => (
   <div className="Tarifs page-container">
-    <Helmet>
-      <body className="header-padding-page" />
-    </Helmet>
+    <Helmet bodyAttributes={{ class: "header-padding-page" }} />
     <HeaderImage
       className="header-image-generic"
       //src="/assets/design/headers/header-shooting-studio.png"

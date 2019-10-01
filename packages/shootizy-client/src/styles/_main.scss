@@ -6,3 +6,11 @@ html {
 .header-height-space {
   margin-top: 120px;
 }
+.App,
+.page-container {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+}

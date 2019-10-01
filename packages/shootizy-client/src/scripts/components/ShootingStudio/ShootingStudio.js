@@ -54,9 +54,8 @@ const Main = () => (
 
 const ShootingStudio = props => (
   <div className="ShootingStudioPage page-container">
-    <Helmet>
-      <body className="header-padding-page" />
-    </Helmet>
+    <Helmet bodyAttributes={{ class: "header-padding-page" }} />
+
     <Switch>
       <Route path="/shooting-studio/:productId" component={Product} />
       <Route exact path="/shooting-studio" component={Main} />

@@ -12,6 +12,12 @@
   top: $header-padding-page-height;
 }
 
+.header-padding-page-without-headerimage {
+  .header {
+    margin-bottom: 50px;
+  }
+}
+
 .HeaderImage {
   position: relative;
   color: inherit;

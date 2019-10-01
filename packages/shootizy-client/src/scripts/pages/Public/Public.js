@@ -23,6 +23,7 @@ import ShootingSurMesure from "scripts/components/ShootingSurMesure";
 import Blog from "scripts/components/Blog";
 import NotreBook from "scripts/components/NotreBook";
 import Tarifs from "scripts/components/Tarifs";
+import Newsletter from "scripts/components/Newsletter";
 
 const Public = () => (
   <>
@@ -35,6 +36,8 @@ const Public = () => (
           {/* Top Links */}
           <CrumbRoute title="Avis Clients" path="/avis-clients" component={CustomerRating} />
           <CrumbRoute title="Blog" path="/blog" component={Blog} />
+          <CrumbRoute title="Newsletter" path="/newsletter" component={Newsletter} />
+
           {/* Main links */}
           <CrumbRoute
             title="Comment ca marche?"
