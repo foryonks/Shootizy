@@ -72,7 +72,7 @@ const Article = ({ history, match }) => {
         history.replace(`/admin/blog/article/${updatedArticle.slug}`);
       }
     },
-    [article]
+    [article, history]
   );
 
   return (

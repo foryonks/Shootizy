@@ -85,7 +85,7 @@ const BookingForm = ({ productId }) => {
         isRequired: true,
       },
     ],
-    [list]
+    [list, productId]
   );
 
   const actionUrl = `/api/booking/reservations`;

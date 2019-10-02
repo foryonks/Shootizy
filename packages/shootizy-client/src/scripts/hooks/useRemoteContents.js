@@ -43,8 +43,8 @@ const useRemoteContents = (
       } finally {
         setLoading(false);
       }
-    },
-    [apiPath]
+    }
+    //[apiPath]
   );
   useEffect(() => {
     if (autoLoad) {

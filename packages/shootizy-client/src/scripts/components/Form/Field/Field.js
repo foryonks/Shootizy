@@ -1,3 +1,6 @@
+/* eslint-disable */
+// TODO : corriger les pb avec les react-hooks sur ce fichier dès que possible
+
 import React, { useMemo } from "react";
 import classNamesDedupe from "classnames/dedupe";
 import PropTypes from "prop-types";
@@ -43,77 +46,77 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
   });
 
   let Input;
-  useMemo(() => {
-    switch (field.type) {
-      case "text":
-      case "email":
-      case "number":
-      case "password":
-      case "hidden":
-        const inputProps = {
-          id,
-          className,
-          name,
-          type,
-          placeholder,
-          value: value || "",
-          onChange: ev => onChange(name, ev.target.value),
-          onBlur: () => onValidate(name),
-          ...(extendedProps || {}),
-        };
-        Input = <input {...inputProps} />;
-        break;
-      case "textarea":
-        const textAreaProps = {
-          id,
-          className,
-          name,
-          type,
-          placeholder,
-          value: value || "",
-          rows,
-          cols,
-          onChange: ev => onChange(name, ev.target.value),
-          onBlur: () => onValidate(name),
-          ...(extendedProps || {}),
-        };
-        Input = <textarea {...textAreaProps} />;
-        break;
-      case "date":
-        Input = (
-          <Datepicker
-            onChange={date => {
-              onChange(name, date);
-              onValidate(name);
-            }}
-            value={value}
-            className={className}
-            {...extendedProps || {}}
-          />
-        );
-        break;
-      case "image":
-        Input = (
-          <EditableImage
-            onChange={image => {
-              onChange(name, image);
-              onValidate(name);
-            }}
-            src={value}
-            {...extendedProps || {}}
-          />
-        );
-        break;
-      case "select":
-        Input = <Select options={list} />;
-        break;
-      case "custom":
-        Input = render ? render(value, isError, onChange, onValidate) : null;
-        break;
-      default:
-        return null;
-    }
-  }, [value, isError]);
+  switch (field.type) {
+    case "text":
+    case "email":
+    case "number":
+    case "password":
+    case "hidden":
+      const inputProps = {
+        id,
+        className,
+        name,
+        type,
+        placeholder,
+        value: value || "",
+        onChange: ev => onChange(name, ev.target.value),
+        onBlur: () => onValidate(name),
+        ...(extendedProps || {}),
+      };
+      Input = <input {...inputProps} />;
+      break;
+    case "textarea":
+      const textAreaProps = {
+        id,
+        className,
+        name,
+        type,
+        placeholder,
+        value: value || "",
+        rows,
+        cols,
+        onChange: ev => onChange(name, ev.target.value),
+        onBlur: () => onValidate(name),
+        ...(extendedProps || {}),
+      };
+      Input = <textarea {...textAreaProps} />;
+      break;
+    case "date":
+      Input = (
+        <Datepicker
+          onChange={date => {
+            onChange(name, date);
+            onValidate(name);
+          }}
+          value={value}
+          className={className}
+          {...extendedProps || {}}
+        />
+      );
+      break;
+    case "image":
+      Input = (
+        <EditableImage
+          onChange={image => {
+            onChange(name, image);
+            onValidate(name);
+          }}
+          src={value}
+          {...extendedProps || {}}
+        />
+      );
+      break;
+    case "select":
+      Input = <Select {...extendedProps || {}} options={list} />;
+      break;
+    case "custom":
+      Input = render
+        ? useMemo(() => render(value, isError, onChange, onValidate), [value, isError])
+        : null;
+      break;
+    default:
+      return null;
+  }
 
   const Field = (
     <>

@@ -17,6 +17,9 @@ const FORM_FIELDS = [
       { label: "Un annonceur", value: "Un annonceur" },
     ],
   },
+  { type: "text", name: "name", label: "Nom complet", isRequired: true },
+  { type: "text", name: "email", label: "Email", isRequired: true },
+  { type: "text", name: "phone", label: "Téléphone", isRequired: true },
   { type: "textarea", rows: 3, name: "comment", label: "Commentaire", isRequired: true },
 ];
 
