@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.scss";
 import LazyLoad from "react-lazyload";
-import NewsletterSubscribeFooter from "./NewsletterSubscribeFooter";
+import NewsletterSubscribeFooter from "../Newsletter/NewsletterSubscribeFooter";
 import FooterBottom from "./FooterBottom/FooterBottom";
 import SocialButtons from "../_common/SocialButtons";
 import FacebookChatBot from "./FacebookChatBot/FacebookChatBot";

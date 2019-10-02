@@ -24,6 +24,7 @@ import Blog from "scripts/components/Blog";
 import NotreBook from "scripts/components/NotreBook";
 import Tarifs from "scripts/components/Tarifs";
 import Newsletter from "scripts/components/Newsletter";
+import Contact from "scripts/components/Contact";
 
 const Public = () => (
   <>
@@ -37,6 +38,7 @@ const Public = () => (
           <CrumbRoute title="Avis Clients" path="/avis-clients" component={CustomerRating} />
           <CrumbRoute title="Blog" path="/blog" component={Blog} />
           <CrumbRoute title="Newsletter" path="/newsletter" component={Newsletter} />
+          <CrumbRoute title="Contact" path="/contact" component={Contact} />
 
           {/* Main links */}
           <CrumbRoute
@@ -49,6 +51,7 @@ const Public = () => (
             title="Shooting sur mesure"
             component={ShootingSurMesure}
           />
+
           <CrumbRoute path="/tarifs" title="Tarifs" component={Tarifs} />
           <CrumbRoute path="/notre-book" title="Notre book" component={NotreBook} />
           <CrumbRoute title="Shooting Studio" path="/shooting-studio" component={ShootingStudio} />

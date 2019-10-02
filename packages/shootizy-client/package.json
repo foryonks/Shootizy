@@ -16,33 +16,41 @@
     "create-icons-watch": "npm run create-icons -- --watch"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "plugins": ["react-hooks"],
+    "rules": {
+      "react-hooks/rules-of-hooks": "off",
+      "react-hooks/exhaustive-deps": "warn"
+    }
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "cross-env": "^5.2.0",
-    "destyle": "^0.3.1",
+    "cross-env": "^6.0.3",
+    "destyle": "^1.1.4",
     "destyle.css": "^1.0.5",
-    "interweave": "^10.1.3",
+    "emotion": "^10.0.17",
+    "interweave": "^11.2.0",
     "jodit-react": "^1.0.26",
     "load-script": "^1.0.0",
     "lodash.throttle": "^4.1.1",
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
-    "react": "^16.8.5",
-    "react-app-polyfill": "^0.2.2",
+    "react": "^16.10.1",
+    "react-app-polyfill": "^1.0.3",
     "react-breadcrumbs": "^2.1.7",
-    "react-date-picker": "^7.5.0",
-    "react-dom": "^16.8.5",
+    "react-date-picker": "^7.8.2",
+    "react-dom": "^16.10.1",
     "react-helmet": "^5.2.0",
-    "react-lazyload": "^2.5.0",
+    "react-lazyload": "^2.6.2",
     "react-responsive-carousel": "^3.1.47",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.1.2",
+    "react-select": "^3.0.8"
   },
   "devDependencies": {
-    "dom-parser": "^0.1.5",
-    "node-watch": "^0.6.0"
+    "dom-parser": "^0.1.6",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "node-watch": "^0.6.3"
   },
   "browserslist": [
     ">0.2%",

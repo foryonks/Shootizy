@@ -13,12 +13,22 @@ const CONTENTS_CACHE = {};
  */
 const useRemoteContents = (
   apiPath,
-  { initialState = null, autoLoad = true, defaultUseCache = true, method, body } = {}
+  {
+    initialState = null,
+    autoLoad = true,
+    defaultUseCache = true,
+    method,
+    body,
+    defaultContents,
+  } = {}
 ) => {
   const [loading, setLoading] = useState(!!autoLoad);
   const [contents, setContents] = useState(initialState);
   const load = useCallback(
     async useCache => {
+      if (defaultContents) {
+        return setContents(defaultContents);
+      }
       try {
         setLoading(true);
         let newContents = useCache && CONTENTS_CACHE[apiPath];

@@ -104,5 +104,8 @@ $stickyGap: 10px;
 
 /** Modifiers parents class **/
 .header-reverse {
-  color: #fff;
+  .header,
+  .HeaderImage  {
+    color: #fff;
+  }
 }

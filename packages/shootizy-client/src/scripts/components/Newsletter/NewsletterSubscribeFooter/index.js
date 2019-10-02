@@ -1,3 +1,1 @@
-import NewsletterSubscribeFooter from "./NewsletterSubscribeFooter";
-
-export default NewsletterSubscribeFooter;
+export { default } from "./NewsletterSubscribeFooter";

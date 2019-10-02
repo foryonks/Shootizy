@@ -5,10 +5,11 @@ import "./List.scss";
 import ArticleCard from "../ArticleCard";
 
 const List = ({ items, render, cols, hidden, className, sortBy, remoteContents }) => {
-  if (!items) {
-    let { contents: articles } = useRemoteContents(remoteContents, { initialState: [] });
-    items = articles;
-  }
+  let { contents } = useRemoteContents(remoteContents, {
+    initialState: [],
+    defaultContents: items,
+  });
+  items = contents;
   if (!items) return null;
 
   className += cols >= 2 ? ` row row-${cols} row-stretch row-margin row-wrap` : "";

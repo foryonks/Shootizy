@@ -8,11 +8,11 @@ import ThemeCard from "../ThemeCard";
 import "./Themes.scss";
 
 const Themes = ({ location, locationHideRegex }) => {
+  const { state: appState } = useContext(AppContext);
   if (location.pathname.match(locationHideRegex)) {
     return null;
   }
 
-  const { state: appState } = useContext(AppContext);
   const list = appState.themes || [];
 
   return (

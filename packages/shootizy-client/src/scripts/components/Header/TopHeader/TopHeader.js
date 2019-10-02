@@ -8,7 +8,7 @@ const Links = [
   { to: "/newsletter", title: "Newsletter", icon: "newsletter" },
   { to: "/blog", title: "Le Blog", icon: "blog" },
   { to: "/avis-clients", title: "Avis clients", icon: "star" },
-  { to: "/contacts", title: "Contact", icon: "email" },
+  { to: "/contact", title: "Contact", icon: "email" },
   { to: "/facebook", title: "", icon: "facebook", className: "facebook" },
   { to: "/instagram", title: "", icon: "instagram", className: "instagram" },
 ];

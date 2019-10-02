@@ -25,9 +25,6 @@
   .header-image {
     padding-bottom: 27.44%;
     overflow: hidden;
-    &:before {
-      content: url(attr("attr-bg-image"));
-    }
 
     @media (max-width: $header-width) {
       min-height: 300px;
