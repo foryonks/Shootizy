@@ -34,11 +34,11 @@ const NotreBook = props => (
     <Helmet bodyAttributes={{ class: "header-padding-page-without-headerimage" }} />
     <div className="form-newsletter-block block block-corners block-primary-background container-2 txt-c">
       <div className="block-content">
-        <h2 className="smallTitle">Newsletter</h2>
+        <h2 className="smallTitle">Contact</h2>
         <div className="text">
           <div className="big">
-            <strong>Gagnez à nous suivre !</strong>
-            <span>Abonnez-vous à notre newsletter</span>
+            Vous êtes à quelques clics de vivre l'expérience Shootizy, le Shooting au goût de
+            revenez-y.
           </div>
           <div className="advertphrase">
             Profitez de nos bons plans réguliers, offres spéciales et partenariats avantageux…{" "}
