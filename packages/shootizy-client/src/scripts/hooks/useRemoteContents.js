@@ -43,14 +43,14 @@ const useRemoteContents = (
       } finally {
         setLoading(false);
       }
-    }
-    //[apiPath]
+    },
+    [apiPath, body, defaultContents, initialState, method]
   );
   useEffect(() => {
     if (autoLoad) {
       load(defaultUseCache);
     }
-  }, [apiPath]);
+  }, [apiPath, autoLoad, defaultUseCache, load]);
 
   return {
     loading,

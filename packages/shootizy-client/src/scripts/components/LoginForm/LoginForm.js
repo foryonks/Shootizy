@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react";
 
 import { ACTIONS, CredentialsContext } from "scripts/contexts/Credentials";
 import { setAppToken } from "scripts/utils/api";
@@ -20,7 +20,7 @@ const FORM_SUBMIT_BTN = { label: "Se connecter", className: "btn-green" };
 const LoginForm = () => {
   const { dispatch } = useContext(CredentialsContext);
 
-  const handleSubmitSuccess = useCallback(response => {
+  const handleSubmitSuccess = response => {
     const { token, user } = response;
 
     //Save credentials
@@ -30,7 +30,7 @@ const LoginForm = () => {
       token,
       user,
     });
-  }, []);
+  };
 
   return (
     <div className="app-login-form">

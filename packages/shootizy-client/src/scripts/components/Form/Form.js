@@ -168,11 +168,11 @@ const Form = ({
   const resetForm = useCallback(() => {
     const formData = generateFormData(fields, defaultFormData);
     setFormData(formData);
-  }, [fields]);
+  }, [fields, defaultFormData]);
 
   useEffect(() => {
     resetForm();
-  }, [fields]);
+  }, [fields, resetForm]);
 
   const handleFieldChange = useCallback((name, value) => {
     setFormData(currentForm => {

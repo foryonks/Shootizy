@@ -34,20 +34,26 @@ const DropdownPopover = ({
   useEffect(() => {
     const currentItem = list.find(item => getItemValue(item) === value);
     setValueLabel(currentItem ? getItemLabel(currentItem) : "");
-  }, [list, value]);
+  }, [list, value, getItemLabel, getItemValue]);
 
   useEffect(() => {
     toggle(!!openValue);
-  }, [openValue]);
+  }, [openValue, toggle]);
 
   useEffect(() => {
+    const handleBlur = e => {
+      if (isOpen && elementRef.current && !elementRef.current.contains(e.target)) {
+        // outside click, close popover
+        toggle(false);
+      }
+    };
     if (isOpen) {
       document.addEventListener("mousedown", handleBlur);
       return () => {
         document.removeEventListener("mousedown", handleBlur);
       };
     }
-  }, [isOpen]);
+  }, [isOpen, toggle]);
 
   const handleSelectItem = item => {
     toggle();
@@ -58,13 +64,6 @@ const DropdownPopover = ({
   const handleClick = () => {
     onClick && onClick(isOpen);
     toggle();
-  };
-
-  const handleBlur = e => {
-    if (isOpen && elementRef.current && !elementRef.current.contains(e.target)) {
-      // outside click, close popover
-      toggle(false);
-    }
   };
 
   return (

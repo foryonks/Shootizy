@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 import Pagination from "scripts/components/Pagination";
 
@@ -28,19 +28,15 @@ const usePagination = (list, defaultLimit = 5) => {
    */
   const getCurrentPage = () => list.slice(offset, Math.min(offset + limit, list.length));
 
-  const PaginationComponent = useMemo(
-    () =>
-      list.length > defaultLimit && (
-        <Pagination
-          total={list.length}
-          limit={limit}
-          offset={offset}
-          onNextClick={handleNextClick}
-          onPreviousClick={handlePreviousClick}
-          onPageClick={handlePageClick}
-        />
-      ),
-    [list, limit, offset]
+  const PaginationComponent = list.length > defaultLimit && (
+    <Pagination
+      total={list.length}
+      limit={limit}
+      offset={offset}
+      onNextClick={handleNextClick}
+      onPreviousClick={handlePreviousClick}
+      onPageClick={handlePageClick}
+    />
   );
 
   return {

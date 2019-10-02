@@ -13,19 +13,22 @@ export default (
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchWithLoader = useCallback(async (...args) => {
-    try {
-      setLoading(true);
-      const result = await apiFunction(...args);
-      setError("");
-      setLoading(false);
-      return result;
-    } catch (e) {
-      setError(e.isCustomError ? e.message : defaultErrorMessage);
-      setLoading(false);
-      return Promise.reject(e);
-    }
-  }, []);
+  const fetchWithLoader = useCallback(
+    async (...args) => {
+      try {
+        setLoading(true);
+        const result = await apiFunction(...args);
+        setError("");
+        setLoading(false);
+        return result;
+      } catch (e) {
+        setError(e.isCustomError ? e.message : defaultErrorMessage);
+        setLoading(false);
+        return Promise.reject(e);
+      }
+    },
+    [apiFunction, defaultErrorMessage]
+  );
 
   return {
     loading,

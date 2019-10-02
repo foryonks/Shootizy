@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import usePagination from "scripts/hooks/usePagination";
 import useFetchWithLoader from "scripts/hooks/useFetchWithLoader";
@@ -21,14 +21,14 @@ const Booking = () => {
     "Annulation échouée"
   );
 
-  const handleCancel = useCallback(async bookingId => {
+  const handleCancel = async bookingId => {
     try {
       await fetchWithLoader(`/api/booking/reservations/${bookingId}`, {
         method: "DELETE",
       });
       reloadList();
     } catch (e) {}
-  }, []);
+  };
 
   return (
     <div className="container container-2">
