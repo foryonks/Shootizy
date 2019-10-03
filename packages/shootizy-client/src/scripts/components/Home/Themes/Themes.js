@@ -1,17 +1,12 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
 
 import { AppContext } from "scripts/contexts/App";
 import ThemeCard from "../ThemeCard";
 
 import "./Themes.scss";
 
-const Themes = ({ location, locationHideRegex }) => {
+const Themes = () => {
   const { state: appState } = useContext(AppContext);
-  if (location.pathname.match(locationHideRegex)) {
-    return null;
-  }
 
   const list = appState.themes || [];
 
@@ -34,12 +29,5 @@ const Themes = ({ location, locationHideRegex }) => {
     </div>
   );
 };
-Themes.propTypes = {
-  locationHideRegex: PropTypes.any,
-};
 
-Themes.defaultProps = {
-  locationHideRegex: new RegExp(/^$/),
-};
-
-export default withRouter(Themes);
+export default Themes;

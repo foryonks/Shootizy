@@ -25,6 +25,7 @@ import NotreBook from "scripts/components/NotreBook";
 import Tarifs from "scripts/components/Tarifs";
 import Newsletter from "scripts/components/Newsletter";
 import Contact from "scripts/components/Contact";
+import ShowHideWithRoute from "../../components/ShowHideWithRoute/ShowHideWithRoute";
 
 const Public = () => (
   <>
@@ -64,7 +65,9 @@ const Public = () => (
 
     <ShootizyTarifs />
     <div className="page-section section-container">
-      <Themes locationHideRegex={/shooting-studio\/?$/} />
+      <ShowHideWithRoute hideWith={[/shooting-studio\/?$/]}>
+        <Themes />
+      </ShowHideWithRoute>
       <SurMesure />
     </div>
     <LazyLoad height={400}>
