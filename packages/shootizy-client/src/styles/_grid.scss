@@ -1,5 +1,13 @@
 @import "./variables";
 
+@mixin containerMediaMaxWidth($maxwidth) {
+  @media (max-width: $maxwidth+ $container-padding*2) {
+    margin-left: $container-padding;
+    margin-right: $container-padding;
+    width: auto;
+  }
+}
+
 .page-section {
   $margin: 90px;
   padding-top: $margin;
@@ -14,9 +22,9 @@
 }
 
 .container-2 {
-  max-width: $container-2-width + $container-padding * 2;
-  padding-left: $container-padding;
-  padding-right: $container-padding;
+  max-width: $container-2-width;
+
+  @include containerMediaMaxWidth($container-2-width);
 }
 
 .container-inside {
@@ -83,12 +91,6 @@ $nb-cols-len: length($nb-cols);
 // blocks
 
 .block {
-  // &:before,
-  // &:after {
-  //   content: "";
-  //   display: table;
-  // }
-
   padding: 85px 30px;
 }
 

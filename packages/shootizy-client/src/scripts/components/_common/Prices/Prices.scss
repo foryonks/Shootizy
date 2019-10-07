@@ -3,48 +3,154 @@
 .Prices-header {
   color: #000;
   z-index: 10;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   display: flex;
   justify-content: space-between;
-  left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translateY(-50%);
   width: 100%;
-}
 
-.Prices {
   .price-item {
+    width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    flex-grow: 1;
     text-align: center;
-    padding-bottom: 26px;
-    border-radius: 10px;
-  }
+    font-size: 24px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 
-  .price-item-qty {
-    font-size: 81px; //font-size(81);
-    display: block;
-    font-weight: 300;
-    line-height: 0.7;
-    letter-spacing: -0.09ex;
+    .pretitle {
+    }
 
-    sup {
-      font-style: normal;
-      font-size: 0.3em;
-      vertical-align: 1.4em;
-      margin-left: 0em;
-      letter-spacing: -0.1ex;
+    .title {
+      font-size: 44px;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+
+    .button {
+      border-radius: 30px;
+      display: table;
+      background: #000;
+      color: #fff;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px 30px;
+      font-weight: bold;
+      margin-top: 26px;
+    }
+
+    .price-item-text {
+      margin-top: 16px;
     }
   }
 
-  .price-item-of {
-    font-size: font-size(27px);
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: 0.1ex;
+  .price-collapse {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    margin-right: 0;
+
+    .price-item {
+      background: none;
+      margin-right: 0;
+      margin-left: 0;
+      box-shadow: none;
+      border-radius: 0;
+      border-left: 1px dashed #000;
+      position: relative;
+
+      &:before {
+        content: "OU";
+        position: absolute;
+        background: #000;
+        border-radius: 200px;
+        color: #fff;
+        left: 0;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &:first-child {
+        border-left: none;
+        &:before {
+          content: "";
+          display: none;
+        }
+      }
+    }
   }
 
-  .price-item-text {
-    margin: 10px 0 0 0;
-    letter-spacing: 0ex;
-    line-height: 1.5;
+  .price-offer {
+    color: #fff;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+
+    .button {
+      background: $secondary-color;
+      color: #000;
+    }
+
+    &:before {
+      content: "OFFERT";
+      position: absolute;
+      background: $secondary-color;
+      color: #000;
+      $posXY: 15%;
+      left: $posXY;
+      top: $posXY;
+      width: 100%;
+      font-weight: bold;
+      padding: 15px 0;
+      transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+  }
+
+  .price-offer {
+    margin-left: 0;
   }
 }
+
+// .Prices {
+//   .price-item {
+//     text-align: center;
+//     padding-bottom: 26px;
+//     border-radius: 10px;
+//   }
+
+//   .price-item-qty {
+//     font-size: 81px; //font-size(81);
+//     display: block;
+//     font-weight: 300;
+//     line-height: 0.7;
+//     letter-spacing: -0.09ex;
+
+//     sup {
+//       font-style: normal;
+//       font-size: 0.3em;
+//       vertical-align: 1.4em;
+//       margin-left: 0em;
+//       letter-spacing: -0.1ex;
+//     }
+//   }
+
+//   .price-item-of {
+//     font-size: font-size(27px);
+//     font-weight: 500;
+//     line-height: 1.4;
+//     letter-spacing: 0.1ex;
+//   }
+
+//   .price-item-text {
+//     margin: 10px 0 0 0;
+//     letter-spacing: 0ex;
+//     line-height: 1.5;
+//   }
+// }
