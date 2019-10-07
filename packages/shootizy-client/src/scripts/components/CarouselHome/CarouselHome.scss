@@ -36,8 +36,10 @@
     bottom: 0;
 
     @media (max-width: $header-width) {
-      left: $arrow-size + 30px;
+      left: $carousel-content-position;
+      right: $carousel-content-position;
       transform: none;
+      width: auto;
     }
   }
 
