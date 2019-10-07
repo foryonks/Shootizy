@@ -12,8 +12,9 @@ db.contents.insert([
           button: "45 minutes",
           text: "Shooting photo de 45 min<br>en studio avec un Pro !",
         },
+        className: "price-offer",
+        parent: null,
       },
-      ,
       {
         html: {
           pre: "Choix n°1",
@@ -21,7 +22,8 @@ db.contents.insert([
           button: "20 €/photo",
           text: "Shooting photo de 45 min<br>en studio avec un Pro !",
         },
-        className: "block-or",
+        className: "block-or-1",
+        parent: "collapsed",
       },
       {
         html: {
@@ -30,6 +32,7 @@ db.contents.insert([
           button: "150 €",
           text: "Contenant jusqu’à 150 photos<br> (soit 1€ la photo).",
         },
+        parent: "collapsed",
       },
     ],
   },

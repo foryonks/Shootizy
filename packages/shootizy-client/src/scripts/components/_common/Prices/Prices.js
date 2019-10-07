@@ -8,23 +8,33 @@ const Prices = ({ className, textKey = "home" }) => {
   const { contents } = useRemoteContents("/api/contents/home-key-prices");
   const items = contents ? contents.items : [];
 
+  const itemsAlone = items.filter(({ parent }) => !parent);
+  const itemsCollapse = items.filter(({ parent }) => !!parent);
   return (
-    <div className={`Prices Prices-header row row-3 ${className}`}>
-      {items.map(({ qty, unit, of, html }, index) => (
-        <div className="price-item card card-simple card-shadow" key={index}>
-          <span className="price-item-qty">
-            {qty}
-            <sup>{unit}</sup>
-          </span>
-          <span className="price-item-of">{of}</span>
-          <p className="price-item-text">
-            <Interweave content={html[textKey]} />
-          </p>
-        </div>
-      ))}
+    <div className={`Prices Prices-header row ${className}`}>
+      {itemsAlone.map(PriceItem)}
+      <div
+        className="card-simple price-item price-collapse"
+        style={{ flexGrow: itemsCollapse.length }}>
+        {itemsCollapse.map(PriceItem)}
+      </div>
     </div>
   );
 };
+
+const PriceItem = ({ html: { pre, title, button, text }, className }, index) => (
+  <div className={`price-item card card-simple card-shadow ${className || ""}`} key={index}>
+    <div className="pretitle">{pre}</div>
+    <div className="title">{title}</div>
+    <a href="#offer" className="button">
+      {button}
+    </a>
+
+    <p className="price-item-text">
+      <Interweave content={text} />
+    </p>
+  </div>
+);
 
 Prices.propTypes = {
   className: PropTypes.string,
