@@ -11,8 +11,8 @@
 
   .price-item {
     width: auto;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     flex-grow: 1;
     text-align: center;
     font-size: 24px;
@@ -59,6 +59,7 @@
       border-left: 1px dashed #000;
       position: relative;
 
+      // OU flottant
       &:before {
         content: "OU";
         position: absolute;
@@ -98,14 +99,17 @@
       color: #000;
     }
 
+    // Offert flottant
     &:before {
       content: "OFFERT";
       position: absolute;
       background: $secondary-color;
       color: #000;
       $posXY: 15%;
-      left: $posXY;
-      top: $posXY;
+      left: 0;
+      top: 0;
+      margin-left: $posXY;
+      margin-top: $posXY;
       width: 100%;
       font-weight: bold;
       padding: 15px 0;
