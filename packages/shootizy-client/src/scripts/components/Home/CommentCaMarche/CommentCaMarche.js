@@ -1,53 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Interweave from "interweave";
-import Icon from "../../Icon";
 import { keyfix } from "../../../utils/utils";
 //import PropTypes from "prop-types";
 
 const data = keyfix([
   {
-    icon: "calendar",
-    title: "Prenez Rendez-vous",
+    number: "1",
+    title: "Le Rendez-vous à prendre",
     text:
-      "Réservez en ligne la date & l'heure de votre séance photo, 3 clics suffisent. <strong>So easy, so Shootizy</strong>",
+      "Réservez en 3 clics la date & l'heure de votre séance photo. <strong>So easy, so Shootizy</strong>",
   },
   {
-    icon: "during",
+    number: "2",
     title: "Vivez votre Shooting",
-    text: "Au studio, nous révélons <strong>le meilleur de vous-même</strong>",
+    text: "Au studio, nous révélons le meilleur de vous-même.",
   },
   {
-    icon: "pics",
+    number: "3",
     title: "Choisissez vos photos",
     text:
-      "Découvez instantanément vos clichés.<br><strong>Achetez seulement ceux que vous aimez</strong>",
+      "Découvez instantanément vos clichés.<strong>Achetez seulement ceux que vous aimez.</strong>",
   },
 ]);
 
 const CommentCaMarche = ({ className }) => (
-  <section className={`CommentCaMarche container container-2 page-section ${className}`}>
-    <h2 className="title">
-      <strong>Comment ça marche ?</strong>
-    </h2>
-    <ul className="row row-3">
-      {data.map(({ icon, title, text, key }) => (
-        <li className="CommentCaMarche-item item-with-arrow card card-with-top-icon" key={key}>
-          <div className="top-icon icon-big">
-            <Icon name={icon} />
-          </div>
-          <h4>{title}</h4>
-          <p className="text">
-            <Interweave content={text} />
-          </p>
-        </li>
-      ))}
-    </ul>
-    <p>
-      <Link className="btn-green" to="/booking">
-        Je réserve mon Shooting
-      </Link>
-    </p>
+  <section className={`CommentCaMarche page-section ${className}`}>
+    <div className="container-2">
+      <h2 className="title">
+        Votre Shooting Photo <strong>en 3 étapes !</strong>
+      </h2>
+      <ul className="row row-3">
+        {data.map(({ number, title, text, key }) => (
+          <li className="CommentCaMarche-item card card-simple card-shadow" key={key}>
+            <div className="top-icon">{number}</div>
+            <h2 className="title">{title}</h2>
+            <p className="text">
+              <Interweave content={text} />
+            </p>
+          </li>
+        ))}
+      </ul>
+      <p class="button">
+        <Link className="btn-white" to="/booking">
+          Comment ça marche ?
+        </Link>
+      </p>
+    </div>
   </section>
 );
 

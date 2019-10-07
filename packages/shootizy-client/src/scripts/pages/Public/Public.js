@@ -63,7 +63,9 @@ const Public = () => (
       )}
     />
 
-    <ShootizyTarifs />
+    <ShowHideWithRoute hideWith={[/accueil\/?$/]}>
+      <ShootizyTarifs />
+    </ShowHideWithRoute>
     <div className="page-section section-container">
       <ShowHideWithRoute hideWith={[/shooting-studio\/?$/]}>
         <Themes />

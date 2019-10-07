@@ -17,7 +17,8 @@ $box-shadow: $big-shadow;
 }
 
 .card-shadow-hover:hover {
-  box-shadow: 0px 0px 5px 4px #2d2d2d40;
+  //box-shadow: 0px 0px 5px 4px #2d2d2d40;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .card-simple {
@@ -25,23 +26,18 @@ $box-shadow: $big-shadow;
   border-radius: 20px;
 }
 
-.card-with-top-icon {
-  position: relative;
-
+.card {
   .top-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
-    width: 70px;
-    margin: -35px auto 26px;
+    $size: 60px;
+    height: $size;
+    width: $size;
+    margin: 35px auto 26px;
     background: #000;
     border-radius: 200px;
-
-    .svg-icon {
-      color: #fff;
-      font-size: 1.7em;
-    }
+    color: #fff;
   }
 
   .icon-big {

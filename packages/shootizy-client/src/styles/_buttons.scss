@@ -6,20 +6,23 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   text-align: center;
 }
 
-.btn-green {
-  color: #000;
-  background: $btn-green-bg-color;
-  border: none;
-  border-radius: 100px;
-  font-size: font-size(25);
+@mixin button {
+  border-radius: 35px;
+  font-size: font-size(24);
   font-family: "Brandon Grotesque", "Myriad Pro", sans-serif;
   font-weight: 500;
-  padding: 0px 1.1em;
-  line-height: 1.8;
+  padding: 0 1.1em;
+  line-height: 2.2;
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
-  letter-spacing: -0.025ex;
+  letter-spacing: 0;
+}
+
+.btn-green {
+  @include button;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  background: $btn-green-bg-color;
 
   &:hover {
     background-color: $btn-green-hover-bg-color !important;
@@ -35,19 +38,9 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 
 .btn-white,
 .btn-white-simple {
-  $h-padding: 30px;
+  @include button;
   color: #000;
-  font-size: font-size(20);
-  min-height: 45px;
-  display: inline-block;
-  vertical-align: middle;
   background: #fff;
-  letter-spacing: -0.05ex;
-  border-radius: 20px;
-  line-height: 45px;
-  padding-left: $h-padding;
-  padding-right: $h-padding;
-  font-weight: bold;
 
   .svg-icon {
     font-size: 0.7em;

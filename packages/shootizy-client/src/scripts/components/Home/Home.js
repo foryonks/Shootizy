@@ -4,7 +4,8 @@ import { Helmet } from "react-helmet";
 import Carousel from "../CarouselHome";
 import CommentCaMarche from "./CommentCaMarche";
 import Prices from "../_common/Prices";
-//className="topheader-reverse"
+import ResaShooting from "./ResaShooting";
+
 const Home = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const Home = () => {
         <Carousel>
           <Prices className="container-2" />
         </Carousel>
+        <ResaShooting />
         <CommentCaMarche className="CommentCaMarche-Home" />
       </div>
     </>
