@@ -88,18 +88,14 @@ $nb-cols-len: length($nb-cols);
   margin-bottom: 10px;
 }
 
+.mt50 {
+  margin-top: 50px;
+}
+
 // blocks
 
 .block {
   padding: 85px 30px;
-}
-
-.block-corners {
-  border-radius: 20px;
-}
-
-.block-primary-background {
-  background: $secondary-color;
 }
 
 .txt-c {

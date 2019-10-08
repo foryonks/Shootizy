@@ -29,6 +29,8 @@ import ShowHideWithRoute from "../../components/ShowHideWithRoute/ShowHideWithRo
 
 const Public = () => (
   <>
+    <SurMesure />
+
     <Header />
     <CrumbRoute
       title="Accueil"
@@ -62,7 +64,6 @@ const Public = () => (
         </Switch>
       )}
     />
-
     <ShowHideWithRoute hideWith={[/accueil\/?$/]}>
       <ShootizyTarifs />
     </ShowHideWithRoute>

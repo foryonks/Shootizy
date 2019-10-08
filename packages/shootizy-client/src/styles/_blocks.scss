@@ -36,6 +36,15 @@
 
     label {
       color: rgba(0, 0, 0, 0.5);
+      font-size: font-size(14);
     }
   }
+}
+
+.block-corners {
+  border-radius: 20px;
+}
+
+.block-primary-background {
+  background: $secondary-color;
 }

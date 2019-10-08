@@ -27,28 +27,6 @@ $box-shadow: $big-shadow;
 }
 
 .card {
-  .top-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    $size: 60px;
-    height: $size;
-    width: $size;
-    margin: 35px auto 26px;
-    background: #000;
-    border-radius: 200px;
-    color: #fff;
-  }
-
-  .icon-big {
-    width: 106px;
-    height: 106px;
-    line-height: 106px;
-
-    .svg-icon {
-      font-size: 2.2em;
-    }
-  }
 }
 
 // TO-DO

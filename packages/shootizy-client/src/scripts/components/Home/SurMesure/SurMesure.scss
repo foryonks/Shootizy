@@ -5,13 +5,19 @@
   padding-top: 53px;
   padding-bottom: 54px;
   margin-top: 70px;
+  color: #000;
 
   .SurMesure-title {
     font-size: font-size(43);
   }
 
+  .icon-circle {
+    font-size: 1.2em;
+  }
+
   .SurMesure-description {
     @extend .generic-description;
+    color: #000;
     margin-bottom: 35px;
   }
 

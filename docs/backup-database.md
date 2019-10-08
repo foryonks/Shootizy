@@ -4,12 +4,14 @@ ssh -t gatsu@chezgatsu.ovh "dokku mongo:import shootizy < /tmp/shootizy.gz"
 
 ## si pb update il faut drop la DB
 
-\$ dokku mongo:connect-admin shootizydev
+dokku mongo:connect-admin shootizydev
 
 ### une fois dans la base :
 
-> use shootizy-dev
-> db.dropDatabase()
+use shootizydev
+db.dropDatabase()
+exit
+dokku mongo:import shootizydev < /tmp/shootizy.gz
 
 # ATTENTion toutes les commandes ci-dessous ne fonctionnent pas.
 
