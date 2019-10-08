@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Logo.scss";
 
-function Logo({ className }) {
+function Logo({ className, hideText }) {
   return (
     <span className={`logo ${className}`}>
       <Link to="/">
@@ -52,10 +52,12 @@ function Logo({ className }) {
           />
         </svg>{" "}
       </Link>
-      <span className="logo-text">
-        Le Shooting photo
-        <br /> qui vous chouchoute
-      </span>
+      {hideText ? null : (
+        <span className="logo-text">
+          Le Shooting photo
+          <br /> qui vous chouchoute
+        </span>
+      )}
     </span>
   );
 }

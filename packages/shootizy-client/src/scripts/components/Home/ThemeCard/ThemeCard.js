@@ -30,10 +30,10 @@ const ThemeCard = ({ productId, image, title, sharelink, price, description, his
           </div>
           <h4 className="ThemeCard-title">{title}</h4>
           <div className="ThemeCard-description">
-            {sliceAndRemoveHTML(description, 19)}
+            {sliceAndRemoveHTML(description, 24)}
 
             <Link className="read-more" to={productLink} onClick={stopPropagation}>
-              En savoir plus{"\xA0"}&gt;
+              Lire la suite{"\xA0"}&gt;
             </Link>
           </div>
           <div className="button">

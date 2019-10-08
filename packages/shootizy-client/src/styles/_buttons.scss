@@ -1,7 +1,7 @@
 @import "./functions";
 
 //$button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
-$button-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+
 .button-container-centered {
   text-align: center;
 }
@@ -46,6 +46,7 @@ $button-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   @include button;
   color: #000;
   background: #fff;
+  box-shadow: $button-box-shadow;
 
   .svg-icon {
     font-size: 0.7em;
@@ -71,7 +72,6 @@ $button-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     font-size: 0.6em;
     margin-right: 0.3em;
     vertical-align: 0.05em;
-    //transition: all 0.15s ease-in-out;
   }
 
   &:hover {

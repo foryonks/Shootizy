@@ -30,12 +30,12 @@
     color: rgba(0, 0, 0, 0.5);
     margin-bottom: 35px;
   }
+}
 
-  form {
-    text-align: left;
+.block-corners {
+  border-radius: 20px;
+}
 
-    label {
-      color: rgba(0, 0, 0, 0.5);
-    }
-  }
+.block-primary-background {
+  background: $secondary-color;
 }

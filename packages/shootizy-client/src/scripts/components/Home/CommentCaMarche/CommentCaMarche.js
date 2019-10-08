@@ -27,7 +27,7 @@ const data = keyfix([
 const CommentCaMarche = ({ className }) => (
   <section className={`CommentCaMarche page-section ${className}`}>
     <div className="container-2">
-      <h2 className="title">
+      <h2 className="title mb50">
         Votre Shooting Photo <strong>en 3 étapes !</strong>
       </h2>
       <ul className="row row-3">

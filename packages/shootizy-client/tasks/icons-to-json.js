@@ -19,16 +19,22 @@ function convert() {
       let fileContent = fs.readFileSync(path.join(svgPath, filename), "utf8");
       let dom = parser.parseFromString(fileContent);
       let svg = dom.getElementsByTagName("svg")[0];
+      if (!svg) return null;
       let viewBox = svg.getAttribute("viewBox");
-      let paths = Array.prototype.slice.call(svg.getElementsByTagName("path")).map(function(path) {
-        const attrObj = {};
-        path.attributes.forEach(function(attr) {
-          if (["data-name", "fill-rule"].indexOf(attr.name) == -1) {
-            attrObj[attr.name] = attr.value;
-          }
+      let paths = Array.prototype.slice
+        .call(svg.getElementsByTagName("path"))
+        .map(function(path) {
+          const attrObj = {};
+          path.attributes.forEach(function(attr) {
+            if (["data-name", "fill-rule"].indexOf(attr.name) == -1) {
+              attrObj[attr.name] = attr.value;
+            }
+          });
+          return attrObj;
+        })
+        .filter(function(svg) {
+          return svg != null;
         });
-        return attrObj;
-      });
 
       let obj = {
         name: filename.replace(/\.svg$/, ""),

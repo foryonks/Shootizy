@@ -1,5 +1,4 @@
 @import "./functions";
-$inputSelectors: "textarea, input[type='text'], input[type='date'], input[type='datetime-local'], input[type='email'], input[type='file'], input[type='month'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='time'], input[type='url'], input[type='week']";
 
 $form-input-font-size: font-size(27);
 
@@ -24,5 +23,19 @@ $form-input-font-size: font-size(27);
   #{$inputSelectors} {
     display: block;
     width: 100%;
+  }
+}
+
+form.generic-form {
+  text-align: left;
+  #{$inputSelectors} {
+    box-shadow: $button-box-shadow;
+  }
+
+  label {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: font-size(14);
+    margin-bottom: 8px;
+    display: block;
   }
 }
