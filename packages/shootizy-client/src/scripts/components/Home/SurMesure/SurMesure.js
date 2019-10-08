@@ -44,7 +44,7 @@ const SurMesure = props => (
         encore ? <strong>Dites-nous tout, on s’occupe de vous !</strong>
       </div> */}
       <Form
-        className="mt50"
+        className="mt50 generic-form"
         id="form-sur-mesure"
         fields={FORM_FIELDS}
         submitBtn={FORM_SUBMIT_BTN}

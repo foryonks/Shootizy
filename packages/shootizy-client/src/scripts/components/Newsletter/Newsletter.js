@@ -28,7 +28,7 @@ const NotreBook = props => (
         </div>
 
         <Form
-          className="form-newsletter"
+          className="form-newsletter generic-form"
           id="form-newsletter"
           fields={FORM_FIELDS_MAIN}
           submitBtn={FORM_SUBMIT_BTN}

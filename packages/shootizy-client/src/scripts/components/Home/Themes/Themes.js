@@ -14,13 +14,14 @@ const Themes = () => {
     <div className="Themes container-2 grid">
       <h2 className="title">
         Choisissez <strong>le thème</strong> de votre shooting,
+        <br />
         <strong>selon votre besoin ou votre envie</strong>.
       </h2>
 
-      <p className="undertitle">
+      {/* <p className="undertitle">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
         ut labore et dolore magna aliqua.
-      </p>
+      </p> */}
 
       <div className="row row-3 row-wrap">
         {list.map((theme, index) =>

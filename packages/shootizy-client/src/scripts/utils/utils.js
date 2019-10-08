@@ -44,6 +44,7 @@ export const sliceAndRemoveHTML = (str, length) => {
     ? text
         .split(" ")
         .slice(0, length)
-        .join(" ") + "..."
+        .join(" ")
+        .replace(/[.,]$/, "") + "..."
     : text;
 };
