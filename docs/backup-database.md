@@ -1,3 +1,22 @@
+mongodump -d shootizy --gzip --archive=shootizy.gz
+scp shootizy.gz <user>@chezgatsu.ovh:/tmp/shootizy.gz
+ssh -t gatsu@chezgatsu.ovh "dokku mongo:import shootizy < /tmp/shootizy.gz"
+
+## si pb update il faut drop la DB
+
+\$ dokku mongo:connect-admin shootizydev
+
+### une fois dans la base :
+
+> use shootizy-dev
+> db.dropDatabase()
+
+# ATTENTion toutes les commandes ci-dessous ne fonctionnent pas.
+
+Pour restaurer (à vérifier) mais d'abord il faut expose la DB.
+
+mongorestore --host localhost:28965 --username shootizydev --password ade73479a0a74c4b576aa5c2126926df --gzip --archive=/tmp/shootizy.gz --drop --db shootizydev
+
 # Exporter et Backup la base distante en local :
 
 ```
@@ -12,6 +31,7 @@ scp <user>@chezgatsu.ovh:/home/<user>/shootizy.dump shootizy.dump
 $ mongodump -d shootizy --gzip --archive=shootizy.dump.gzip
 $ scp shootizy.dump.gzip <user>@chezgatsu.ovh:~/shootizy.dump.gzip
 $ ssh -t gatsu@chezgatsu.ovh "mongorestore --host localhost:27017 --upsert --gzip --archive=~/shootizy.dump.gz --db shootizy"
+$ mongorestore --gzip --archive=shootizy.gzip
 ```
 
 # En local sur son PC de dev
@@ -19,13 +39,13 @@ $ ssh -t gatsu@chezgatsu.ovh "mongorestore --host localhost:27017 --upsert --gzi
 ## Sauvegarder la base en local :
 
 ```
-mongodump -d shootizy --gzip --archive=shootizy.dump.gzip
+mongodump -d shootizy --gzip --archive=shootizy.gzip
 ```
 
 ## Importer la base en local depuis un dump :
 
 ```
-mongorestore --gzip --archive=shootizy.dump.gzip
+mongorestore --gzip --archive=shootizy.gzip
 ```
 
 # Sur le serveur
@@ -40,7 +60,7 @@ dokku mongo:export shootizy > shootizy.dump
 
 ## Importer la base avec dokku (non recommandé) voir méthode avec mongorestore:
 
-_Methode Mongorestore : _
+_Methode dokku : _
 
 ```
 dokku mongo:import shootizy < shootizy.dump
