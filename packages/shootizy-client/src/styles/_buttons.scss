@@ -1,7 +1,7 @@
 @import "./functions";
 
-$button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
-
+//$button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
+$button-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 .button-container-centered {
   text-align: center;
 }
@@ -19,10 +19,12 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
   letter-spacing: 0;
 }
 
-.btn-green {
+.btn-green,
+.btn-green-small {
   @include button;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   background: $btn-green-bg-color;
+  color: #000;
 
   &:hover {
     background-color: $btn-green-hover-bg-color !important;
@@ -34,6 +36,9 @@ $button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
     color: #000;
     box-shadow: $button-box-shadow;
   }
+}
+.btn-green-small {
+  font-size: 18px;
 }
 
 .btn-white,

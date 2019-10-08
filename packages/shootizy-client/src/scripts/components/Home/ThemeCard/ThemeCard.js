@@ -30,11 +30,16 @@ const ThemeCard = ({ productId, image, title, sharelink, price, description, his
           </div>
           <h4 className="ThemeCard-title">{title}</h4>
           <div className="ThemeCard-description">
-            {sliceAndRemoveHTML(description, 25)}
-            {"\xA0"}
+            {sliceAndRemoveHTML(description, 19)}
+
             <Link className="read-more" to={productLink} onClick={stopPropagation}>
-              Lire la suite
+              En savoir plus{"\xA0"}&gt;
             </Link>
+          </div>
+          <div className="button">
+            <a href={bookingLink} className="btn-green-small">
+              Réserver mon shooting
+            </a>
           </div>
         </div>
       </LazyLoad>
