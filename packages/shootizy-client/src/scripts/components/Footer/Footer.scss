@@ -1,11 +1,19 @@
 @import "~styles/functions";
 
 .footer-social-section {
-  background: url("/assets/design/footer-social.jpg") top center;
+  //background: url("/assets/design/footer-social.jpg") top center;
   min-height: 704px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .social-section-buttons {
+    font-size: 70px;
+
+    .snapcode img {
+      width: 1.3em;
+    }
+  }
 }
 
 .footer-social-section-content {
@@ -38,9 +46,6 @@
     }
   }
 
-  .snapcode {
-    img {
-      max-width: 140px;
-    }
+  .social-section-buttons {
   }
 }

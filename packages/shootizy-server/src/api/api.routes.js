@@ -11,6 +11,7 @@ const contactRoutes = require("./contact/contact.routes");
 const newsletterRoutes = require("./newsletter/newsletter.routes");
 const blogRoutes = require("./blog/blog.routes");
 const fileRoutes = require("./file/file.routes");
+const socialRoutes = require("./social/social.routes");
 
 const routes = express.Router();
 
@@ -40,5 +41,8 @@ routes.use("/blog", blogRoutes);
 
 // Files
 routes.use("/file", fileRoutes);
+
+// Instagram
+routes.use("/social", socialRoutes);
 
 module.exports = routes;

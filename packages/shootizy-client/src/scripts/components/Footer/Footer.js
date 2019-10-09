@@ -10,16 +10,23 @@ const Footer = props => (
   <div className="Footer">
     <LazyLoad height={200}>
       <div className="footer-social-section">
-        <div className="footer-social-section-content">
-          <h2 className="title">#Shootizy</h2>
-          <div className="description">
-            Rejoignez la communauté Shootizy sur tous vos réseaux sociaux préférés !
+        <div className="container-2 container-full row row-2">
+          <div className="col txt-c">
+            <h2 className="title">@Shootizy</h2>
+            <p>Rejoignez la communauté Shootizy sur tous vps réseaux sociaux préférés</p>
+            <h2 className="title">#Shootizy</h2>
+            <p>
+              <strong>Say Cheeese !</strong>
+            </p>
+            <p>Suivez et partagez le quotidien de Shootizy</p>
+            <SocialButtons
+              className="social-section-buttons"
+              facebook={true}
+              snapcode={true}
+              instagram={true}
+            />
           </div>
-          <SocialButtons />
-
-          <a href="/" className="snapcode">
-            <img src="/assets/demo/snapcode.png" alt="" />
-          </a>
+          <div className="col">inmage sociale</div>
         </div>
       </div>
     </LazyLoad>
@@ -28,13 +35,5 @@ const Footer = props => (
     <FacebookChatBot />
   </div>
 );
-
-Footer.propTypes = {
-  // bla: PropTypes.string,
-};
-
-Footer.defaultProps = {
-  // bla: 'test',
-};
 
 export default Footer;

@@ -153,7 +153,7 @@ const FooterBottom = props => (
       </div>
       <div className="col follow-us">
         <h3 className="title">Suivez-nous !</h3>
-        <SocialButtons />
+        <SocialButtons facebook={true} instagram={true} twitter={true} />
         <Link to="/booking" className="btn-green btn-small">
           Réserver mon Shooting
         </Link>

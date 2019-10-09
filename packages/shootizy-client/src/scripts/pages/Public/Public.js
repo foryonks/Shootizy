@@ -29,6 +29,8 @@ import ShowHideWithRoute from "../../components/ShowHideWithRoute/ShowHideWithRo
 
 const Public = () => (
   <>
+    <Footer />
+
     <Header />
     <CrumbRoute
       title="Accueil"
@@ -77,7 +79,6 @@ const Public = () => (
     <LazyLoad height={200}>
       <BlogSmall />
     </LazyLoad>
-    <Footer />
   </>
 );
 
