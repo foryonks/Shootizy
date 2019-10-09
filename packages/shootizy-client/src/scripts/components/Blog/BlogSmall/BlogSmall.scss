@@ -81,42 +81,42 @@ body {
         justify-content: space-between;
 
         .carousel-item {
-          width: 31%;
+          width: 32.2%;
         }
       }
     }
 
-    .control-dots .dot {
-      background: black;
-      opacity: 1;
-      box-shadow: none;
-      position: relative;
-      vertical-align: middle;
-      width: 8px;
-      height: 8px;
-      margin: 0 4px;
+    // .control-dots .dot {
+    //   background: black;
+    //   opacity: 1;
+    //   box-shadow: none;
+    //   position: relative;
+    //   vertical-align: middle;
+    //   width: 8px;
+    //   height: 8px;
+    //   margin: 0 4px;
 
-      &.selected {
-        background: #fff;
-        border: 2px solid #000;
-        width: 20px;
-        height: 20px;
+    //   &.selected {
+    //     background: #fff;
+    //     border: 2px solid #000;
+    //     width: 20px;
+    //     height: 20px;
 
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: 10px;
-          height: 10px;
-          border-radius: 20px;
-          background: #fff;
-          border: 2px solid #000;
-          transform: translate(-50%, -50%);
-        }
-      }
-    }
+    //     &:before {
+    //       content: "";
+    //       display: block;
+    //       position: absolute;
+    //       left: 50%;
+    //       top: 50%;
+    //       width: 10px;
+    //       height: 10px;
+    //       border-radius: 20px;
+    //       background: #fff;
+    //       border: 2px solid #000;
+    //       transform: translate(-50%, -50%);
+    //     }
+    //   }
+    //     }
 
     .button-container-centered {
       margin-top: 40px;
