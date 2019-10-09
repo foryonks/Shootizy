@@ -13,7 +13,8 @@
     "start-js": "cross-env NODE_PATH=src/ react-scripts start",
     "test": "cross-env NODE_PATH=src/ react-scripts test",
     "create-icons": "node ./tasks/icons-to-json.js",
-    "create-icons-watch": "npm run create-icons -- --watch"
+    "create-icons-watch": "npm run create-icons -- --watch",
+    "mergeandpublish": "git checkout develop && git merge - && git push && git push dev develop"
   },
   "eslintConfig": {
     "extends": "react-app",
