@@ -1,7 +1,6 @@
 import React from "react";
 import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 import "./BlogSmall.scss";
-import Icon from "../../Icon";
 import { toMatrix } from "../../../utils/utils";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import ArticleCard from "../ArticleCard";
