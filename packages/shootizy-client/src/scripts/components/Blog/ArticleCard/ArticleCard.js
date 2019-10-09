@@ -25,6 +25,7 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
             <Link className="content-theme" to={`/blog/category/${category.slug}`}>
               {category.name}
             </Link>
+            {" / "}
             <span className="content-date">{formatDateStd(date)}</span>
           </div>
         )}
@@ -36,20 +37,9 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
         <Link to={articleLink}>
           <p>{text}</p>
         </Link>
-        {/* <Link to={articleLink} className="link">
-          <Icon name="arrow-right" className="circle-icon" /> Lire l'article
-        </Link> */}
       </div>
     </div>
   );
-};
-
-ArticleCard.propTypes = {
-  // bla: PropTypes.string,
-};
-
-ArticleCard.defaultProps = {
-  // bla: 'test',
 };
 
 export default withRouter(ArticleCard);
