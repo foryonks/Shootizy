@@ -1,12 +1,12 @@
 @import "../../../../styles/functions";
 
-$buttons-right-margin: 74px;
-
+$buttons-right-margin: 0; // 74px;
+$carousel-top-spacing: 55px;
 body {
   .BlogSmall {
-    background: url("/assets/design/fond-le-blog.jpg") center center;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    // background: url("/assets/design/fond-le-blog.jpg") center center;
+    padding-top: 100px;
+    padding-bottom: 100px;
 
     .description {
       text-align: center;
@@ -14,44 +14,49 @@ body {
       margin-bottom: 20px;
       position: relative;
       z-index: 1;
-      font-size: font-size(27);
     }
 
+    .button {
+      margin-bottom: $carousel-top-spacing;
+    }
     .blog-carousel {
-      margin-top: -40px;
-      margin-bottom: 20px;
     }
 
-    .BlogSmall-title {
-      text-align: center;
+    .carousel-slider {
+      margin-top: -$carousel-top-spacing;
+      margin-bottom: -$carousel-top-spacing;
     }
 
     .slider-wrapper {
-      padding-top: 55px;
-      padding-bottom: 60px;
+      padding-top: $carousel-top-spacing;
+      padding-bottom: $carousel-top-spacing;
     }
 
     .carousel {
       /** Le container principal des fleches fait la largeur de la page,
-    mais afin de contenir les flèches dans une zone précise, j'ai du faire un calcul sioux
+    mais afin de contenir les flèches dans une zone précise,
+    j'ai du faire un calcul sioux
     */
       .control-arrow {
-        background: #000;
-        border-radius: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 33px;
         margin-left: auto;
         margin-right: -$container-2-width/2 + $buttons-right-margin;
         opacity: 1;
-        padding: 0;
         left: auto;
         right: 50%;
-        top: 0;
+        padding: 0;
+        bottom: 100%;
+        top: auto;
         width: 33px;
-        color: #fff;
+        height: 33px;
+        background: none;
+        color: #000;
         font-size: 15px;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+          background: none;
+        }
       }
 
       .control-prev {
@@ -76,41 +81,10 @@ body {
         justify-content: space-between;
 
         .carousel-item {
-          width: 48.6%;
+          width: 31%;
         }
       }
     }
-
-    // .carousel-item {
-    //   background: #fff;
-    //   text-align: left;
-    //   img {
-    //     width: auto;
-    //     max-width: 252px;
-    //   }
-
-    //   .mea-desc {
-    //     padding: 42px 36px 20px;
-    //   }
-
-    //   h4 {
-    //     color: #000;
-    //     font-size: 25px;
-    //     font-weight: 500;
-    //     line-height: 1;
-    //     margin-bottom: 14px;
-    //   }
-
-    //   p {
-    //     line-height: 1.1;
-    //     color: $color-grey;
-    //     min-height: 86px;
-    //   }
-
-    //   .link {
-    //     vertical-align: baseline;
-    //   }
-    // }
 
     .control-dots .dot {
       background: black;

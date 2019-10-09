@@ -13,6 +13,8 @@ export const keyfix = array => {
 /** Convert simple array to matrix (array in array)
  * @param {Array} arr
  * @param {Number} width of array
+ * @param {Object} Params
+ *    @param transform {Function}
  * @returns Array
  */
 export const toMatrix = (myArr, width, { transform = item => item, fill = false }) => {

@@ -11,7 +11,7 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
   let { title, text, category, imageMini, date } = article;
   const articleLink = getArticleUrl(article);
 
-  text = sliceAndRemoveHTML(text, 20);
+  text = sliceAndRemoveHTML(text, 30);
   className += " card-shadow";
 
   return React.createElement(
@@ -25,7 +25,6 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
             <Link className="content-theme" to={`/blog/category/${category.slug}`}>
               {category.name}
             </Link>
-            {" / "}
             <span className="content-date">{formatDateStd(date)}</span>
           </div>
         )}

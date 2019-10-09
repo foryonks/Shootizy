@@ -29,7 +29,6 @@ import ShowHideWithRoute from "../../components/ShowHideWithRoute/ShowHideWithRo
 
 const Public = () => (
   <>
-    <VenirAuStudio />
     <Header />
     <CrumbRoute
       title="Accueil"
