@@ -11,6 +11,7 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
   h3 {
     font-size: 43px;
     font-weight: bold;
@@ -21,13 +22,15 @@
 
   .CommentCaMarche-item {
     width: 32%;
-    padding: 30px 40px;
+    padding: 40px 40px 30px;
     font-size: 24px;
     .title {
       font-weight: bold;
+      margin-bottom: 10px;
     }
 
     .text {
+      margin-top: 0;
       color: rgba(0, 0, 0, 0.5);
       line-height: 1.3;
     }

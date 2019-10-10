@@ -48,23 +48,9 @@ const BlogSmall = props => {
             ))}
           </CarouselResponsive>
         </div>
-        {/* <p className="button-container-centered">
-          <button className="btn-green btn-small">
-            <Icon name="triangle-right" />
-            &nbsp;Découvrir le blog
-          </button>
-        </p> */}
       </div>
     </section>
   );
-};
-
-BlogSmall.propTypes = {
-  // bla: PropTypes.string,
-};
-
-BlogSmall.defaultProps = {
-  // bla: 'test',
 };
 
 export default BlogSmall;

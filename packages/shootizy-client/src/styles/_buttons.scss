@@ -12,7 +12,7 @@
   font-family: "Brandon Grotesque", "Myriad Pro", sans-serif;
   font-weight: 500;
   padding: 0 1.1em;
-  line-height: 2.2;
+  line-height: 2.9;
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
@@ -22,7 +22,6 @@
 .btn-green,
 .btn-green-small {
   @include button;
-  //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   background: $btn-green-bg-color;
   color: #000;
 
@@ -39,6 +38,10 @@
 }
 .btn-green-small {
   font-size: 18px;
+  line-height: 2.1;
+  $padding: 30px;
+  padding-left: $padding;
+  padding-right: $padding;
 }
 
 .btn-white,

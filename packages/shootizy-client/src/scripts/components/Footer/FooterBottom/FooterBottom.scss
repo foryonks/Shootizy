@@ -49,6 +49,12 @@
       color: $secondary-color;
     }
   }
+  .description {
+    font-size: font-size(16px);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
 }
 
 .footer-logo {
@@ -57,12 +63,6 @@
   margin-bottom: 15px;
 }
 
-.description {
-  font-size: font-size(16px);
-  line-height: 1.4;
-  margin-bottom: 20px;
-  opacity: 0.5;
-}
 .footer-bottom-top {
   position: relative;
 }

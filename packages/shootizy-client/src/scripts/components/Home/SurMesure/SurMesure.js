@@ -10,6 +10,7 @@ const FORM_FIELDS = [
     type: "email",
     name: "email",
     label: "Votre mail afin qu’on puisse vous répondre",
+    placeholder: "Email",
     isRequired: true,
   },
   {
@@ -17,7 +18,8 @@ const FORM_FIELDS = [
     name: "message",
     label: "Expliquez-nous",
     isRequired: true,
-    props: { rows: "3" },
+    placeholder: "Rédigez ici...",
+    props: { rows: "4" },
   },
 ];
 const FORM_SUBMIT_BTN = {
@@ -39,12 +41,8 @@ const SurMesure = props => (
         Un besoin (très) particulier ? Avec ou sans vidéo ? Une solution que vous ne trouvez pas
         encore ? <strong>Dites-nous tout, on s’occupe de vous !</strong>
       </div>
-      {/* <div className="SurMesure-description">
-        Un besoin (très) particulier ? Avec ou sans vidéo ? Une solution que vous ne trouvez pas
-        encore ? <strong>Dites-nous tout, on s’occupe de vous !</strong>
-      </div> */}
       <Form
-        className="mt50 generic-form"
+        className="mt70 generic-form"
         id="form-sur-mesure"
         fields={FORM_FIELDS}
         submitBtn={FORM_SUBMIT_BTN}

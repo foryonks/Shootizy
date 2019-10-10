@@ -13,12 +13,12 @@ const data = keyfix([
   },
   {
     number: "2",
-    title: "Vivez votre Shooting",
+    title: "Shooting au Studio",
     text: "Au studio, nous révélons le meilleur de vous-même.",
   },
   {
     number: "3",
-    title: "Choisissez vos photos",
+    title: "Un choix cornélien",
     text:
       "Découvez instantanément vos clichés.<strong>Achetez seulement ceux que vous aimez.</strong>",
   },

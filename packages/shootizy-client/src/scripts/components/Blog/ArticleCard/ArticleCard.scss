@@ -15,6 +15,7 @@
 
   .card-desc {
     padding: 30px 40px 20px;
+    position: relative;
   }
 
   .blog-cat-datetime {
@@ -40,5 +41,23 @@
 
   .link svg {
     vertical-align: text-top;
+  }
+
+  .commentsCount {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    svg {
+      display: block;
+    }
+    .numText {
+      font-size: 16px;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: #000;
+    }
   }
 }

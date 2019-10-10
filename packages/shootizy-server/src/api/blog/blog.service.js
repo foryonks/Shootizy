@@ -18,6 +18,14 @@ const listArticles = async () => {
     .toArray();
   const categories = await listCategories();
 
+  for (var i = 0; i < articles.length; i++) {
+    let article = articles[i];
+    let comments = await getCommentsByArticleId(article._id);
+    article.commentsCount = comments.length;
+
+    console.log(article._id);
+  }
+
   return articles.map(article => ({
     ...formatEntry(article),
     category: categories.find(category => category.categoryId === article.categoryId),
@@ -91,6 +99,7 @@ const getCategoryBySlug = async slug => {
 };
 
 const getCommentsByArticleId = async articleId => {
+  articleId = articleId.toString();
   const db = await mongoDb.getInstance();
   const comments = await db
     .collection("blog.comments")

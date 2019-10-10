@@ -9,7 +9,7 @@
 }
 
 .page-section {
-  $margin: 90px;
+  $margin: 100px;
   padding-top: $margin;
   padding-bottom: $margin;
 }
@@ -93,11 +93,18 @@ $nb-cols-len: length($nb-cols);
 /*** Margins **/
 
 .mb10 {
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
+}
+.mb50 {
+  margin-bottom: 50px !important;
 }
 
 .mt50 {
-  margin-top: 50px;
+  margin-top: 50px !important;
+}
+
+.mt70 {
+  margin-top: 70px !important;
 }
 
 // blocks
