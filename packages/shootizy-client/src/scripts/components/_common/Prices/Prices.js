@@ -14,7 +14,9 @@ const Prices = ({ className, textKey = "home" }) => {
     <div className={`Prices Prices-header row ${className}`}>
       {itemsAlone.map(PriceItem)}
       <div
-        className="card-simple card-shadow price-item price-collapse"
+        className={`card-simple card-shadow price-item price-collapse row row-${
+          itemsCollapse.length
+        }`}
         style={{ flexGrow: itemsCollapse.length }}>
         {itemsCollapse.map(PriceItem)}
       </div>
