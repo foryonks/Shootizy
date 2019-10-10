@@ -2,6 +2,39 @@
 @import "~styles/functions";
 
 .footer-social-section {
+  min-height: 704px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .social-section-buttons {
+    font-size: 70px;
+    a {
+      width: 1em;
+      height: 1em;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 500px;
+      background: #000;
+      color: #fff;
+
+      .svg-icon {
+        font-size: 0.4285em;
+      }
+    }
+
+    .snapcode {
+      font-size: 1.28em;
+      border-radius: none;
+      padding: 0;
+      background: none;
+      color: inherit;
+      img {
+        width: 1em;
+      }
+    }
+  }
   .container-full {
     align-items: center;
   }
