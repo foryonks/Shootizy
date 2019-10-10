@@ -52,7 +52,8 @@ const list = async () => {
     text,
   }));
 
-  return instagram.concat(twitter).map((item, index) => ({
+  instagram.splice(2, 0, twitter[0]);
+  return instagram.map((item, index) => ({
     ...item,
     key: index,
   }));
