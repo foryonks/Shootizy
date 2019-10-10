@@ -79,6 +79,7 @@ const Public = () => (
     <LazyLoad height={200}>
       <BlogSmall />
     </LazyLoad>
+    <Footer />
   </>
 );
 

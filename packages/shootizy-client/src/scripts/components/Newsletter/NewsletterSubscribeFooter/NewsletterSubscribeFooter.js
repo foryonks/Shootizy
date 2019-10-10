@@ -7,7 +7,7 @@ import Form from "scripts/components/Form";
 
 const FORM_SUBMIT_BTN = {
   hiddenOnSubmit: true,
-  className: "arrow-button",
+  className: "circle-button arrow-button",
   label: <Icon name="arrow-double-ne" />,
   wrapper: null,
 };
@@ -19,8 +19,9 @@ const NewsletterSubscribeFooter = props => (
         <h3 className="title">Gagnez à nous suivre ! Abonnez-vous à notre newsletter</h3>
         <p>Profitez de nos bons plans réguliers, offres spéciales et partenariats avantageux… </p>
       </div>
-      <div className="col">
+      <div className="col ">
         <Form
+          className="form-newsletter"
           id="form-newsletter"
           fields={FORM_FIELDS_FOOTER}
           submitBtn={FORM_SUBMIT_BTN}
