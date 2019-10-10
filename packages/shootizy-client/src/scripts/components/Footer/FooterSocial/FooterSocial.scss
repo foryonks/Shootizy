@@ -1,0 +1,65 @@
+/* your css code */
+@import "~styles/functions";
+
+.footer-social-section {
+  .container-full {
+    align-items: center;
+  }
+  .col-description {
+    padding: 0 8.5%;
+  }
+  .col-social {
+    .item {
+      padding-bottom: 50%;
+      position: relative;
+      margin: 0;
+      width: 50%;
+    }
+
+    .item-instagram {
+      background: center center no-repeat;
+      background-size: cover;
+    }
+    .item-twitter {
+      background: $secondary-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 45px;
+    }
+
+    $margins: 15.51%;
+    date,
+    .text {
+      position: absolute;
+      top: 0;
+      left: $margins;
+      right: $margins;
+    }
+
+    date {
+      font-size: font-size(20);
+      opacity: 0.5;
+      margin-top: $margins;
+    }
+
+    .text {
+      margin-top: 33.1%;
+      display: block;
+      position: absolute;
+      font-size: font-size(24);
+      overflow: hidden;
+      bottom: 0;
+      margin-bottom: $margins;
+      line-height: 1.3;
+    }
+
+    .svg-icon {
+      position: absolute;
+      color: #fff;
+      bottom: 25px;
+      right: 25px;
+    }
+  }
+}
