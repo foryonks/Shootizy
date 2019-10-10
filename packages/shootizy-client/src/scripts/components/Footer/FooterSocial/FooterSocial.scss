@@ -3,9 +3,17 @@
 
 .footer-social-section {
   min-height: 704px;
+  padding-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  p {
+    margin: 0;
+  }
+  .phrase2 {
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
 
   .social-section-buttons {
     font-size: 70px;
@@ -39,7 +47,7 @@
     align-items: center;
   }
   .col-description {
-    padding: 0 8.5%;
+    padding: 0 7.6%;
   }
   .col-social {
     .item {

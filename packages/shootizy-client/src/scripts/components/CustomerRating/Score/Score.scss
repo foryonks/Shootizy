@@ -4,7 +4,7 @@ $color-active: inherit;
 .rating-score {
   display: inline-block;
   .rating-score__item {
-    margin-left: 4px;
+    margin-left: 3px;
 
     &:first-child {
       margin-left: 0;
@@ -17,7 +17,7 @@ $color-active: inherit;
     .rating-score__item {
       margin: 0px;
       // Avoid blink effect between star
-      padding-right: 4px;
+      padding-right: 3px;
     }
     &:hover {
       .rating-score__item {

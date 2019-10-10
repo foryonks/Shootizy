@@ -6,6 +6,13 @@
   padding-bottom: 52px;
   padding-top: 100px;
   position: relative;
+
+  .description {
+    font-size: font-size(16px);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
 }
 
 .col-logo {
@@ -13,8 +20,8 @@
 }
 
 .col-links {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 14.4%;
+  padding-right: 2.5%;
   font-size: font-size(16);
   margin-left: 0;
   margin-right: 0;
@@ -49,12 +56,6 @@
       color: $secondary-color;
     }
   }
-  .description {
-    font-size: font-size(16px);
-    line-height: 1.4;
-    margin-bottom: 20px;
-    opacity: 0.5;
-  }
 }
 
 .footer-logo {
@@ -88,6 +89,9 @@
 
 .col-rating {
   font-size: font-size(16);
+  > * {
+    vertical-align: middle;
+  }
 }
 .GlobalRating-footer {
   margin-left: 3px;
@@ -104,14 +108,15 @@
   }
 
   .rating-score {
+    margin-left: 10px;
     color: $secondary-color;
-    font-size: 0.8em;
+    font-size: 1.6em;
   }
 
   .rating-text {
     color: $secondary-color;
     margin-left: 5px;
-    font-size: 1em;
+    font-size: 1.5em;
   }
 }
 

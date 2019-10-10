@@ -94,7 +94,7 @@ const FooterBottom = props => (
           vehicula nisl lacinia ut. Ut urna ligula.
         </div>
 
-        <a href="/contact" className="btn-green">
+        <a href="/contact" className="btn-green-small">
           Contact
         </a>
       </div>
@@ -126,18 +126,11 @@ const FooterBottom = props => (
       </div>
 
       <div className="col col-rating">
-        Avis Clients <GlobalRating className="GlobalRating-footer" />
+        <span>Avis Clients</span>
+        <GlobalRating className="GlobalRating-footer" />
       </div>
     </div>
   </div>
 );
-
-FooterBottom.propTypes = {
-  // bla: PropTypes.string,
-};
-
-FooterBottom.defaultProps = {
-  // bla: 'test',
-};
 
 export default FooterBottom;

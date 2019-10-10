@@ -8,18 +8,21 @@ import Icon from "scripts/components/Icon";
 
 const FooterSocial = props => {
   const { contents } = useRemoteContents("/api/social");
-  console.log(contents);
   return (
     <div className="footer-social-section">
       <div className="container-2 container-full row row-2">
         <div className="col col-description txt-c">
-          <h2 className="title">@Shootizy</h2>
+          <h2 className="title">
+            <strong>@Shootizy</strong>
+          </h2>
           <p>Rejoignez la communauté Shootizy sur tous vps réseaux sociaux préférés</p>
-          <h2 className="title">#Shootizy</h2>
+          <h2 className="title mt50">
+            <strong>#Shootizy</strong>
+          </h2>
           <p>
             <strong>Say Cheeese !</strong>
           </p>
-          <p>Suivez et partagez le quotidien de Shootizy</p>
+          <p className="phrase2">Suivez et partagez le quotidien de Shootizy</p>
           <SocialButtons
             className="social-section-buttons"
             facebook={true}
