@@ -9,141 +9,103 @@ import GlobalRating from "../../CustomerRating/GlobalRating/GlobalRating";
 
 const data = [
   {
-    label: "Nos Offres",
-    link: "/offres",
-    id: 1,
+    label: "Découvrir",
+    link: "",
     links: [
       {
-        label: "Book Modèle",
+        label: "Accueil",
         link: "/",
-        id: 1,
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 2,
+        label: "Comment ça marche ?",
+        link: "/comment-ca-marche",
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 3,
+        label: "Tarifs",
+        link: "/tarifs",
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 4,
+        label: "Contact",
+        link: "/contact",
       },
     ],
   },
   {
-    label: "Nos Offres",
-    link: "/offres",
-    id: 2,
+    label: "Catégories",
+    link: "/",
     links: [
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 11,
+        label: "Shooting Studio",
+        link: "/shooting-studio",
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 21,
+        label: "Shooting sur mesure",
+        link: "/shooting-sur-mesure",
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 31,
+        label: "Notre Book",
+        link: "/book",
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 41,
+        label: "Blog",
+        link: "/blog",
       },
     ],
   },
   {
-    label: "Nos Offres",
-    link: "/offres",
-    id: 3,
+    label: "Liens utiles",
+    link: "/",
     links: [
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 12,
+        label: "Mentions légales",
+        link: "/mentions-legales",
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 22,
+        label: "Confidentialité",
+        link: "/confidentialite",
       },
       {
-        label: "Book Modèle",
-        link: "/",
-        id: 32,
-      },
-      {
-        label: "Book Modèle",
-        link: "/",
-        id: 42,
-      },
-    ],
-  },
-  {
-    label: "Nos Offres",
-    link: "/offres",
-    id: 4333,
-    links: [
-      {
-        label: "Book Modèle",
-        link: "/",
-        id: 13,
-      },
-      {
-        label: "Book Modèle",
-        link: "/",
-        id: 23,
-      },
-      {
-        label: "Book Modèle",
-        link: "/",
-        id: 33,
-      },
-      {
-        label: "Book Modèle",
-        link: "/",
-        id: 43,
+        label: "Cookies",
+        link: "/cookies",
       },
     ],
   },
 ];
+
+function addIds(obj) {
+  obj.forEach((item, i) => {
+    if (item.links) addIds(item.links);
+    item.id = `${i}-${~~(Math.random() * 10000000)}`;
+  });
+}
+addIds(data);
+
 const FooterBottom = props => (
   <div className="FooterBottom">
-    <div className="container-2 footer-bottom-1 row">
-      <div className="col">
-        <Logo className="logo-inverted footer-logo" />
-      </div>
-      <div className="description col">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis enim turpis, eu
-        vehicula nisl lacinia ut. Ut urna ligula.
-      </div>
-      <div className="col">
-        <GlobalRating title="Avis de nos clients" className="GlobalRating-footer" />
-      </div>
-    </div>
+    <div className="container-2 row">
+      <div className="col col-logo">
+        <Logo className="footer-logo" hideText={true} />
+        <div className="description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis enim turpis, eu
+          vehicula nisl lacinia ut. Ut urna ligula.
+        </div>
 
-    <div className="container-2 footer-bottom-2 row">
-      <div className="col allLinks">
+        <a href="/contact" className="btn-green">
+          Contact
+        </a>
+      </div>
+
+      <div className="col col-links allLinks">
         <div className="row ">
           {data.map(cat => (
             <div className="col" key={cat.id}>
-              <a href={cat.link}>
+              <Link to={cat.link}>
                 <h3 className="title">{cat.label}</h3>
-              </a>
+              </Link>
               <ul>
                 {cat.links.map(item => (
                   <li key={item.id}>
-                    <a href={item.link}>{item.label}</a>
+                    <Link to={item.link}>{item.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -151,14 +113,22 @@ const FooterBottom = props => (
           ))}
         </div>
       </div>
-      <div className="col follow-us">
-        <h3 className="title">Suivez-nous !</h3>
+    </div>
+
+    <div className="container-2 footer-bottom-bottom row">
+      <div className="col brand-and-social">
+        <span>© Shootify.2019</span>
         <SocialButtons facebook={true} instagram={true} twitter={true} />
-        <Link to="/booking" className="btn-green btn-small">
-          Réserver mon Shooting
-        </Link>
+      </div>
+
+      <div className="col col-rating">
+        Avis Clients <GlobalRating className="GlobalRating-footer" />
       </div>
     </div>
+    {/* <a href="#top" className="btn-white">
+      <Icon name="arrow-top" />
+    </a>
+     */}
   </div>
 );
 

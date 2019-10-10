@@ -8,7 +8,7 @@ import Form from "scripts/components/Form";
 const FORM_SUBMIT_BTN = {
   hiddenOnSubmit: true,
   className: "arrow-button",
-  label: <Icon name="arrow-right" />,
+  label: <Icon name="arrow-double-ne" />,
   wrapper: null,
 };
 

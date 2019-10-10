@@ -21,8 +21,8 @@ const GlobalRating = ({ className, title, showDetails }) => {
     <div className={`GlobalRating ${className}`}>
       {title && <h3>{title}</h3>}
       <Score score={appState.rating.score} />
-      <span>
-        {appState.rating.score}/5 {showDetails && RATING_LABEL[Math.floor(appState.rating.score)]}
+      <span className="rating-text">
+        {appState.rating.score} / 5 {showDetails && RATING_LABEL[Math.floor(appState.rating.score)]}
       </span>
       {showDetails && <h4>{appState.rating.count} avis</h4>}
     </div>

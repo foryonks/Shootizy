@@ -1,20 +1,24 @@
+@import "~styles/functions";
 /* your css code */
 .NewsletterSubscribeFooter {
   background: #2ef7cc;
   padding: 40px 0;
   .title {
     margin-bottom: 3px;
+    font-size: font-size(24);
   }
 
   p {
     margin: 0;
+    font-size: font-size(16);
+    opacity: 0.5;
   }
   .row {
     align-items: center;
   }
 
   form input[type="email"] {
-    height: 62px;
+    height: 70px;
     vertical-align: middle;
     border: none;
     border-radius: 5px;
@@ -24,6 +28,9 @@
   }
 
   .arrow-button {
-    font-size: 1.11em;
+    font-size: 0.9em;
+    .svg-icon {
+      font-size: 1.4em;
+    }
   }
 }
