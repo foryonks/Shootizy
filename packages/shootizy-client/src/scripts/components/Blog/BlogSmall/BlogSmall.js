@@ -13,7 +13,7 @@ const BlogSmall = props => {
 
   return (
     <section className="BlogSmall section-background">
-      <div className="">
+      <div className="BlogSmall-content">
         <h2 className="title">
           <strong>Le Blog de Shootizy</strong>
         </h2>

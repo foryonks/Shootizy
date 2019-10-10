@@ -36,7 +36,7 @@ const VenirAuStudio = props => (
   <section className="VenirAuStudio page-section">
     <div className="container-2">
       <h2 className="title">
-        <strong>Venir au Studio !</strong>
+        <strong>Viendez au Studio !</strong>
       </h2>
 
       <div className="row row-2">
