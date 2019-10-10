@@ -17,6 +17,11 @@
     align-items: center;
   }
 
+  .form-newsletter {
+    display: flex;
+    flex-direction: row;
+  }
+
   form input[type="email"] {
     height: 70px;
     vertical-align: middle;

@@ -6,6 +6,7 @@ import Logo from "../../Header/Logo";
 import "./FooterBottom.scss";
 import SocialButtons from "../../_common/SocialButtons";
 import GlobalRating from "../../CustomerRating/GlobalRating/GlobalRating";
+import Icon from "../../Icon";
 
 const data = [
   {
@@ -82,7 +83,10 @@ addIds(data);
 
 const FooterBottom = props => (
   <div className="FooterBottom">
-    <div className="container-2 row">
+    <div className="container-2 row footer-bottom-top">
+      <a href="#top" className="circle-button movetotop-button">
+        <Icon name="arrow-top" />
+      </a>
       <div className="col col-logo">
         <Logo className="footer-logo" hideText={true} />
         <div className="description">
@@ -125,10 +129,6 @@ const FooterBottom = props => (
         Avis Clients <GlobalRating className="GlobalRating-footer" />
       </div>
     </div>
-    {/* <a href="#top" className="btn-white">
-      <Icon name="arrow-top" />
-    </a>
-     */}
   </div>
 );
 
