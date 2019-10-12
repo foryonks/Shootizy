@@ -12,7 +12,7 @@ const Home = () => {
       <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} title="Accueil" />
       <div className="HomeWrapper">
         <Carousel>
-          <Prices className="container-2" style={{ marginTop: "-10%" }} />
+          <Prices className="container-2 home-prices" style={{ marginTop: "-10%" }} />
         </Carousel>
         <ResaShooting />
         <CommentCaMarche className="CommentCaMarche-Home" />
