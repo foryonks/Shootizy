@@ -133,7 +133,11 @@ $nb-cols-len: length($nb-cols);
     display: table-cell;
     padding-right: 10px;
     vertical-align: middle;
-    width: 39px;
+    svg {
+      width: 39px;
+      height: auto;
+      display: block;
+    }
   }
   .text {
     vertical-align: middle;

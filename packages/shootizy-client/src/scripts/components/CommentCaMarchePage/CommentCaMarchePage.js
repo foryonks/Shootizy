@@ -71,32 +71,29 @@ const CommentCaMarchePage = props => (
             </Link>
           </p>
           <p className="paragraph-messenger">
-            <svg
-              className="img-messenger"
-              width="39px"
-              height="39px"
-              viewBox="0 0 39 39"
-              version="1.1">
-              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g
-                  id="COMMENT-CA-MARCHE"
-                  transform="translate(-970.000000, -2015.000000)"
-                  fill="#0091FF">
-                  <g id="MISE-AU-CLAIR" transform="translate(320.000000, 1633.000000)">
-                    <g id="AVANT">
-                      <g id="Texte" transform="translate(650.000000, 44.000000)">
-                        <g id="Group-10" transform="translate(0.000000, 324.000000)">
-                          <path
-                            d="M19.5,14 C8.74705,14 0,22.2677229 0,32.4301997 C0,37.3688465 2.1203,42.1076712 5.85,45.568022 L5.85,54 L13.8047,50.0442971 C15.67605,50.5849163 17.58835,50.8603993 19.5,50.8603993 C30.25295,50.8603993 39,42.5926764 39,32.4301997 C39,22.2677229 30.25295,14 19.5,14 L19.5,14 Z M21.775,38.0885943 L16.0875,33.5644653 L5.85,38.0885943 L17.225,26.7743917 L22.9125,31.2985207 L33.15,26.771805 L21.775,38.0885943 Z"
-                            id="Fill-1"
-                          />
+            <span className="img-messenger">
+              <svg viewBox="0 0 39 39" version="1.1">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g
+                    id="COMMENT-CA-MARCHE"
+                    transform="translate(-970.000000, -2015.000000)"
+                    fill="#0091FF">
+                    <g id="MISE-AU-CLAIR" transform="translate(320.000000, 1633.000000)">
+                      <g id="AVANT">
+                        <g id="Texte" transform="translate(650.000000, 44.000000)">
+                          <g id="Group-10" transform="translate(0.000000, 324.000000)">
+                            <path
+                              d="M19.5,14 C8.74705,14 0,22.2677229 0,32.4301997 C0,37.3688465 2.1203,42.1076712 5.85,45.568022 L5.85,54 L13.8047,50.0442971 C15.67605,50.5849163 17.58835,50.8603993 19.5,50.8603993 C30.25295,50.8603993 39,42.5926764 39,32.4301997 C39,22.2677229 30.25295,14 19.5,14 L19.5,14 Z M21.775,38.0885943 L16.0875,33.5644653 L5.85,38.0885943 L17.225,26.7743917 L22.9125,31.2985207 L33.15,26.771805 L21.775,38.0885943 Z"
+                              id="Fill-1"
+                            />
+                          </g>
                         </g>
                       </g>
                     </g>
                   </g>
                 </g>
-              </g>
-            </svg>
+              </svg>
+            </span>
             <span className="text">
               Vous pouvez aussi obtenir des réponses via le Chatbot en bas à droite de votre écran.
             </span>
