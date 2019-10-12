@@ -62,20 +62,20 @@ const Public = () => (
         </Switch>
       )}
     />
-    <ShowHideWithRoute hideWith={[/accueil\/?$/]}>
+    <ShowHideWithRoute hideWith={[/accueil\/?$/, /comment-ca-marche/]}>
       <ShootizyTarifs />
     </ShowHideWithRoute>
-    <div className="page-section section-container">
-      <ShowHideWithRoute hideWith={[/shooting-studio\/?$/]}>
+    <ShowHideWithRoute hideWith={[/shooting-studio\/?$/, /comment-ca-marche/]}>
+      <div className="page-section section-container">
         <Themes />
-      </ShowHideWithRoute>
-      <SurMesure />
-    </div>
+        <SurMesure />
+      </div>
+    </ShowHideWithRoute>
     <LazyLoad height={400}>
       <VenirAuStudio />
     </LazyLoad>
     <LazyLoad height={200}>
-      <ShowHideWithRoute hideWith={[/\/blog\//]}>
+      <ShowHideWithRoute hideWith={[/\/blog\//, /comment-ca-marche/]}>
         <BlogSmall />
       </ShowHideWithRoute>
     </LazyLoad>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import classNamesDedupe from "classnames/dedupe";
 import { Link, withRouter } from "react-router-dom";
+import { bool } from "prop-types";
 
 //import PropTypes from "prop-types";
 import Interweave from "interweave";
@@ -9,7 +10,7 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import HeaderImageMask from "scripts/components/_common/HeaderImageMask/HeaderImageMask";
 import { AppContext } from "scripts/contexts/App";
 
-const CarouselHome = ({ history, children }) => {
+const CarouselHome = ({ history, children, useMask }) => {
   const { contents } = useRemoteContents("/api/contents/home-carousel");
   const {
     state: { themesById = {} },
@@ -67,11 +68,19 @@ const CarouselHome = ({ history, children }) => {
             }
           )}
         </CarouselResponsive>
-        <HeaderImageMask />
+        {useMask && <HeaderImageMask />}
       </div>
       {children}
     </div>
   );
+};
+
+CarouselHome.propTypes = {
+  useMask: bool,
+};
+
+CarouselHome.defaultProps = {
+  useMask: true,
 };
 
 export default withRouter(CarouselHome);

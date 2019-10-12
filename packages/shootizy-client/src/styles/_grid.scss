@@ -98,6 +98,9 @@ $nb-cols-len: length($nb-cols);
 .mb50 {
   margin-bottom: 50px !important;
 }
+.mb100 {
+  margin-bottom: 100px !important;
+}
 
 .mt50 {
   margin-top: 50px !important;
@@ -130,6 +133,7 @@ $nb-cols-len: length($nb-cols);
     display: table-cell;
     padding-right: 10px;
     vertical-align: middle;
+    width: 39px;
   }
   .text {
     vertical-align: middle;

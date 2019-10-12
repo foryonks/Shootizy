@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import Prices from "scripts/components/_common/Prices";
 import CommentCaMarche3blocks from "./CommentCaMarche3blocks";
 import "./CommentCaMarchePage.scss";
+import Carousel from "scripts/components/CarouselHome";
 
 // const headerData = [
 //   {
@@ -44,11 +45,11 @@ const CommentCaMarchePage = props => (
 
     <p className="button-container-centered">
       <Link to="/booking" className="btn-green">
-        Réserver ma séance
+        Réserver mon shooting
       </Link>
     </p>
 
-    <div className="container-2 grey-text">
+    <div className="container-2 grey-text mt70">
       <div className="mea-table">
         <div className="mea-img img-half">
           <img src="/assets/design/comment-ca-marche/ccm01.png" alt="" />
@@ -69,8 +70,13 @@ const CommentCaMarchePage = props => (
               Contatez-nous
             </Link>
           </p>
-          <p class="paragraph-messenger">
-            <svg class="img-messenger" width="39px" height="39px" viewBox="0 0 39 39" version="1.1">
+          <p className="paragraph-messenger">
+            <svg
+              className="img-messenger"
+              width="39px"
+              height="39px"
+              viewBox="0 0 39 39"
+              version="1.1">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g
                   id="COMMENT-CA-MARCHE"
@@ -142,33 +148,14 @@ const CommentCaMarchePage = props => (
         </div>
       </div>
 
-      <p class="txt-c mt50  ">
+      <p className="txt-c mt50 mb100">
         <Link to="/booking" className="btn-green">
           Je réserve mon Shooting
         </Link>
       </p>
     </div>
 
-    {/* <div className="text container-2">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo ex, scelerisque vel turpis
-        vitae, scelerisque condimentum elit. Vestibulum rutrum ultrices blandit. Etiam condimentum
-        tincidunt felis non tempor. Integer luctus, orci vel viverra posuere, dolor felis feugiat
-        dolor, ac tincidunt neque eros in sem. Suspendisse et nisl nunc. Nullam sed purus venenatis,
-        sagittis neque non, porta nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Praesent tincidunt sapien eget quam tempus faucibus.
-      </p>
-
-      <p>
-        Nullam aliquam arcu et suscipit consectetur. Ut augue eros, semper in imperdiet sed,
-        sagittis a erat. Suspendisse dapibus lacus sed ultrices luctus. Sed sit amet leo dignissim
-        velit mollis laoreet a non arcu. Sed sed pretium mauris. Sed a urna vitae neque varius
-        feugiat. Suspendisse pulvinar pharetra risus eget sollicitudin. Interdum et malesuada fames
-        ac ante ipsum primis in faucibus. Sed pharetra suscipit gravida. Mauris porttitor, tellus
-        vitae vehicula gravida, est nunc facilisis purus, vel pretium lorem diam id urna. Donec
-        facilisis eget quam in posuere. In id ultrices dui.
-      </p>
-    </div> */}
+    <Carousel useMask={false} />
   </article>
 );
 

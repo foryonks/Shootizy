@@ -6,7 +6,9 @@
 
   .mea-table {
     margin-top: 130px;
-
+    .mea-img {
+      padding: 0 40px;
+    }
     &:first-child {
       margin-top: 0;
     }
