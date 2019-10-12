@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import HeaderImage from "scripts/components/_common/HeaderImage";
-import HeaderCards from "scripts/components/_common/HeaderCards";
 import { Helmet } from "react-helmet";
 import "./CommentCaMarchePage.scss";
+import CommentCaMarche3blocks from "./CommentCaMarche3blocks";
 
 const headerData = [
   {
@@ -31,7 +31,11 @@ const CommentCaMarchePage = props => (
       src="/assets/design/headers/header-generic-bg1.png"
       preTitle="Comment ça marche"
       title="Votre shooting en 3 étapes">
-      <HeaderCards data={headerData} className="container-2" />
+      <CommentCaMarche3blocks className="header-blocs container-2" />
+
+      <h2 className="title">
+        Aucune obligation d’achat !<strong>Payez seulement les photos que vous voulez !</strong>
+      </h2>
     </HeaderImage>
 
     <div className="text container-2">

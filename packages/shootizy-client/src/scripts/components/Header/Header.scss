@@ -24,6 +24,12 @@ $stickyGap: 10px;
   color: inherit;
 }
 
+.header-blocs {
+  margin-top: -6%;
+  position: relative;
+  z-index: 5;
+}
+
 .header.sticky {
   .header-main {
     position: fixed;

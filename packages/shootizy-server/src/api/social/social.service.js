@@ -22,11 +22,17 @@ const twitterGet = (url, params) => {
   });
 };
 
+// Mise en cache de 30 minutes pour ce service (cf en bas de fichier)
+serviceCache = null;
+
 /**
- * Return list of customers' ratings
+ * Return list of last social items
  * @returns {array}
- */
+ */ false;
 const list = async () => {
+  if (serviceCache) return serviceCache;
+  console.log("je passe dedans");
+
   const result = await ig.scrapeUserPage(instagramAccount);
   // instagram
   const instagram = result.medias
@@ -53,10 +59,16 @@ const list = async () => {
   }));
 
   instagram.splice(2, 0, twitter[0]);
-  return instagram.map((item, index) => ({
+
+  serviceCache = instagram.map((item, index) => ({
     ...item,
     key: index,
   }));
+
+  setTimeout(() => {
+    serviceCache = null;
+  }, 30 * 60 * 1000);
+  return serviceCache;
 };
 
 module.exports = {

@@ -1,0 +1,18 @@
+/* your css code */
+
+.CommentCaMarche-item {
+  width: 32%;
+  padding: 40px 40px 30px;
+  font-size: 24px;
+  .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .ccm3b-text {
+    margin-top: 0;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 1.3;
+    text-align: center;
+  }
+}
