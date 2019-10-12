@@ -32,7 +32,7 @@ const CommentCaMarchePage = props => (
       className="header-image-generic with-header-cards"
       src="/assets/design/headers/header-generic-bg1.png"
       preTitle="Comment ça marche"
-      title="Votre shooting en 3 étapes">
+      title="<strong>Votre shooting en 3 étapes</strong>">
       <CommentCaMarche3blocks className="header-blocs container-2" />
     </HeaderImage>
 
