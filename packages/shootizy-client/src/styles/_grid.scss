@@ -118,5 +118,21 @@ $nb-cols-len: length($nb-cols);
 }
 
 .txt-c {
-  text-align: center;
+  text-align: center !important;
+}
+.txt-l {
+  text-align: left !important;
+}
+.paragraph-messenger {
+  display: table;
+  width: 100%;
+  .img-messenger {
+    display: table-cell;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+  .text {
+    vertical-align: middle;
+    display: table-cell;
+  }
 }

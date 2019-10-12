@@ -17,4 +17,36 @@
     width: 1000px;
     padding: 15px;
   }
+
+  &.mea-right {
+    .mea-img {
+      float: right;
+    }
+  }
+}
+
+.mea,
+.mea-table {
+  .img-half {
+    width: 50% !important;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+.mea-table {
+  width: 100%;
+  display: table;
+  .mea-img {
+    padding: 0 10px;
+    img {
+      width: 100%;
+    }
+  }
+  .mea-img,
+  .mea-desc {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Interweave from "interweave";
 import "./CommentCaMarche3blocks.scss";
+import Prices from "scripts/components/_common/Prices";
 
 const data = [
   {
