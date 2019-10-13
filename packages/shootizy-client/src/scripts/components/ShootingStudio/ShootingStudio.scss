@@ -107,15 +107,15 @@
 
 @keyframes shadow {
   0% {
-    width: 18%;
-    box-shadow: 0 50px 25px 5px rgba(0, 0, 0, 0.3);
-  }
-  50% {
     width: 13%;
     box-shadow: 0 50px 25px 5px rgba(0, 0, 0, 0.2);
   }
-  100% {
+  50% {
     width: 18%;
-    box-shadow: 0 50px 25px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 50px 25px 5px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    width: 13%;
+    box-shadow: 0 50px 25px 5px rgba(0, 0, 0, 0.2);
   }
 }
