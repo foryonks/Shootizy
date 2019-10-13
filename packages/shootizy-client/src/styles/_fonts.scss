@@ -50,7 +50,11 @@ p {
 
 // TODO : uniformiser un jour partout
 .grey-text {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5) !important;
+
+  strong {
+    color: #000;
+  }
 
   h3,
   h4 {

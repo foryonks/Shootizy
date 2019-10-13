@@ -26,6 +26,7 @@ const Main = () => (
               src="/assets/design/shooting-studio/duck.png"
               alt=""
             />
+            <div className="shadow" />
           </div>
         </div>
 
@@ -69,22 +70,27 @@ const Main = () => (
         </div>
       </div>
     </div>
-    <div className="pt100 page-section-white">
+    <div className="pt100 page-section-white pb100  ">
       <div className="container-2">
-        <div className="mea-table">
+        <div className="mea-table studio-taille-humaine">
           <div className="mea-desc">
-            <div>
-              <strong>Le studio</strong>
+            <div className="pretitle-machin">
+              <strong className="grey-text">Le studio</strong>
             </div>
             <h2 className="title txt-l">
               Un studio à taille <strong>humaine !</strong>{" "}
             </h2>
-            <p>
-              Notre Studio fait 70 m2. Au delà du shooting photo, Shootizy est une structure qui
-              réalise des productions audiovisuelles, notamment pour le festival de Cannes. Notre
-              matériel à votre service est donc de qualité cinéma. « Le shooting photo qui vous
-              chouchoute » fait de vous une star en douceur et toute complicité.
+            <p className="grey-text">
+              <strong>Notre Studio fait 70 m2. </strong>Au delà du shooting photo, Shootizy est une
+              structure qui réalise des productions audiovisuelles, notamment pour le festival de
+              Cannes. Notre matériel à votre service est donc de qualité cinéma. <br />
+              <br />
+              « Le shooting photo qui vous chouchoute » fait de vous une star en douceur et toute
+              complicité.
             </p>
+            <Link to="/galerie" className="btn-green mt50">
+              La galerie Photo
+            </Link>
           </div>
           <div className="mea-img img-half">
             <img src="/assets/design/shooting-studio/human-size.png" alt="" />
