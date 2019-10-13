@@ -19,6 +19,7 @@ const HeaderImage = ({
   src,
   preTitle,
   title,
+  subTitle,
   buttonLink,
   buttonText,
   className,
@@ -30,7 +31,7 @@ const HeaderImage = ({
       className="HeaderImage-content header-image"
       style={{ backgroundImage: src && `url(${src})` }}>
       <div className="header-image-content">
-        {(preTitle || title || buttonLink) && (
+        {(preTitle || title || buttonLink || subTitle) && (
           <div className="text">
             {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
             {title && (
@@ -38,6 +39,7 @@ const HeaderImage = ({
                 <Interweave content={title} />
               </h2>
             )}
+            {subTitle && <div class="subTitle">{subTitle}</div>}
             {buttonLink && (
               <NavLink to={buttonLink} className="header-image__btn-link btn-green">
                 {buttonText}
@@ -55,6 +57,8 @@ const HeaderImage = ({
 HeaderImage.propTypes = {
   src: string,
   preTitle: string,
+  subTitle: string,
+  title: string,
   link: string,
   textButton: string,
   className: string,

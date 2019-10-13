@@ -9,9 +9,13 @@
 }
 
 .page-section {
-  $margin: 100px;
-  padding-top: $margin;
-  padding-bottom: $margin;
+  $padding: 100px;
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+.page-section-green {
+  background: $secondary-color;
 }
 
 .container,
@@ -112,6 +116,9 @@ $nb-cols-len: length($nb-cols);
 
 .mt70 {
   margin-top: 70px !important;
+}
+.mt100 {
+  margin-top: 100px !important;
 }
 
 // blocks

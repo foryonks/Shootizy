@@ -7,4 +7,68 @@
   .button-container-centered {
     margin-top: 40px;
   }
+
+  .studio-photo-block {
+  }
+
+  .studio-photo-container {
+    position: relative;
+    padding-bottom: 56.34%;
+    background: url(/assets/design/shooting-studio/shooting-studio.png) no-repeat center center;
+    background-size: cover;
+    margin-top: -12.45%;
+    z-index: 4;
+    max-width: 1072px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .studio-photo-content {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .floating-img {
+    width: 39.31%;
+    margin-top: -20%;
+  }
+  .button-container-centered {
+    margin-top: -10%;
+    position: relative;
+    z-index: 4;
+  }
+}
+/** espace 3 colonnes custom spacing between items */
+.esprit-shootizy {
+  .row {
+    align-items: space-between;
+  }
+  .col {
+    width: 29% !important;
+  }
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, 30px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
 }
