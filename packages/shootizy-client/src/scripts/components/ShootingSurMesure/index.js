@@ -1,3 +1,1 @@
-import ShootingSurMesure from "./ShootingSurMesure";
-
-export default ShootingSurMesure;
+export { default } from "./ShootingSurMesure";

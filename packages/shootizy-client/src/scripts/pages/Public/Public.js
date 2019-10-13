@@ -12,6 +12,7 @@ import LazyLoad from "react-lazyload";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import BlogSmall from "scripts/components/Blog/BlogSmall";
 import Footer from "scripts/components/Footer";
+import CommentCaMarche3blocks from "scripts/components/CommentCaMarchePage/CommentCaMarche3blocks";
 
 // Pages
 import Home from "scripts/components/Home";
@@ -62,20 +63,25 @@ const Public = () => (
         </Switch>
       )}
     />
-    <ShowHideWithRoute hideWith={[/accueil\/?$/, /comment-ca-marche/]}>
+    <ShowHideWithRoute hideWith={[/accueil\/?$/, /comment-ca-marche/, /shooting-studio\/?$/]}>
       <ShootizyTarifs />
     </ShowHideWithRoute>
-    <ShowHideWithRoute hideWith={[/shooting-studio\/?$/, /comment-ca-marche/]}>
+    <ShowHideWithRoute hideWith={[/comment-ca-marche/]}>
       <div className="page-section section-container">
         <Themes />
         <SurMesure />
+      </div>
+    </ShowHideWithRoute>
+    <ShowHideWithRoute showWith={[/shooting-studio\/?$/]}>
+      <div className="page-section page-section-green">
+        <CommentCaMarche3blocks className="container-2" />
       </div>
     </ShowHideWithRoute>
     <LazyLoad height={400}>
       <VenirAuStudio />
     </LazyLoad>
     <LazyLoad height={200}>
-      <ShowHideWithRoute hideWith={[/\/blog\//, /comment-ca-marche/]}>
+      <ShowHideWithRoute hideWith={[/\/blog\//, /comment-ca-marche/, /shooting-studio\/?$/]}>
         <BlogSmall />
       </ShowHideWithRoute>
     </LazyLoad>

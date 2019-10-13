@@ -3,7 +3,6 @@ import { Switch, Route, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import HeaderImage from "scripts/components/_common/HeaderImage";
-import Themes from "../Home/Themes/Themes";
 import Product from "scripts/components/Product";
 
 import "./ShootingStudio.scss";
@@ -70,30 +69,33 @@ const Main = () => (
         </div>
       </div>
     </div>
-    <div className="container-2 mt100">
-      <div className="mea-table">
-        <div className="mea-desc">
-          <div>
-            <strong>Le studio</strong>
+    <div className="pt100 page-section-white">
+      <div className="container-2">
+        <div className="mea-table">
+          <div className="mea-desc">
+            <div>
+              <strong>Le studio</strong>
+            </div>
+            <h2 className="title txt-l">
+              Un studio à taille <strong>humaine !</strong>{" "}
+            </h2>
+            <p>
+              Notre Studio fait 70 m2. Au delà du shooting photo, Shootizy est une structure qui
+              réalise des productions audiovisuelles, notamment pour le festival de Cannes. Notre
+              matériel à votre service est donc de qualité cinéma. « Le shooting photo qui vous
+              chouchoute » fait de vous une star en douceur et toute complicité.
+            </p>
           </div>
-          <h2 className="title txt-l">
-            Un studio à taille <strong>humaine !</strong>{" "}
-          </h2>
-          <p>
-            Notre Studio fait 70 m2. Au delà du shooting photo, Shootizy est une structure qui
-            réalise des productions audiovisuelles, notamment pour le festival de Cannes. Notre
-            matériel à votre service est donc de qualité cinéma. « Le shooting photo qui vous
-            chouchoute » fait de vous une star en douceur et toute complicité.
-          </p>
-        </div>
-        <div className="mea-img img-half">
-          <img src="/assets/design/shooting-studio/human-size.png" alt="" />
+          <div className="mea-img img-half">
+            <img src="/assets/design/shooting-studio/human-size.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
-    <div className="page-section section-container">
+    {/* <div className="page-section section-container">
       <Themes />
-    </div>
+      <ShootingSurMesure/>
+    </div> */}
   </>
 );
 

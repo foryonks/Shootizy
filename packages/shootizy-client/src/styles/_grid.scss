@@ -17,6 +17,9 @@
 .page-section-green {
   background: $secondary-color;
 }
+.page-section-white {
+  background: #fff;
+}
 
 .container,
 .container-2 {
@@ -119,6 +122,10 @@ $nb-cols-len: length($nb-cols);
 }
 .mt100 {
   margin-top: 100px !important;
+}
+
+.pt100 {
+  padding-top: 100px !important;
 }
 
 // blocks
