@@ -70,22 +70,19 @@ $duration: 6s;
     transform: scale(1);
   }
 
-  20% {
+  25% {
     bottom: $item-top;
   }
 
-  40% {
+  50% {
     bottom: $item-bottom;
   }
-  60% {
+  75% {
     bottom: $item-top;
   }
 
-  80% {
-    bottom: $item-bottom;
-  }
   100% {
-    bottom: $item-top;
+    bottom: $item-bottom;
     transform: scale(1);
   }
 }
@@ -107,20 +104,17 @@ $duration: 6s;
     transform: scale(1);
   }
 
-  20% {
+  25% {
     width: $shadow-width-max;
   }
-  40% {
+  50% {
     width: $shadow-width-min;
   }
-  60% {
+  75% {
     width: $shadow-width-max;
-  }
-  80% {
-    width: $shadow-width-min;
   }
   100% {
-    width: $shadow-width-max;
+    width: $shadow-width-min;
     transform: scale(1);
   }
 }
