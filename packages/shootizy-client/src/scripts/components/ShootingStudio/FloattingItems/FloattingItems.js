@@ -7,7 +7,6 @@ const FloattingItems = props => {
   const [currentItem, setCurrentItem] = useState(0);
 
   function onAnimationIteration() {
-    console.log("animation end");
     setCurrentItem(currentItem === items.length - 1 ? 0 : currentItem + 1);
   }
 
