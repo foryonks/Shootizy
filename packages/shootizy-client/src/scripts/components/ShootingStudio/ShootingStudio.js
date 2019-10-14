@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import Product from "scripts/components/Product";
-
+import FloattingItems from "./FloattingItems";
 import "./ShootingStudio.scss";
 
 const Main = () => (
@@ -19,18 +19,8 @@ const Main = () => (
 
     <div className="main container-2">
       <div className="studio-photo-block mb50">
-        <div className="studio-photo-container">
-          <div className="studio-photo-content">
-            <img
-              className="floating floating-img"
-              src="/assets/design/shooting-studio/duck.png"
-              alt=""
-            />
-            <div className="shadow" />
-          </div>
-        </div>
-
         <div className="button-container-centered">
+          <FloattingItems />
           <Link to="/booking" className="btn-green">
             Voir nos thématiques
           </Link>
