@@ -19,8 +19,9 @@ const Main = () => (
 
     <div className="main container-2">
       <div className="studio-photo-block mb50">
+        <FloattingItems />
+
         <div className="button-container-centered">
-          <FloattingItems />
           <Link to="/booking" className="btn-green">
             Voir nos thématiques
           </Link>

@@ -22,8 +22,6 @@ const listArticles = async () => {
     let article = articles[i];
     let comments = await getCommentsByArticleId(article._id);
     article.commentsCount = comments.length;
-
-    console.log(article._id);
   }
 
   return articles.map(article => ({

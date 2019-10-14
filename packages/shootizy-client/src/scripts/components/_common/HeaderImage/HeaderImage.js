@@ -39,7 +39,7 @@ const HeaderImage = ({
                 <Interweave content={title} />
               </h2>
             )}
-            {subTitle && <div class="subTitle">{subTitle}</div>}
+            {subTitle && <div className="subTitle">{subTitle}</div>}
             {buttonLink && (
               <NavLink to={buttonLink} className="header-image__btn-link btn-green">
                 {buttonText}

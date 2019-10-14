@@ -31,8 +31,6 @@ serviceCache = null;
  */ false;
 const list = async () => {
   if (serviceCache) return serviceCache;
-  console.log("je passe dedans");
-
   const result = await ig.scrapeUserPage(instagramAccount);
   // instagram
   const instagram = result.medias

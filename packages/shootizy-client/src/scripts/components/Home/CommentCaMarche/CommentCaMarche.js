@@ -9,7 +9,7 @@ const CommentCaMarche = ({ className }) => (
         Votre Shooting Photo <strong>en 3 étapes !</strong>
       </h2>
       <CommentCaMarche3blocks />
-      <p class="button">
+      <p className="button">
         <Link className="btn-white" to="/booking">
           Comment ça marche ?
         </Link>

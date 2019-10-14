@@ -3,12 +3,10 @@ import { withRouter } from "react-router-dom";
 import { array, string } from "prop-types";
 
 const ShowHideWithRoute = ({ children, showWith, hideWith, location, defaultBehavior }) => {
-  console.log(location.pathname);
   if (showWith.length) {
     return isRoute(location.pathname, showWith) ? children : null;
   }
   if (hideWith.length) {
-    console.log(hideWith);
     return isRoute(location.pathname, hideWith) ? null : children;
   }
   return defaultBehavior === "show" ? children : null;
