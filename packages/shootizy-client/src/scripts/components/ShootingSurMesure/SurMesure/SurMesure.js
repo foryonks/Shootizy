@@ -1,8 +1,10 @@
 import React from "react";
-//import PropTypes from "prop-types";
+import { bool } from "prop-types";
 
 import Form from "scripts/components/Form";
 import Icon from "scripts/components/Icon";
+import ReCAPTCHA from "react-google-recaptcha";
+
 import "./SurMesure.scss";
 
 const FORM_FIELDS = [
@@ -22,13 +24,60 @@ const FORM_FIELDS = [
     props: { rows: "4" },
   },
 ];
+
+const FULL_FORM = [
+  {
+    type: "fieldset",
+    className: "form-fieldset-row-2",
+    children: [
+      { type: "text", name: "name", label: "Nom", placeHolder: "Nom", isRequired: true },
+      { type: "text", name: "firstname", label: "Prénom", placeHolder: "Prénom", isRequired: true },
+    ],
+  },
+  FORM_FIELDS[0],
+  {
+    type: "text",
+    name: "tel",
+    label: "Votre numéro de téléphone",
+    placeHolder: "Téléphone",
+    isRequired: true,
+  },
+  {
+    type: "textarea",
+    name: "message",
+    label: "Dites-nous tout",
+    isRequired: true,
+    placeholder: "Rédigez ici...",
+    props: { rows: "4" },
+  },
+  {
+    type: "custom",
+    label: "",
+    name: "captcha",
+    isRequired: true,
+    fullWidth: true,
+    props: { rows: "3" },
+    render: (value, isError, onChange, onValidate) => {
+      return (
+        <ReCAPTCHA
+          className="recaptcha"
+          sitekey="d6LfcoL0UAAAAAELdlqyhJzCGm-xzGuLADmRmHnVH"
+          onChange={value => {
+            onChange("captcha", value);
+          }}
+        />
+      );
+    },
+  },
+];
+
 const FORM_SUBMIT_BTN = {
   hiddenOnSubmit: true,
   label: "Envoyer votre proposition",
   className: "btn-white",
 };
 
-const SurMesure = props => (
+const SurMesure = ({ fullForm }) => (
   <div className="SurMesure block-forms block block-corners block-primary-background container-2 txt-c">
     <div className="block-content">
       <div className="icon-circle">
@@ -44,7 +93,7 @@ const SurMesure = props => (
       <Form
         className="mt60 generic-form"
         id="form-sur-mesure"
-        fields={FORM_FIELDS}
+        fields={fullForm ? FULL_FORM : FORM_FIELDS}
         submitBtn={FORM_SUBMIT_BTN}
         action="/api/contact/sur-mesure"
       />
@@ -53,11 +102,11 @@ const SurMesure = props => (
 );
 
 SurMesure.propTypes = {
-  // bla: PropTypes.string,
+  fullForm: bool,
 };
 
 SurMesure.defaultProps = {
-  // bla: 'test',
+  fullForm: false,
 };
 
 export default SurMesure;

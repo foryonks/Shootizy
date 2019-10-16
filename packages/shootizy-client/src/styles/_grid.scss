@@ -143,6 +143,9 @@ $nb-cols-len: length($nb-cols);
 .txt-l {
   text-align: left !important;
 }
+.txt-r {
+  text-align: right !important;
+}
 .paragraph-messenger {
   display: table;
   width: 100%;
@@ -159,5 +162,12 @@ $nb-cols-len: length($nb-cols);
   .text {
     vertical-align: middle;
     display: table-cell;
+  }
+}
+
+.full-image {
+  img {
+    width: 100%;
+    display: block;
   }
 }

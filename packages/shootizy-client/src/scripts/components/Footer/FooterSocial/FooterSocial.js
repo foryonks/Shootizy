@@ -39,7 +39,7 @@ const FooterSocial = props => {
                   href={url}
                   className={`item item-${type}`}
                   style={{ backgroundImage: thumbnail ? `url("${thumbnail}")` : false }}>
-                  {date && <date>{formatDate(date, "DD.MM.YYYY")}</date>}
+                  {date && <datetime>{formatDate(date, "DD.MM.YYYY")}</datetime>}
                   {type === "twitter" && (
                     <span className="text">{sliceAndRemoveHTML(text, 12)}</span>
                   )}

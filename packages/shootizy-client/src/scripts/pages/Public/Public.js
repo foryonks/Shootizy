@@ -7,7 +7,7 @@ import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 import Header from "scripts/components/Header";
 import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
 import Themes from "scripts/components/Home/Themes/Themes";
-import SurMesure from "scripts/components/Home/SurMesure";
+import SurMesure from "scripts/components/ShootingSurMesure/SurMesure/SurMesure";
 import LazyLoad from "react-lazyload";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import BlogSmall from "scripts/components/Blog/BlogSmall";
@@ -63,14 +63,17 @@ const Public = () => (
         </Switch>
       )}
     />
-    <ShowHideWithRoute hideWith={[/accueil\/?$/, /comment-ca-marche/, /shooting-studio\/?$/]}>
+    <ShowHideWithRoute
+      hideWith={[/accueil\/?$/, /comment-ca-marche/, /shooting-studio\/?$/, /shooting-sur-mesure/]}>
       <ShootizyTarifs />
     </ShowHideWithRoute>
-    <ShowHideWithRoute hideWith={[/comment-ca-marche/]}>
+    <ShowHideWithRoute hideWith={[/comment-ca-marche/, /shooting-sur-mesure/]}>
       <div className="page-section section-container">
         <Themes />
-        <SurMesure />
       </div>
+      <ShowHideWithRoute hideWith={[/comment-ca-marche/, /shooting-sur-mesure/]}>
+        <SurMesure />
+      </ShowHideWithRoute>
     </ShowHideWithRoute>
     <ShowHideWithRoute showWith={[/shooting-studio\/?$/]}>
       <div className="page-section page-section-green">
