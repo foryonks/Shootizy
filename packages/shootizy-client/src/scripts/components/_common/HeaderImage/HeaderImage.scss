@@ -27,10 +27,10 @@
     overflow: hidden;
 
     @media (max-width: $header-width) {
-      min-height: 535px;
+      min-height: 400px;
     }
     @media (min-width: 1920px) {
-      height: 527535pxpx;
+      height: 527px;
       padding: 0;
     }
   }
@@ -55,6 +55,7 @@
     text-align: center;
     transform: translateX(-50%);
     width: 100%;
+    z-index: 4;
 
     @media (max-width: $header-width) {
       top: 20px;

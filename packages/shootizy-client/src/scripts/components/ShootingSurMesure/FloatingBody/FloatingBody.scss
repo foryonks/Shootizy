@@ -12,7 +12,9 @@ $shadow-max: 90%;
   margin-right: auto;
   text-align: center;
   position: relative;
-  z-index: 4;
+  z-index: 3;
+  margin-top: -5%;
+
   &:after {
     content: "";
     display: block;
@@ -34,14 +36,14 @@ $shadow-max: 90%;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
-    animation: $body-duration infinite ease-in-out body;
+    //animation: $body-duration infinite ease-in-out body;
     z-index: 2;
   }
 
   .tete,
   .corps,
   .pied {
-    width: 33%;
+    width: 37%;
     vertical-align: middle;
     position: relative;
     animation: $part-duration infinite ease-in-out parts;
@@ -52,7 +54,7 @@ $shadow-max: 90%;
   .corps {
     margin-left: -13%;
     margin-right: -13%;
-    width: 55%;
+    width: 60%;
   }
 
   .pied {

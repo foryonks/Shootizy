@@ -5,8 +5,9 @@ const tete = ["tete-ananas.png", "tete-chien.png", "tete-robot.png"];
 const corps = ["corps-buste.png", "corps-froufrou.png", "corps-etoile.png"];
 const pied = ["pied-queue.png", "pied-roller.png", "pied-cactus.png"];
 
-const randomFromArray = items => {
-  return items[Math.floor(Math.random() * items.length)];
+const randomFromArray = (items, current) => {
+  let result = items[Math.floor(Math.random() * items.length)];
+  return result === current ? randomFromArray(items, current) : result;
 };
 
 // packages/shootizy-client/public/assets/design/surmesure/floatting/
@@ -22,8 +23,8 @@ const FloatingBody = () => {
   const [animationDelayCorps] = useState(Math.random() * 5);
   const [animationDelayPied] = useState(Math.random() * 5);
 
-  const onAnimationIteration = (items, cb) => {
-    cb(randomFromArray(items));
+  const onAnimationIteration = (items, current, cb) => {
+    cb(randomFromArray(items, current));
   };
 
   return (
@@ -34,21 +35,21 @@ const FloatingBody = () => {
           src={`/assets/design/surmesure/floatting/${currentPied}`}
           alt=""
           style={{ animationDelay: animationDelayPied + "s" }}
-          onAnimationIteration={() => onAnimationIteration(pied, setCurrentPied)}
+          onAnimationIteration={() => onAnimationIteration(pied, currentPied, setCurrentPied)}
         />
         <img
           class="corps"
           src={`/assets/design/surmesure/floatting/${currentCorps}`}
           alt=""
           style={{ animationDelay: animationDelayCorps + "s" }}
-          onAnimationIteration={() => onAnimationIteration(corps, setCurrentCorps)}
+          onAnimationIteration={() => onAnimationIteration(corps, currentCorps, setCurrentCorps)}
         />
         <img
           class="tete"
           src={`/assets/design/surmesure/floatting/${currentTete}`}
           alt=""
           style={{ animationDelay: animationDelayTete + "s" }}
-          onAnimationIteration={() => onAnimationIteration(tete, setCurrentTete)}
+          onAnimationIteration={() => onAnimationIteration(tete, currentTete, setCurrentTete)}
         />
       </div>
       <img className="shadow" src="/assets/design/surmesure/floatting/shadow.png" alt="" />
