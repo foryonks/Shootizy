@@ -1,0 +1,21 @@
+/* your css code */
+
+.FloatingBodyWrapper {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  .corpscomplet {
+  }
+
+  img {
+    width: 33%;
+    vertical-align: middle;
+    position: relative;
+  }
+  img + img {
+    margin-left: -8%;
+    margin-right: -8%;
+  }
+}

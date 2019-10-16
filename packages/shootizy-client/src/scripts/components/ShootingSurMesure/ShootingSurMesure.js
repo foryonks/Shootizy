@@ -5,7 +5,7 @@ import HeaderImage from "scripts/components/_common/HeaderImage";
 import { Helmet } from "react-helmet";
 import SurMesure from "./SurMesure";
 import { Link } from "react-router-dom";
-
+import FloatingBody from "./FloatingBody";
 // TODO refacto ce truc moche et utiliser des multiples images
 const themes = {
   Tous: "realisations0.png",
@@ -17,7 +17,7 @@ const themes = {
 const themesArray = Object.keys(themes).map(key => ({ key: key, value: themes[key] }));
 themesArray[0].selected = true;
 
-const ShootingStudio = props => {
+const ShootingStudio = () => {
   const [currentTheme, setCurrentTheme] = useState(themesArray[0]);
 
   const changeImage = currentTheme => {
@@ -35,6 +35,7 @@ const ShootingStudio = props => {
         preTitle="Shooting sur mesure"
         title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
       />
+      <FloatingBody />
       <SurMesure fullForm={true} />
       <div className="container-2">
         <div className="mea-table">
