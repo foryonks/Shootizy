@@ -1,21 +1,103 @@
 /* your css code */
+$body-top: 40%;
+$body-bottom: 10%;
+$body-duration: 4s;
+$part-duration: 6s;
+$shadow-min: 60%;
+$shadow-max: 90%;
 
 .FloatingBodyWrapper {
-  max-width: 780px;
+  max-width: 708px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-
-  .corpscomplet {
+  position: relative;
+  z-index: 4;
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 53.3%;
+  }
+  .shadow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 30%;
+    animation: $body-duration infinite ease-in-out shadow;
   }
 
-  img {
+  .corpscomplet {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    animation: $body-duration infinite ease-in-out body;
+    z-index: 2;
+  }
+
+  .tete,
+  .corps,
+  .pied {
     width: 33%;
     vertical-align: middle;
     position: relative;
+    animation: $part-duration infinite ease-in-out parts;
   }
-  img + img {
-    margin-left: -8%;
-    margin-right: -8%;
+
+  .tete {
+  }
+  .corps {
+    margin-left: -13%;
+    margin-right: -13%;
+    width: 55%;
+  }
+
+  .pied {
+  }
+}
+
+@keyframes body {
+  0% {
+    bottom: $body-top;
+  }
+  50% {
+    bottom: $body-bottom;
+  }
+  100% {
+    bottom: $body-top;
+  }
+}
+
+@keyframes shadow {
+  0% {
+    width: $shadow-min;
+  }
+  50% {
+    width: $shadow-max;
+  }
+  100% {
+    width: $shadow-min;
+  }
+}
+
+@keyframes parts {
+  0% {
+    transform: scale(0);
+  }
+  4% {
+    transform: scale(1.2);
+  }
+  8% {
+    transform: scale(0.9);
+  }
+  12% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

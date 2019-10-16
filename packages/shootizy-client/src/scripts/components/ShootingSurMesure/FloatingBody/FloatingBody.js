@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import "./FloatingBody.scss";
 
 const tete = ["tete-ananas.png", "tete-chien.png", "tete-robot.png"];
-
 const corps = ["corps-buste.png", "corps-froufrou.png", "corps-etoile.png"];
-
 const pied = ["pied-queue.png", "pied-roller.png", "pied-cactus.png"];
 
 const randomFromArray = items => {
@@ -12,10 +10,17 @@ const randomFromArray = items => {
 };
 
 // packages/shootizy-client/public/assets/design/surmesure/floatting/
-const FloatingBody = props => {
+const FloatingBody = () => {
+  //const [currentTete, setCurrentTete] = useState("tete-chien.png"); //randomFromArray(tete));
+  //const [currentCorps, setCurrentCorps] = useState("corps-froufrou.png"); //randomFromArray(corps));
+  //const [currentPied, setCurrentPied] = useState("pied-queue.png"); //randomFromArray(pied));
   const [currentTete, setCurrentTete] = useState(randomFromArray(tete)); // useState("tete-chien.png"); //randomFromArray(tete));
   const [currentCorps, setCurrentCorps] = useState(randomFromArray(corps)); //"corps-etoile.png"); //randomFromArray(corps));
   const [currentPied, setCurrentPied] = useState(randomFromArray(pied)); //"pied-cactus.png"); //randomFromArray(pied));
+
+  const [animationDelayTete] = useState(Math.random() * 5);
+  const [animationDelayCorps] = useState(Math.random() * 5);
+  const [animationDelayPied] = useState(Math.random() * 5);
 
   const onAnimationIteration = (items, cb) => {
     cb(randomFromArray(items));
@@ -28,21 +33,25 @@ const FloatingBody = props => {
           class="pied"
           src={`/assets/design/surmesure/floatting/${currentPied}`}
           alt=""
+          style={{ animationDelay: animationDelayPied + "s" }}
           onAnimationIteration={() => onAnimationIteration(pied, setCurrentPied)}
         />
         <img
-          class="coprs"
+          class="corps"
           src={`/assets/design/surmesure/floatting/${currentCorps}`}
           alt=""
+          style={{ animationDelay: animationDelayCorps + "s" }}
           onAnimationIteration={() => onAnimationIteration(corps, setCurrentCorps)}
         />
         <img
           class="tete"
           src={`/assets/design/surmesure/floatting/${currentTete}`}
           alt=""
+          style={{ animationDelay: animationDelayTete + "s" }}
           onAnimationIteration={() => onAnimationIteration(tete, setCurrentTete)}
         />
       </div>
+      <img className="shadow" src="/assets/design/surmesure/floatting/shadow.png" alt="" />
     </div>
   );
 };
