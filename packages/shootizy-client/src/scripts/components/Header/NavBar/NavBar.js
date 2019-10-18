@@ -19,7 +19,7 @@ const NAV_LINKS = [
     title: "Shooting sur mesure",
   },
   { path: "/tarifs", title: "Tarifs" },
-  { path: "/notre-book", title: "Notre book" },
+  { path: "/le-book", title: "Le Book" },
 ];
 const NavBar = props => (
   <div className="nav-bar">

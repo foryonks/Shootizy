@@ -55,7 +55,7 @@ const Public = () => (
           />
 
           <CrumbRoute path="/tarifs" title="Tarifs" component={Tarifs} />
-          <CrumbRoute path="/notre-book" title="Notre book" component={NotreBook} />
+          <CrumbRoute path="/le-book" title="Notre book" component={NotreBook} />
           <CrumbRoute title="Shooting Studio" path="/shooting-studio" component={ShootingStudio} />
           <CrumbRoute path="/booking" title="Réservation" component={Booking} />
           <Route path="/accueil" component={Home} />
