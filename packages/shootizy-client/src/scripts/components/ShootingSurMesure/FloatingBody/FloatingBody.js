@@ -10,14 +10,10 @@ const randomFromArray = (items, current) => {
   return result === current ? randomFromArray(items, current) : result;
 };
 
-// packages/shootizy-client/public/assets/design/surmesure/floatting/
 const FloatingBody = () => {
-  //const [currentTete, setCurrentTete] = useState("tete-chien.png"); //randomFromArray(tete));
-  //const [currentCorps, setCurrentCorps] = useState("corps-froufrou.png"); //randomFromArray(corps));
-  //const [currentPied, setCurrentPied] = useState("pied-queue.png"); //randomFromArray(pied));
-  const [currentTete, setCurrentTete] = useState(randomFromArray(tete)); // useState("tete-chien.png"); //randomFromArray(tete));
-  const [currentCorps, setCurrentCorps] = useState(randomFromArray(corps)); //"corps-etoile.png"); //randomFromArray(corps));
-  const [currentPied, setCurrentPied] = useState(randomFromArray(pied)); //"pied-cactus.png"); //randomFromArray(pied));
+  const [currentTete, setCurrentTete] = useState(randomFromArray(tete));
+  const [currentCorps, setCurrentCorps] = useState(randomFromArray(corps));
+  const [currentPied, setCurrentPied] = useState(randomFromArray(pied));
 
   const [animationDelayTete] = useState(Math.random() * 5);
   const [animationDelayCorps] = useState(Math.random() * 5);
