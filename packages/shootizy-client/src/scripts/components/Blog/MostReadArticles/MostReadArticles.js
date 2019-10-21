@@ -8,7 +8,12 @@ import ListRenderedSimple from "../List/ListRendererSimple";
 const MostReadArticles = props => (
   <div className="MostReadArticlesWrapper">
     <h3 className="Blog-block-title">Derniers articles</h3>
-    <List sortBy="date" limit="3" render={ListRenderedSimple} remoteContents="/api/blog/articles" />
+    <List
+      sortBy="date"
+      limit="3"
+      render={ListRenderedSimple}
+      remoteContentsUrl="/api/blog/articles"
+    />
   </div>
 );
 

@@ -21,22 +21,25 @@
   }
 
   .react-date-picker__wrapper {
-    border: 1px solid #979797;
-    border-radius: 4px;
-    font-size: $form-input-font-size;
-    padding: 0.4em 0.3em;
+    @include input-style();
   }
 
   .react-date-picker__inputGroup {
     align-items: center;
+    line-height: 1;
 
     input {
       padding: 0;
       border-color: transparent;
       border: 0;
+      height: auto;
     }
   }
-
+  .react-date-picker__inputGroup__divider,
+  .react-date-picker__button {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   .react-date-picker__calendar {
     box-shadow: $big-shadow;
     top: 100% !important;

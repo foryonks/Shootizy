@@ -2,13 +2,17 @@
 
 $form-input-font-size: font-size(20);
 
-#{$inputSelectors} {
+@mixin input-style() {
   border: 2px solid #e7eaee;
   border-radius: 5px;
   font-size: $form-input-font-size;
   padding: 1.2em 1.6em;
   line-height: 1.1;
   background: #fff;
+}
+
+#{$inputSelectors} {
+  @include input-style();
 }
 
 .form-line {
