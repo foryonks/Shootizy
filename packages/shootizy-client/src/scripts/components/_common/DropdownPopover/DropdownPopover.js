@@ -31,29 +31,32 @@ const DropdownPopover = ({
   const { isOpen, toggle } = useToggleState(false);
   const [valueLabel, setValueLabel] = useState("");
 
-  useEffect(() => {
-    const currentItem = list.find(item => getItemValue(item) === value);
-    setValueLabel(currentItem ? getItemLabel(currentItem) : "");
-  }, [list, value, getItemLabel, getItemValue]);
+  useEffect(
+    () => {
+      const currentItem = list.find(item => getItemValue(item) === value);
+      setValueLabel(currentItem ? getItemLabel(currentItem) : "");
+    }, // eslint-disable-next-line
+    [list, value]
+  );
 
-  useEffect(() => {
-    toggle(!!openValue);
-  }, [openValue, toggle]);
+  useEffect(
+    () => {
+      toggle(!!openValue);
+    }, // eslint-disable-next-line
+    [openValue]
+  );
 
-  useEffect(() => {
-    const handleBlur = e => {
-      if (isOpen && elementRef.current && !elementRef.current.contains(e.target)) {
-        // outside click, close popover
-        toggle(false);
+  useEffect(
+    () => {
+      if (isOpen) {
+        document.addEventListener("mousedown", handleBlur);
+        return () => {
+          document.removeEventListener("mousedown", handleBlur);
+        };
       }
-    };
-    if (isOpen) {
-      document.addEventListener("mousedown", handleBlur);
-      return () => {
-        document.removeEventListener("mousedown", handleBlur);
-      };
-    }
-  }, [isOpen, toggle]);
+    }, // eslint-disable-next-line
+    [isOpen]
+  );
 
   const handleSelectItem = item => {
     toggle();
@@ -64,6 +67,13 @@ const DropdownPopover = ({
   const handleClick = () => {
     onClick && onClick(isOpen);
     toggle();
+  };
+
+  const handleBlur = e => {
+    if (isOpen && elementRef.current && !elementRef.current.contains(e.target)) {
+      // outside click, close popover
+      toggle(false);
+    }
   };
 
   return (

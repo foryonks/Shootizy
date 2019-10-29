@@ -6,7 +6,7 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import ArticleCard from "../ArticleCard";
 
 const BlogSmall = props => {
-  let { contents: articles } = useRemoteContents("/api/blog/articles", { initialiState: [] });
+  let { contents: articles } = useRemoteContents("/api/blog/articles", { initialState: [] });
   if (!articles) return null;
 
   let dataMatrix = toMatrix(articles, 3, { fill: true });

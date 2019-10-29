@@ -37,7 +37,7 @@ const Blog = props => {
               <main className="Blog-Content">
                 <content>
                   <h3 className="Blog-block-title">Articles</h3>
-                  <List cols={2} hidden={true} remoteContents="/api/blog/articles" />
+                  <List cols={2} hidden={true} remoteContentsUrl="/api/blog/articles" />
                 </content>
                 <aside>
                   <MostReadArticles />

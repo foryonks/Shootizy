@@ -4,12 +4,10 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./List.scss";
 import ArticleCard from "../ArticleCard";
 
-const List = ({ items, render, cols, hidden, className, sortBy, remoteContents }) => {
-  let { contents } = useRemoteContents(remoteContents, {
+const List = ({ render, cols, hidden, className, sortBy, remoteContentsUrl }) => {
+  let { contents: items } = useRemoteContents(remoteContentsUrl, {
     initialState: [],
-    defaultContents: items,
   });
-  items = contents;
   if (!items) return null;
 
   className += cols >= 2 ? ` row row-${cols} row-stretch row-margin row-wrap` : "";
