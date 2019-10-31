@@ -1,3 +1,1 @@
-import ThemesLister from "./ThemesLister";
-
-export default ThemesLister;
+export { default } from "./ThemesLister";

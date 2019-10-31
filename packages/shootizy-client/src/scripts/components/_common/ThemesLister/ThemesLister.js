@@ -28,7 +28,7 @@ const ThemesLister = ({ themesArray }) => {
         </ul>
 
         <div className="full-image">
-          <img src={`/assets/design/surmesure/${currentTheme.value}`} alt="" />
+          <img src={`${currentTheme.value}`} alt="" />
         </div>
       </div>
     </div>

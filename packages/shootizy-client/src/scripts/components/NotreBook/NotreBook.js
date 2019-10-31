@@ -1,8 +1,8 @@
 import React from "react";
 import "./NotreBook.scss";
 import HeaderImage from "scripts/components/_common/HeaderImage";
-import Themes from "../Home/Themes/Themes";
 import { Helmet } from "react-helmet";
+import ThemesListWithFilter from "./ThemesListWithFilter";
 
 const NotreBook = props => (
   <div className="NotreBook page-container">
@@ -15,14 +15,8 @@ const NotreBook = props => (
       title="Un peu de lorem ipsum  <strong>blabla</strong>"
     />
 
-    <div className="main container-2">
-      <h2 className="title">
-        Notre Book <br />
-        PAGE A FAIRE !!!
-      </h2>
-    </div>
-    <div className="page-section section-container">
-      <Themes />
+    <div className="container-2 mt50">
+      <ThemesListWithFilter />
     </div>
   </div>
 );
