@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Realisations.scss";
+import ThemeLister from "scripts/components/_common/ThemesLister/ThemesLister";
 
 // TODO refacto ce truc moche et utiliser des multiples images
 const themes = {
@@ -13,37 +14,7 @@ const themesArray = Object.keys(themes).map(key => ({ key: key, value: themes[ke
 themesArray[0].selected = true;
 
 const Realisations = props => {
-  const [currentTheme, setCurrentTheme] = useState(themesArray[0]);
-
-  const changeImage = currentTheme => {
-    themesArray.forEach(theme => (theme.selected = false));
-    currentTheme.selected = true;
-    setCurrentTheme(currentTheme);
-  };
-
-  return (
-    <div className="RealisationsWrapper">
-      <div className="txt-r themes-filter">
-        <strong>Filtrer par thème :</strong>
-        <ul className="themes-list">
-          {themesArray.map(theme => (
-            <li key={theme.key} className={`${theme.selected ? "current" : ""}`}>
-              <button
-                onClick={() => {
-                  changeImage(theme);
-                }}>
-                {theme.key}
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        <div className="full-image">
-          <img src={`/assets/design/surmesure/${currentTheme.value}`} alt="" />
-        </div>
-      </div>
-    </div>
-  );
+  return <ThemeLister themesArray={themesArray} />;
 };
 
 Realisations.propTypes = {
