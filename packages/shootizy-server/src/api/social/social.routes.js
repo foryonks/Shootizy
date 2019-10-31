@@ -11,8 +11,8 @@ const routes = express.Router();
 routes.get(
   "/",
   asyncRouteWrapper(async (req, res) => {
-    const instagram = await socialService.list();
-    res.json(instagram);
+    const social = await socialService.list(req.query);
+    res.json(social);
   })
 );
 

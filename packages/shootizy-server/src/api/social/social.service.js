@@ -23,18 +23,20 @@ const twitterGet = (url, params) => {
 };
 
 // Mise en cache de 30 minutes pour ce service (cf en bas de fichier)
-serviceCache = null;
+serviceCache = {};
 
 /**
  * Return list of last social items
  * @returns {array}
  */ false;
-const list = async () => {
-  if (serviceCache) return serviceCache;
+const list = async ({ nums = 4, twitterPos = "2" }) => {
+  const serviceCacheKey = [`${nums}-${twitterPos}`];
+  twitterPos = twitterPos.split(",");
+  if (serviceCache[serviceCacheKey]) return serviceCache[serviceCacheKey];
   const result = await ig.scrapeUserPage(instagramAccount);
   // instagram
   const instagram = result.medias
-    .slice(0, 3)
+    .slice(0, nums - twitterPos.length)
     .map(({ text, display_url, thumbnail, shortcode }) => ({
       type: "instagram",
       text,
@@ -45,7 +47,7 @@ const list = async () => {
 
   // twitter
   const twitterResultTmp = await twitterGet("statuses/user_timeline", {
-    count: 1,
+    count: twitterPos.length,
     screen_name: twitterAccount,
     trim_user: true,
   });
@@ -56,17 +58,21 @@ const list = async () => {
     text,
   }));
 
-  instagram.splice(2, 0, twitter[0]);
+  let twitterIndex = 0;
+  twitterPos.forEach(pos => {
+    instagram.splice(pos, 0, twitter[twitterIndex]);
+    twitterIndex++;
+  });
 
-  serviceCache = instagram.map((item, index) => ({
+  serviceCache[serviceCacheKey] = instagram.map((item, index) => ({
     ...item,
     key: index,
   }));
 
   setTimeout(() => {
-    serviceCache = null;
+    delete serviceCache[serviceCacheKey];
   }, 30 * 60 * 1000);
-  return serviceCache;
+  return serviceCache[serviceCacheKey];
 };
 
 module.exports = {

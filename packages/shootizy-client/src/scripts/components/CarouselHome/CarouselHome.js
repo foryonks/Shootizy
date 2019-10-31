@@ -25,7 +25,7 @@ const CarouselHome = ({ history, children, useMask }) => {
           showThumbs={false}
           showIndicators={false}
           showStatus={false}
-          interval={600000}>
+          interval={6000}>
           {items.map(
             ({ title, contentLink, buttonLink, buttonText, text, img, key, themeId }, index) => {
               const theme = themesById[themeId];

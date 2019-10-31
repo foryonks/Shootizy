@@ -24,31 +24,6 @@
     }
   }
 
-  .themes-filter {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: font-size(18);
-    strong {
-      color: #000;
-    }
-  }
-  .themes-list {
-    display: block;
-    margin-bottom: 45px;
-
-    button {
-      font-size: 1em;
-    }
-    li {
-      display: inline-block;
-      font-weight: bold;
-
-      &.current {
-        color: #000;
-      }
-      margin-left: 20px;
-    }
-  }
-
   .enterprises-confiance {
     img {
       max-width: 1180px;

@@ -34,7 +34,7 @@ $duration: 6s;
     margin-right: auto;
     position: absolute;
     transform: scale(0);
-    animation: $duration infinite ease-in-out floating;
+    animation: $duration infinite ease-in-out shooting-studio-floating;
   }
 
   .shadow {
@@ -45,7 +45,7 @@ $duration: 6s;
     margin-right: auto;
     background: url("/assets/design/shooting-studio/floatting/shadow.png") center center no-repeat;
     background-size: contain;
-    animation: $duration infinite ease-in-out shadow;
+    animation: $duration infinite ease-in-out shooting-studio-shadow;
 
     &:before {
       content: "";
@@ -55,7 +55,7 @@ $duration: 6s;
   }
 }
 
-@keyframes floating {
+@keyframes shooting-studio-floating {
   0% {
     bottom: $item-bottom;
     transform: scale(0);
@@ -87,11 +87,10 @@ $duration: 6s;
   }
 }
 
-@keyframes shadow {
+@keyframes shooting-studio-shadow {
   0% {
     opacity: 1;
     width: $shadow-width-min;
-
     transform: scale(0);
   }
   4% {
