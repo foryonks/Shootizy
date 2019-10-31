@@ -64,10 +64,16 @@ const Public = () => (
       )}
     />
     <ShowHideWithRoute
-      hideWith={[/accueil\/?$/, /comment-ca-marche/, /shooting-studio\/?$/, /shooting-sur-mesure/]}>
+      hideWith={[
+        /accueil\/?$/,
+        /comment-ca-marche/,
+        /shooting-studio\/?$/,
+        /shooting-sur-mesure/,
+        /notre-book/,
+      ]}>
       <ShootizyTarifs />
     </ShowHideWithRoute>
-    <ShowHideWithRoute hideWith={[/comment-ca-marche/, /shooting-sur-mesure/]}>
+    <ShowHideWithRoute hideWith={[/comment-ca-marche/, /shooting-sur-mesure/, /notre-book/]}>
       <div className="page-section section-container">
         <Themes />
         <SurMesure />

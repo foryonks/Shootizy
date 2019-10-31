@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 import SurMesure from "./SurMesure";
 import { Link } from "react-router-dom";
 import FloatingBody from "./FloatingBody";
-import Realisations from "scripts/components/NotreBook/Realisations";
+import Realisations from "scripts/components/ShootingSurMesure/Realisations";
 
 const ShootingStudio = () => {
   return (
