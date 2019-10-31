@@ -13,14 +13,16 @@ const NotreBook = props => (
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
 
     <HeaderImage
-      className="header-image-generic"
+      className="header-image-generic mask-grey"
       //src="/assets/design/headers/header-shooting-studio.png"
       preTitle="Le book"
       title="Un peu de lorem ipsum  <strong>blabla</strong>"
     />
 
-    <div className="container-2 mt50 pb100">
-      <ThemesListWithFilter />
+    <div className="page-section page-section-grey">
+      <div className="container-2  mt50 pb100">
+        <ThemesListWithFilter />
+      </div>
     </div>
     <div className="container-2 pb100">
       <h2 className="title mb50">
