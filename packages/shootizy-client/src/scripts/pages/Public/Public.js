@@ -70,10 +70,8 @@ const Public = () => (
     <ShowHideWithRoute hideWith={[/comment-ca-marche/, /shooting-sur-mesure/]}>
       <div className="page-section section-container">
         <Themes />
-      </div>
-      <ShowHideWithRoute hideWith={[/comment-ca-marche/, /shooting-sur-mesure/]}>
         <SurMesure />
-      </ShowHideWithRoute>
+      </div>
     </ShowHideWithRoute>
     <ShowHideWithRoute showWith={[/shooting-studio\/?$/]}>
       <div className="page-section page-section-green">
