@@ -20,16 +20,17 @@ const NotreBook = props => (
     />
 
     <div className="page-section page-section-grey">
-      <div className="container-2  mt50 pb100">
+      <div className="container-2  mt50 pb50">
         <ThemesListWithFilter />
       </div>
     </div>
-    <div className="container-2 pb100">
+    <div className="container-2 pt100 pb100">
       <h2 className="title mb50">
         What’s new sur <strong>@Shootizy</strong>
       </h2>
       <SocialSquares cols={3} nums={9} twitterPos={[2, 7]} />
     </div>
+
     <Carousel useMask={false} />
     <div className="page-section page-section-green">
       <CommentCaMarche3blocks className="container-2" />
