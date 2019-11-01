@@ -70,11 +70,12 @@ const Booking = ({ location }) => {
             <div className="booking__step-button-wrapper">
               {STEPS.map(({ title }, index) => (
                 <button
+                  key={index}
                   className={classNamesDedupe("booking__step-button", {
                     "booking__step-button--active": index === currentStep,
                     "booking__step-button--done": !!stepsValues[index],
                   })}
-                  key={index}
+                  disabled={index > 0 && !stepsValues[index - 1]}
                   onClick={() => setCurrentStep(index)}>
                   <span className="booking__step-button__index">{index + 1}</span>
                   <strong className="booking__step-button__title">{title}</strong>

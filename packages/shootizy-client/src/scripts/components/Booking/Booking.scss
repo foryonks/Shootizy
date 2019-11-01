@@ -8,6 +8,7 @@
 .booking__step-button {
   padding: 1rem 1rem 1rem 0.5rem;
   background: white;
+  color: black;
   border-radius: 4rem;
 
   &__index {
@@ -16,18 +17,23 @@
     border: 1px solid #dadada;
     background: white;
     margin-right: 0.25rem;
-    color: black;
   }
 
-  &:hover,
+  &:hover:not(:disabled),
   &--active {
     background-color: black;
-    color: white;
+    .booking__step-button__title {
+      color: white;
+    }
   }
   &--done {
     .booking__step-button__index {
       background-color: $btn-green-bg-color;
     }
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
   }
 
   + .booking__step-button {
