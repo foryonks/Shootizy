@@ -14,25 +14,30 @@ const STEPS = [
   {
     title: "Shooting",
     header: (
-      <span>
-        1. Choisissez <strong>le thème</strong> de votre shooting, <br />
+      <>
+        Choisissez <strong>le thème</strong> de votre shooting, <br />
         <strong>selon votre besoin ou votre envie</strong>
-      </span>
+      </>
     ),
   },
-  { title: "Date", header: "2. Choisissez une date dans notre agenda" },
+  { title: "Date", header: "Choisissez une date dans notre agenda" },
   {
     title: "Finalisation",
     header: (
-      <span>
-        3. <strong>Finalisez</strong> votre réservation
-      </span>
+      <>
+        <strong>Finalisez</strong> votre réservation
+      </>
     ),
   },
 ];
-const Booking = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [stepsValues, setStepsValues] = useState([null, null]);
+const Booking = ({ location }) => {
+  const redirectProductId = location.state && location.state.productId;
+
+  const [currentStep, setCurrentStep] = useState(redirectProductId ? 1 : 0);
+  const [stepsValues, setStepsValues] = useState([
+    redirectProductId ? { productId: redirectProductId } : null,
+    null,
+  ]);
 
   const handleProductSelect = useCallback(productId => {
     setStepsValues(currentStepsValues => [{ productId }, ...currentStepsValues.slice(1)]);
@@ -85,7 +90,9 @@ const Booking = () => {
                 selectedItem={currentStep}>
                 {STEPS.map((step, index) => (
                   <>
-                    <h2 className="booking__step__title title">{step.header}</h2>
+                    <h2 className="booking__step__title title">
+                      {index + 1}. {step.header}
+                    </h2>
                     <div className="booking__step__contents">
                       {(() => {
                         switch (index) {

@@ -45,7 +45,7 @@
   }
   .carousel {
     .control-arrow {
-      display: none;
+      display: none !important;
     }
     .slide {
       background-color: transparent;

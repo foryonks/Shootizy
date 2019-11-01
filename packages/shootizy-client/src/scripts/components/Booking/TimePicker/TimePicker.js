@@ -6,7 +6,7 @@ import Datepicker from "scripts/components/_common/Datepicker";
 import DropdownPopover from "scripts/components/_common/DropdownPopover";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import { getDateWithoutTimeZone, formatDateStd } from "scripts/utils/DateUtils";
+import { getDateWithoutTimeZone, formatDateStd, areEqual } from "scripts/utils/DateUtils";
 
 import "./TimePicker.scss";
 
@@ -30,7 +30,7 @@ const TimePicker = ({ className, onChange, isOpen }) => {
   );
 
   const handleSelectDate = newDate => {
-    if (!date || newDate.getTime() !== date.getTime()) {
+    if (!areEqual(date, newDate)) {
       setDate(newDate);
       // Reset time if date changed
       setTime(null);
