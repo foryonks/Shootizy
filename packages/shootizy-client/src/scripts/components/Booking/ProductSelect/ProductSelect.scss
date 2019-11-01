@@ -1,0 +1,25 @@
+@import "~styles/variables";
+
+.booking__product-select {
+  .ThemeCard {
+    position: relative;
+  }
+  .ThemeCard-content {
+    min-height: auto;
+  }
+
+  .ThemeCard-select-option {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: 1px solid #dadada;
+    background: white;
+
+    &--active {
+      background-color: $btn-green-bg-color;
+    }
+  }
+}

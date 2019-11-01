@@ -1,0 +1,49 @@
+@import "~styles/variables";
+
+.booking__steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.booking__step-button {
+  padding: 1rem 1rem 1rem 0.5rem;
+  background: white;
+  border-radius: 4rem;
+
+  &__index {
+    padding: 0.5rem 1rem;
+    border-radius: 4rem;
+    border: 1px solid #dadada;
+    background: white;
+    margin-right: 0.25rem;
+    color: black;
+  }
+
+  &:hover,
+  &--active {
+    background-color: black;
+    color: white;
+  }
+  &--done {
+    .booking__step-button__index {
+      background-color: $btn-green-bg-color;
+    }
+  }
+
+  + .booking__step-button {
+    margin-left: 1rem;
+  }
+}
+
+.booking__step {
+  margin-top: 2rem;
+
+  &__contents {
+    margin-top: 2rem;
+    // Cover the shadow
+    padding: 0 0.25rem;
+  }
+  .carousel .slide {
+    background-color: transparent;
+  }
+}
