@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import classNamesDedupe from "classnames/dedupe";
 import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 
@@ -6,6 +6,7 @@ import HeaderImage from "scripts/components/_common/HeaderImage";
 import BookingForm from "./Form";
 import { Helmet } from "react-helmet";
 import ProductSelect from "./ProductSelect";
+import TimePicker from "./TimePicker";
 
 import "./Booking.scss";
 
@@ -33,11 +34,22 @@ const Booking = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [stepsValues, setStepsValues] = useState([null, null]);
 
-  const handleProductSelect = productId => {
+  const handleProductSelect = useCallback(productId => {
     setStepsValues(currentStepsValues => [{ productId }, ...currentStepsValues.slice(1)]);
     // Go to next step
     setCurrentStep(currentStep => currentStep + 1);
-  };
+  }, []);
+  const handleTimeSelect = useCallback(bookingTime => {
+    setStepsValues(currentStepsValues => [
+      ...currentStepsValues.slice(0, 1),
+      bookingTime && { bookingTime },
+    ]);
+    // Go to next step if time selected
+    if (!!bookingTime) {
+      setCurrentStep(currentStep => currentStep + 1);
+    }
+  }, []);
+
   return (
     <div className="Page booking-page">
       <Helmet bodyAttributes={{ class: "header-padding-page" }} />
@@ -50,7 +62,7 @@ const Booking = () => {
       <div className="page-section section-container">
         <div className="container container-2">
           <div className="container-inside">
-            <div className="booking__steps">
+            <div className="booking__step-button-wrapper">
               {STEPS.map(({ title }, index) => (
                 <button
                   className={classNamesDedupe("booking__step-button", {
@@ -85,6 +97,13 @@ const Booking = () => {
                               />
                             );
                           case 1:
+                            return (
+                              <TimePicker
+                                onChange={handleTimeSelect}
+                                isOpen={index === currentStep}
+                              />
+                            );
+                          case 2:
                             return <BookingForm />;
                           default:
                             return null;
