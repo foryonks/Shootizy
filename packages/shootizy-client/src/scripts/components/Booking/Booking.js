@@ -31,24 +31,21 @@ const STEPS = [
   },
 ];
 const Booking = ({ location }) => {
-  const redirectProductId = location.state && location.state.productId;
+  const { productId: redirectProductId, productTitle: redirectProductTitle } = location.state || {};
 
   const [currentStep, setCurrentStep] = useState(redirectProductId ? 1 : 0);
-  const [stepsValues, setStepsValues] = useState([
-    redirectProductId ? { productId: redirectProductId } : null,
+  const [stepsData, setstepsData] = useState([
+    redirectProductId ? { productId: redirectProductId, productTitle: redirectProductTitle } : null,
     null,
   ]);
 
-  const handleProductSelect = useCallback(productId => {
-    setStepsValues(currentStepsValues => [{ productId }, ...currentStepsValues.slice(1)]);
+  const handleProductSelect = useCallback((productId, productTitle) => {
+    setstepsData(currentstepsData => [{ productId, productTitle }, ...currentstepsData.slice(1)]);
     // Go to next step
     setCurrentStep(currentStep => currentStep + 1);
   }, []);
   const handleTimeSelect = useCallback(bookingTime => {
-    setStepsValues(currentStepsValues => [
-      ...currentStepsValues.slice(0, 1),
-      bookingTime && { bookingTime },
-    ]);
+    setstepsData(currentstepsData => [...currentstepsData.slice(0, 1), bookingTime]);
     // Go to next step if time selected
     if (!!bookingTime) {
       setCurrentStep(currentStep => currentStep + 1);
@@ -73,9 +70,9 @@ const Booking = ({ location }) => {
                   key={index}
                   className={classNamesDedupe("booking__step-button", {
                     "booking__step-button--active": index === currentStep,
-                    "booking__step-button--done": !!stepsValues[index],
+                    "booking__step-button--done": !!stepsData[index],
                   })}
-                  disabled={index > 0 && !stepsValues[index - 1]}
+                  disabled={index > 0 && !stepsData[index - 1]}
                   onClick={() => setCurrentStep(index)}>
                   <span className="booking__step-button__index">{index + 1}</span>
                   <strong className="booking__step-button__title">{title}</strong>
@@ -100,7 +97,7 @@ const Booking = ({ location }) => {
                           case 0:
                             return (
                               <ProductSelect
-                                currentId={stepsValues[0] && stepsValues[0].productId}
+                                currentId={stepsData[0] && stepsData[0].productId}
                                 onClick={handleProductSelect}
                               />
                             );
@@ -112,7 +109,7 @@ const Booking = ({ location }) => {
                               />
                             );
                           case 2:
-                            return <BookingForm />;
+                            return <BookingForm stepsData={stepsData} />;
                           default:
                             return null;
                         }

@@ -14,7 +14,7 @@ const ProductSelect = ({ currentId, onClick }) => {
         <div
           key={productId}
           className="ThemeCard card card-simple"
-          onClick={() => onClick(productId)}>
+          onClick={() => onClick(productId, title)}>
           <div className="ThemeCard-image">
             <img src={image} alt="" />
           </div>

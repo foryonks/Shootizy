@@ -21,7 +21,7 @@ const Product = ({ match }) => {
 
   const { productId, imageLarge, title, descTitle, description, gallery } = product;
 
-  const bookingLink = { pathname: `/booking`, state: { productId } };
+  const bookingLink = { pathname: `/booking`, state: { productId, productTitle: title } };
 
   return (
     <div className="ProductPage">
