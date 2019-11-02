@@ -11,8 +11,36 @@
       margin-top: 1rem;
     }
   }
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 .booking-form {
   min-height: 50vh;
+  text-align: initial;
+
+  .form-fieldset {
+    margin: auto;
+    padding: 0 10%;
+
+    &.booking-message-fieldset {
+      padding: 1.5rem 10%;
+      border-bottom: 1px solid #dadada;
+
+      .label-top > label {
+        font-size: 0.8rem;
+        font-weight: normal;
+        color: inherit;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &.booking-separator-fieldset {
+      padding: 1.5rem 10%;
+
+      .booking-separator-fieldset__header {
+        text-align: center;
+        font-size: 1.5rem;
+      }
+    }
+  }
 }

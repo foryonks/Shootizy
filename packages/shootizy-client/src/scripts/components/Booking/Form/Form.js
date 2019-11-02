@@ -6,24 +6,86 @@ import { formatDateStd } from "scripts/utils/DateUtils";
 
 import "./Form.scss";
 
+const TODAY = new Date();
+
 const FORM_FIELDS = [
-  { type: "text", name: "name", label: "Votre nom et prénom", isRequired: true },
   {
-    type: "email",
-    name: "email",
-    label: "Votre email",
-    placeholder: "ex : julien@yahoo.fr",
-    isRequired: true,
+    type: "fieldset",
+    className: "booking-message-fieldset",
+    children: [
+      {
+        type: "textarea",
+        rows: 3,
+        name: "message",
+        label: "Avez-vous des attentes particulières pour votre shooting ?",
+        placeholder: "Rédigez ici...",
+      },
+    ],
   },
   {
-    type: "phone",
-    name: "phone",
-    label: "Votre numéro de téléphone",
-    placeholder: "0- -- -- -- --",
-    isRequired: true,
+    type: "fieldset",
+    className: "booking-separator-fieldset",
+    renderHeader: () => (
+      <div className="booking-separator-fieldset__header">
+        <h3>Vos coordonnées</h3>
+      </div>
+    ),
+    children: [],
+  },
+  {
+    type: "fieldset",
+    className: "booking-name-fieldset form-fieldset-row-2",
+    children: [
+      { type: "text", name: "lastName", label: "Nom", placeholder: "Nom", isRequired: true },
+      {
+        type: "text",
+        name: "firstName",
+        label: "Prénom",
+        placeholder: "Prénom",
+        isRequired: true,
+      },
+    ],
+  },
+  {
+    type: "fieldset",
+    className: "booking-contact-fieldset",
+    children: [
+      {
+        type: "date",
+        name: "birthdate",
+        label: `Date de naissance <span class="label-legend">(On aime offir des cadeaux)</span>`,
+        fullWidth: true,
+        props: {
+          maxDate: TODAY,
+        },
+      },
+      {
+        type: "email",
+        name: "email",
+        label: "Votre email afin que l'on puisse vous répondre",
+        placeholder: "ex : julien@yahoo.fr",
+        isRequired: true,
+      },
+      {
+        type: "phone",
+        name: "phone",
+        label: "Votre numéro de téléphone",
+        placeholder: "0- -- -- -- --",
+      },
+      {
+        type: "text",
+        name: "parentCode",
+        label: "Code parrainage",
+        placeholder: "Code",
+      },
+    ],
   },
 ];
-const FORM_SUBMIT_BTN = { hiddenOnSubmit: true, label: "Réserver", className: "btn-green" };
+const FORM_SUBMIT_BTN = {
+  hiddenOnSubmit: true,
+  label: "Finaliser la réservation",
+  className: "btn-green",
+};
 
 const BookingForm = ({ stepsData }) => {
   if (!stepsData || stepsData.some(stepValue => !stepValue)) {
@@ -52,9 +114,10 @@ const BookingForm = ({ stepsData }) => {
             <button className="btn-green-small">Modifier</button>
           </li>
         </ul>
-        <div className="card card-simple booking-form">
+        <div className="booking-form">
           <Form
             id="form-reservation"
+            className="generic-form"
             fields={FORM_FIELDS}
             submitBtn={FORM_SUBMIT_BTN}
             action={`/api/booking/reservations`}

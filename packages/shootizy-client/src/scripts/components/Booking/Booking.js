@@ -31,12 +31,17 @@ const STEPS = [
   },
 ];
 const Booking = ({ location }) => {
-  const { productId: redirectProductId, productTitle: redirectProductTitle } = location.state || {};
+  //const { productId: redirectProductId, productTitle: redirectProductTitle } = location.state || {};
 
-  const [currentStep, setCurrentStep] = useState(redirectProductId ? 1 : 0);
+  //const [currentStep, setCurrentStep] = useState(redirectProductId ? 1 : 0);
+  // const [stepsData, setstepsData] = useState([
+  //   redirectProductId ? { productId: redirectProductId, productTitle: redirectProductTitle } : null,
+  //   null,
+  // ])
+  const [currentStep, setCurrentStep] = useState(2);
   const [stepsData, setstepsData] = useState([
-    redirectProductId ? { productId: redirectProductId, productTitle: redirectProductTitle } : null,
-    null,
+    { productId: "produit-theme-bookmodel", productTitle: "Book Artiste" },
+    { date: new Date(), startTime: "10:00", endTime: "11:00" },
   ]);
 
   const handleProductSelect = useCallback((productId, productTitle) => {

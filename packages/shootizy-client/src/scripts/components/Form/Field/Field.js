@@ -34,6 +34,7 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
     rows,
     cols,
     list,
+    isRequired,
   } = field;
 
   const isError = showFieldError(field);
@@ -123,6 +124,7 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
       {label && (
         <label htmlFor={id}>
           <Interweave content={label} />
+          {isRequired && <sup> *</sup>}
         </label>
       )}
       {Input}

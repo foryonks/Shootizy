@@ -17,7 +17,7 @@ import "./Form.scss";
  */
 const generateFormData = (fields, defaultFormData) => {
   const allFields = fields.reduce(
-    (acc, field) => acc.concat(field.type === "fieldset" ? field.children : field),
+    (acc, field) => acc.concat(field.type === "fieldset" ? field.children || [] : field),
     []
   );
 
@@ -31,7 +31,7 @@ const generateFormData = (fields, defaultFormData) => {
         otherSettings.customValidations = (field.customValidations || []).concat({
           validate: value => {
             const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return !!value && regex.test(value.trim());
+            return (!field.isRequired && !value) || (!!value && regex.test(value.trim()));
           },
           errorMessage: "Veuillez saisir un email valide",
         });
@@ -42,7 +42,7 @@ const generateFormData = (fields, defaultFormData) => {
         otherSettings.customValidations = (field.customValidations || []).concat({
           validate: value => {
             const regex = /^(0[1-68])(?:[ _.-]?(\d{2})){4}$/;
-            return !!value && regex.test(value.trim());
+            return (!field.isRequired && !value) || (!!value && regex.test(value.trim()));
           },
           errorMessage: "Veuillez saisir un téléphone valide",
         });

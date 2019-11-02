@@ -30,8 +30,8 @@ const FULL_FORM = [
     type: "fieldset",
     className: "form-fieldset-row-2",
     children: [
-      { type: "text", name: "name", label: "Nom", placeHolder: "Nom", isRequired: true },
-      { type: "text", name: "firstname", label: "Prénom", placeHolder: "Prénom", isRequired: true },
+      { type: "text", name: "name", label: "Nom", placeholder: "Nom", isRequired: true },
+      { type: "text", name: "firstname", label: "Prénom", placeholder: "Prénom", isRequired: true },
     ],
   },
   FORM_FIELDS[0],
@@ -39,7 +39,7 @@ const FULL_FORM = [
     type: "text",
     name: "tel",
     label: "Votre numéro de téléphone",
-    placeHolder: "Téléphone",
+    placeholder: "Téléphone",
     isRequired: true,
   },
   {
