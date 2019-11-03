@@ -1,0 +1,43 @@
+/* your css code */
+.GalleryWrapper {
+  $margin: 0.3%;
+  margin-left: $margin;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .image {
+    margin-bottom: 3%;
+
+    &:before {
+      content: "";
+      display: block;
+      padding-bottom: 75.19%;
+    }
+  }
+
+  .image + .image {
+    &:before {
+      padding-bottom: 133%;
+    }
+  }
+
+  .col:nth-child(odd) {
+    .image:before {
+      padding-bottom: 133%;
+    }
+
+    .image + .image:before {
+      padding-bottom: 75.19%;
+    }
+  }
+
+  // div:nth-child(2n),
+  // div:nth-child(3n) {
+  //   &:before {
+  //     padding-bottom: 133%;
+  //   }
+  // }
+}
