@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { Fragment, useState, useCallback } from "react";
 import classNamesDedupe from "classnames/dedupe";
 import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 
@@ -92,7 +92,7 @@ const Booking = ({ location }) => {
                 showArrows={false}
                 selectedItem={currentStep}>
                 {STEPS.map((step, index) => (
-                  <>
+                  <Fragment key={index}>
                     <h2 className="booking__step__title title">
                       {index + 1}. {step.header}
                     </h2>
@@ -120,7 +120,7 @@ const Booking = ({ location }) => {
                         }
                       })()}
                     </div>
-                  </>
+                  </Fragment>
                 ))}
               </CarouselResponsive>
             </div>

@@ -94,7 +94,10 @@ const updateFormField = (formData, fieldName, newValue) => {
 const checkFieldError = field => {
   const { isRequired, customValidations, value } = field;
 
-  if (isRequired && (typeof value === "undefined" || value === null || value === "")) {
+  if (
+    isRequired &&
+    (typeof value === "undefined" || value === null || value === "" || value === false)
+  ) {
     return typeof isRequired === "string" ? isRequired : "Veuillez renseigner ce champs";
   }
   if (customValidations) {

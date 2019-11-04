@@ -53,7 +53,11 @@ const FORM_FIELDS = [
       {
         type: "date",
         name: "birthdate",
-        label: `Date de naissance <span class="label-legend">(On aime offir des cadeaux)</span>`,
+        label: (
+          <>
+            Date de naissance <span className="label-legend">(On aime offir des cadeaux)</span>
+          </>
+        ),
         fullWidth: true,
         props: {
           maxDate: TODAY,
@@ -77,6 +81,30 @@ const FORM_FIELDS = [
         name: "parentCode",
         label: "Code parrainage",
         placeholder: "Code",
+      },
+    ],
+  },
+  {
+    type: "fieldset",
+    className: "booking-checkboxes-fieldset",
+    children: [
+      {
+        type: "checkbox",
+        name: "cgv",
+        label: (
+          <>
+            J'ai lu et j'accepte les{" "}
+            <a className="link" href="#to-do">
+              Conditions Générales d'Utilisation
+            </a>
+          </>
+        ),
+        isRequired: "Veuillez accepter les Conditions Générales d'Utilisation",
+      },
+      {
+        type: "checkbox",
+        name: "newsletterGeneral",
+        label: "Je m'inscris à la newsletter SHOOTIZY",
       },
     ],
   },

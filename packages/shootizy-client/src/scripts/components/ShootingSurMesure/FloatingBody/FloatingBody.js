@@ -27,21 +27,21 @@ const FloatingBody = () => {
     <div className="FloatingBodyWrapper">
       <div className="corpscomplet">
         <img
-          class="pied"
+          className="pied"
           src={`/assets/design/surmesure/floatting/${currentPied}`}
           alt=""
           style={{ animationDelay: animationDelayPied + "s" }}
           onAnimationIteration={() => onAnimationIteration(pied, currentPied, setCurrentPied)}
         />
         <img
-          class="corps"
+          className="corps"
           src={`/assets/design/surmesure/floatting/${currentCorps}`}
           alt=""
           style={{ animationDelay: animationDelayCorps + "s" }}
           onAnimationIteration={() => onAnimationIteration(corps, currentCorps, setCurrentCorps)}
         />
         <img
-          class="tete"
+          className="tete"
           src={`/assets/design/surmesure/floatting/${currentTete}`}
           alt=""
           style={{ animationDelay: animationDelayTete + "s" }}
