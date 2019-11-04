@@ -115,7 +115,7 @@ const FORM_SUBMIT_BTN = {
   className: "btn-green",
 };
 
-const BookingForm = ({ stepsData }) => {
+const BookingForm = ({ stepsData, onStepChange }) => {
   if (!stepsData || stepsData.some(stepValue => !stepValue)) {
     // Only show if every step is ok
     return null;
@@ -130,7 +130,9 @@ const BookingForm = ({ stepsData }) => {
           <li className="booking-summary__item card card-simple card-shadow">
             <strong>1. Shooting</strong>
             <span>{stepsData[0].productTitle}</span>
-            <button className="btn-green-small">Modifier</button>
+            <button className="btn-green-small" onClick={() => onStepChange(0)}>
+              Modifier
+            </button>
           </li>
           <li className="booking-summary__item card card-simple card-shadow">
             <strong>2. Date</strong>
@@ -139,7 +141,9 @@ const BookingForm = ({ stepsData }) => {
               <br />
               {startTime} - {endTime}
             </span>
-            <button className="btn-green-small">Modifier</button>
+            <button className="btn-green-small" onClick={() => onStepChange(1)}>
+              Modifier
+            </button>
           </li>
         </ul>
         <div className="booking-form">
@@ -160,5 +164,6 @@ const BookingForm = ({ stepsData }) => {
 
 BookingForm.propTypes = {
   stepsData: PropTypes.array,
+  onStepChange: PropTypes.func,
 };
 export default BookingForm;

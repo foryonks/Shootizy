@@ -1,9 +1,23 @@
 @import "~styles/variables";
 
+.booking-page {
+  .header-image-mask {
+    color: #f7f5f6;
+  }
+}
+.booking-page-section {
+  position: relative;
+}
 .booking__step-button-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  //Float buttons
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .booking__step-button {
   padding: 1rem 1rem 1rem 0.5rem;

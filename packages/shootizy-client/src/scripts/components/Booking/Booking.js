@@ -66,7 +66,7 @@ const Booking = ({ location }) => {
         preTitle="Réserver mon shooting"
         title="Réserver mon shooting <br/><strong>en 3 étapes</strong>"
       />
-      <div className="page-section section-container">
+      <div className="page-section section-container booking-page-section">
         <div className="container container-2">
           <div className="container-inside">
             <div className="booking__step-button-wrapper">
@@ -114,7 +114,9 @@ const Booking = ({ location }) => {
                               />
                             );
                           case 2:
-                            return <BookingForm stepsData={stepsData} />;
+                            return (
+                              <BookingForm stepsData={stepsData} onStepChange={setCurrentStep} />
+                            );
                           default:
                             return null;
                         }
