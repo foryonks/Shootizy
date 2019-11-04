@@ -20,6 +20,7 @@ const ListComments = ({ sortBy, order, count, title }) => {
         {comments &&
           comments.map(({ _id, author, article }) => (
             <li key={_id}>
+              <span className="icon" />
               <div>
                 <strong>{author}</strong> sur{" "}
                 <strong>
