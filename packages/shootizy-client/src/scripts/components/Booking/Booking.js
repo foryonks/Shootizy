@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useCallback } from "react";
+import React, { Fragment, useState, useCallback, useRef } from "react";
 import classNamesDedupe from "classnames/dedupe";
 import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 
@@ -57,6 +57,15 @@ const Booking = ({ location }) => {
     }
   }, []);
 
+  const scrollOffsetElement = useRef();
+  const scrollToTop = useCallback(() => {
+    console.log(scrollOffsetElement.current.offsetTop);
+    console.log(window.pageYOffset);
+    scrollOffsetElement.current.scrollIntoView();
+    //Avoid Sticky header
+    window.scrollBy(0, -100);
+  }, []);
+
   return (
     <div className="Page booking-page">
       <Helmet bodyAttributes={{ class: "header-padding-page" }} />
@@ -69,7 +78,7 @@ const Booking = ({ location }) => {
       <div className="page-section section-container booking-page-section">
         <div className="container container-2">
           <div className="container-inside">
-            <div className="booking__step-button-wrapper">
+            <div className="booking__step-button-wrapper" ref={scrollOffsetElement}>
               {STEPS.map(({ title }, index) => (
                 <button
                   key={index}
@@ -90,7 +99,8 @@ const Booking = ({ location }) => {
                 showIndicators={false}
                 showStatus={false}
                 showArrows={false}
-                selectedItem={currentStep}>
+                selectedItem={currentStep}
+                onChange={scrollToTop}>
                 {STEPS.map((step, index) => (
                   <Fragment key={index}>
                     <h2 className="booking__step__title title">
