@@ -56,8 +56,8 @@ Gallery.fakegallery = qty => {
     .join(" ")
     .split(" ")
     .map(() => {
-      const num = Math.ceil(Math.random() * 19);
-      return `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.png`;
+      const num = Math.ceil(Math.random() * 15);
+      return `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.jpg`;
     });
 };
 
