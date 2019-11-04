@@ -20,7 +20,7 @@
   width: 100%;
 }
 .booking__step-button {
-  padding: 1rem 1rem 1rem 0.5rem;
+  padding: 1rem;
   background: white;
   color: black;
   border-radius: 4rem;
@@ -31,6 +31,7 @@
     border: 1px solid #dadada;
     background: white;
     margin-right: 0.25rem;
+    margin-left: -0.5rem;
   }
 
   &:hover:not(:disabled),

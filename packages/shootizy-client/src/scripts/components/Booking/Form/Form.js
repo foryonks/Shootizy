@@ -162,7 +162,7 @@ const BookingForm = ({ stepsData, onStepChange }) => {
           action={`/api/booking/reservations`}
           formatPostData={formatPostData}
           errorMessage="Réservation échouée, veuillez réessayer !"
-          successMessage="Votre réservation a été enregistrée, merci !"
+          onSuccess={() => onStepChange(3)}
         />
       </div>
     </>

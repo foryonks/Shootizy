@@ -33,13 +33,21 @@ const HeaderImage = ({
       <div className="header-image-content">
         {(preTitle || title || buttonLink || subTitle) && (
           <div className="text">
-            {preTitle && <h3 className="title preTitle">{preTitle}</h3>}
+            {preTitle && (
+              <h3 className="title preTitle">
+                <Interweave content={preTitle} />
+              </h3>
+            )}
             {title && (
               <h2 className="title bigTitle">
                 <Interweave content={title} />
               </h2>
             )}
-            {subTitle && <div className="subTitle">{subTitle}</div>}
+            {subTitle && (
+              <div className="subTitle">
+                <Interweave content={subTitle} />
+              </div>
+            )}
             {buttonLink && (
               <NavLink to={buttonLink} className="header-image__btn-link btn-green">
                 {buttonText}
