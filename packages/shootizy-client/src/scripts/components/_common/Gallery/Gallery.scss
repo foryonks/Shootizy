@@ -1,0 +1,49 @@
+/* your css code */
+.GalleryWrapper {
+  $margin: 0.3%;
+  margin-left: $margin;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .image {
+    cursor: pointer;
+    margin-bottom: 3%;
+    overflow: hidden;
+
+    span {
+      display: block;
+      padding-bottom: 75.19%;
+      transition: transform 0.1s linear;
+      background: no-repeat center center;
+      background-size: cover;
+    }
+
+    &:hover span {
+      transform: scale(1.1);
+    }
+  }
+
+  .image + .image span {
+    padding-bottom: 133%;
+  }
+
+  .col:nth-child(odd) {
+    .image span {
+      padding-bottom: 133%;
+    }
+
+    .image + .image span {
+      padding-bottom: 75.19%;
+    }
+  }
+
+  // div:nth-child(2n),
+  // div:nth-child(3n) {
+  //   &:before {
+  //     padding-bottom: 133%;
+  //   }
+  // }
+}

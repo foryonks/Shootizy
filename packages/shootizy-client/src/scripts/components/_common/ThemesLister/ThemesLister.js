@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ThemesLister.scss";
+import Gallery from "../Gallery";
 
 const ThemesLister = ({ themesArray }) => {
   const [currentTheme, setCurrentTheme] = useState(themesArray[0]);
@@ -28,7 +29,8 @@ const ThemesLister = ({ themesArray }) => {
         </ul>
 
         <div className="full-image">
-          <img src={`${currentTheme.value}`} alt="" />
+          <Gallery images={currentTheme.value} />
+          {/* <img src={`${currentTheme.value}`} alt="" /> */}
         </div>
       </div>
     </div>

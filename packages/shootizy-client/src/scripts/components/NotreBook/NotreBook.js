@@ -1,12 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import "./NotreBook.scss";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import { Helmet } from "react-helmet";
 import ThemesListWithFilter from "./ThemesListWithFilter";
 import SocialSquares from "scripts/components/_common/SocialSquares";
 import Carousel from "scripts/components/CarouselHome";
-import CommentCaMarche3blocks from "scripts/components/CommentCaMarchePage/CommentCaMarche3blocks";
+//import CommentCaMarche3blocks from "scripts/components/CommentCaMarchePage/CommentCaMarche3blocks";
+import CommentCaMarche from "../Home/CommentCaMarche";
 
 const NotreBook = props => (
   <div className="NotreBook page-container">
@@ -32,14 +33,7 @@ const NotreBook = props => (
     </div>
 
     <Carousel useMask={false} />
-    <div className="page-section page-section-green">
-      <CommentCaMarche3blocks className="container-2" />
-      <div className="txt-c">
-        <Link to="/comment-ca-marche" className="btn-white mt50 ">
-          Comment-ça marche ?
-        </Link>
-      </div>
-    </div>
+    <CommentCaMarche />
   </div>
 );
 
