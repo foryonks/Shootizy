@@ -14,7 +14,7 @@ const Main = () => (
       src="/assets/design/headers/header-shooting-studio.png"
       preTitle="Shooting Studio"
       title="<strong>Il était une fois vous</strong>"
-      subTitle="by Shootizy"
+      subTitle={`<span class="big">by Shootizy</span>`}
     />
 
     <div className="main container-2">

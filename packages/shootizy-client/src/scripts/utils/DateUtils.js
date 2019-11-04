@@ -54,10 +54,19 @@ fecha.i18n = {
 export const getDateWithoutTimeZone = date =>
   `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
-export const formatDateStd = date => fecha.format(new Date(date), "dddd D MMMM");
+export const formatDateStd = date => fecha.format(new Date(date), "dddd D MMMM YYYY");
 
 /**
  * Format Date as we want
  * @param {*} date
  */
 export const formatDate = (date, format = "DD/MM/YYYY") => fecha.format(new Date(date), format);
+
+/**
+ * True if 2 dates are equal
+ * @param {Date} date1
+ * @param {Date} date2
+ * @returns {boolean}
+ */
+export const areEqual = (date1, date2) =>
+  (!date1 && !date2) || (!!date1 && !!date2 && date1.getTime() === date2.getTime());

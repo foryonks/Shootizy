@@ -29,32 +29,33 @@
 
 .dropdown-popover__contents {
   position: relative;
-  margin-top: 20px;
   width: 100%;
-  box-shadow: $big-shadow;
+  box-shadow: $card-shadow;
   font-size: 1rem;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
   background-color: #fff;
 
-  &:before {
-    content: "";
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    z-index: -1;
-    background: #f7f5f6;
-    border-radius: 3px;
-    top: 0;
-    left: 50%;
-    transform: rotate(45deg) translateX(-50%);
-  }
+  // Arrow
+  // margin-top: 20px;
+  // &:before {
+  //   content: "";
+  //   width: 25px;
+  //   height: 25px;
+  //   position: absolute;
+  //   z-index: -1;
+  //   background: #f7f5f6;
+  //   border-radius: 3px;
+  //   top: 0;
+  //   left: 50%;
+  //   transform: rotate(45deg) translateX(-50%);
+  // }
 
   h3 {
     font-weight: bold;
-    padding: 10px;
+    padding: 1.5rem;
     line-height: 1;
-    background: #f7f5f6;
+    border-bottom: 1px solid #f0f0f0;
   }
 }
 
@@ -62,7 +63,7 @@
   padding: 20px 10px;
 }
 .dropdown-popover__list__item {
-  padding: 10px;
+  padding: 1rem;
 
   &:last-child {
     border-bottom-left-radius: 24px;

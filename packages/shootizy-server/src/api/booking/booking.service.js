@@ -1,7 +1,10 @@
+const _pick = require("lodash/pick");
+
 const mongoDb = require("db");
 const { isValidDate, getUTCDate, getTodayUTCDate, getDateStr, addLeadingZero } = require("utils");
 const { CustomError } = require("api/api.errors");
 const { sendEmail, adminNotificationEmail, TEMPLATES } = require("email");
+const { upsert: subscribeNewsletter } = require("api/newsletter/newsletter.service");
 
 const formatEntry = ({ _id, startDate, endDate, ...others }) => ({
   bookingId: _id,
@@ -114,15 +117,31 @@ const getUTCBookingDate = (date, startTime, endTime) => {
   return { startDate, endDate };
 };
 
+const UPSERTABLE_FIELDS = [
+  "firstName",
+  "lastName",
+  "email",
+  "productId",
+  "phone",
+  "cgv",
+  "message",
+  "birthdate",
+  "parentCode",
+  "newsletterGeneral",
+];
+const REQUIRED_FIELDS = ["firstName", "lastName", "email", "bookingTime", "productId", "cgv"];
 /**
  * Create a reservation
  * @param {object} reservation to be created
  * @returns {object} newly created reservation
  */
 const createReservation = async reservation => {
-  const { name, email, phone, bookingTime, productId } = reservation;
-  if (!name || !email || !phone || !bookingTime || !productId) {
-    throw new CustomError("Input error", 400);
+  const { email, bookingTime, newsletterGeneral } = reservation;
+  if (REQUIRED_FIELDS.some(fieldName => !reservation[fieldName])) {
+    throw new CustomError(
+      "Input error" + REQUIRED_FIELDS.find(fieldName => !reservation[fieldName]),
+      400
+    );
   }
 
   const { startDate, endDate } = getUTCBookingDate(
@@ -154,10 +173,7 @@ const createReservation = async reservation => {
     throw new CustomError("Créneau indisponible, veuillez sélectionner un autre créneau", 400);
   }
   const result = await db.collection("bookings").insertOne({
-    name,
-    email,
-    phone,
-    productId,
+    ..._pick(reservation, UPSERTABLE_FIELDS),
     startDate,
     endDate,
   });
@@ -172,6 +188,11 @@ const createReservation = async reservation => {
     DATE: getDateStr(startDate),
     TIMESLOT: bookingTime.startTime,
   });
+
+  // Subscribe Newsletter - async in background
+  if (newsletterGeneral) {
+    subscribeNewsletter(email, { general: true });
+  }
 
   return formattedResult;
 };

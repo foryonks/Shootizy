@@ -1,9 +1,6 @@
 @import "~styles/variables";
 
 .booking-time-picker {
-  display: flex;
-  align-items: center;
-
   &.form-field--is-error {
     border: 0 !important;
 
@@ -20,5 +17,6 @@
   + .dropdown-popover {
     text-align: center;
     z-index: 2;
+    top: 0;
   }
 }

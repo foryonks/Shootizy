@@ -11,6 +11,7 @@ const AVAILABLE_OPTINS = ["general", "partners"];
 const upsert = async (email, optins = { general: true }) => {
   const db = await mongoDb.getInstance();
 
+  // updateOne in node driver is not able to detect if update or insert
   const response = await db.collection("newsletter").update(
     { email },
     {
@@ -21,7 +22,7 @@ const upsert = async (email, optins = { general: true }) => {
   );
 
   if (response.result.nModified === 0) {
-    // Inserted new email => send subscription mail
+    // Inserted new email => send subscription mail - async in background
     sendEmail(email, TEMPLATES.NEWSLETTER_SUBSCRIPTION);
   }
 };

@@ -16,7 +16,7 @@
     border: 0 !important;
 
     .react-date-picker__wrapper {
-      border-color: red !important;
+      border: 1px solid red !important;
     }
   }
 
@@ -27,6 +27,7 @@
   .react-date-picker__inputGroup {
     align-items: center;
     line-height: 1;
+    padding: 0;
 
     input {
       padding: 0;
@@ -41,7 +42,7 @@
     padding-bottom: 0;
   }
   .react-date-picker__calendar {
-    box-shadow: $big-shadow;
+    box-shadow: $card-shadow;
     top: 100% !important;
     bottom: unset !important;
     border-bottom-left-radius: 24px;
@@ -56,8 +57,59 @@
       overflow: hidden;
     }
   }
-  .react-calendar__tile--active {
+  .react-calendar {
+    font-family: $font-family;
+    button {
+      font-family: $font-family;
+      text-transform: uppercase;
+    }
+  }
+  .react-calendar__tile {
+    //not work because of flex width
+    //border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      border-color: $btn-green-bg-color;
+      background-color: inherit;
+    }
+    &--active {
+      background-color: $btn-green-bg-color;
+      color: #000;
+    }
+    &:disabled {
+      background-color: inherit;
+      color: #f0f0f0;
+    }
+  }
+  .react-calendar__navigation {
+    background-color: black;
+    color: white;
+    padding: 1.5rem 0;
+    height: auto;
+    margin-bottom: 0;
+
+    button {
+      &:hover,
+      &:focus {
+        background-color: inherit;
+      }
+      &:hover:not(:disabled) {
+        font-weight: bold;
+      }
+      &[disabled] {
+        background-color: inherit;
+        color: #666;
+      }
+    }
+  }
+  .react-calendar__month-view__weekdays {
     background-color: $btn-green-bg-color;
-    color: #000;
+    font-weight: normal;
+    abbr[title] {
+      text-decoration: none;
+    }
   }
 }

@@ -10,7 +10,12 @@ const Datepicker = ({ onChange, value, className, ...datePickerProps }) => {
   return (
     <Picker
       className={classes}
-      onChange={onChange}
+      onChange={date => {
+        // Convert to UTC to avoid timezone
+        const dateUTC =
+          date && new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+        onChange(dateUTC);
+      }}
       value={value}
       locale="fr-FR"
       {...datePickerProps}

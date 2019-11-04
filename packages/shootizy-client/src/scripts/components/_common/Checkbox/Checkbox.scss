@@ -1,0 +1,53 @@
+@import "~styles/variables";
+
+// Need to be pair for perfect render
+$checkmarkSize: 30px;
+$checkmarkCheckedSize: 16px;
+
+.checkbox__wrapper,
+.form-line label.checkbox__wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  // Cancel default label css
+  color: inherit;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked ~ .checkbox__checkmark:after {
+    content: "";
+    width: $checkmarkCheckedSize;
+    height: $checkmarkCheckedSize;
+    border-radius: 2px;
+    background-color: $btn-green-bg-color;
+  }
+}
+
+.checkbox__checkmark {
+  height: $checkmarkSize;
+  width: $checkmarkSize;
+  background-color: white;
+  border: 2px solid #e7eaee;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox__wrapper:hover .checkbox__checkmark {
+  border-color: $btn-green-bg-color;
+}
+
+.checkbox__text {
+  margin-left: 0.5rem;
+}

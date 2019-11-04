@@ -1,0 +1,75 @@
+@import "~styles/variables";
+
+.booking-page {
+  .header-image-mask {
+    color: #f7f5f6;
+  }
+}
+.booking-page-section {
+  position: relative;
+}
+.booking__step-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  //Float buttons
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.booking__step-button {
+  padding: 1rem;
+  background: white;
+  color: black;
+  border-radius: 4rem;
+
+  &__index {
+    padding: 0.5rem 1rem;
+    border-radius: 4rem;
+    border: 1px solid #dadada;
+    background: white;
+    margin-right: 0.25rem;
+    margin-left: -0.5rem;
+  }
+
+  &:hover:not(:disabled),
+  &--active {
+    background-color: black;
+    .booking__step-button__title {
+      color: white;
+    }
+  }
+  &--done {
+    .booking__step-button__index {
+      background-color: $btn-green-bg-color;
+    }
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
+  + .booking__step-button {
+    margin-left: 1rem;
+  }
+}
+
+.booking__step {
+  margin-top: 2rem;
+
+  &__contents {
+    margin-top: 2rem;
+    // Cover the shadow
+    padding: 0 1rem;
+  }
+  .carousel {
+    .control-arrow {
+      display: none !important;
+    }
+    .slide {
+      background-color: transparent;
+    }
+  }
+}

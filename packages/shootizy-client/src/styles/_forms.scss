@@ -24,6 +24,10 @@ $form-input-font-size: font-size(20);
     display: block;
     margin-bottom: font-size(7);
     font-weight: bold;
+
+    .label-legend {
+      font-weight: normal;
+    }
   }
 
   #{$inputSelectors} {
@@ -44,4 +48,8 @@ form.generic-form {
     margin-bottom: 8px;
     display: block;
   }
+}
+
+.link {
+  text-decoration: underline;
 }

@@ -8,6 +8,7 @@ import Interweave from "interweave";
 
 import Select from "react-select";
 import Datepicker from "scripts/components/_common/Datepicker";
+import Checkbox from "scripts/components/_common/Checkbox";
 import EditableImage from "scripts/components/_common/Editor/EditableImage";
 
 /**
@@ -34,6 +35,7 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
     rows,
     cols,
     list,
+    isRequired,
   } = field;
 
   const isError = showFieldError(field);
@@ -46,7 +48,7 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
   });
 
   let Input;
-  switch (field.type) {
+  switch (type) {
     case "text":
     case "email":
     case "number":
@@ -109,6 +111,27 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
     case "select":
       Input = <Select {...extendedProps || {}} options={list} />;
       break;
+    case "checkbox":
+      const checkboxProps = {
+        id,
+        className,
+        name,
+        checked: typeof value !== "undefined" ? value : false,
+        label: (
+          <>
+            {label}
+            {isRequired && <sup> *</sup>}
+          </>
+        ),
+        onChange: ev => {
+          onChange(name, ev.target.checked);
+          onValidate(name);
+        },
+        ...(extendedProps || {}),
+      };
+      Input = <Checkbox {...checkboxProps} />;
+
+      break;
     case "custom":
       Input = render
         ? useMemo(() => render(value, isError, onChange, onValidate), [value, isError])
@@ -118,11 +141,15 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
       return null;
   }
 
+  // Checkbox include label inside
+  const showLabel = !!label && type !== "checkbox";
+
   const Field = (
     <>
-      {label && (
+      {showLabel && (
         <label htmlFor={id}>
-          <Interweave content={label} />
+          {typeof label === "string" ? <Interweave content={label} /> : label}
+          {isRequired && <sup> *</sup>}
         </label>
       )}
       {Input}

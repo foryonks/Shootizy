@@ -6,7 +6,7 @@ import Datepicker from "scripts/components/_common/Datepicker";
 import DropdownPopover from "scripts/components/_common/DropdownPopover";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import { getDateWithoutTimeZone, getDateStr } from "scripts/utils/DateUtils";
+import { getDateWithoutTimeZone, formatDateStd, areEqual } from "scripts/utils/DateUtils";
 
 import "./TimePicker.scss";
 
@@ -14,7 +14,7 @@ const dateMin = new Date();
 // Only reservable from the next day
 dateMin.setDate(dateMin.getDate() + 1);
 
-const TimePicker = ({ className, onChange }) => {
+const TimePicker = ({ className, onChange, isOpen }) => {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
 
@@ -29,12 +29,14 @@ const TimePicker = ({ className, onChange }) => {
     }
   );
 
-  const hanldeSelectDate = newDate => {
-    setDate(newDate);
-    // Reset time if date changed
-    setTime(null);
-    // Call parent
-    onChange(null);
+  const handleSelectDate = newDate => {
+    if (!areEqual(date, newDate)) {
+      setDate(newDate);
+      // Reset time if date changed
+      setTime(null);
+      // Call parent
+      onChange(null);
+    }
   };
   const handleSelectTime = timeSlot => {
     setTime(timeSlot);
@@ -53,38 +55,35 @@ const TimePicker = ({ className, onChange }) => {
   // };
 
   return (
-    <div className={classNamesDedupe("booking-time-picker row", className)}>
-      <div className="col-8">
-        <Datepicker
-          minDate={dateMin}
-          onChange={hanldeSelectDate}
-          value={date}
-          className="form-field--full-width"
-          isOpen
-        />
-      </div>
-      <div className="col-4">
-        <DropdownPopover
-          className="booking-time-picker__list"
-          title={!!date ? getDateStr(date) : ""}
-          placeholder="--:-- - --:--"
-          list={timetable}
-          noItemsPlaceholder="Nous sommes fermés ..."
-          renderListItem={({ startTime, endTime, isAvailable }) => (
-            <span>
-              {startTime} - {endTime}
-            </span>
-          )}
-          getItemLabel={({ startTime, endTime }) => `${startTime} - ${endTime}`}
-          isItemDisabled={timeSlot => !timeSlot.isAvailable}
-          disabled={!date}
-          openValue={date && date.getTime()}
-          value={time}
-          loading={loading}
-          //onClick={handleOnTimeClick}
-          onChange={handleSelectTime}
-        />
-      </div>
+    <div className={classNamesDedupe("booking-time-picker", className)}>
+      <Datepicker
+        minDate={dateMin}
+        onChange={handleSelectDate}
+        value={date}
+        className="form-field--full-width react-date-picker--open"
+        isOpen={isOpen && !date}
+        required
+      />
+      <DropdownPopover
+        className="booking-time-picker__list"
+        title={!!date ? formatDateStd(date) : ""}
+        placeholder="--:-- - --:--"
+        list={timetable}
+        noItemsPlaceholder="Nous sommes fermés ..."
+        renderListItem={({ startTime, endTime, isAvailable }) => (
+          <span>
+            {startTime} - {endTime}
+          </span>
+        )}
+        getItemLabel={({ startTime, endTime }) => `${startTime} - ${endTime}`}
+        isItemDisabled={timeSlot => !timeSlot.isAvailable}
+        disabled={!date}
+        openValue={date && date.getTime()}
+        value={time}
+        loading={loading}
+        //onClick={handleOnTimeClick}
+        onChange={handleSelectTime}
+      />
     </div>
   );
 };
@@ -92,5 +91,6 @@ const TimePicker = ({ className, onChange }) => {
 TimePicker.propTypes = {
   className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool,
 };
 export default TimePicker;
