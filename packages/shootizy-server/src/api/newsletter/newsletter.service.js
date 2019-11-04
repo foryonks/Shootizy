@@ -11,11 +11,13 @@ const AVAILABLE_OPTINS = ["general", "partners"];
 const upsert = async (email, optins = { general: true }) => {
   const db = await mongoDb.getInstance();
 
-  const response = await db.collection("newsletter").update(
+  const response = await db.collection("newsletter").updateOne(
     { email },
     {
-      email,
-      ..._pick(optins, AVAILABLE_OPTINS),
+      $set: {
+        email,
+        ..._pick(optins, AVAILABLE_OPTINS),
+      },
     },
     { upsert: true }
   );

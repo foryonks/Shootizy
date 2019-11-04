@@ -116,24 +116,30 @@ const FORM_SUBMIT_BTN = {
 };
 
 const BookingForm = ({ stepsData, onStepChange }) => {
-  if (!stepsData || stepsData.some(stepValue => !stepValue)) {
-    // Only show if every step is ok
+  if (!stepsData) {
     return null;
   }
-  const { productTitle } = stepsData[0];
-  const { date, startTime, endTime } = stepsData[1];
+  const { productId, productTitle } = stepsData[0] || {};
+  const { date, startTime, endTime } = stepsData[1] || {};
+  const formatPostData = data => ({
+    ...data,
+    productId,
+    bookingTime: { date, startTime, endTime },
+  });
+
   return (
-    stepsData &&
-    stepsData.every(stepValue => !!stepValue) && (
-      <>
-        <ul className="row row-2 booking-summary">
+    <>
+      <ul className="row row-2 booking-summary">
+        {stepsData[0] && (
           <li className="booking-summary__item card card-simple card-shadow">
             <strong>1. Shooting</strong>
-            <span>{stepsData[0].productTitle}</span>
+            <span>{productTitle}</span>
             <button className="btn-green-small" onClick={() => onStepChange(0)}>
               Modifier
             </button>
           </li>
+        )}
+        {stepsData[1] && (
           <li className="booking-summary__item card card-simple card-shadow">
             <strong>2. Date</strong>
             <span>
@@ -145,20 +151,21 @@ const BookingForm = ({ stepsData, onStepChange }) => {
               Modifier
             </button>
           </li>
-        </ul>
-        <div className="booking-form">
-          <Form
-            id="form-reservation"
-            className="generic-form"
-            fields={FORM_FIELDS}
-            submitBtn={FORM_SUBMIT_BTN}
-            action={`/api/booking/reservations`}
-            errorMessage="Réservation échouée, veuillez réessayer !"
-            successMessage="Votre réservation a été enregistrée, merci !"
-          />
-        </div>
-      </>
-    )
+        )}
+      </ul>
+      <div className="booking-form">
+        <Form
+          id="form-reservation"
+          className="generic-form"
+          fields={FORM_FIELDS}
+          submitBtn={FORM_SUBMIT_BTN}
+          action={`/api/booking/reservations`}
+          formatPostData={formatPostData}
+          errorMessage="Réservation échouée, veuillez réessayer !"
+          successMessage="Votre réservation a été enregistrée, merci !"
+        />
+      </div>
+    </>
   );
 };
 

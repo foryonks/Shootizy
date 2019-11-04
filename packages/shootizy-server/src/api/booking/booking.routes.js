@@ -23,14 +23,8 @@ routes.get(
 routes.post(
   "/reservations",
   asyncRouteWrapper(async (req, res) => {
-    const { name, email, phone, bookingTime, productId } = req.body;
-    const newBooking = await bookingService.createReservation({
-      name,
-      email,
-      phone,
-      bookingTime,
-      productId,
-    });
+    const reservation = req.body;
+    const newBooking = await bookingService.createReservation(reservation);
     res.json(newBooking);
   })
 );
