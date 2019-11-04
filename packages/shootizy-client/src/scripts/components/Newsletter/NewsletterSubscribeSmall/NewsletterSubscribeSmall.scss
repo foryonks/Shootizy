@@ -1,0 +1,18 @@
+@import "~styles/functions";
+/* your css code */
+.NewsletterSubscribeSmall {
+  background: #2ef7cc;
+  padding: 40px;
+  input {
+    width: 100%;
+  }
+  .title {
+    margin-bottom: 3px;
+    font-size: font-size(24);
+  }
+
+  .btn-white {
+    margin-top: 35px;
+    width: 100%;
+  }
+}

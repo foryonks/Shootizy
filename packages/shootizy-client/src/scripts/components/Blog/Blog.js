@@ -13,6 +13,7 @@ import BlogCategory from "scripts/components/Blog/Category";
 
 import "./Blog.scss";
 import "./Common.scss";
+import NewsletterSubscribeSmall from "../Newsletter/NewsletterSubscribeSmall";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
@@ -42,6 +43,7 @@ const Blog = props => {
                 <aside>
                   <MostReadArticles />
                   <ListComments sortBy="date" order="desc" count="3" />
+                  <NewsletterSubscribeSmall />
                 </aside>
               </main>
             </>
