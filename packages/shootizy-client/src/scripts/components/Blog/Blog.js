@@ -10,17 +10,17 @@ import ListComments from "./ListComments";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import BlogArticle from "scripts/components/Blog/Article";
 import BlogCategory from "scripts/components/Blog/Category";
+import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
 
 import "./Blog.scss";
 import "./Common.scss";
-import NewsletterSubscribeSmall from "../Newsletter/NewsletterSubscribeSmall";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
    Shootizy !`;
 
   return (
-    <div className="BlogWrapper container-2">
+    <div className="BlogWrapper page-section-grey">
       <Helmet bodyAttributes={{ class: "header-padding-page" }} />
       <Switch>
         <Route path="/blog/article/:slug" component={BlogArticle} />
@@ -30,22 +30,24 @@ const Blog = props => {
           path="/blog"
           render={() => (
             <>
-              <HeaderImage preTitle="Blog" title={title} reverseColor={true} />
+              <HeaderImage preTitle="Blog" title={title} reverseColor={true} useMask={false} />
 
-              <BlogCarousel className="" />
-              <ListCategories />
+              <div className="container-2">
+                <BlogCarousel className="mask-grey" />
+                <ListCategories />
 
-              <main className="Blog-Content">
-                <content>
-                  <h3 className="Blog-block-title">Articles</h3>
-                  <List cols={2} hidden={true} remoteContentsUrl="/api/blog/articles" />
-                </content>
-                <aside>
-                  <MostReadArticles />
-                  <ListComments sortBy="date" order="desc" count="3" />
-                  <NewsletterSubscribeSmall />
-                </aside>
-              </main>
+                <main className="Blog-Content">
+                  <content>
+                    <h3 className="Blog-block-title">Articles</h3>
+                    <List cols={2} hidden={true} remoteContentsUrl="/api/blog/articles" />
+                  </content>
+                  <aside>
+                    <MostReadArticles />
+                    <ListComments sortBy="date" order="desc" count="3" />
+                    <NewsletterSubscribeSmall />
+                  </aside>
+                </main>
+              </div>
             </>
           )}
         />

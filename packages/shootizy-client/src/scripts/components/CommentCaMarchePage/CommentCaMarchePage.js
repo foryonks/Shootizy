@@ -26,16 +26,15 @@ import Carousel from "scripts/components/CarouselHome";
 // ];
 
 const CommentCaMarchePage = props => (
-  <article className="CommentCaMarchePageWrapper">
+  <article className="CommentCaMarchePageWrapper page-section-grey">
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
     <HeaderImage
-      className="header-image-generic with-header-cards"
+      className="header-image-generic with-header-cards mask-grey"
       src="/assets/design/headers/header-generic-bg1.png"
       preTitle="Comment ça marche"
       title="<strong>Votre shooting en 3 étapes</strong>">
       <CommentCaMarche3blocks className="header-blocs container-2" />
     </HeaderImage>
-
     <h2 className="title mt50 mb50">
       Aucune obligation d’achat ! <br />
       <strong>Payez seulement les photos que vous voulez !</strong>
@@ -151,7 +150,6 @@ const CommentCaMarchePage = props => (
         </Link>
       </p>
     </div>
-
     <Carousel useMask={false} />
   </article>
 );

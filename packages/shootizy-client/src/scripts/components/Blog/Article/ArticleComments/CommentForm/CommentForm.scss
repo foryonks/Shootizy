@@ -1,1 +1,9 @@
 /* your css code */
+.CommentFormWrapper {
+  input,
+  textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}

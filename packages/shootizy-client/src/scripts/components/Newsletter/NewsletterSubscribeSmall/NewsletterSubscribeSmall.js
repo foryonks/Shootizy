@@ -1,6 +1,5 @@
 import React from "react";
 //import PropTypes from "prop-types";
-import Icon from "../../Icon";
 import "./NewsletterSubscribeSmall.scss";
 import { FORM_FIELDS_FOOTER } from "scripts/components/Newsletter/NewsletterFormFields";
 import Form from "scripts/components/Form";

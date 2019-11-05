@@ -23,9 +23,10 @@ const Category = ({ match }) => {
             preTitle="Blog"
             title={`<strong>${category.name}</strong>`}
             reverseColor={true}
+            useMask={false}
           />
 
-          <main className="Blog-Content">
+          <main className="Blog-Content .container-2">
             <content>
               <h3 className="Blog-block-title">Articles</h3>
               <List cols={2} hidden={true} items={category.articles} />

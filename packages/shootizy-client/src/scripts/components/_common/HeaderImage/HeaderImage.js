@@ -1,5 +1,5 @@
 import React from "react";
-import { string } from "prop-types";
+import { string, bool } from "prop-types";
 import "./HeaderImage.scss";
 import HeaderImageMask from "../HeaderImageMask";
 import { NavLink } from "react-router-dom";
@@ -25,6 +25,7 @@ const HeaderImage = ({
   className,
   children,
   reverseColor,
+  useMask,
 }) => (
   <section className={`HeaderImage  ${className} ${reverseColor ? "HeaderImage-reverse" : ""}`}>
     <div
@@ -56,7 +57,7 @@ const HeaderImage = ({
           </div>
         )}
       </div>
-      <HeaderImageMask />
+      {useMask && <HeaderImageMask />}
     </div>
     {children}
   </section>
@@ -70,6 +71,11 @@ HeaderImage.propTypes = {
   link: string,
   textButton: string,
   className: string,
+  useMask: bool,
+};
+
+HeaderImage.defaultProps = {
+  useMask: true,
 };
 
 export default HeaderImage;
