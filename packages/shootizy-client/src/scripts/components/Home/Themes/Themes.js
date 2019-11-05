@@ -8,7 +8,7 @@ import "./Themes.scss";
 const Themes = () => {
   const { state: appState } = useContext(AppContext);
 
-  const list = (appState.themes || []).map(({ gallery }) => gallery);
+  const list = appState.themes || [];
 
   return (
     <div className="Themes container-2 grid">

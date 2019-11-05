@@ -9,12 +9,12 @@ const ThemesListWithFilter = props => {
   const { state: appState } = useContext(AppContext);
   const list = appState.themes || [];
   //const themesArray = list.map(({ title, gallery }) => ({ key: title, value: gallery }));
-  const themesArray = list.map(({ title, gallery }) => ({ key: title, value: fakegallery(6) }));
-  themesArray[0].selected = true;
+  // const themesArray = list.map(({ title, gallery }) => ({ key: title, value: fakegallery(6) }));
+  // themesArray[0].selected = true;
 
   return (
     <div className="ThemesListWithFilterWrapper">
-      <ThemesLister themesArray={themesArray} />
+      {/* <ThemesLister themesArray={themesArray} /> */}
     </div>
   );
 };
