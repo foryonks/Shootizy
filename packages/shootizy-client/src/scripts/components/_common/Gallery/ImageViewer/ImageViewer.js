@@ -39,7 +39,7 @@ const ImageViewer = ({ images, selected, onClose }) => {
 };
 
 const ImageRenderer = ({ item, index, key }) => {
-  return <div className="imageViewer-image" style={{ "background-image": `url(${item})` }} />;
+  return <div className="imageViewer-image" style={{ backgroundImage: `url(${item})` }} />;
   // return (
   //   <div className="imageViewer-image">
   //     <span>

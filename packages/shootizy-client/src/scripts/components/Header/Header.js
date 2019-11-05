@@ -18,7 +18,13 @@ const Header = (props, ref) => {
   };
   let { y } = useWindowScrollPosition(options);
 
-  useEffect(() => {
+  // const forceUpdate = () => {
+  //   console.log("forceUpdate");
+  //   y = window.pageYOffset;
+  //   updateHeaderSticky();
+  // };
+
+  const updateHeaderSticky = () => {
     const header = headerRef.current;
     if (!gap) {
       const content = window.getComputedStyle(header, ":before");
@@ -26,8 +32,14 @@ const Header = (props, ref) => {
     }
     sticky = sticky > 0 ? sticky : header.offsetTop - gap;
     y > sticky ? setClassName("sticky") : setClassName("");
-    return () => {};
-  }, [y]);
+  };
+  useEffect(() => {
+    updateHeaderSticky();
+    // window.addEventListener("pageChange", forceUpdate);
+    // return () => {
+    //   window.removeEventListener("pageChange", forceUpdate);
+    // };
+  });
 
   return (
     <div className="header-wrapper">

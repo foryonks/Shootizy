@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import ScrollToTop from "scripts/components/_common/ScrollToTop";
 
 import List from "./List";
 import BlogCarousel from "./BlogCarousel";

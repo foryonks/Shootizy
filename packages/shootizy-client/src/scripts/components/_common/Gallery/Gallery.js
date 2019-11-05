@@ -26,13 +26,14 @@ const Gallery = ({ images }) => {
       {imagesMatrix.map(col => {
         return (
           <div className="col">
-            {col.map(image => (
+            {col.map((image, key) => (
               <div
+                key={key}
                 className="image"
                 onClick={() => {
                   showVisionneuse(image);
                 }}>
-                <span style={{ "background-image": `url(${image})` }} />
+                <span style={{ backgroundImage: `url(${image})` }} />
               </div>
             ))}
           </div>
