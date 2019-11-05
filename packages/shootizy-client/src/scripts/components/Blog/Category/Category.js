@@ -4,7 +4,11 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import List from "../List";
 import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
-import ListRenderedSimple from "../List/ListRendererSimple";
+
+import ListCategories from "../ListCategories";
+import MostReadArticles from "../MostReadArticles";
+import ListComments from "../ListComments";
+import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
 
 import "./Category.scss";
 
@@ -26,16 +30,24 @@ const Category = ({ match }) => {
             useMask={false}
           />
 
-          <main className="Blog-Content .container-2">
-            <content>
-              <h3 className="Blog-block-title">Articles</h3>
-              <List cols={2} hidden={true} items={category.articles} />
-            </content>
-            <aside>
-              <h3 className="Blog-block-title">Derniers articles</h3>
-              <List sortBy="date" limit="3" render={ListRenderedSimple} items={category.articles} />
-            </aside>
-          </main>
+          <div className="container-2">
+            <ListCategories />
+
+            <main className="Blog-Content">
+              <content>
+                <List
+                  cols={2}
+                  hidden={true}
+                  remoteContentsUrl={`/api/blog/category/${match.params.slug}/articles`}
+                />
+              </content>
+              <aside>
+                <MostReadArticles />
+                <ListComments sortBy="date" order="desc" count="3" />
+                <NewsletterSubscribeSmall />
+              </aside>
+            </main>
+          </div>
         </div>
       )}
     />

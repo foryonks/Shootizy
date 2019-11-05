@@ -10,11 +10,17 @@ const formatEntry = ({ _id, ...others }) => ({
   ...others,
 });
 
-const listArticles = async () => {
+const listArticles = async ({ categoryId } = {}) => {
   const db = await mongoDb.getInstance();
+  const request = {};
+
+  console.log("categoryId", categoryId);
+  if (categoryId) {
+    request.categoryId = categoryId;
+  }
   const articles = await db
     .collection("blog.articles")
-    .find()
+    .find(request)
     .toArray();
   const categories = await listCategories();
 
@@ -28,6 +34,12 @@ const listArticles = async () => {
     ...formatEntry(article),
     category: categories.find(category => category.categoryId === article.categoryId),
   }));
+};
+
+const listArticlesByCategory = async slug => {
+  const category = await getCategoryBySlug(slug);
+  const articles = await listArticles({ categoryId: category.categoryId });
+  return articles;
 };
 
 const listCategories = async () => {
@@ -165,4 +177,5 @@ module.exports = {
   addComment,
   getComments,
   getCommentsByArticleId,
+  listArticlesByCategory,
 };

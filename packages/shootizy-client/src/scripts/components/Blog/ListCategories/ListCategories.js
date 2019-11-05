@@ -1,6 +1,6 @@
 import React from "react";
 //import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./ListCategories.scss";
@@ -14,7 +14,7 @@ const ListCategories = props => {
       <ul>
         {categories.map(({ _id, slug, name }) => (
           <li key={_id}>
-            <Link to={`/blog/category/${slug}`}>{name}</Link>
+            <NavLink to={`/blog/category/${slug}`}>{name}</NavLink>
           </li>
         ))}
       </ul>
