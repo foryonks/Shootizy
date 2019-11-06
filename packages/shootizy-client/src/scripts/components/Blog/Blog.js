@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";
 import GenericArticleList from "./GenericArticleList";
@@ -15,6 +14,7 @@ import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSu
 import "./Blog.scss";
 import "./Common.scss";
 import CategoryBlock from "./CategoryBlock/CategoryBlock";
+import BlockInstagram from "./BlockInstagram";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
@@ -41,7 +41,20 @@ const Blog = props => {
                   <content>
                     <CategoryBlock categorySlug="categorie1" cols={2} />
                     <CategoryBlock categorySlug="categorie2" cols={2} className="mt50" />
-
+                  </content>
+                  <aside>
+                    <GenericArticleList
+                      title="Derniers articles"
+                      sortBy="date"
+                      limit={3}
+                      remoteContentsUrl="/api/blog/articles"
+                    />
+                    <ListComments sortBy="date" order="desc" count="3" />
+                    <NewsletterSubscribeSmall />
+                  </aside>
+                </main>
+                <main className="Blog-Content">
+                  <content>
                     <div className="row row-2">
                       <div className="col">
                         <GenericArticleList
@@ -54,14 +67,7 @@ const Blog = props => {
                     </div>
                   </content>
                   <aside>
-                    <GenericArticleList
-                      title="Derniers articles"
-                      sortBy="date"
-                      limit={3}
-                      remoteContentsUrl="/api/blog/articles"
-                    />
-                    <ListComments sortBy="date" order="desc" count="3" />
-                    <NewsletterSubscribeSmall />
+                    <BlockInstagram />
                   </aside>
                 </main>
               </div>

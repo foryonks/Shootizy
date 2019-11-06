@@ -18,12 +18,6 @@ const Header = (props, ref) => {
   };
   let { y } = useWindowScrollPosition(options);
 
-  // const forceUpdate = () => {
-  //   console.log("forceUpdate");
-  //   y = window.pageYOffset;
-  //   updateHeaderSticky();
-  // };
-
   const updateHeaderSticky = () => {
     const header = headerRef.current;
     if (!gap) {
@@ -35,10 +29,6 @@ const Header = (props, ref) => {
   };
   useEffect(() => {
     updateHeaderSticky();
-    // window.addEventListener("pageChange", forceUpdate);
-    // return () => {
-    //   window.removeEventListener("pageChange", forceUpdate);
-    // };
   });
 
   return (

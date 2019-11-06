@@ -118,7 +118,7 @@ routes.get(
 
   asyncRouteWrapper(async (req, res) => {
     const { slug } = req.params;
-    console.log("category", slug);
+    "category", slug;
     const articles = await blogService.listArticlesByCategory(slug);
     res.json(articles);
   })

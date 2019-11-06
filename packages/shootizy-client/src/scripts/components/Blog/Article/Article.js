@@ -7,8 +7,7 @@ import { blog } from "scripts/utils/routesManager";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
 import { Helmet } from "react-helmet";
-
-import MostReadArticles from "../MostReadArticles";
+import GenericArticleList from "../GenericArticleList";
 import { formatDateStd } from "../../../utils/DateUtils";
 import ArticleComments from "./ArticleComments/ArticleComments";
 import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
@@ -51,7 +50,12 @@ const Article = ({ match }) => {
                 </div>
               </content>
               <aside>
-                <MostReadArticles />
+                <GenericArticleList
+                  title="Derniers articles"
+                  sortBy="date"
+                  limit={3}
+                  remoteContentsUrl="/api/blog/articles"
+                />
                 <NewsletterSubscribeSmall />
               </aside>
             </main>

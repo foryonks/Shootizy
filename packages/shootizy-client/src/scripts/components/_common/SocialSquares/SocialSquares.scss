@@ -6,6 +6,7 @@
     position: relative;
     margin: 0;
     width: 50%;
+    cursor: pointer;
   }
 
   .itemscols-2 .item {
@@ -18,6 +19,10 @@
   .itemscols-4 .item {
     width: 25%;
     padding-bottom: 25%;
+  }
+
+  span.empty {
+    background: #fff;
   }
 
   .item-instagram {

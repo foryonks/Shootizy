@@ -5,7 +5,7 @@ import List from "../List";
 import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 
 import ListCategories from "../ListCategories";
-import MostReadArticles from "../MostReadArticles";
+import GenericArticleList from "../GenericArticleList";
 import ListComments from "../ListComments";
 import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
 
@@ -36,7 +36,12 @@ const Category = ({ match }) => {
                 />
               </content>
               <aside>
-                <MostReadArticles />
+                <GenericArticleList
+                  title="Derniers articles"
+                  sortBy="date"
+                  limit={3}
+                  remoteContentsUrl="/api/blog/articles"
+                />
                 <ListComments sortBy="date" order="desc" count="3" />
                 <NewsletterSubscribeSmall />
               </aside>

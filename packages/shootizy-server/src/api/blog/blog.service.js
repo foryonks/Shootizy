@@ -14,7 +14,7 @@ const listArticles = async ({ categoryId } = {}) => {
   const db = await mongoDb.getInstance();
   const request = {};
 
-  console.log("categoryId", categoryId);
+  "categoryId", categoryId;
   if (categoryId) {
     request.categoryId = categoryId;
   }
