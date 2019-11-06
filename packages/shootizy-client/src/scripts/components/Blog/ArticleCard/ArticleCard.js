@@ -26,7 +26,7 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
               {category.name}
             </Link>
             {" / "}
-            <span className="content-date">{formatDateStd(date)}</span>
+            <span className="content-date">{formatDateStd(date, "DD/MM/YYYY")}</span>
           </div>
         )}
 
@@ -58,7 +58,7 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
           <h4 className="title">{title}</h4>
         </Link>
 
-        <Link to={articleLink}>
+        <Link to={articleLink} className="ArticleCard-text">
           <p>{text}</p>
         </Link>
       </div>

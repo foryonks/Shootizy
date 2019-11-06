@@ -45,8 +45,11 @@
 
   .commentsCount {
     position: absolute;
-    right: 40px;
-    top: 22px;
+    right: 0;
+    top: 0;
+    margin-top: 6.7%;
+    margin-right: 10.6%;
+
     svg {
       display: block;
     }
