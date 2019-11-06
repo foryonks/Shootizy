@@ -33,9 +33,9 @@ const Blog = props => {
             <>
               <HeaderImage preTitle="Blog" title={title} reverseColor={true} useMask={false} />
 
-              <div className="container-2">
+              <div className="container-2 pb100">
                 <BlogCarousel className="mask-grey" />
-                {/* <ListCategories /> */}
+                <ListCategories />
 
                 <main className="Blog-Content">
                   <content>

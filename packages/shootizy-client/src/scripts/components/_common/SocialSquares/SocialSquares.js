@@ -26,8 +26,8 @@ const SocialSquares = ({ cols, nums, twitterPos, className, fill }) => {
               <Icon name={type} />
             </a>
           ))}
-          {emptyArray.map(() => (
-            <span className="item empty" />
+          {emptyArray.map((a, index) => (
+            <span className="item empty" key={index} />
           ))}
         </div>
       )}

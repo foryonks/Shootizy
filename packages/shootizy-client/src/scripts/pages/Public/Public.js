@@ -70,10 +70,12 @@ const Public = () => (
         /shooting-studio\/?$/,
         /shooting-sur-mesure/,
         /notre-book/,
+        /blog/,
       ]}>
       <ShootizyTarifs />
     </ShowHideWithRoute>
-    <ShowHideWithRoute hideWith={[/comment-ca-marche/, /shooting-sur-mesure/, /notre-book/]}>
+    <ShowHideWithRoute
+      hideWith={[/comment-ca-marche/, /blog/, /shooting-sur-mesure/, /notre-book/]}>
       <div className="page-section section-container">
         <Themes />
         <SurMesure />
@@ -84,11 +86,15 @@ const Public = () => (
         <CommentCaMarche3blocks className="container-2" />
       </div>
     </ShowHideWithRoute>
+
     <LazyLoad height={400}>
-      <VenirAuStudio />
+      <ShowHideWithRoute>
+        <VenirAuStudio />
+      </ShowHideWithRoute>
     </LazyLoad>
+
     <LazyLoad height={200}>
-      <ShowHideWithRoute hideWith={[/\/blog\//, /comment-ca-marche/, /shooting-studio\/?$/]}>
+      <ShowHideWithRoute hideWith={[/blog/, /comment-ca-marche/, /shooting-studio\/?$/]}>
         <BlogSmall />
       </ShowHideWithRoute>
     </LazyLoad>
