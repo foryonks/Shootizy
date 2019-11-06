@@ -1,4 +1,8 @@
 @import "~styles/functions";
+$buttons-right-margin: 0; // 74px;
+$carousel-top-spacing: 55px;
+
+$carousel-width: $container-2-width;
 
 body {
   .BlogSmall {
@@ -23,6 +27,20 @@ body {
     .BlogSmall-content {
       position: relative;
       z-index: 1;
+    }
+
+    .carousel.carousel-slider {
+      margin-top: -20px;
+
+      /** Le container principal des fleches fait la largeur de la page,
+    mais afin de contenir les flèches dans une zone précise,
+    j'ai du faire un calcul sioux
+    */
+      .control-arrow {
+        margin-right: -$carousel-width/2 + $buttons-right-margin;
+        right: 50%;
+        left: auto;
+      }
     }
     .description {
       text-align: center;
