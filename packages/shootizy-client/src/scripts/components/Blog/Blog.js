@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";
-import MostReadArticles from "./MostReadArticles/MostReadArticles";
+import GenericArticleList from "./GenericArticleList";
 import ListComments from "./ListComments";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import BlogArticle from "scripts/components/Blog/Article";
@@ -40,10 +40,26 @@ const Blog = props => {
                 <main className="Blog-Content">
                   <content>
                     <CategoryBlock categorySlug="categorie1" cols={2} />
-                    <CategoryBlock categorySlug="categorie2" cols={2} />
+                    <CategoryBlock categorySlug="categorie2" cols={2} className="mt50" />
+
+                    <div className="row row-2">
+                      <div className="col">
+                        <GenericArticleList
+                          title="Actualité"
+                          sortBy="date"
+                          limit={4}
+                          remoteContentsUrl="/api/blog/category/actualite/articles"
+                        />
+                      </div>
+                    </div>
                   </content>
                   <aside>
-                    <MostReadArticles />
+                    <GenericArticleList
+                      title="Derniers articles"
+                      sortBy="date"
+                      limit={3}
+                      remoteContentsUrl="/api/blog/articles"
+                    />
                     <ListComments sortBy="date" order="desc" count="3" />
                     <NewsletterSubscribeSmall />
                   </aside>
