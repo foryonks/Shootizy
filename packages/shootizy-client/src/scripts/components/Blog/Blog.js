@@ -14,6 +14,7 @@ import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSu
 
 import "./Blog.scss";
 import "./Common.scss";
+import CategoryBlock from "./CategoryBlock/CategoryBlock";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
@@ -38,8 +39,8 @@ const Blog = props => {
 
                 <main className="Blog-Content">
                   <content>
-                    <h3 className="Blog-block-title">Articles</h3>
-                    <List cols={2} hidden={true} remoteContentsUrl="/api/blog/articles" />
+                    <CategoryBlock categorySlug="categorie1" cols={2} />
+                    <CategoryBlock categorySlug="categorie2" cols={2} />
                   </content>
                   <aside>
                     <MostReadArticles />

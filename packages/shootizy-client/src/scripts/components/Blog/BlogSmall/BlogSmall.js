@@ -27,28 +27,6 @@ const BlogSmall = props => {
         </div>
 
         <BlogMultipleArticleCarousel articles={articles} cols={3} />
-        {/* <div className="blog-carousel">
-          <CarouselResponsive
-            infiniteLoop
-            showThumbs={false}
-            showIndicators={false}
-            showStatus={false}>
-            {dataMatrix.map((row, index) => (
-              <div className="slideRow container-2" key={index}>
-                {row.map(article =>
-                  article ? (
-                    <ArticleCard
-                      className="carousel-item"
-                      key={article.articleId}
-                      article={article}
-                      mode="card"
-                    />
-                  ) : null
-                )}
-              </div>
-            ))}
-          </CarouselResponsive>
-        </div> */}
       </div>
     </section>
   );

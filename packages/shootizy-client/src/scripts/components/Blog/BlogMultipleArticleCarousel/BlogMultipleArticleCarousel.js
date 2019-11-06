@@ -11,22 +11,28 @@ const BlogMultipleArticleCarousel = ({ articles, cols }) => {
 
   return (
     <div className="BlogMultipleArticleCarouselWrapper blog-carousel">
-      <CarouselResponsive infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
-        {dataMatrix.map((row, index) => (
-          <div className="slideRow container-2" key={index}>
-            {row.map(article =>
-              article ? (
-                <ArticleCard
-                  className="carousel-item"
-                  key={article.articleId}
-                  article={article}
-                  mode="card"
-                />
-              ) : null
-            )}
-          </div>
-        ))}
-      </CarouselResponsive>
+      <div className="carouselWrapper-fixshadow">
+        <CarouselResponsive
+          infiniteLoop
+          showThumbs={false}
+          showIndicators={false}
+          showStatus={false}>
+          {dataMatrix.map((row, index) => (
+            <div className={`slideRow container-2 cols-${cols}`} key={index}>
+              {row.map(article =>
+                article ? (
+                  <ArticleCard
+                    className="carousel-item"
+                    key={article.articleId}
+                    article={article}
+                    mode="card"
+                  />
+                ) : null
+              )}
+            </div>
+          ))}
+        </CarouselResponsive>
+      </div>
     </div>
   );
 };

@@ -3,18 +3,39 @@
 $buttons-right-margin: 0; // 74px;
 $carousel-top-spacing: 55px;
 
+$carousel-width: $container-2-width;
+
 /* your css code */
 .BlogMultipleArticleCarouselWrapper {
+  position: relative;
+  margin-bottom: 20px;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
   .button {
     margin-bottom: $carousel-top-spacing;
+  }
+  //
+  //
+
+  .carouselWrapper-fixshadow {
+    margin-left: -20px;
+    margin-right: -20px;
   }
 
   .blog-carousel {
   }
 
-  .carousel-slider {
+  .carousel.carousel-slider {
     margin-top: -$carousel-top-spacing;
     margin-bottom: -$carousel-top-spacing;
+
+    .slide {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   .slider-wrapper {
@@ -28,14 +49,14 @@ $carousel-top-spacing: 55px;
   j'ai du faire un calcul sioux
   */
     .control-arrow {
-      margin-left: auto;
-      margin-right: -$container-2-width/2 + $buttons-right-margin;
+      margin-left: 0;
+      margin-right: auto; //-$carousel-width/2 + $buttons-right-margin;
       opacity: 1;
       left: auto;
-      right: 50%;
+      right: 20px;
       padding: 0;
       bottom: 100%;
-      top: auto;
+      top: -20px;
       width: 33px;
       height: 33px;
       background: none;
@@ -69,9 +90,17 @@ $carousel-top-spacing: 55px;
       flex-direction: row;
       align-items: stretch;
       justify-content: space-between;
+    }
 
+    .cols-3 {
       .carousel-item {
         width: 32.2%;
+      }
+    }
+
+    .cols-2 {
+      .carousel-item {
+        width: 49%;
       }
     }
   }
