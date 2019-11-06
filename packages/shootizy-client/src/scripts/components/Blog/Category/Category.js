@@ -1,7 +1,6 @@
 import React from "react";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import HeaderImage from "scripts/components/_common/HeaderImage";
 import List from "../List";
 import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 
@@ -22,19 +21,14 @@ const Category = ({ match }) => {
       path="/blog/category/:slug"
       render={() => (
         <div className="CategoryWrapper container-2">
-          <HeaderImage
-            src=""
-            preTitle="Blog"
-            title={`<strong>${category.name}</strong>`}
-            reverseColor={true}
-            useMask={false}
-          />
-
-          <div className="container-2">
+          <div>
             <ListCategories />
 
-            <main className="Blog-Content">
+            <main className="Blog-Content mt50">
               <content>
+                <h2 className="title txt-l mb50">
+                  <strong>{category.name}</strong>
+                </h2>
                 <List
                   cols={2}
                   hidden={true}
