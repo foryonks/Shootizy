@@ -9,6 +9,7 @@ import Icon from "scripts/components/Icon";
 const SocialSquares = ({ cols, nums, twitterPos, className, fill }) => {
   const { contents } = useRemoteContents(`/api/social?nums=${nums}&twitterPos=${twitterPos}`);
   const colClassName = `itemscols-${cols}`;
+  const emptyArray = (fill && contents && Array.from(Array(nums - contents.length))) || [];
 
   if (fill && contents && contents.length < nums) {
     for (var i = contents.length; i++; i < nums) {
@@ -19,21 +20,20 @@ const SocialSquares = ({ cols, nums, twitterPos, className, fill }) => {
     <div className={`SocialSquaresWrapper ${className}`}>
       {contents && (
         <div className={`row row-wrap ${colClassName}`}>
-          {contents.map(({ key, url, thumbnail, type, text, date, empty }) =>
-            empty ? (
-              <span className="item empty" />
-            ) : (
-              <a
-                key={key}
-                href={url}
-                className={`item item-${type}`}
-                style={{ backgroundImage: thumbnail ? `url("${thumbnail}")` : false }}>
-                {date && <time>{formatDate(date, "DD.MM.YYYY")}</time>}
-                {type === "twitter" && <span className="text">{sliceAndRemoveHTML(text, 12)}</span>}
-                <Icon name={type} />
-              </a>
-            )
-          )}
+          {contents.map(({ key, url, thumbnail, type, text, date, empty }) => (
+            <a
+              key={key}
+              href={url}
+              className={`item item-${type}`}
+              style={{ backgroundImage: thumbnail ? `url("${thumbnail}")` : false }}>
+              {date && <time>{formatDate(date, "DD.MM.YYYY")}</time>}
+              {type === "twitter" && <span className="text">{sliceAndRemoveHTML(text, 12)}</span>}
+              <Icon name={type} />
+            </a>
+          ))}
+          {emptyArray.map(() => (
+            <span className="item empty" />
+          ))}
         </div>
       )}
     </div>
