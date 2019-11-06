@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ThemesLister.scss";
 import Gallery from "../Gallery";
 
 const ThemesLister = ({ themesArray }) => {
-  const [currentTheme, setCurrentTheme] = useState(themesArray[0]);
+  const [currentTheme, setCurrentTheme] = useState(null);
+
+  useEffect(() => {
+    if (!currentTheme) {
+      setCurrentTheme(themesArray[0]);
+    }
+  }, [themesArray]);
 
   const changeImage = currentTheme => {
     themesArray.forEach(theme => (theme.selected = false));
@@ -28,10 +34,12 @@ const ThemesLister = ({ themesArray }) => {
           ))}
         </ul>
 
-        <div className="full-image">
-          <Gallery images={currentTheme.value} />
-          {/* <img src={`${currentTheme.value}`} alt="" /> */}
-        </div>
+        {currentTheme && (
+          <div className="full-image">
+            <Gallery images={currentTheme.value} />
+            {/* <img src={`${currentTheme.value}`} alt="" /> */}
+          </div>
+        )}
       </div>
     </div>
   );

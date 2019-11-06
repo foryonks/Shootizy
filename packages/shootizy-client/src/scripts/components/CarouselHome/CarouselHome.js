@@ -33,7 +33,7 @@ const CarouselHome = ({ history, children, useMask }) => {
                 <div
                   className="carouselHome-item header-image"
                   key={index}
-                  style={{ backgroundImage: `url(${img})` }}>
+                  style={{ backgroundImage: `url('${img}')` }}>
                   {/* <img src={img} alt="" className="carouselHome-image" /> */}
                   <div className="carouselHome-item-wrapper">
                     <div

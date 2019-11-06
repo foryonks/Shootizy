@@ -10,10 +10,9 @@ const path = require("path");
 const sharp = require("sharp");
 const {
   getFolderUpload,
-  isImage,
   moveFileOnUpload,
-  browseFiles: getFiles,
-  baseUrl,
+  browseFiles: listFiles,
+  BASE_URL,
   dateNow,
   sanitizePath,
 } = require("./helpers");
@@ -33,20 +32,21 @@ const formatEntry = ({ ...others }) => ({
  */
 const upload = async (filesMap, path) => {
   const files = Object.keys(filesMap).map(key => filesMap[key]);
-  let result;
+  let fileNames = [],
+    isImages = [];
   for (var i = 0; i < files.length; i++) {
-    result += await moveFileOnUpload(files[i], path);
+    const { fileName, isImage } = await moveFileOnUpload(files[i], path);
+    fileNames.push(fileName);
+    isImages.push(isImage);
   }
   var resultTest = {
     success: true,
     time: Date.now(),
     data: {
-      baseurl: baseUrl,
+      baseurl: BASE_URL,
       messages: [],
-      files: files.map(file => file.name),
-      isImages: files.map(file => {
-        return isImage(file.name);
-      }),
+      files: fileNames,
+      isImages,
       code: 220,
     },
   };
@@ -54,11 +54,11 @@ const upload = async (filesMap, path) => {
 };
 
 const browseFiles = path => {
-  const files = getFiles(path);
+  const files = listFiles(path);
   return formatEntry({
     sources: {
       default: {
-        baseurl: sanitizePath(baseUrl),
+        baseurl: sanitizePath(BASE_URL),
         path: sanitizePath(path),
         files,
       },
@@ -67,7 +67,7 @@ const browseFiles = path => {
 };
 
 const browseFolders = path => {
-  const folders = getFiles(path, {
+  const folders = listFiles(path, {
     foldersOnly: true,
     filter: file => !/_thumb/.test(file),
   });
@@ -75,7 +75,7 @@ const browseFolders = path => {
   return formatEntry({
     sources: {
       default: {
-        baseurl: sanitizePath(baseUrl),
+        baseurl: sanitizePath(BASE_URL),
         path: sanitizePath(path),
         folders,
       },

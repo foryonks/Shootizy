@@ -32,7 +32,7 @@ const Gallery = ({ images }) => {
                 onClick={() => {
                   showVisionneuse(image);
                 }}>
-                <span style={{ "background-image": `url(${image})` }} />
+                <span style={{ "background-image": `url('${image}')` }} />
               </div>
             ))}
           </div>

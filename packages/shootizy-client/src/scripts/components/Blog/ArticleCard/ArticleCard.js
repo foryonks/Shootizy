@@ -18,7 +18,7 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
     node || "div",
     { className: `ArticleCard ${className}` },
     <div>
-      <div className="img" style={{ backgroundImage: `url(${imageMini})` }} />
+      <div className="img" style={{ backgroundImage: `url('${imageMini}')` }} />
       <div className="card-desc">
         {category && (
           <div className="blog-cat-datetime">

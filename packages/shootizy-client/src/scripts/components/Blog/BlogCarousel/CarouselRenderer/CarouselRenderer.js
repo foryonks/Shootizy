@@ -8,7 +8,7 @@ const CarouselRenderer = ({ item, index, key }) => {
     <div className="BlogCarouselRenderer" key={key}>
       <div
         className="BlogCarouselRenderer-contentwrapper"
-        style={{ backgroundImage: `url(${imageLarge})` }}>
+        style={{ backgroundImage: `url('${imageLarge}')` }}>
         <div className="BlogCarousel-content">
           <div className="blog-cat-datetime">
             <span className="content-theme">{category.name}</span>

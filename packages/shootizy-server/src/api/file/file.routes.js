@@ -8,14 +8,7 @@ const { CustomError } = require("api/api.errors");
 const fileService = require("./file.service");
 const loginMiddleware = require("middleware/login");
 
-const {
-  getFolderUpload,
-  isImage,
-  baseUrl,
-  formatDate,
-  dateNow,
-  sanitizePath,
-} = require("./helpers");
+const { getFolderUpload, isImage } = require("./helpers");
 
 /**
  * TODO: Ajouter une vérification si le fichier existe et renomer le fichier avec un Date.now()
@@ -48,16 +41,18 @@ routes.post(
 routes.get(
   "/assets/:file*",
   asyncRouteWrapper(async (req, res) => {
-    const folder = getFolderUpload();
     const file = `${req.params.file}${req.params[0]}`;
+    if (!isImage(file)) {
+      throw new CustomError("Forbidden", 403);
+    }
+    const folder = getFolderUpload();
     const filePath = path.join(folder, file);
 
     if (!fs.existsSync(filePath) && /\/_thumb\//.test(filePath)) {
       await fileService.createThumb(filePath);
     }
-
-    if (!isImage(file)) {
-      throw new CustomError("Forbidden", 400);
+    if (!fs.existsSync(filePath)) {
+      throw new CustomError("File not found", 404);
     }
     res.sendFile(filePath);
   })
