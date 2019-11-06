@@ -17,15 +17,18 @@ $carousel-width: $container-2-width;
   .button {
     margin-bottom: $carousel-top-spacing;
   }
-  //
-  //
 
   .carouselWrapper-fixshadow {
     margin-left: -20px;
     margin-right: -20px;
   }
 
-  .blog-carousel {
+  .slideRow.cols-3,
+  .slideRow.cols-4 {
+    .commentsCount,
+    .ArticleCard-text {
+      display: none;
+    }
   }
 
   .carousel.carousel-slider {

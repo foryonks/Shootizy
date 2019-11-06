@@ -40,7 +40,7 @@ const Blog = props => {
                 <main className="Blog-Content">
                   <content>
                     <CategoryBlock categorySlug="categorie1" cols={2} />
-                    <CategoryBlock categorySlug="categorie2" cols={2} className="mt50" />
+                    <CategoryBlock categorySlug="categorie2" cols={3} className="mt50" />
                   </content>
                   <aside>
                     <GenericArticleList
