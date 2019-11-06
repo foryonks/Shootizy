@@ -23,7 +23,7 @@ const twitterGet = (url, params) => {
 };
 
 // Mise en cache de 30 minutes pour ce service (cf en bas de fichier)
-serviceCache = {};
+const serviceCache = {};
 
 /**
  * Return list of last social items
@@ -31,19 +31,23 @@ serviceCache = {};
  */ false;
 const list = async ({ nums = 4, twitterPos = "2" }) => {
   const serviceCacheKey = [`${nums}-${twitterPos}`];
-  twitterPos = twitterPos.split(",");
+  twitterPos = !twitterPos ? [] : twitterPos.split(",");
+
   if (serviceCache[serviceCacheKey]) return serviceCache[serviceCacheKey];
   const result = await ig.scrapeUserPage(instagramAccount);
   // instagram
   const instagram = result.medias
     .slice(0, nums - twitterPos.length)
-    .map(({ text, display_url, thumbnail, shortcode }) => ({
+    .map(({ text, display_url, thumbnail, shortcode, url }) => ({
       type: "instagram",
       text,
       image: display_url,
       thumbnail,
-      url: `https://www.instagram.com/p/${shortcode}`,
+      url,
+      //      url: `https://www.instagram.com/p/${shortcode}`,
     }));
+
+  console.log(result.total);
 
   // twitter
   const twitterResultTmp = await twitterGet("statuses/user_timeline", {

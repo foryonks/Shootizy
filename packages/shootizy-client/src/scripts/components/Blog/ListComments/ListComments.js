@@ -20,7 +20,8 @@ const ListComments = ({ sortBy, order, count, title }) => {
         {comments &&
           comments.map(({ _id, author, article }) => (
             <li key={_id}>
-              <div>
+              <span className="icon" />
+              <div className="text">
                 <strong>{author}</strong> sur{" "}
                 <strong>
                   <a href={`/blog/article/${article.slug}`}>{article.title}</a>

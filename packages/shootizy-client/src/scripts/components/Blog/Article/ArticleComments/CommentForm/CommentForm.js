@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./CommentForm";
+import "./CommentForm.scss";
 import Form from "scripts/components/Form";
 
 const FORM_FIELDS = [
-  { type: "text", name: "author", label: "Nom", isRequired: true },
-  { type: "textarea", rows: 3, name: "comment", label: "Commentaire", isRequired: true },
+  { type: "text", name: "author", label: "", placeholder: "Nom", isRequired: true },
+  {
+    type: "textarea",
+    rows: 4,
+    name: "comment",
+    label: "",
+    placeholder: "Écrivez un message...",
+    isRequired: true,
+  },
 ];
 const FORM_SUBMIT_BTN = { label: "Envoyer", className: "btn-green" };
 
@@ -22,10 +29,9 @@ const CommentForm = ({ articleId, onSubmit }) => {
 
   return hideForm ? null : (
     <div className="CommentFormWrapper">
-      <h3 className="title mb10">Ajouter un commentaire</h3>
       <Form
         id="form-comment"
-        className="form-comment"
+        className="form-comment generic-form"
         fields={FORM_FIELDS}
         submitBtn={FORM_SUBMIT_BTN}
         action="/api/blog/comment"

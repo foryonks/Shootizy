@@ -8,34 +8,16 @@ import CommentCaMarche3blocks from "./CommentCaMarche3blocks";
 import "./CommentCaMarchePage.scss";
 import Carousel from "scripts/components/CarouselHome";
 
-// const headerData = [
-//   {
-//     title: "Prenez Rendez-vous",
-//     text:
-//       "Choisissez la date et l'heure de votre shooting en 3 clics, tout est simple avec Shootizy",
-//   },
-//   {
-//     title: "Shooting au studio",
-//     text:
-//       "Choisissez la date et l'heure de votre shooting de 45 minutes en 3 clics, tout est simple avec shootizy",
-//   },
-//   {
-//     title: "Choisissez vos clichés",
-//     text: "Découvrez vos photos et payez uniquement celles que vous aimez",
-//   },
-// ];
-
 const CommentCaMarchePage = props => (
-  <article className="CommentCaMarchePageWrapper">
+  <article className="CommentCaMarchePageWrapper page-section-grey">
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
     <HeaderImage
-      className="header-image-generic with-header-cards"
+      className="header-image-generic with-header-cards mask-grey"
       src="/assets/design/headers/header-generic-bg1.png"
       preTitle="Comment ça marche"
       title="<strong>Votre shooting en 3 étapes</strong>">
       <CommentCaMarche3blocks className="header-blocs container-2" />
     </HeaderImage>
-
     <h2 className="title mt50 mb50">
       Aucune obligation d’achat ! <br />
       <strong>Payez seulement les photos que vous voulez !</strong>
@@ -73,7 +55,7 @@ const CommentCaMarchePage = props => (
           <p className="paragraph-messenger">
             <span className="img-messenger">
               <svg viewBox="0 0 39 39" version="1.1">
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                   <g
                     id="COMMENT-CA-MARCHE"
                     transform="translate(-970.000000, -2015.000000)"
@@ -151,7 +133,6 @@ const CommentCaMarchePage = props => (
         </Link>
       </p>
     </div>
-
     <Carousel useMask={false} />
   </article>
 );

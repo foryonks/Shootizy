@@ -1,5 +1,5 @@
 import React from "react";
-//import PropTypes from "prop-types";
+import { element } from "prop-types";
 import List from "../List";
 import ListRenderedSimple from "../List/ListRendererSimple";
 
@@ -7,22 +7,17 @@ import ListRenderedSimple from "../List/ListRendererSimple";
 
 const MostReadArticles = props => (
   <div className="MostReadArticlesWrapper">
-    <h3 className="Blog-block-title">Derniers articles</h3>
-    <List
-      sortBy="date"
-      limit="3"
-      render={ListRenderedSimple}
-      remoteContentsUrl="/api/blog/articles"
-    />
+    <h3 className="Blog-block-title">{props.title}</h3>
+    <List {...props} />
   </div>
 );
 
 MostReadArticles.propTypes = {
-  // bla: PropTypes.string,
+  render: element,
 };
 
 MostReadArticles.defaultProps = {
-  // bla: 'test',
+  render: ListRenderedSimple,
 };
 
 export default MostReadArticles;

@@ -2,24 +2,26 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import List from "./List";
 import BlogCarousel from "./BlogCarousel";
 import ListCategories from "./ListCategories";
-import MostReadArticles from "./MostReadArticles/MostReadArticles";
+import GenericArticleList from "./GenericArticleList";
 import ListComments from "./ListComments";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import BlogArticle from "scripts/components/Blog/Article";
 import BlogCategory from "scripts/components/Blog/Category";
+import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
 
 import "./Blog.scss";
 import "./Common.scss";
+import CategoryBlock from "./CategoryBlock/CategoryBlock";
+import BlockInstagram from "./BlockInstagram";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
    Shootizy !`;
 
   return (
-    <div className="BlogWrapper container-2">
+    <div className="BlogWrapper page-section-grey">
       <Helmet bodyAttributes={{ class: "header-padding-page" }} />
       <Switch>
         <Route path="/blog/article/:slug" component={BlogArticle} />
@@ -29,21 +31,46 @@ const Blog = props => {
           path="/blog"
           render={() => (
             <>
-              <HeaderImage preTitle="Blog" title={title} reverseColor={true} />
+              <HeaderImage preTitle="Blog" title={title} reverseColor={true} useMask={false} />
 
-              <BlogCarousel className="" />
-              <ListCategories />
+              <div className="container-2">
+                <BlogCarousel className="mask-grey" />
+                <ListCategories />
 
-              <main className="Blog-Content">
-                <content>
-                  <h3 className="Blog-block-title">Articles</h3>
-                  <List cols={2} hidden={true} remoteContentsUrl="/api/blog/articles" />
-                </content>
-                <aside>
-                  <MostReadArticles />
-                  <ListComments sortBy="date" order="desc" count="3" />
-                </aside>
-              </main>
+                <main className="Blog-Content">
+                  <content>
+                    <CategoryBlock categorySlug="categorie1" cols={2} />
+                    <CategoryBlock categorySlug="categorie2" cols={2} className="mt50" />
+                  </content>
+                  <aside>
+                    <GenericArticleList
+                      title="Derniers articles"
+                      sortBy="date"
+                      limit={3}
+                      remoteContentsUrl="/api/blog/articles"
+                    />
+                    <ListComments sortBy="date" order="desc" count="3" />
+                    <NewsletterSubscribeSmall />
+                  </aside>
+                </main>
+                <main className="Blog-Content">
+                  <content>
+                    <div className="row row-2">
+                      <div className="col">
+                        <GenericArticleList
+                          title="Actualité"
+                          sortBy="date"
+                          limit={4}
+                          remoteContentsUrl="/api/blog/category/actualite/articles"
+                        />
+                      </div>
+                    </div>
+                  </content>
+                  <aside>
+                    <BlockInstagram />
+                  </aside>
+                </main>
+              </div>
             </>
           )}
         />

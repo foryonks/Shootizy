@@ -1,12 +1,53 @@
-/* your css code */
+@import "~styles/variables";
+
 .ArticleCommentsWrapper {
+  max-width: 582px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .commentsWrapper {
+    margin-top: 100px;
+  }
+
   .comments {
     li {
-      margin-bottom: 10px;
-
-      > div {
-        margin-bottom: 2px;
+      &:after {
+        clear: both;
+        content: "";
+        display: table;
       }
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .comment-icon {
+      width: 50px;
+      height: 50px;
+      float: left;
+      margin-right: 15px;
+      background: url("/assets/design/icons/smiley-good.svg") no-repeat center center;
+      background-size: contain;
+    }
+
+    .comment-content {
+      overflow: hidden;
+    }
+
+    .comment-infos {
+      display: flex;
+      justify-content: space-between;
+      strong {
+        font-size: 24px;
+      }
+      .date {
+        font-size: 14px;
+        color: $main-text-color;
+        font-weight: bold;
+      }
+    }
+    .comment-text {
+      color: $main-text-color;
     }
   }
 }

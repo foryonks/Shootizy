@@ -1,0 +1,107 @@
+@import "~styles/functions";
+
+$buttons-right-margin: 0; // 74px;
+$carousel-top-spacing: 55px;
+
+$carousel-width: $container-2-width;
+
+/* your css code */
+.BlogMultipleArticleCarouselWrapper {
+  position: relative;
+  margin-bottom: 20px;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  .button {
+    margin-bottom: $carousel-top-spacing;
+  }
+  //
+  //
+
+  .carouselWrapper-fixshadow {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .blog-carousel {
+  }
+
+  .carousel.carousel-slider {
+    margin-top: -$carousel-top-spacing;
+    margin-bottom: -$carousel-top-spacing;
+
+    .slide {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .slider-wrapper {
+    padding-top: $carousel-top-spacing;
+    padding-bottom: $carousel-top-spacing;
+  }
+
+  .carousel.carousel-slider {
+    /** Le container principal des fleches fait la largeur de la page,
+  mais afin de contenir les flèches dans une zone précise,
+  j'ai du faire un calcul sioux
+  */
+    .control-arrow {
+      margin-left: 0;
+      margin-right: auto; //-$carousel-width/2 + $buttons-right-margin;
+      opacity: 1;
+      left: auto;
+      right: 20px;
+      padding: 0;
+      bottom: 100%;
+      top: -20px;
+      width: 33px;
+      height: 33px;
+      background: none;
+      color: #000;
+      font-size: 15px;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+        background: none;
+      }
+    }
+
+    .control-prev {
+      transform: translateX(-40px);
+      &:before {
+        transform: translateX(-10%);
+      }
+    }
+
+    .control-next:before {
+      transform: translateX(10%);
+    }
+
+    .slide {
+      background: none;
+    }
+
+    .slideRow {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+
+    .cols-3 {
+      .carousel-item {
+        width: 32.2%;
+      }
+    }
+
+    .cols-2 {
+      .carousel-item {
+        width: 49%;
+      }
+    }
+  }
+}
