@@ -11,11 +11,6 @@ const SocialSquares = ({ cols, nums, twitterPos, className, fill }) => {
   const colClassName = `itemscols-${cols}`;
   const emptyArray = (fill && contents && Array.from(Array(nums - contents.length))) || [];
 
-  if (fill && contents && contents.length < nums) {
-    for (var i = contents.length; i++; i < nums) {
-      contents.push({ empty: true });
-    }
-  }
   return (
     <div className={`SocialSquaresWrapper ${className}`}>
       {contents && (
