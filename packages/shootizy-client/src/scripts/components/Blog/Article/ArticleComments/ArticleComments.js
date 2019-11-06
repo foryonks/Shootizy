@@ -15,7 +15,7 @@ const ArticleComments = ({ articleId }) => {
   const { getCurrentPage, PaginationComponent } = usePagination(comments || [], ITEMS_PER_PAGE);
   return (
     <div className="ArticleCommentsWrapper">
-      <h3 className="Blog-block-title">
+      <h3 className="Blog-block-title txt-c">
         {comments.length} Commentaire{comments.length === 1 ? "" : "s"}
       </h3>
       <CommentForm
