@@ -35,7 +35,7 @@ const Blog = props => {
 
               <div className="container-2">
                 <BlogCarousel className="mask-grey" />
-                <ListCategories />
+                {/* <ListCategories /> */}
 
                 <main className="Blog-Content">
                   <content>
