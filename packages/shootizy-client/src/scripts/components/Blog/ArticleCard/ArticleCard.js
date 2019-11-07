@@ -7,7 +7,13 @@ import { sliceAndRemoveHTML } from "../../../utils/utils";
 import { blog } from "scripts/utils/routesManager";
 import { formatDateStd } from "../../../utils/DateUtils";
 
-const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.articleUrl }) => {
+const ArticleCard = ({
+  article,
+  node,
+  className = "",
+  getArticleUrl = blog.articleUrl,
+  history,
+}) => {
   let { title, text, category, imageMini, date, commentsCount } = article;
   const articleLink = getArticleUrl(article);
 
@@ -17,7 +23,10 @@ const ArticleCard = ({ article, node, className = "", getArticleUrl = blog.artic
   return React.createElement(
     node || "div",
     { className: `ArticleCard ${className}` },
-    <div>
+    <div
+      onClick={() => {
+        history.push(articleLink);
+      }}>
       <div className="img" style={{ backgroundImage: `url(${imageMini})` }} />
       <div className="card-desc">
         {category && (

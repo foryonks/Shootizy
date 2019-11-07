@@ -2,7 +2,7 @@
 
 $buttons-right-margin: 0; // 74px;
 $carousel-top-spacing: 55px;
-
+$margin-space-for-effects: 30px;
 $carousel-width: $container-2-width;
 
 /* your css code */
@@ -19,8 +19,8 @@ $carousel-width: $container-2-width;
   }
 
   .carouselWrapper-fixshadow {
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: -$margin-space-for-effects;
+    margin-right: -$margin-space-for-effects;
   }
 
   .slideRow.cols-3,
@@ -36,8 +36,8 @@ $carousel-width: $container-2-width;
     margin-bottom: -$carousel-top-spacing;
 
     .slide {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: $margin-space-for-effects;
+      padding-right: $margin-space-for-effects;
     }
   }
 
