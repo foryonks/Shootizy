@@ -31,7 +31,9 @@
   .slide {
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   .carousel.carousel-slider {
     .control-prev {
@@ -43,13 +45,53 @@
   }
 
   .imageViewer-image {
-    height: 100%;
-    width: 90%;
-    background: no-repeat center center;
-    background-size: contain;
+    height: 90%;
+    transform: translateY(5%);
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
+    display: inline-block;
+
+    div.image-outer {
+      // &:before {
+      //   content: "";
+      //   height: 100%;
+      //   display: inline-block;
+      //   width: 1px;
+      //   margin-right: -1px;
+      //   vertical-align: middle;
+      // }
+      height: 100%;
+      display: flex;
+      vertical-align: middle;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      vertical-align: middle;
+    }
+    .description {
+      color: #fff;
+      font-size: 14px;
+      display: block;
+      vertical-align: bottom;
+      position: relative;
+      height: 30px;
+      width: 100%;
+      span {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        left: 0;
+        text-align: justify;
+      }
+    }
   }
 }
 
