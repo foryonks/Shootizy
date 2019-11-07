@@ -67,7 +67,7 @@ const Public = () => (
       hideWith={[
         /accueil\/?$/,
         /comment-ca-marche/,
-        /shooting-studio\/?$/,
+        /shooting-studio/,
         /shooting-sur-mesure/,
         /notre-book/,
         /blog/,
@@ -78,6 +78,17 @@ const Public = () => (
       hideWith={[/comment-ca-marche/, /blog/, /shooting-sur-mesure/, /notre-book/]}>
       <div className="page-section section-container">
         <Themes />
+      </div>
+    </ShowHideWithRoute>
+    <ShowHideWithRoute
+      hideWith={[
+        /comment-ca-marche/,
+        /blog/,
+        /shooting-sur-mesure/,
+        /shooting-studio/,
+        /notre-book/,
+      ]}>
+      <div className="page-section section-container">
         <SurMesure />
       </div>
     </ShowHideWithRoute>

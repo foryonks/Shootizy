@@ -33,6 +33,7 @@ const ImageViewer = ({ images, selected, onClose }) => {
         selectedItem={selectedItem}
         items={images}
         render={ImageRenderer}
+        useKeyboardArrows={true}
       />
     </div>
   );
