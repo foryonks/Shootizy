@@ -20,12 +20,12 @@ class EditableImage extends Component {
 
   render() {
     const { src } = this.state;
-    const { maxWidth } = this.props;
+    const { maxWidth, alt } = this.props;
     return (
       <div className="editable-image">
         <img
           src={src}
-          alt=""
+          alt={alt}
           style={{
             maxWidth: maxWidth + "px",
           }}

@@ -6,6 +6,7 @@ import "./Header.scss";
 
 const NAV_LINKS = [
   { path: "/admin/booking", title: "Réservations" },
+  { path: "/admin/product", title: "Produits" },
   { path: "/admin/blog", title: "Blog" },
   { path: "/admin/contents", title: "Contenus" },
   { path: "/admin/ratings", title: "Avis clients" },

@@ -23,11 +23,12 @@ const Gallery = ({ images }) => {
   };
   return (
     <div className="GalleryWrapper row row-3">
-      {imagesMatrix.map(col => {
+      {imagesMatrix.map((col, indexCol) => {
         return (
-          <div className="col">
-            {col.map(image => (
+          <div className="col" key={indexCol}>
+            {col.map((image, indexImage) => (
               <div
+                key={indexImage}
                 className="image"
                 onClick={() => {
                   showVisionneuse(image);

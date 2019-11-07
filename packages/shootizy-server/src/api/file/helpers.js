@@ -164,6 +164,12 @@ const browseFiles = (filepath, { foldersOnly, filter = () => true } = {}) => {
       });
   }
 };
+
+const getThumbPath = filePath => {
+  const { dir, base } = path.parse(filePath);
+  return path.join(dir, "_thumb", base);
+};
+
 module.exports = {
   getFolderUpload,
   isImage,
@@ -174,4 +180,5 @@ module.exports = {
   formatDate,
   dateNow,
   sanitizePath,
+  getThumbPath,
 };

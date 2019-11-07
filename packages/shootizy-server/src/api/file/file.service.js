@@ -15,6 +15,7 @@ const {
   BASE_URL,
   dateNow,
   sanitizePath,
+  getThumbPath,
 } = require("./helpers");
 
 const formatEntry = ({ ...others }) => ({
@@ -88,8 +89,8 @@ const remove = (folder, filename = "") => {
   if (filename) {
     shell.rm(folderOrFile);
     // remove thumb of file
-    const { dir, base } = path.parse(folderOrFile);
-    shell.rm(path.join(dir, "_thumb", base));
+    const thumbPath = getThumbPath(folderOrFile);
+    shell.rm(thumbPath);
   } else {
     //if not filename, then use -rf params
     shell.rm("-rf", folderOrFile);
@@ -107,6 +108,13 @@ const move = (from, folderPath) => {
   let folderDest = path.join(getFolderUpload(), folderPath);
   let folderOrFileFrom = path.join(getFolderUpload(), from);
   shell.mv("-f", folderOrFileFrom, folderDest);
+  // Move thumbs
+  const thumbPath = getThumbPath(folderOrFileFrom);
+  if (fs.existsSync(thumbPath)) {
+    const thumbsFolder = `${folderDest}/_thumb`;
+    shell.mkdir("-p", thumbsFolder);
+    shell.mv("-f", thumbPath, thumbsFolder);
+  }
   return formatEntry({});
 };
 

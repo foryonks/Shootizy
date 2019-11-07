@@ -6,7 +6,7 @@ const ThemesLister = ({ themesArray }) => {
   const [currentTheme, setCurrentTheme] = useState(null);
 
   useEffect(() => {
-    if (!currentTheme) {
+    if (!themesArray) {
       setCurrentTheme(themesArray[0]);
     }
   }, [themesArray]);
