@@ -1,8 +1,8 @@
 /* your css code */
 $item-top: 3%;
 $item-bottom: 13%;
-$shadow-width-min: 18%;
-$shadow-width-max: 28%;
+$shadow-width-min: 0.5;
+$shadow-width-max: 1;
 $duration: 6s;
 
 .studio-photo-container {
@@ -38,13 +38,14 @@ $duration: 6s;
   }
 
   .shadow {
-    width: 100%;
+    width: 28%;
     position: absolute;
     bottom: 29%;
     margin-left: auto;
     margin-right: auto;
     background: url("/assets/design/shooting-studio/floatting/shadow.png") center center no-repeat;
     background-size: contain;
+    transform: scale(1);
     animation: $duration infinite ease-in-out shooting-studio-shadow;
 
     &:before {
@@ -90,7 +91,7 @@ $duration: 6s;
 @keyframes shooting-studio-shadow {
   0% {
     opacity: 1;
-    width: $shadow-width-min;
+    //width: $shadow-width-min;
     transform: scale(0);
   }
   4% {
@@ -100,20 +101,20 @@ $duration: 6s;
     transform: scale(0.9);
   }
   12% {
-    transform: scale(1);
+    //transform: scale(1);
   }
 
   25% {
-    width: $shadow-width-max;
+    transform: scale($shadow-width-max);
   }
   50% {
-    width: $shadow-width-min;
+    transform: scale($shadow-width-min);
   }
   75% {
-    width: $shadow-width-max;
+    transform: scale($shadow-width-max);
   }
   100% {
-    width: $shadow-width-min;
-    transform: scale(1);
+    transform: scale($shadow-width-min);
+    //transform: scale(1);
   }
 }
