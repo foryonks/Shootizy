@@ -13,6 +13,7 @@ import HeaderImage from "scripts/components/_common/HeaderImage";
 import { Helmet } from "react-helmet";
 import CommentCaMarche from "scripts/components/Home/CommentCaMarche";
 import Gallery from "scripts/components/_common/Gallery";
+import Themes from "scripts/components/Home/Themes/Themes";
 
 import "./Product.scss";
 
@@ -100,6 +101,7 @@ const Product = ({ match }) => {
       </div>
 
       <CommentCaMarche className="CommentCaMarche-Home" />
+      <Themes />
     </div>
   );
 };

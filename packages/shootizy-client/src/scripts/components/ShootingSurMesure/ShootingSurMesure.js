@@ -7,6 +7,7 @@ import SurMesure from "./SurMesure";
 import { Link } from "react-router-dom";
 import FloatingBody from "./FloatingBody";
 import Realisations from "scripts/components/ShootingSurMesure/Realisations";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 
 const ShootingStudio = () => {
   return (
@@ -97,6 +98,8 @@ const ShootingStudio = () => {
           </div>
         </div>
       </div>
+
+      <VenirAuStudio />
     </div>
   );
 };

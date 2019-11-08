@@ -5,14 +5,16 @@ import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 
 // Global Layout components :
 import Header from "scripts/components/Header";
-import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
-import Themes from "scripts/components/Home/Themes/Themes";
-import SurMesure from "scripts/components/ShootingSurMesure/SurMesure/SurMesure";
-import LazyLoad from "react-lazyload";
-import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
-import BlogSmall from "scripts/components/Blog/BlogSmall";
+//import LazyLoad from "react-lazyload";
 import Footer from "scripts/components/Footer";
-import CommentCaMarche3blocks from "scripts/components/CommentCaMarchePage/CommentCaMarche3blocks";
+
+// import ShootizyTarifs from "scripts/components/Home/ShootizyTarifs";
+// import Themes from "scripts/components/Home/Themes/Themes";
+// import SurMesure from "scripts/components/ShootingSurMesure/SurMesure/SurMesure";
+// import CommentCaMarche3blocks from "scripts/components/CommentCaMarchePage/CommentCaMarche3blocks";
+// import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
+// import BlogSmall from "scripts/components/Blog/BlogSmall";
+// import FooterSocial from "scripts/components/Footer/FooterSocial";
 
 // Pages
 import Home from "scripts/components/Home";
@@ -26,7 +28,7 @@ import NotreBook from "scripts/components/NotreBook";
 import Tarifs from "scripts/components/Tarifs";
 import Newsletter from "scripts/components/Newsletter";
 import Contact from "scripts/components/Contact";
-import ShowHideWithRoute from "../../components/ShowHideWithRoute/ShowHideWithRoute";
+//import ShowHideWithRoute from "../../components/ShowHideWithRoute/ShowHideWithRoute";
 
 const Public = () => (
   <>
@@ -63,52 +65,18 @@ const Public = () => (
         </Switch>
       )}
     />
-    <ShowHideWithRoute
-      hideWith={[
-        /accueil\/?$/,
-        /comment-ca-marche/,
-        /shooting-studio/,
-        /shooting-sur-mesure/,
-        /notre-book/,
-        /blog/,
-      ]}>
-      <ShootizyTarifs />
-    </ShowHideWithRoute>
-    <ShowHideWithRoute
-      hideWith={[/comment-ca-marche/, /blog/, /shooting-sur-mesure/, /notre-book/]}>
-      <div className="page-section section-container">
-        <Themes />
-      </div>
-    </ShowHideWithRoute>
-    <ShowHideWithRoute
-      hideWith={[
-        /comment-ca-marche/,
-        /blog/,
-        /shooting-sur-mesure/,
-        /shooting-studio/,
-        /notre-book/,
-      ]}>
-      <div className="page-section section-container">
-        <SurMesure />
-      </div>
-    </ShowHideWithRoute>
-    <ShowHideWithRoute showWith={[/shooting-studio\/?$/]}>
-      <div className="page-section page-section-green">
-        <CommentCaMarche3blocks className="container-2" />
-      </div>
-    </ShowHideWithRoute>
 
-    <LazyLoad height={400}>
+    {/* <LazyLoad height={400}>
       <ShowHideWithRoute>
         <VenirAuStudio />
       </ShowHideWithRoute>
-    </LazyLoad>
+    </LazyLoad> */}
 
-    <LazyLoad height={200}>
+    {/* <LazyLoad height={200}>
       <ShowHideWithRoute hideWith={[/blog/, /comment-ca-marche/, /shooting-studio\/?$/]}>
         <BlogSmall />
       </ShowHideWithRoute>
-    </LazyLoad>
+    </LazyLoad> */}
     <Footer />
   </>
 );

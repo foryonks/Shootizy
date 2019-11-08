@@ -5,6 +5,11 @@ import { Helmet } from "react-helmet";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import Product from "scripts/components/Product";
 import FloattingItems from "./FloattingItems";
+import CarouselHome from "scripts/components/CarouselHome";
+import Themes from "scripts/components/Home/Themes";
+import SurMesure from "scripts/components/ShootingSurMesure/SurMesure";
+import CommentCaMarche from "../Home/CommentCaMarche";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import "./ShootingStudio.scss";
 
 const Main = () => (
@@ -89,10 +94,15 @@ const Main = () => (
         </div>
       </div>
     </div>
-    {/* <div className="page-section section-container">
+
+    <div className="section-container">
       <Themes />
-      <ShootingSurMesure/>
-    </div> */}
+      <SurMesure fullForm={true} />
+    </div>
+
+    <CommentCaMarche />
+    <CarouselHome useMask={false} />
+    <VenirAuStudio />
   </>
 );
 
