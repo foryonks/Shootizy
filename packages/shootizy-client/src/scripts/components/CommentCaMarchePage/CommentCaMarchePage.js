@@ -5,8 +5,10 @@ import HeaderImage from "scripts/components/_common/HeaderImage";
 import { Helmet } from "react-helmet";
 import Prices from "scripts/components/_common/Prices";
 import CommentCaMarche3blocks from "./CommentCaMarche3blocks";
+import CarouselHome from "scripts/components/CarouselHome";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
+
 import "./CommentCaMarchePage.scss";
-import Carousel from "scripts/components/CarouselHome";
 
 const CommentCaMarchePage = props => (
   <article className="CommentCaMarchePageWrapper page-section-grey">
@@ -133,7 +135,8 @@ const CommentCaMarchePage = props => (
         </Link>
       </p>
     </div>
-    <Carousel useMask={false} />
+    <CarouselHome useMask={false} />
+    <VenirAuStudio />
   </article>
 );
 

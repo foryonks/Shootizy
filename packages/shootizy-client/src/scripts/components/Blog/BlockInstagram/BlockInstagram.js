@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./BlockInstagram.scss";
 import SocialSquares from "scripts/components/_common/SocialSquares";
 
