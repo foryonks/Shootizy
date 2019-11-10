@@ -63,7 +63,7 @@ const data = [
       },
       {
         label: "Confidentialité",
-        link: "/confidentialite",
+        link: "/politique-confidentialite",
       },
       {
         label: "Cookies",

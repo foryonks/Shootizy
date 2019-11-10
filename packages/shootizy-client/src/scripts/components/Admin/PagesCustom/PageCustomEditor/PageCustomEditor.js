@@ -50,6 +50,7 @@ const FORM_FIELDS = [
       {
         type: "custom",
         name: "text",
+        label: "Texte",
         isRequired: true,
         fullWidth: true,
         props: { rows: "3" },
@@ -80,6 +81,9 @@ const PageCustomEditor = ({ pageSlug }) => {
     return {
       ...contents,
       ...data,
+      slug: pageSlug,
+      type: "page",
+      modifiedDate: new Date(),
     };
   };
 

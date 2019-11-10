@@ -5,6 +5,14 @@
   background: #fff no-repeat center center url("/assets/backgrounds/politique-confid.png");
 }
 
+.PageCustomWrapper {
+  .update-date {
+    color: $grey-text;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+}
+
 .pageCustom-content {
   font-size: 0.9rem;
   color: rgba(0, 0, 0, 0.5);
