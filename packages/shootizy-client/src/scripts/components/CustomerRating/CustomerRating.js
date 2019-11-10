@@ -37,7 +37,7 @@ const CustomerRating = () => {
         </div>
 
         <div className="container container-2 mt50">
-          <List ratings={ratings} />
+          <List ratings={ratings} className="mb100" />
           <div className="block-forms block block-corners block-primary-background mt50">
             <div className="txt-c">
               <Smiley score={5} className="smallSmiley" />{" "}

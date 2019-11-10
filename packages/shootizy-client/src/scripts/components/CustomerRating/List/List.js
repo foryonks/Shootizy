@@ -4,17 +4,18 @@ import PropTypes from "prop-types";
 import usePagination from "scripts/hooks/usePagination";
 import Smiley from "../Smiley";
 import { formatDate } from "scripts/utils/DateUtils";
+import Columned from "react-columned";
 
 const ITEMS_PER_PAGE = 9;
 
-const List = ({ ratings }) => {
+const List = ({ ratings, className }) => {
   const { getCurrentPage, PaginationComponent } = usePagination(ratings || [], ITEMS_PER_PAGE);
 
   return (
-    <>
-      <ul className="row row-3 row-stretch row-margin row-wrap ratings-list">
+    <div className={className}>
+      <Columned className="ratings-list" columns={{ "480": 1, "800": 2, "1000": 3 }}>
         {getCurrentPage().map(({ ratingId, name, shootingDate, score, comment }, index) => (
-          <li key={ratingId} className="card card-simple card-shadow">
+          <div key={ratingId} className="card card-simple card-shadow">
             <div className="rating-score-row">
               <Smiley score={score} />
               <div className="score-number">
@@ -24,11 +25,11 @@ const List = ({ ratings }) => {
             <h3 className="name">{name}</h3>
             <time>{formatDate(shootingDate)}</time>
             <p className="comment">{comment}</p>
-          </li>
+          </div>
         ))}
-      </ul>
+      </Columned>
       {PaginationComponent}
-    </>
+    </div>
   );
 };
 
