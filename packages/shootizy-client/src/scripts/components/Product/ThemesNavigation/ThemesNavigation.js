@@ -9,7 +9,7 @@ const ThemesNavigation = ({ showImage }) => {
   const list = appState.themes || [];
 
   return (
-    <ul className="ThemesNavigation container-2">
+    <ul className="ThemesNavigation container-2 list-buttons">
       {list.map(({ title, image, productId }, index) => (
         <li key={index}>
           <NavLink to={`/shooting-studio/${productId}`}>

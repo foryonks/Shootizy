@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import "jodit";
 import "jodit/build/jodit.min.css";
@@ -15,7 +15,7 @@ const Editor = React.memo(({ onChange, content }) => {
 
   return (
     <div className="Editor rte-content">
-      <JoditEditor value={content} config={editorConfig} onChange={onChange} />
+      <JoditEditor value={content} config={editorConfig} onChange={onEditorChange} />
     </div>
   );
 });

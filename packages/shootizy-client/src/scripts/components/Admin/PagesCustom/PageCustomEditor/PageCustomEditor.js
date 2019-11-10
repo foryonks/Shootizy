@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { string } from "prop-types";
 import "./PageCustomEditor.scss";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import Form from "scripts/components/Form";
@@ -7,32 +7,71 @@ import Editor from "scripts/components/_common/Editor";
 
 const FORM_FIELDS = [
   { type: "hidden", name: "id" },
-  { type: "text", name: "title", label: "Title", placeholder: "Nom", isRequired: true },
   {
-    type: "hidden",
-    name: "slug",
-    placeholder: "Slug obligatoire pour l'url",
+    type: "fieldset",
+    className: "form-fieldset-left",
+    children: [
+      {
+        type: "text",
+        label: "Pré-titre",
+        name: "preTitle",
+        placeholder: "Nom",
+        isRequired: true,
+      },
+      {
+        type: "custom",
+        name: "title",
+        label: "Titre",
+        isRequired: true,
+        fullWidth: true,
+        props: { rows: "3" },
+        render: (value, isError, onChange, onValidate) => {
+          return (
+            <Editor
+              content={value}
+              onChange={content => {
+                onChange("title", content);
+              }}
+            />
+          );
+        },
+      },
+      {
+        type: "hidden",
+        name: "slug",
+        //placeholder: "Slug (obligatoire pour l'url)",
+      },
+    ],
   },
   {
-    type: "custom",
-    name: "text",
-    isRequired: true,
-    fullWidth: true,
-    props: { rows: "3" },
-    render: (value, isError, onChange, onValidate) => {
-      return (
-        <Editor
-          content={value}
-          onChange={content => {
-            onChange("text", content);
-          }}
-        />
-      );
-    },
+    type: "fieldset",
+    className: "form-fieldset-right",
+    children: [
+      {
+        type: "custom",
+        name: "text",
+        isRequired: true,
+        fullWidth: true,
+        props: { rows: "3" },
+        render: (value, isError, onChange, onValidate) => {
+          return (
+            <Editor
+              content={value}
+              onChange={content => {
+                onChange("text", content);
+              }}
+            />
+          );
+        },
+      },
+    ],
   },
 ];
 
-const FORM_SUBMIT_BTN = { label: "Sauvegarder", className: "btn-green" };
+const FORM_SUBMIT_BTN = {
+  label: "Sauvegarder",
+  className: "form-submit-button btn-green btn-small",
+};
 
 const PageCustomEditor = ({ pageSlug }) => {
   const { contents } = useRemoteContents(`/api/contents/page/${pageSlug}`);
@@ -58,7 +97,7 @@ const PageCustomEditor = ({ pageSlug }) => {
 
         <Form
           id="form-comment"
-          className="form-comment generic-form"
+          className="generic-form form-with-columns mt100"
           fields={FORM_FIELDS}
           submitBtn={FORM_SUBMIT_BTN}
           action="/api/contents"
@@ -74,11 +113,6 @@ const PageCustomEditor = ({ pageSlug }) => {
 };
 
 PageCustomEditor.propTypes = {
-  // bla: PropTypes.string,
+  pageSlug: string,
 };
-
-PageCustomEditor.defaultProps = {
-  // bla: 'test',
-};
-
 export default PageCustomEditor;
