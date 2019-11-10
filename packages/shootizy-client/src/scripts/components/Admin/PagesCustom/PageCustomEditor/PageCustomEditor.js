@@ -50,6 +50,7 @@ const FORM_FIELDS = [
       {
         type: "custom",
         name: "text",
+        label: "Texte",
         isRequired: true,
         fullWidth: true,
         props: { rows: "3" },
@@ -80,21 +81,17 @@ const PageCustomEditor = ({ pageSlug }) => {
     return {
       ...contents,
       ...data,
+      slug: pageSlug,
+      type: "page",
+      modifiedDate: new Date(),
     };
   };
 
-  const handleSubmitSuccess = updatedPage => {
-    // Slug changed
-    // if (updatedPage.slug !== article.slug) {
-    //   history.replace(`/admin/blog/article/${updatedPage.slug}`);
-    // }
-  };
+  const handleSubmitSuccess = updatedPage => {};
 
   return (
     <div className="PageCustomEditorWrapper">
       <div>
-        {/* <h2>{currentPage.title}</h2> */}
-
         <Form
           id="form-comment"
           className="generic-form form-with-columns mt100"

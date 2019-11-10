@@ -68,6 +68,7 @@ const Public = () => (
             title="Politique de confidentialité"
             component={PageCustom}
           />
+          <CrumbRoute path="/mentions-legales" title="Mentions légales" component={PageCustom} />
 
           <Route path="/accueil" component={Home} />
           <Redirect to="/accueil" />

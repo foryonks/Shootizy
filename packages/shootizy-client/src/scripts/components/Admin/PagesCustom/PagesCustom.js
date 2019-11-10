@@ -18,6 +18,7 @@ const PagesCustom = props => {
           <select className="select" onChange={onChange}>
             <option>---- Pages ----</option>
             <option value="politique-confidentialite">Page de Confidentialité</option>
+            <option value="mentions-legales">Mentions légales</option>
           </select>
         </div>
         {pageSlug && <PageCustomEditor pageSlug={pageSlug} />}
