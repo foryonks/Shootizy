@@ -8,6 +8,7 @@ import List from "./List";
 import "./CustomerRating.scss";
 import HeaderImage from "../_common/HeaderImage";
 import GlobalRating from "./GlobalRating";
+import Smiley from "./Smiley";
 
 const CustomerRating = () => {
   const { contents: ratings /*, load: reloadList */ } = useRemoteContents("/api/ratings", {
@@ -16,34 +17,39 @@ const CustomerRating = () => {
   const { loadGlobalRating } = useContext(AppContext);
 
   return (
-    <div className="CustomerRatingWrapper page-container">
+    <div className="CustomerRatingWrapper page-container-grey">
       <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} />
       <HeaderImage
-        className="header-image-generic header-reverse"
-        // src="/assets/design/headers/header-shooting-studio.png"
-        preTitle="Shooting sur mesure"
-        title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
-      />
-      <div className="container  container-2">
-        <h2 className="title">Avis de nos clients</h2>
-        <p>
-          Nous apportons toute l'importance à nos clients, chaque rendez-vous se doit d'être
-          parfait.
-        </p>
-      </div>
-      <div className="page-section section-container">
-        <div className="container container-2">
-          <div className="container-inside">
-            <div className="card card-simple">
-              <GlobalRating className="customer-rating__total" showDetails />
-            </div>
+        className="header-image-generic header-reverse mask-grey"
+        preTitle="Avis clients"
+        title={() => (
+          <div>
+            <GlobalRating className="customer-rating__total" />
+            <div>Et vous vous en pensez quoi ?</div>
           </div>
+        )}
+      />
+      <div className="page-section-grey">
+        <div className="button-container-centered-header button-container-centered">
+          <a href="#donnezavis" className="btn-green">
+            Donnez-votre avis
+          </a>
+        </div>
+
+        <div className="container container-2 mt50">
           <List ratings={ratings} />
-          <div className="container-inside">
-            <div className="card card-simple">
-              <h1>Votre avis compte !</h1>
-              <h2>Vous êtes venus, laissez nous votre avis sur votre séance</h2>
-              <br />
+          <div className="block-forms block block-corners block-primary-background mt50">
+            <div className="txt-c">
+              <Smiley score={5} className="smallSmiley" />{" "}
+              <Smiley score={0} className="smallSmiley" />
+            </div>
+            <h3 className="title txt-c">Votre avis compte !</h3>
+            <p className="txt-c">
+              Vous êtes venus chez Shootizy et vous souhaitez nous dire ce que vous avez pensé de
+              votre shooting ?<br />
+              <strong>Dites-nous tout, on vous écoute !</strong>
+            </p>
+            <div className="block-content">
               <AddRating
                 onSubmit={() => {
                   loadGlobalRating();

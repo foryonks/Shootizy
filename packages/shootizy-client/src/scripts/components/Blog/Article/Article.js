@@ -7,7 +7,7 @@ import HeaderImage from "scripts/components/_common/HeaderImage";
 import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
 import { Helmet } from "react-helmet";
 import GenericArticleList from "../GenericArticleList";
-import { formatDateStd } from "../../../utils/DateUtils";
+import { formatDateStd } from "scripts/utils/DateUtils";
 import ArticleComments from "./ArticleComments/ArticleComments";
 import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 
