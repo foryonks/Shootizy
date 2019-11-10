@@ -11,17 +11,17 @@ const Pagination = ({ total, limit, offset, onNextClick, onPreviousClick, onPage
   return (
     <div className="pagination">
       <button
-        className="pagination__nav-button"
+        className="pagination__nav-button pagination__nav-button-prevnext"
         disabled={currentPage === 1}
         onClick={onPreviousClick}>
-        Précédent
+        &lt;
       </button>
       <ul className="pagination__page-list inline-menu">
         {[...Array(totalPages)].map((_, index) => {
           const pageNumber = index + 1;
           return (
             <li key={pageNumber}>
-              {pageNumber > 1 && <span className="pagination__page-list__separator">-</span>}
+              {/* {pageNumber > 1 && <span className="pagination__page-list__separator">-</span>} */}
               <span
                 className={classNamesDedupe("pagination__page-list__item", {
                   "pagination__page-list__item--active": currentPage === pageNumber,
@@ -34,10 +34,10 @@ const Pagination = ({ total, limit, offset, onNextClick, onPreviousClick, onPage
         })}
       </ul>
       <button
-        className="pagination__nav-button"
+        className="pagination__nav-button pagination__nav-button-prevnext"
         disabled={currentPage === totalPages}
         onClick={onNextClick}>
-        Suivant
+        &gt;
       </button>
     </div>
   );

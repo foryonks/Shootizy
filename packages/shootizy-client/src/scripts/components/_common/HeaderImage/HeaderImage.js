@@ -41,7 +41,7 @@ const HeaderImage = ({
             )}
             {title && (
               <h2 className="title bigTitle">
-                <Interweave content={title} />
+                {typeof title === "string" ? <Interweave content={title} /> : title()}
               </h2>
             )}
             {subTitle && (

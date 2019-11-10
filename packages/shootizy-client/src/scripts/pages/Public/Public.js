@@ -28,6 +28,7 @@ import NotreBook from "scripts/components/NotreBook";
 import Tarifs from "scripts/components/Tarifs";
 import Newsletter from "scripts/components/Newsletter";
 import Contact from "scripts/components/Contact";
+import PageCustom from "scripts/components/PageCustom";
 //import ShowHideWithRoute from "../../components/ShowHideWithRoute/ShowHideWithRoute";
 
 const Public = () => (
@@ -60,6 +61,14 @@ const Public = () => (
           <CrumbRoute path="/notre-book" title="Notre book" component={NotreBook} />
           <CrumbRoute title="Shooting Studio" path="/shooting-studio" component={ShootingStudio} />
           <CrumbRoute path="/booking" title="Réservation" component={Booking} />
+
+          {/* Pages Custom */}
+          <CrumbRoute
+            path="/politique-confidentialite"
+            title="Politique de confidentialité"
+            component={PageCustom}
+          />
+
           <Route path="/accueil" component={Home} />
           <Redirect to="/accueil" />
         </Switch>
