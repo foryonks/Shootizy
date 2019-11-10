@@ -21,6 +21,23 @@ const getByContentId = async contentId => {
 };
 
 /**
+ * Return content by contentId
+ * @param {string} contentId
+ * @returns {object}
+ */
+const updateContent = async content => {
+  const db = await mongoDb.getInstance();
+  const contentId = content.contentId || (content.type ? content.type + "/" : "") + content.slug;
+
+  const result = await db
+    .collection("contents")
+    .updateOne({ contentId }, { $set: content }, { upsert: true });
+
+  const contentUpdated = await db.collection("contents").findOne({ contentId });
+  return contentUpdated;
+};
+
+/**
  * Return list of contents applied to filters
  * @param {object} [filters]
  * @returns {array}
@@ -44,4 +61,5 @@ const list = async (filters = {}) => {
 module.exports = {
   getByContentId,
   list,
+  updateContent,
 };

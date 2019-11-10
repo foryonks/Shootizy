@@ -4,6 +4,7 @@ import Header from "./Header";
 import Blog from "./Blog";
 import BlogArticle from "./Blog/Article";
 import Booking from "./Booking";
+import PagesCustom from "./PagesCustom";
 
 import "./Admin.scss";
 
@@ -21,6 +22,7 @@ const Admin = () => {
           <Route path="/admin/blog" component={Blog} />
           <Route path="/admin/contents" component={SampleComponent} />
           <Route path="/admin/ratings" component={SampleComponent} />
+          <Route path="/admin/pagescustom" component={PagesCustom} />
           <Redirect to="/admin/booking" />
         </Switch>
       </div>
