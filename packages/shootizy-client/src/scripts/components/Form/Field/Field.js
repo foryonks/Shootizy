@@ -5,7 +5,6 @@ import React, { useMemo } from "react";
 import classNamesDedupe from "classnames/dedupe";
 import PropTypes from "prop-types";
 import Interweave from "interweave";
-
 import Select from "react-select";
 import Datepicker from "scripts/components/_common/Datepicker";
 import Checkbox from "scripts/components/_common/Checkbox";
@@ -109,7 +108,14 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
       );
       break;
     case "select":
-      Input = <Select {...extendedProps || {}} options={list} />;
+      Input = (
+        <Select
+          className="react-select"
+          classNamePrefix="react-select"
+          {...extendedProps || {}}
+          options={list}
+        />
+      );
       break;
     case "checkbox":
       const checkboxProps = {

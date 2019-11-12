@@ -4,6 +4,7 @@ import "./Newsletter.scss";
 import { Helmet } from "react-helmet";
 import { FORM_FIELDS_MAIN } from "./NewsletterFormFields";
 import Form from "scripts/components/Form";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 
 const FORM_SUBMIT_BTN = {
   className: "btn-white btn-centered",
@@ -12,8 +13,10 @@ const FORM_SUBMIT_BTN = {
 };
 
 const NotreBook = props => (
-  <div className="NewsletterWrapper page-container">
-    <Helmet bodyAttributes={{ class: "header-padding-page-without-headerimage" }} />
+  <div className="NewsletterWrapper ">
+    <Helmet
+      bodyAttributes={{ class: "header-padding-page-without-headerimage page-section-grey" }}
+    />
     <div className="block-forms block block-corners block-primary-background container-2 txt-c">
       <div className="block-content">
         <h2 className="smallTitle">Newsletter</h2>
@@ -37,6 +40,9 @@ const NotreBook = props => (
           showFieldErrorFeedback={false}
         />
       </div>
+    </div>
+    <div className="container-2 mt100">
+      <VenirAuStudio />
     </div>
   </div>
 );

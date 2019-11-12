@@ -40,13 +40,13 @@ const NotreBook = props => (
             Vous êtes à quelques clics de vivre l'expérience Shootizy, le Shooting au goût de
             revenez-y.
           </div>
-          <div className="advertphrase">
+          {/* <div className="advertphrase">
             Profitez de nos bons plans réguliers, offres spéciales et partenariats avantageux…{" "}
-          </div>
+          </div> */}
         </div>
 
         <Form
-          className="form-newsletter"
+          className="form-newsletter generic-form"
           id="form-newsletter"
           fields={FORM_FIELDS}
           submitBtn={FORM_SUBMIT_BTN}
