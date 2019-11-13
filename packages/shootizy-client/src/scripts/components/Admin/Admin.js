@@ -26,6 +26,7 @@ const Admin = () => {
           <Route path="/admin/contents" component={SampleComponent} />
           <Route path="/admin/ratings" component={SampleComponent} />
           <Route path="/admin/pagescustom" component={PagesCustom} />
+          <Route path="/admin/tarifs" component={PagesCustom} />
           <Redirect to="/admin/booking" />
         </Switch>
       </div>

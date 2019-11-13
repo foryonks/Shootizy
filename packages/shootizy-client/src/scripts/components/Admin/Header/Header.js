@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { path: "/admin/blog", title: "Blog" },
   { path: "/admin/contents", title: "Contenus" },
   { path: "/admin/ratings", title: "Avis clients" },
+  //{ path: "/admin/tarifs", title: "Tarifs" },
   { path: "/admin/pagescustom", title: "Pages Custom" },
 ];
 

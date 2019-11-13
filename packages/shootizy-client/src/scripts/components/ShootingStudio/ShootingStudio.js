@@ -8,7 +8,7 @@ import FloattingItems from "./FloattingItems";
 import CarouselHome from "scripts/components/CarouselHome";
 import Themes from "scripts/components/Home/Themes";
 import SurMesure from "scripts/components/ShootingSurMesure/SurMesure";
-import CommentCaMarche from "../Home/CommentCaMarche";
+import CommentCaMarche from "scripts/components/Home/CommentCaMarche";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import "./ShootingStudio.scss";
 

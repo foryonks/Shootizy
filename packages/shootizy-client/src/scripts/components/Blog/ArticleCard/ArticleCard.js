@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-//import PropTypes from "prop-types";
+import { bool } from "prop-types";
 import "./ArticleCard.scss";
 import { sliceAndRemoveHTML } from "../../../utils/utils";
 //import Icon from "scripts/components/Icon";
@@ -13,6 +13,7 @@ const ArticleCard = ({
   className = "",
   getArticleUrl = blog.articleUrl,
   history,
+  showDesc,
 }) => {
   let { title, text, category, imageMini, date, commentsCount } = article;
   const articleLink = getArticleUrl(article);
@@ -67,12 +68,21 @@ const ArticleCard = ({
           <h4 className="title">{title}</h4>
         </Link>
 
-        <Link to={articleLink} className="ArticleCard-text">
-          <p>{text}</p>
-        </Link>
+        {showDesc && (
+          <Link to={articleLink} className="ArticleCard-text">
+            <p>{text}</p>
+          </Link>
+        )}
       </div>
     </div>
   );
 };
 
+ArticleCard.propTypes = {
+  showDesc: bool,
+};
+
+ArticleCard.defaultProps = {
+  showDesc: true,
+};
 export default withRouter(ArticleCard);

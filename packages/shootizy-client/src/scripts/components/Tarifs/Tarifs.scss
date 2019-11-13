@@ -1,3 +1,97 @@
-/* your css code */
+@import "~styles/functions";
 .Tarifs {
+  .header-prices {
+    position: relative;
+    z-index: 6;
+    margin-top: -6%;
+  }
+  .tarif-item {
+    padding: 0;
+    padding-bottom: 20px;
+    background: #fff;
+    .tarif-item--top {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .image {
+      padding-bottom: 68.38%;
+      position: relative;
+      min-height: 100%;
+
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        max-width: 100%;
+      }
+    }
+    .title {
+      margin-bottom: font-size(20px);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .tarif-subtext {
+      color: $grey-text;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .tarif-price {
+      text-align: center;
+      strong {
+        font-size: font-size(60);
+      }
+      small {
+        font-size: font-size(24);
+        text-align: baseline;
+      }
+    }
+
+    .tarif-item--options {
+      padding: 0;
+      margin: 0 40px;
+      li {
+        &:before {
+          content: url("/assets/design/tarifs/puce.svg");
+          display: inline-block;
+          margin-left: -1.5em;
+          width: 1.5em;
+        }
+        padding-left: 1.5em;
+        margin: 1.5em 0;
+      }
+
+      .high {
+        font-weight: bold;
+      }
+      .low {
+        display: none;
+      }
+    }
+  }
+
+  .mode-paiement {
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .col + .col {
+      width: auto !important;
+    }
+  }
+
+  .text-big {
+    font-size: 44px;
+  }
 }
