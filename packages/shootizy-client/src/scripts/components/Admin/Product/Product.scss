@@ -1,0 +1,53 @@
+@import "~styles/variables";
+
+.themes-admin {
+  padding: 0 2rem;
+
+  &__category {
+    display: flex;
+    align-items: center;
+
+    &__title {
+      width: 20%;
+    }
+  }
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    padding-left: 1rem;
+
+    &__item {
+      margin-left: 2rem;
+      padding: 0.25rem;
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 0.75rem;
+
+      &--selected {
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__gallery {
+    margin-top: 1rem;
+    padding: 2rem;
+
+    &__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 100% !important;
+      }
+
+      textarea {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
