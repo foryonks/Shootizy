@@ -3,9 +3,10 @@ import FileBrowser from "../FileBrowser";
 import "./EditableImage.scss";
 
 class EditableImage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {};
+
+  static getDerivedStateFromProps(props, state) {
+    return {
       src: props.src,
     };
   }

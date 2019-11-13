@@ -13,6 +13,8 @@ const FORM_FIELDS = [
     name: "gallery",
     //label: "Galeries",
     render: (value, isError, onChange, onValidate) => {
+      const images = value || [];
+
       const handleChange = (index, description, src) => {
         onChange("gallery", [
           ...images.slice(0, index),
@@ -20,7 +22,6 @@ const FORM_FIELDS = [
           ...images.slice(index + 1),
         ]);
       };
-      const images = value || [];
       return (
         <ul className="row row-3 row-wrap">
           {images.map(({ description, src }, index) => (
@@ -46,15 +47,16 @@ const FORM_FIELDS = [
 const FORM_SUBMIT_BTN = { label: "Publier", className: "btn-green" };
 
 const Product = () => {
-  const [current, setCurrent] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(-1);
 
   const { state: appState, loadThemeProducts } = useContext(AppContext);
   const themes = appState.themes || [];
 
   useEffect(() => {
-    if (themes) {
-      setCurrent(themes[0]);
+    if (themes && currentIndex === -1) {
+      setCurrentIndex(0);
     }
+    // eslint-disable-next-line
   }, [themes]);
 
   // Reload list on submit
@@ -65,15 +67,15 @@ const Product = () => {
       <div className="themes-admin__category">
         <div className="themes-admin__category__title">Thèmes</div>
         <ul className="themes-admin__list">
-          {themes.map(product => (
+          {themes.map((product, index) => (
             <li
               key={product.productId}
               className={classNamesDedupe("themes-admin__list__item", {
-                "themes-admin__list__item--selected": product === current,
+                "themes-admin__list__item--selected": index === currentIndex,
               })}>
               <button
                 onClick={() => {
-                  setCurrent(product);
+                  setCurrentIndex(index);
                 }}>
                 {product.title}
               </button>
@@ -81,14 +83,14 @@ const Product = () => {
           ))}
         </ul>
       </div>
-      {current && (
+      {currentIndex !== -1 && (
         <Form
           id="form-admin-product"
           className="themes-admin__gallery"
           fields={FORM_FIELDS}
           submitBtn={FORM_SUBMIT_BTN}
-          defaultFormData={{ gallery: current.gallery }}
-          action={`/api/products/${current.productId}`}
+          defaultFormData={{ gallery: themes[currentIndex].gallery }}
+          action={`/api/products/${themes[currentIndex].productId}`}
           onSuccess={handleSubmitSuccess}
           successMessage="Done !"
         />
