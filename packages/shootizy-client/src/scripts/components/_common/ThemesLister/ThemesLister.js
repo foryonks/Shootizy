@@ -3,41 +3,35 @@ import "./ThemesLister.scss";
 import Gallery from "../Gallery";
 
 const ThemesLister = ({ themesArray }) => {
-  const [currentTheme, setCurrentTheme] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(-1);
 
   useEffect(() => {
-    if (!themesArray) {
-      setCurrentTheme(themesArray[0]);
+    if (themesArray && currentIndex === -1) {
+      setCurrentIndex(0);
     }
+    // eslint-disable-next-line
   }, [themesArray]);
-
-  const changeImage = currentTheme => {
-    themesArray.forEach(theme => (theme.selected = false));
-    currentTheme.selected = true;
-    setCurrentTheme(currentTheme);
-  };
 
   return (
     <div className="ThemesListerWrapper">
       <div className="txt-r themes-filter">
         <strong>Filtrer par thème :</strong>
         <ul className="themes-list">
-          {themesArray.map(theme => (
-            <li key={theme.key} className={`${theme.selected ? "current" : ""}`}>
+          {themesArray.map((theme, index) => (
+            <li key={theme.productId} className={`${currentIndex === index ? "current" : ""}`}>
               <button
                 onClick={() => {
-                  changeImage(theme);
+                  setCurrentIndex(index);
                 }}>
-                {theme.key}
+                {theme.title}
               </button>
             </li>
           ))}
         </ul>
 
-        {currentTheme && (
+        {currentIndex !== -1 && (
           <div className="full-image">
-            <Gallery images={currentTheme.value} />
-            {/* <img src={`${currentTheme.value}`} alt="" /> */}
+            <Gallery images={themesArray[currentIndex].gallery} />
           </div>
         )}
       </div>
