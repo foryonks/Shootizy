@@ -3,7 +3,10 @@ db = db.getSiblingDB("shootizy");
 //const defaultGallery = new Array(6).map((_, index) => `/assets/demo/gallery/0${index+1}.jpg`);
 let defaultGallery = [];
 for (i = 1; i <= 6; i++) {
-  defaultGallery.push(`/api/file/assets/_demo/gallery/0${i}.jpg`);
+  defaultGallery.push({
+    description: "Lorem ipsum dolor si amet <br/> consectetur adipiscing elit",
+    src: `/api/file/assets/_demo/gallery/0${i}.jpg`,
+  });
 }
 
 db.products.insert([

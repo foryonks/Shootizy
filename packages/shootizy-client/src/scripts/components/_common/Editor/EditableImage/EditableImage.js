@@ -30,7 +30,7 @@ class EditableImage extends Component {
             maxWidth: maxWidth + "px",
           }}
         />
-        <FileBrowser onData={this.onChange} />
+        <FileBrowser onData={this.onChange} currentFile={src} />
       </div>
     );
   }

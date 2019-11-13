@@ -21,8 +21,8 @@ const uploadUrl = "/api/file/upload";
 // };
 
 const getConfig = () => {
-  let headers = {
-    authorization: getAppToken(),
+  const headers = {
+    authorization: `Bearer ${getAppToken()}`,
   };
 
   return {

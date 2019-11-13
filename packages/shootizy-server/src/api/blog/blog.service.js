@@ -143,11 +143,9 @@ const updateArticle = async article => {
   const db = await mongoDb.getInstance();
   const articleId = mongoDb.getObjectId(article.articleId);
 
-  article = _pick(article, UPDATABLE_FIELDS);
-
   const result = await db
     .collection("blog.articles")
-    .updateOne({ _id: articleId }, { $set: article }, { upsert: true });
+    .updateOne({ _id: articleId }, { $set: _pick(article, UPDATABLE_FIELDS) }, { upsert: true });
 
   const _id = result.upsertedId || articleId;
   const resArticle = await db.collection("blog.articles").findOne({ _id });
