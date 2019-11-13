@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./ThemesLister.scss";
 import Gallery from "../Gallery";
 
 const ThemesLister = ({ themesArray }) => {
-  const [currentIndex, setCurrentIndex] = useState(-1);
-
-  useEffect(() => {
-    if (themesArray && currentIndex === -1) {
-      setCurrentIndex(0);
-    }
-    // eslint-disable-next-line
-  }, [themesArray]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <div className="ThemesListerWrapper">
@@ -28,12 +21,9 @@ const ThemesLister = ({ themesArray }) => {
             </li>
           ))}
         </ul>
-
-        {currentIndex !== -1 && (
-          <div className="full-image">
-            <Gallery images={themesArray[currentIndex].gallery} />
-          </div>
-        )}
+        <div className="full-image">
+          <Gallery images={themesArray[currentIndex].gallery} />
+        </div>
       </div>
     </div>
   );

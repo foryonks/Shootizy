@@ -10,9 +10,11 @@ const ThemesListWithFilter = props => {
   const list = appState.themes;
 
   return (
-    <div className="ThemesListWithFilterWrapper">
-      <ThemesLister themesArray={list} />
-    </div>
+    list && (
+      <div className="ThemesListWithFilterWrapper">
+        <ThemesLister themesArray={list} />
+      </div>
+    )
   );
 };
 
