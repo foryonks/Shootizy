@@ -15,7 +15,7 @@ const CommentCaMarchePage = props => (
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
     <HeaderImage
       className="header-image-generic with-header-cards mask-grey"
-      src="/assets/design/headers/header-generic-bg1.png"
+      src="/assets/design/headers/comment-ca-marche.svg"
       preTitle="Comment ça marche"
       title="<strong>Votre shooting en 3 étapes</strong>">
       <CommentCaMarche3blocks className="header-blocs container-2" />

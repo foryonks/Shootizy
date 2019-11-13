@@ -16,7 +16,7 @@ const Main = () => (
   <>
     <HeaderImage
       className="header-image-generic"
-      src="/assets/design/headers/header-shooting-studio.png"
+      src="/assets/design/headers/shooting-studio.svg"
       preTitle="Shooting Studio"
       title="<strong>Il était une fois vous</strong>"
       subTitle={`<span class="big">by Shootizy</span>`}

@@ -5,12 +5,14 @@
   svg {
     position: absolute;
     width: 100%;
+    min-width: 1280px;
     bottom: 0;
-    left: 0;
+    left: 50%;
     z-index: 3;
     color: $background-color;
     fill: currentColor;
     margin-bottom: -0.78%;
+    transform: translateX(-50%);
   }
 }
 

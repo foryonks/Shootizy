@@ -5,11 +5,11 @@ import Themes from "../Home/Themes/Themes";
 import { Helmet } from "react-helmet";
 
 const Tarifs = props => (
-  <div className="Tarifs page-container">
+  <div className="Tarifs page-container page-section-grey">
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
     <HeaderImage
-      className="header-image-generic"
-      //src="/assets/design/headers/header-shooting-studio.png"
+      className="header-image-generic mask-grey"
+      src="/assets/design/headers/tarifs.svg"
       preTitle="Tarifs"
       title="Un peu de tarifs <strong>blabla</strong>"
     />

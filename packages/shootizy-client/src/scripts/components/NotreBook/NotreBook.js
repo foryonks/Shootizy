@@ -12,17 +12,18 @@ import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import CommentCaMarche from "../Home/CommentCaMarche";
 
 const NotreBook = props => (
-  <div className="NotreBook page-container">
+  <div className="NotreBook page-container page-section-grey">
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
 
     <HeaderImage
       className="header-image-generic mask-grey"
-      //src="/assets/design/headers/header-shooting-studio.png"
+      src="/assets/design/headers/le-book.svg"
       preTitle="Le book"
-      title="Un peu de lorem ipsum  <strong>blabla</strong>"
+      title=""
+      useMask={true}
     />
 
-    <div className="page-section page-section-grey">
+    <div className="page-section ">
       <div className="container-2  mt50 pb50">
         <ThemesListWithFilter />
       </div>
