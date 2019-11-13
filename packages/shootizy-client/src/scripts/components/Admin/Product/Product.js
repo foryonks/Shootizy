@@ -23,7 +23,7 @@ const FORM_FIELDS = [
         ]);
       };
       return (
-        <ul className="row row-3 row-wrap">
+        <ul className="row row-6">
           {images.map(({ description, src }, index) => (
             <li key={`image-${index}`} className="themes-admin__gallery__item">
               <EditableImage
@@ -34,6 +34,7 @@ const FORM_FIELDS = [
                 alt={`Image ${index}`}
               />
               <textarea
+                rows={5}
                 value={description}
                 onChange={ev => handleChange(index, ev.target.value, src)}
               />
