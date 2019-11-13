@@ -5,13 +5,18 @@ import { Helmet } from "react-helmet";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import Product from "scripts/components/Product";
 import FloattingItems from "./FloattingItems";
+import CarouselHome from "scripts/components/CarouselHome";
+import Themes from "scripts/components/Home/Themes";
+import SurMesure from "scripts/components/ShootingSurMesure/SurMesure";
+import CommentCaMarche from "../Home/CommentCaMarche";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import "./ShootingStudio.scss";
 
 const Main = () => (
   <>
     <HeaderImage
       className="header-image-generic"
-      src="/assets/design/headers/header-shooting-studio.png"
+      src="/assets/design/headers/shooting-studio.svg"
       preTitle="Shooting Studio"
       title="<strong>Il était une fois vous</strong>"
       subTitle={`<span class="big">by Shootizy</span>`}
@@ -89,10 +94,15 @@ const Main = () => (
         </div>
       </div>
     </div>
-    {/* <div className="page-section section-container">
+
+    <div className="section-container">
       <Themes />
-      <ShootingSurMesure/>
-    </div> */}
+      <SurMesure fullForm={true} />
+    </div>
+
+    <CommentCaMarche />
+    <CarouselHome useMask={false} />
+    <VenirAuStudio />
   </>
 );
 

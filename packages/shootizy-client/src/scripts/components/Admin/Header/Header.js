@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import Logo from "scripts/components/Header/Logo";
 
 import "./Header.scss";
+import Interweave from "interweave";
 
 const NAV_LINKS = [
   { path: "/admin/booking", title: "Réservations" },
@@ -10,7 +11,9 @@ const NAV_LINKS = [
   { path: "/admin/blog", title: "Blog" },
   { path: "/admin/contents", title: "Contenus" },
   { path: "/admin/ratings", title: "Avis clients" },
+  { path: "/admin/pagescustom", title: "Pages Custom" },
 ];
+
 const Header = props => (
   <header className="admin-header">
     <div className="admin-header__top">
@@ -24,7 +27,9 @@ const Header = props => (
       <ul className="menu">
         {NAV_LINKS.map(({ path, title }) => (
           <li key={path}>
-            <NavLink to={path}>{title}</NavLink>
+            <NavLink to={path}>
+              <Interweave content={title} />
+            </NavLink>
           </li>
         ))}
       </ul>

@@ -33,7 +33,7 @@ const Gallery = ({ images }) => {
                 onClick={() => {
                   showVisionneuse(image);
                 }}>
-                <span style={{ "background-image": `url('${image}')` }} />
+                <span style={{ backgroundImage: `url('${image.url}')` }} />
               </div>
             ))}
           </div>
@@ -58,7 +58,11 @@ Gallery.fakegallery = qty => {
     .split(" ")
     .map(() => {
       const num = Math.ceil(Math.random() * 15);
-      return `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.jpg`;
+      return {
+        url: `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.jpg`,
+        description:
+          "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit amet",
+      };
     });
 };
 

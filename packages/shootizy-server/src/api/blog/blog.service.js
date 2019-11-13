@@ -10,11 +10,17 @@ const formatEntry = ({ _id, ...others }) => ({
   ...others,
 });
 
-const listArticles = async () => {
+const listArticles = async ({ categoryId } = {}) => {
   const db = await mongoDb.getInstance();
+  const request = {};
+
+  "categoryId", categoryId;
+  if (categoryId) {
+    request.categoryId = categoryId;
+  }
   const articles = await db
     .collection("blog.articles")
-    .find()
+    .find(request)
     .toArray();
   const categories = await listCategories();
 
@@ -28,6 +34,12 @@ const listArticles = async () => {
     ...formatEntry(article),
     category: categories.find(category => category.categoryId === article.categoryId),
   }));
+};
+
+const listArticlesByCategory = async slug => {
+  const category = await getCategoryBySlug(slug);
+  const articles = await listArticles({ categoryId: category.categoryId });
+  return articles;
 };
 
 const listCategories = async () => {
@@ -139,15 +151,18 @@ const getComments = async ({ count = 10, sortBy = "date", order = "asc" }) => {
 
 //const asyncCommentGetArticle = ;
 
-const updateArticle = async article => {
+const updateArticle = async articleObj => {
   const db = await mongoDb.getInstance();
   const articleId = mongoDb.getObjectId(article.articleId);
 
-  const result = await db
-    .collection("blog.articles")
-    .updateOne({ _id: articleId }, { $set: _pick(article, UPDATABLE_FIELDS) }, { upsert: true });
+  const article = _pick(articleObj, UPDATABLE_FIELDS);
 
-  const _id = result.upsertedId || articleId;
+  const collection = db.collection("blog.articles");
+  const result = articleId
+    ? await collection.updateOne({ _id: articleId }, { $set: article }, { upsert: true })
+    : await collection.insertOne(article);
+
+  const _id = result.upsertedId ? result.upsertedId._id : articleId;
   const resArticle = await db.collection("blog.articles").findOne({ _id });
 
   return formatEntry(resArticle);
@@ -163,4 +178,5 @@ module.exports = {
   addComment,
   getComments,
   getCommentsByArticleId,
+  listArticlesByCategory,
 };

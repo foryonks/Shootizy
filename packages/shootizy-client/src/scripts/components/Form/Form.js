@@ -23,6 +23,8 @@ const generateFormData = (fields, defaultFormData) => {
 
   return allFields.reduce((acc, field) => {
     let otherSettings = {};
+    otherSettings.value =
+      defaultFormData && defaultFormData[field.name] ? defaultFormData[field.name] : undefined;
 
     switch (field.type) {
       case "email":
@@ -47,6 +49,10 @@ const generateFormData = (fields, defaultFormData) => {
           errorMessage: "Veuillez saisir un téléphone valide",
         });
         break;
+
+      case "select":
+        otherSettings.value = field.list.filter(({ value }) => value === otherSettings.value)[0];
+        break;
       default:
         break;
     }
@@ -55,10 +61,6 @@ const generateFormData = (fields, defaultFormData) => {
       ...acc,
       [field.name]: {
         ...field,
-        // Apply default form values
-        ...(defaultFormData && defaultFormData[field.name]
-          ? { value: defaultFormData[field.name] }
-          : {}),
         isPristine: true,
         error: null,
         ...otherSettings,
@@ -204,10 +206,11 @@ const Form = ({
 
     if (isValid) {
       let postData = Object.keys(updatedFormData).reduce((acc, name) => {
-        const value =
-          typeof updatedFormData[name].value === "string"
-            ? updatedFormData[name].value.trim()
-            : updatedFormData[name].value;
+        let formDataValue = updatedFormData[name].value;
+        if (updatedFormData[name].type === "select") {
+          formDataValue = formDataValue.value;
+        }
+        const value = typeof formDataValue === "string" ? formDataValue.trim() : formDataValue;
         return { ...acc, [name]: value };
       }, {});
 

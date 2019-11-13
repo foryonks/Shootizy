@@ -1,15 +1,21 @@
 @import "~styles/variables";
 
 .header-image-mask {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  z-index: 3;
-  color: $background-color;
-  fill: currentColor;
+  overflow: hidden;
+  svg {
+    position: absolute;
+    width: 100%;
+    min-width: 1280px;
+    bottom: 0;
+    left: 50%;
+    z-index: 3;
+    color: $background-color;
+    fill: currentColor;
+    margin-bottom: -0.78%;
+    transform: translateX(-50%);
+  }
 }
 
-.mask-grey .header-image-mask {
+.mask-grey .header-image-mask svg {
   color: $background-grey;
 }

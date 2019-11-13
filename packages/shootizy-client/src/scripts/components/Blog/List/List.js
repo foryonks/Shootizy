@@ -4,16 +4,18 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./List.scss";
 import ArticleCard from "../ArticleCard";
 
-const List = ({ render, cols, hidden, className, sortBy, remoteContentsUrl }) => {
-  let { contents: items } = useRemoteContents(remoteContentsUrl, {
-    initialState: [],
+const List = ({ render, cols, hidden, className, sortBy, items, remoteContentsUrl }) => {
+  let { contents: list } = useRemoteContents(remoteContentsUrl, {
+    initialState: items,
   });
-  if (!items) return null;
-
+  if (items) {
+    list = items;
+  }
+  if (!list) return null;
   className += cols >= 2 ? ` row row-${cols} row-stretch row-margin row-wrap` : "";
   return (
     <ul className={`BlogArticles ${className}`}>
-      {items
+      {list
         .fillMultiple(cols, { hidden })
         .map((article, index) =>
           article.hidden ? (

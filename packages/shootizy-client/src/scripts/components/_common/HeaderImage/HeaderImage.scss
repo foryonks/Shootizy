@@ -14,7 +14,7 @@
 
 .header-padding-page-without-headerimage {
   .header {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
 }
 
@@ -50,7 +50,7 @@
   .text {
     position: absolute;
     top: 0;
-    margin-top: 5.2%;
+    margin-top: 4.6%;
     left: 50%;
     text-align: center;
     transform: translateX(-50%);
@@ -68,6 +68,9 @@
   .preTitle,
   .bigTitle {
     font-weight: bold;
+    p {
+      margin: 0;
+    }
   }
 
   .preTitle {
@@ -79,6 +82,8 @@
     font-weight: normal;
     font-size: font-size(60px);
     margin-bottom: 5px;
+    margin-top: 1.56%;
+    line-height: 1.1;
   }
 
   .subTitle {
@@ -121,7 +126,7 @@
 }
 
 .header-image-generic .header-image {
-  background-color: #00f6d6;
+  // background-color: #00f6d6;
 }
 
 .header-image-shooting {

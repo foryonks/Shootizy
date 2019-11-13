@@ -1,14 +1,13 @@
 import React from "react";
-//import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import Interweave from "interweave";
 import { blog } from "scripts/utils/routesManager";
 import HeaderImage from "scripts/components/_common/HeaderImage";
+import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
 import { Helmet } from "react-helmet";
-
-import MostReadArticles from "../MostReadArticles";
-import { formatDateStd } from "../../../utils/DateUtils";
+import GenericArticleList from "../GenericArticleList";
+import { formatDateStd } from "scripts/utils/DateUtils";
 import ArticleComments from "./ArticleComments/ArticleComments";
 import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 
@@ -26,7 +25,7 @@ const Article = ({ match }) => {
       render={() => (
         <div className="Article">
           <Helmet bodyAttributes={{ class: "header-padding-page" }} />
-          <HeaderImage preTitle="Blog" title={title} reverseColor={true} />
+          <HeaderImage preTitle="Blog" title={title} reverseColor={true} useMask={false} />
           <div className="container-2">
             <div className="article-image" style={{ backgroundImage: `url('${imageLarge}')` }}>
               <div className="article-header">
@@ -48,12 +47,20 @@ const Article = ({ match }) => {
                     <Interweave content={text} />
                   </div>
                 </div>
-                <ArticleComments articleId={article.articleId} />
               </content>
               <aside>
-                <MostReadArticles />
+                <GenericArticleList
+                  title="Derniers articles"
+                  sortBy="date"
+                  limit={3}
+                  remoteContentsUrl="/api/blog/articles"
+                />
+                <NewsletterSubscribeSmall />
               </aside>
             </main>
+          </div>
+          <div className="page-section page-section-white">
+            <ArticleComments articleId={article.articleId} />
           </div>
         </div>
       )}

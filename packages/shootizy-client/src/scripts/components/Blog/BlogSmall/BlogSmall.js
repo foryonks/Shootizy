@@ -1,15 +1,11 @@
 import React from "react";
-import { Carousel as CarouselResponsive } from "react-responsive-carousel";
-import "./BlogSmall.scss";
-import { toMatrix } from "../../../utils/utils";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import ArticleCard from "../ArticleCard";
+import BlogMultipleArticleCarousel from "../BlogMultipleArticleCarousel";
+import "./BlogSmall.scss";
 
 const BlogSmall = props => {
   let { contents: articles } = useRemoteContents("/api/blog/articles", { initialState: [] });
   if (!articles) return null;
-
-  let dataMatrix = toMatrix(articles, 3, { fill: true });
 
   return (
     <section className="BlogSmall section-background">
@@ -26,28 +22,7 @@ const BlogSmall = props => {
           </a>
         </div>
 
-        <div className="blog-carousel">
-          <CarouselResponsive
-            infiniteLoop
-            showThumbs={false}
-            showIndicators={false}
-            showStatus={false}>
-            {dataMatrix.map((row, index) => (
-              <div className="slideRow container-2" key={index}>
-                {row.map(article =>
-                  article ? (
-                    <ArticleCard
-                      className="carousel-item"
-                      key={article.articleId}
-                      article={article}
-                      mode="card"
-                    />
-                  ) : null
-                )}
-              </div>
-            ))}
-          </CarouselResponsive>
-        </div>
+        <BlogMultipleArticleCarousel articles={articles} cols={3} />
       </div>
     </section>
   );

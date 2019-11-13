@@ -7,6 +7,7 @@ import SurMesure from "./SurMesure";
 import { Link } from "react-router-dom";
 import FloatingBody from "./FloatingBody";
 import Realisations from "scripts/components/ShootingSurMesure/Realisations";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 
 const ShootingStudio = () => {
   return (
@@ -14,7 +15,7 @@ const ShootingStudio = () => {
       <Helmet bodyAttributes={{ class: "header-padding-page" }} />
       <HeaderImage
         className="header-image-generic"
-        src="/assets/design/headers/header-shooting-studio.png"
+        src="/assets/design/headers/shooting-sur-mesure.svg"
         preTitle="Shooting sur mesure"
         title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
       />
@@ -97,6 +98,8 @@ const ShootingStudio = () => {
           </div>
         </div>
       </div>
+
+      <VenirAuStudio />
     </div>
   );
 };

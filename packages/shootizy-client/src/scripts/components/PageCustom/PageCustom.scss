@@ -1,0 +1,66 @@
+/* your css code */
+@import "~styles/functions";
+
+.page-custom-header {
+  background: #fff no-repeat center center url("/assets/backgrounds/politique-confid.png");
+}
+
+.PageCustomWrapper {
+  .update-date {
+    color: $grey-text;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+}
+
+.pageCustom-content {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.5);
+  hr {
+    color: rgba(0, 0, 0, 0.2);
+    margin: 2em 0;
+  }
+  h1,
+  h2 {
+    color: #000;
+  }
+  h1 {
+    font-size: font-size(44);
+    font-weight: normal;
+    margin-top: font-size(24);
+    margin-bottom: font-size(30);
+  }
+
+  h2 {
+    font-size: font-size(34);
+    font-weight: normal;
+    margin-top: font-size(60);
+    margin-bottom: font-size(24);
+  }
+
+  h3 {
+    font-size: font-size(24);
+    font-weight: bold;
+    margin-top: font-size(24);
+    margin-bottom: font-size(10);
+  }
+  a {
+    color: #0091ff;
+  }
+
+  ul {
+    list-style: none;
+  }
+  li {
+    margin: 24px 0;
+    padding-left: 1em;
+    &:before {
+      content: "•";
+      display: inline-block;
+      margin-left: -1em;
+      transform: translateY(-10%);
+      width: 1em;
+      color: #000;
+    }
+  }
+}

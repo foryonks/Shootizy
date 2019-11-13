@@ -33,9 +33,10 @@ function useWindowScrollPosition(options) {
     }, opts.throttle);
 
     window.addEventListener("scroll", handleScroll, supportsPassive ? { passive: true } : false);
-
+    window.addEventListener("pageChange", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("pageChange", handleScroll);
     };
   });
 

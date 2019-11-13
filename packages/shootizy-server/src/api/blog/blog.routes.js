@@ -110,4 +110,18 @@ routes.get(
   })
 );
 
+/**
+ * Return only category with all articles
+ */
+routes.get(
+  "/category/:slug/articles",
+
+  asyncRouteWrapper(async (req, res) => {
+    const { slug } = req.params;
+    "category", slug;
+    const articles = await blogService.listArticlesByCategory(slug);
+    res.json(articles);
+  })
+);
+
 module.exports = routes;

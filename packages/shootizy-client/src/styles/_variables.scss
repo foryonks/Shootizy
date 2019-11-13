@@ -19,6 +19,8 @@ $container-carousel-margins: $carousel-content-position;
 $primary-color: #000;
 $secondary-color: #00f6d6;
 $color-grey: #979797;
+$grey-text: rgba(0, 0, 0, 0.5);
+
 $btn-green-bg-color: $secondary-color;
 $btn-green-hover-bg-color: #00f6d6;
 
@@ -28,4 +30,5 @@ $card-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 
 $button-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 $box-shadow-main: $button-box-shadow;
-$inputSelectors: "textarea, input[type='text'], input[type='date'], input[type='datetime-local'], input[type='email'], input[type='file'], input[type='month'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='time'], input[type='url'], input[type='week']";
+$inputSelectors: "select, textarea, input[type='text'], input[type='date'], input[type='datetime-local'], input[type='email'], input[type='file'], input[type='month'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='time'], input[type='url'], input[type='week']";
+$main-text-color: rgba(0, 0, 0, 0.5);

@@ -2,6 +2,7 @@ import React from "react";
 import "./FooterSocial.scss";
 import SocialButtons from "scripts/components/_common/SocialButtons";
 import SocialSquares from "../../_common/SocialSquares";
+import LazyLoad from "react-lazyload";
 
 const FooterSocial = props => {
   return (
@@ -27,7 +28,9 @@ const FooterSocial = props => {
           />
         </div>
         <div className="col col-social">
-          <SocialSquares cols={2} nums={4} twitterPos={[2]} />
+          <LazyLoad height={250}>
+            <SocialSquares cols={2} nums={4} twitterPos={[2]} />
+          </LazyLoad>
         </div>
       </div>
     </div>

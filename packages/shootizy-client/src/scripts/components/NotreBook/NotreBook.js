@@ -5,22 +5,25 @@ import HeaderImage from "scripts/components/_common/HeaderImage";
 import { Helmet } from "react-helmet";
 import ThemesListWithFilter from "./ThemesListWithFilter";
 import SocialSquares from "scripts/components/_common/SocialSquares";
-import Carousel from "scripts/components/CarouselHome";
+import CarouselHome from "scripts/components/CarouselHome";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
+
 //import CommentCaMarche3blocks from "scripts/components/CommentCaMarchePage/CommentCaMarche3blocks";
 import CommentCaMarche from "../Home/CommentCaMarche";
 
 const NotreBook = props => (
-  <div className="NotreBook page-container">
+  <div className="NotreBook page-container page-section-grey">
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
 
     <HeaderImage
       className="header-image-generic mask-grey"
-      //src="/assets/design/headers/header-shooting-studio.png"
+      src="/assets/design/headers/le-book.svg"
       preTitle="Le book"
-      title="Un peu de lorem ipsum  <strong>blabla</strong>"
+      title=""
+      useMask={true}
     />
 
-    <div className="page-section page-section-grey">
+    <div className="page-section ">
       <div className="container-2  mt50 pb50">
         <ThemesListWithFilter />
       </div>
@@ -32,8 +35,9 @@ const NotreBook = props => (
       <SocialSquares cols={3} nums={9} twitterPos={[2, 7]} />
     </div>
 
-    <Carousel useMask={false} />
+    <CarouselHome useMask={false} />
     <CommentCaMarche />
+    <VenirAuStudio />
   </div>
 );
 

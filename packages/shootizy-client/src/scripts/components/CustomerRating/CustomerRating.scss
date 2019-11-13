@@ -1,11 +1,78 @@
+@import "~styles/functions";
+
+.CustomerRatingWrapper {
+  .button-container-centered-header {
+    transform: translateY(-50%);
+    z-index: 5;
+    position: relative;
+  }
+
+  .smallSmiley {
+    width: 50px;
+  }
+}
+
+.ratings-list {
+  $paddings: 10px;
+  margin-left: -$paddings;
+  margin-right: -$paddings;
+
+  react-columned-column {
+    padding-left: $paddings;
+    padding-right: $paddings;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  .card .Smiley {
+    width: 50px;
+  }
+
+  .rating-score-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+
+  .star-icon {
+    display: inline-block;
+    background: url(/assets/design/ratings/star.svg) no-repeat center center;
+    background-size: contain;
+    width: 23px;
+
+    &:before {
+      content: "";
+      padding-bottom: 100%;
+      display: block;
+    }
+  }
+
+  .name {
+    font-weight: bold;
+    margin-top: 22px;
+  }
+  time {
+    color: $main-text-color;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .comment {
+    font-size: 20px;
+    color: $main-text-color;
+    margin: 10px 0 0;
+  }
+}
+
 .customer-rating__total {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  > * {
-    margin-bottom: 1rem;
-  }
+.customer-rating__total {
+  color: $secondary-color;
 }
 
 .CustomerRatingWrapper .HeaderImage .HeaderImage-content {

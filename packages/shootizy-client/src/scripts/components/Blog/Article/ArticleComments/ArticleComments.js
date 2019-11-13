@@ -15,16 +15,28 @@ const ArticleComments = ({ articleId }) => {
   const { getCurrentPage, PaginationComponent } = usePagination(comments || [], ITEMS_PER_PAGE);
   return (
     <div className="ArticleCommentsWrapper">
-      <h3 className="Blog-block-title">Commentaires</h3>
+      <h3 className="Blog-block-title txt-c">
+        {comments.length} Commentaire{comments.length === 1 ? "" : "s"}
+      </h3>
+      <CommentForm
+        articleId={articleId}
+        onSubmit={() => {
+          reloadList();
+        }}
+      />
+
       {comments && comments.length ? (
-        <div>
+        <div className="commentsWrapper">
           <ul className="comments">
             {getCurrentPage().map(({ _id, author, date, comment }) => (
               <li key={_id}>
-                <div>
-                  <strong>{author}</strong> / {formatDate(date)}
+                <div className="comment-icon" />
+                <div className="comment-content">
+                  <div className="comment-infos">
+                    <strong>{author}</strong> <span className="date">{formatDate(date)}</span>
+                  </div>
+                  <div className="comment-text">{comment}</div>
                 </div>
-                <div>{comment}</div>
               </li>
             ))}
           </ul>
@@ -33,13 +45,6 @@ const ArticleComments = ({ articleId }) => {
       ) : (
         "Aucun commentaire n'a encore été posté"
       )}
-
-      <CommentForm
-        articleId={articleId}
-        onSubmit={() => {
-          reloadList();
-        }}
-      />
     </div>
   );
 };

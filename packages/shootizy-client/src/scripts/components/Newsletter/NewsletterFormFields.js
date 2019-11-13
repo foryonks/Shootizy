@@ -18,7 +18,7 @@ export const FORM_FIELDS_FOOTER = [
   {
     type: "email",
     name: "email",
-    placeholder: "ex : julien@yahoo.fr",
+    placeholder: "email@exemple.com",
     isRequired: true,
   },
   {

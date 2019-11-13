@@ -18,7 +18,7 @@ const Header = (props, ref) => {
   };
   let { y } = useWindowScrollPosition(options);
 
-  useEffect(() => {
+  const updateHeaderSticky = () => {
     const header = headerRef.current;
     if (!gap) {
       const content = window.getComputedStyle(header, ":before");
@@ -26,8 +26,10 @@ const Header = (props, ref) => {
     }
     sticky = sticky > 0 ? sticky : header.offsetTop - gap;
     y > sticky ? setClassName("sticky") : setClassName("");
-    return () => {};
-  }, [y]);
+  };
+  useEffect(() => {
+    updateHeaderSticky();
+  });
 
   return (
     <div className="header-wrapper">

@@ -5,6 +5,7 @@ import Blog from "./Blog";
 import Product from "./Product";
 import BlogArticle from "./Blog/Article";
 import Booking from "./Booking";
+import PagesCustom from "./PagesCustom";
 
 import "./Admin.scss";
 
@@ -19,10 +20,14 @@ const Admin = () => {
         <Switch>
           <Route path="/admin/booking" component={Booking} />
           <Route path="/admin/product" component={Product} />
-          <Route path="/admin/blog/article/:slug" component={BlogArticle} />
+          <Route
+            path={["/admin/blog/article/:slug", "/admin/blog/article"]}
+            component={BlogArticle}
+          />
           <Route path="/admin/blog" component={Blog} />
           <Route path="/admin/contents" component={SampleComponent} />
           <Route path="/admin/ratings" component={SampleComponent} />
+          <Route path="/admin/pagescustom" component={PagesCustom} />
           <Redirect to="/admin/booking" />
         </Switch>
       </div>

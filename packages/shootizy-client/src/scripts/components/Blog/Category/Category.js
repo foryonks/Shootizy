@@ -1,15 +1,24 @@
 import React from "react";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import HeaderImage from "scripts/components/_common/HeaderImage";
 import List from "../List";
 import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
-import ListRenderedSimple from "../List/ListRendererSimple";
 
+import ListCategories from "../ListCategories";
+import GenericArticleList from "../GenericArticleList";
+import ListComments from "../ListComments";
+import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
+import usePagination from "scripts/hooks/usePagination";
 import "./Category.scss";
+
+const ITEMS_PER_PAGE = 10;
 
 const Category = ({ match }) => {
   const { contents: category } = useRemoteContents(`/api/blog/category/${match.params.slug}`);
+  const { contents: articles } = useRemoteContents(
+    `/api/blog/category/${match.params.slug}/articles`
+  );
+  const { getCurrentPage, PaginationComponent } = usePagination(articles || [], ITEMS_PER_PAGE);
   if (!category) return null;
 
   return (
@@ -18,23 +27,29 @@ const Category = ({ match }) => {
       path="/blog/category/:slug"
       render={() => (
         <div className="CategoryWrapper container-2">
-          <HeaderImage
-            src=""
-            preTitle="Blog"
-            title={`<strong>${category.name}</strong>`}
-            reverseColor={true}
-          />
+          <div>
+            <ListCategories />
 
-          <main className="Blog-Content">
-            <content>
-              <h3 className="Blog-block-title">Articles</h3>
-              <List cols={2} hidden={true} items={category.articles} />
-            </content>
-            <aside>
-              <h3 className="Blog-block-title">Derniers articles</h3>
-              <List sortBy="date" limit="3" render={ListRenderedSimple} items={category.articles} />
-            </aside>
-          </main>
+            <main className="Blog-Content mt50">
+              <content>
+                <h2 className="title txt-l mb50">
+                  <strong>{category.name}</strong>
+                </h2>
+                <List cols={2} hidden={true} items={getCurrentPage()} />
+                {PaginationComponent}
+              </content>
+              <aside>
+                <GenericArticleList
+                  title="Derniers articles"
+                  sortBy="date"
+                  limit={3}
+                  remoteContentsUrl="/api/blog/articles"
+                />
+                <ListComments sortBy="date" order="desc" count="3" />
+                <NewsletterSubscribeSmall />
+              </aside>
+            </main>
+          </div>
         </div>
       )}
     />
