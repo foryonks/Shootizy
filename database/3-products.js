@@ -9,6 +9,7 @@ for (i = 1; i <= 6; i++) {
   });
 }
 
+// Themes
 db.products.insert([
   {
     productId: "produit-theme-bookmodel",
@@ -138,6 +139,46 @@ La prestation Shootizy, toujours à prix mini, permet aux participants de se con
 Au delà des naissances, quelle que soit votre tribu, <strong>nous créons avec vous des souvenirs pleins d’avenir</strong>.<br>
 Le portrait de famille : <strong>Un cadeau à haute teneur émotionnelle, à l’épreuve du temps, à offrir et à s’offrir.</strong>`,
     price: "20€",
+  },
+]);
+
+// Sur mesure
+db.products.insert([
+  {
+    productId: "produit-surmesure-artisan",
+    tags: ["surmesure"],
+    image: "/assets/design/surmesure/img1.png",
+    imageLarge: "/assets/design/surmesure/img1.png",
+    gallery: defaultGallery,
+    title: "Artisan, artiste, créateur",
+    descTitle: "",
+    description:
+      "Vous voulez valoriser vos créations grâce à des prises de vues haute qualité, à prix optimisé.",
+    price: "",
+  },
+  {
+    productId: "produit-surmesure-agence",
+    tags: ["surmesure"],
+    image: "/assets/design/surmesure/img2.png",
+    imageLarge: "/assets/design/surmesure/img2.png",
+    gallery: defaultGallery,
+    title: "Agence de communication, d’événementiel",
+    descTitle: "",
+    description:
+      "Vous cherchez le meilleur rapport qualité-prix-implication pour vos visuels : automobile alimentaire, gastronomie, hôtellerie, luxe, sport, voyages ...",
+    price: "",
+  },
+  {
+    productId: "produit-surmesure-entreprise",
+    tags: ["surmesure"],
+    image: "/assets/design/surmesure/img3.png",
+    imageLarge: "/assets/design/surmesure/img3.png",
+    gallery: defaultGallery,
+    title: "Entrepreneurs, entreprises",
+    descTitle: "",
+    description:
+      "Vous cherchez le meilleur rapport qualité-prix-implication pour vos visuels : automobile alimentaire, gastronomie, hôtellerie, luxe, sport, voyages ...",
+    price: "",
   },
 ]);
 
