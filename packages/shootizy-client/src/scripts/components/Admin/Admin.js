@@ -18,7 +18,10 @@ const Admin = () => {
       <div className="admin-home__body">
         <Switch>
           <Route path="/admin/booking" component={Booking} />
-          <Route path="/admin/blog/article/:slug" component={BlogArticle} />
+          <Route
+            path={["/admin/blog/article/:slug", "/admin/blog/article"]}
+            component={BlogArticle}
+          />
           <Route path="/admin/blog" component={Blog} />
           <Route path="/admin/contents" component={SampleComponent} />
           <Route path="/admin/ratings" component={SampleComponent} />

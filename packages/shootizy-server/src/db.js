@@ -15,5 +15,6 @@ const getInstance = async () => {
 };
 
 const getObjectId = _id => new ObjectID(_id);
+const getNewObjectId = () => ObjectID.createFromTime();
 
-module.exports = { getInstance, getObjectId };
+module.exports = { getInstance, getObjectId, getNewObjectId };

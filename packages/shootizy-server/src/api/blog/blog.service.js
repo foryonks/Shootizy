@@ -157,11 +157,12 @@ const updateArticle = async article => {
 
   article = _pick(article, UPDATABLE_FIELDS);
 
-  const result = await db
-    .collection("blog.articles")
-    .updateOne({ _id: articleId }, { $set: article }, { upsert: true });
+  const collection = db.collection("blog.articles");
+  const result = articleId
+    ? await collection.updateOne({ _id: articleId }, { $set: article }, { upsert: true })
+    : await collection.insertOne(article);
 
-  const _id = result.upsertedId || articleId;
+  const _id = result.upsertedId ? result.upsertedId._id : articleId;
   const resArticle = await db.collection("blog.articles").findOne({ _id });
 
   return formatEntry(resArticle);

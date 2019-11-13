@@ -110,9 +110,15 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
     case "select":
       Input = (
         <Select
+          onChange={selectedOption => {
+            onChange(name, selectedOption);
+            onValidate(name);
+          }}
           className="react-select"
           classNamePrefix="react-select"
           {...extendedProps || {}}
+          value={value}
+          defaultValue={value}
           options={list}
         />
       );

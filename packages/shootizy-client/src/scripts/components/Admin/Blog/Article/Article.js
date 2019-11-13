@@ -1,12 +1,19 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router-dom";
-
+import { fetchJson } from "scripts/utils/api";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import Form from "scripts/components/Form";
 import "./Article.scss";
 
 import Editor from "scripts/components/_common/Editor";
 
+const SELECTCATEGORY = {
+  type: "select",
+  name: "categoryId",
+  label: "Catégorie",
+  isRequired: true,
+  list: [],
+};
 const FORM_FIELDS = [
   {
     type: "fieldset",
@@ -14,6 +21,7 @@ const FORM_FIELDS = [
     children: [
       { type: "text", name: "title", label: "Titre", isRequired: true },
       { type: "text", name: "slug", label: "Slug", isRequired: true },
+      SELECTCATEGORY,
       { type: "text", name: "author", label: "Auteur", isRequired: true },
       { type: "image", name: "imageMini", label: "Image miniature", props: { maxWidth: "200" } },
       { type: "image", name: "imageLarge", label: "Image Large", props: { maxWidth: "200" } },
@@ -58,7 +66,19 @@ const FORM_FIELDS = [
 const FORM_SUBMIT_BTN = { label: "Sauvegarder", className: "btn-green" };
 
 const Article = ({ history, match }) => {
-  const { contents: article } = useRemoteContents(`/api/blog/article/${match.params.slug}`);
+  const { slug } = match.params;
+  let { contents: article } = useRemoteContents(slug ? `/api/blog/article/${slug}` : null);
+
+  const { contents: categoryList } = useRemoteContents("/api/blog/categories");
+  SELECTCATEGORY.list = categoryList
+    ? categoryList.map(({ categoryId, name }) => ({
+        value: categoryId,
+        label: name,
+      }))
+    : [];
+
+  // Si aucun article, creation d'un nouveau
+  if (!slug && !article) article = {};
 
   const formatPostData = data => ({
     ...article,
@@ -67,8 +87,7 @@ const Article = ({ history, match }) => {
 
   const handleSubmitSuccess = useCallback(
     updatedArticle => {
-      // Slug changed
-      if (updatedArticle.slug !== article.slug) {
+      if (updatedArticle.slug !== article.slug || updatedArticle.articleId !== article.articleId) {
         history.replace(`/admin/blog/article/${updatedArticle.slug}`);
       }
     },
@@ -78,6 +97,7 @@ const Article = ({ history, match }) => {
   return (
     article && (
       <div className="container-2">
+        <button onClick={() => supprimerArticle(article.articleId)}>Supprimer Article</button>
         <Form
           id="form-blog-article"
           className="form-blog-article"
@@ -94,12 +114,9 @@ const Article = ({ history, match }) => {
   );
 };
 
-Article.propTypes = {
-  // bla: PropTypes.string,
-};
-
-Article.defaultProps = {
-  // bla: 'test',
-};
-
+function supprimerArticle(articleId) {
+  if (window.confirm("Etes vous sûr de vouloir supprimer cet article ? ")) {
+    fetchJson("/api/blog/delete/article/" + articleId);
+  }
+}
 export default withRouter(Article);
