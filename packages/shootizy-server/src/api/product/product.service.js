@@ -1,7 +1,10 @@
+const _pick = require("lodash/pick");
 const _omit = require("lodash/omit");
 
 const mongoDb = require("db");
 const { CustomError } = require("api/api.errors");
+
+const UPDATABLE_FIELDS = ["gallery"];
 
 /**
  * Return product by productId
@@ -41,7 +44,27 @@ const list = async (filters = {}) => {
   return products.map(item => _omit(item, ["_id"]));
 };
 
+/**
+ * Update product
+ * @param {string} productId
+ * @param {object} product
+ * @returns {object} updated product
+ */
+const update = async (productId, product) => {
+  const db = await mongoDb.getInstance();
+  const result = await db
+    .collection("products")
+    .findOneAndUpdate(
+      { productId },
+      { $set: _pick(product, UPDATABLE_FIELDS) },
+      { returnOriginal: false }
+    );
+
+  return _omit(result.value, ["_id"]);
+};
+
 module.exports = {
   getByProductId,
   list,
+  update,
 };

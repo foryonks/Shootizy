@@ -30,7 +30,7 @@ const HeaderImage = ({
   <section className={`HeaderImage  ${className} ${reverseColor ? "HeaderImage-reverse" : ""}`}>
     <div
       className="HeaderImage-content header-image"
-      style={{ backgroundImage: src && `url(${src})` }}>
+      style={{ backgroundImage: src && `url('${src}')` }}>
       <div className="header-image-content">
         {(preTitle || title || buttonLink || subTitle) && (
           <div className="text">

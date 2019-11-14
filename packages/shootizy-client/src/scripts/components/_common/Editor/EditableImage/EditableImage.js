@@ -3,9 +3,10 @@ import FileBrowser from "../FileBrowser";
 import "./EditableImage.scss";
 
 class EditableImage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {};
+
+  static getDerivedStateFromProps(props, state) {
+    return {
       src: props.src,
     };
   }
@@ -20,17 +21,17 @@ class EditableImage extends Component {
 
   render() {
     const { src } = this.state;
-    const { maxWidth } = this.props;
+    const { maxWidth, alt } = this.props;
     return (
       <div className="editable-image">
         <img
           src={src}
-          alt=""
+          alt={alt}
           style={{
             maxWidth: maxWidth + "px",
           }}
         />
-        <FileBrowser onData={this.onChange} />
+        <FileBrowser onData={this.onChange} currentFile={src} />
       </div>
     );
   }

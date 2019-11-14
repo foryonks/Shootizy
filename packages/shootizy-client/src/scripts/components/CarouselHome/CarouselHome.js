@@ -13,7 +13,7 @@ import { AppContext } from "scripts/contexts/App";
 const CarouselHome = ({ history, children, useMask }) => {
   const { contents } = useRemoteContents("/api/contents/home-carousel");
   const {
-    state: { themesById = {} },
+    state: { productById = {} },
   } = useContext(AppContext);
   const items = contents ? contents.items : [];
   return (
@@ -28,12 +28,12 @@ const CarouselHome = ({ history, children, useMask }) => {
           interval={6000}>
           {items.map(
             ({ title, contentLink, buttonLink, buttonText, text, img, key, themeId }, index) => {
-              const theme = themesById[themeId];
+              const theme = productById[themeId];
               return (
                 <div
                   className="carouselHome-item header-image"
                   key={index}
-                  style={{ backgroundImage: `url(${img})` }}>
+                  style={{ backgroundImage: `url('${img}')` }}>
                   {/* <img src={img} alt="" className="carouselHome-image" /> */}
                   <div className="carouselHome-item-wrapper">
                     <div

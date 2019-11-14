@@ -3,6 +3,12 @@
 .booking__product-select {
   .ThemeCard {
     position: relative;
+    //transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 0 5px 24px rgba(0, 0, 0, 0.3);
+      transform: scale(1.02);
+    }
   }
   .ThemeCard-content {
     min-height: auto;

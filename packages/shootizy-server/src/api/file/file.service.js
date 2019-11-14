@@ -10,12 +10,12 @@ const path = require("path");
 const sharp = require("sharp");
 const {
   getFolderUpload,
-  isImage,
   moveFileOnUpload,
-  browseFiles: getFiles,
-  baseUrl,
+  browseFiles: listFiles,
+  BASE_URL,
   dateNow,
   sanitizePath,
+  getThumbPath,
 } = require("./helpers");
 
 const formatEntry = ({ ...others }) => ({
@@ -33,20 +33,21 @@ const formatEntry = ({ ...others }) => ({
  */
 const upload = async (filesMap, path) => {
   const files = Object.keys(filesMap).map(key => filesMap[key]);
-  let result;
+  let fileNames = [],
+    isImages = [];
   for (var i = 0; i < files.length; i++) {
-    result += await moveFileOnUpload(files[i], path);
+    const { fileName, isImage } = await moveFileOnUpload(files[i], path);
+    fileNames.push(fileName);
+    isImages.push(isImage);
   }
   var resultTest = {
     success: true,
     time: Date.now(),
     data: {
-      baseurl: baseUrl,
+      baseurl: BASE_URL,
       messages: [],
-      files: files.map(file => file.name),
-      isImages: files.map(file => {
-        return isImage(file.name);
-      }),
+      files: fileNames,
+      isImages,
       code: 220,
     },
   };
@@ -54,11 +55,11 @@ const upload = async (filesMap, path) => {
 };
 
 const browseFiles = path => {
-  const files = getFiles(path);
+  const files = listFiles(path);
   return formatEntry({
     sources: {
       default: {
-        baseurl: sanitizePath(baseUrl),
+        baseurl: sanitizePath(BASE_URL),
         path: sanitizePath(path),
         files,
       },
@@ -67,7 +68,7 @@ const browseFiles = path => {
 };
 
 const browseFolders = path => {
-  const folders = getFiles(path, {
+  const folders = listFiles(path, {
     foldersOnly: true,
     filter: file => !/_thumb/.test(file),
   });
@@ -75,7 +76,7 @@ const browseFolders = path => {
   return formatEntry({
     sources: {
       default: {
-        baseurl: sanitizePath(baseUrl),
+        baseurl: sanitizePath(BASE_URL),
         path: sanitizePath(path),
         folders,
       },
@@ -88,8 +89,8 @@ const remove = (folder, filename = "") => {
   if (filename) {
     shell.rm(folderOrFile);
     // remove thumb of file
-    const { dir, base } = path.parse(folderOrFile);
-    shell.rm(path.join(dir, "_thumb", base));
+    const thumbPath = getThumbPath(folderOrFile);
+    shell.rm(thumbPath);
   } else {
     //if not filename, then use -rf params
     shell.rm("-rf", folderOrFile);
@@ -107,6 +108,13 @@ const move = (from, folderPath) => {
   let folderDest = path.join(getFolderUpload(), folderPath);
   let folderOrFileFrom = path.join(getFolderUpload(), from);
   shell.mv("-f", folderOrFileFrom, folderDest);
+  // Move thumbs
+  const thumbPath = getThumbPath(folderOrFileFrom);
+  if (fs.existsSync(thumbPath)) {
+    const thumbsFolder = `${folderDest}/_thumb`;
+    shell.mkdir("-p", thumbsFolder);
+    shell.mv("-f", thumbPath, thumbsFolder);
+  }
   return formatEntry({});
 };
 

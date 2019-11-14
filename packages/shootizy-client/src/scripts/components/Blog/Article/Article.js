@@ -27,7 +27,7 @@ const Article = ({ match }) => {
           <Helmet bodyAttributes={{ class: "header-padding-page" }} />
           <HeaderImage preTitle="Blog" title={title} reverseColor={true} useMask={false} />
           <div className="container-2">
-            <div className="article-image" style={{ backgroundImage: `url(${imageLarge})` }}>
+            <div className="article-image" style={{ backgroundImage: `url('${imageLarge}')` }}>
               <div className="article-header">
                 <div className="blog-cat-datetime">
                   <Link className="content-theme" to={blog.categoryUrl(category.slug)}>

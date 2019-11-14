@@ -17,17 +17,14 @@ import Themes from "scripts/components/Home/Themes/Themes";
 
 import "./Product.scss";
 
-const { fakegallery } = Gallery;
-
 const Product = ({ match }) => {
   const { contents: product } = useRemoteContents(`/api/products/${match.params.productId}`);
 
-  if (!product) {
+  if (!product || !product.tags.includes("theme")) {
     return null;
   }
 
   const { productId, imageLarge, title, descTitle, description } = product;
-  const gallery = fakegallery(6);
   const bookingLink = { pathname: `/booking`, state: { productId, productTitle: title } };
 
   return (
@@ -83,11 +80,9 @@ const Product = ({ match }) => {
 
                 <div className="container-2">
                   <LazyLoad height={400}>
-                    {gallery && (
-                      <div className="centered-gallery mt100">
-                        <Gallery images={gallery} />
-                      </div>
-                    )}
+                    <div className="centered-gallery mt100">
+                      <Gallery images={product.gallery} />
+                    </div>
                   </LazyLoad>
 
                   <h4 className="title txt-c mt100">Thèmes Shooting Studio</h4>

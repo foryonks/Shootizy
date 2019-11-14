@@ -1,12 +1,22 @@
 db = db.getSiblingDB("shootizy");
 
+//const defaultGallery = new Array(6).map((_, index) => `/assets/demo/gallery/0${index+1}.jpg`);
+let defaultGallery = [];
+for (i = 1; i <= 6; i++) {
+  defaultGallery.push({
+    description: "Lorem ipsum dolor si amet <br/> consectetur adipiscing elit",
+    src: `/api/file/assets/_demo/gallery/0${i}.jpg`,
+  });
+}
+
+// Themes
 db.products.insert([
   {
     productId: "produit-theme-bookmodel",
     tags: ["theme", "book-model"],
     image: "/assets/photos/themes/book-artiste/thumb.jpg",
     imageLarge: "/assets/photos/themes/book-artiste/large.jpg",
-    gallery: "/assets/photos/themes/book-artiste/gallery.jpg",
+    gallery: defaultGallery,
     title: "Book Artistes / Comédien",
     descTitle: "Faites de votre book un visa professionnel<br><strong>pour vos succès !</strong>",
     description: `Votre carte de visite professionnelle, c’est votre book. Pas besoin de surchauffer votre carte bancaire pour le créer, l’actualiser ou l’optimiser.<br><br>
@@ -19,7 +29,7 @@ db.products.insert([
     tags: ["theme", "social"],
     image: "/assets/photos/themes/social-rencontres/thumb.jpg",
     imageLarge: "/assets/photos/themes/social-rencontres/large.jpg",
-    gallery: "/assets/photos/themes/social-rencontres/gallery.jpg",
+    gallery: defaultGallery,
     title: "Réseaux sociaux / Rencontres",
     descTitle: "Un cliché de haut niveau vous fait<br><strong>vraiment sortir du lot !</strong>",
     description: `Comparez la qualité d’un selfie et celle d’un portrait de qualité pro. Il n’y a pas photo. Pourtant, sur le web social, sur les sites de rencontres et même sur des plateformes de type LinkedIn, l’amateurisme reste majoritaire. <strong>Dans cette multitude, un cliché de haut niveau vous fait vraiment sortir du lot.</strong><br><br>
@@ -32,7 +42,7 @@ Question de budget ? Réponse Shootizy : <strong>faites vraiment la différenc
     tags: ["theme", "couple"],
     image: "/assets/photos/themes/couples-duo/thumb.jpg",
     imageLarge: "/assets/photos/themes/couples-duo/large.jpg",
-    gallery: "/assets/photos/themes/couples-duo/gallery.jpg",
+    gallery: defaultGallery,
     title: "Couples / Duo",
     descTitle:
       "Offrez à votre histoire d’amour <strong>des images à<br> la mesure de sa force.</strong>",
@@ -48,7 +58,7 @@ Pour les sessions romantiques, Shootizy personnalise spécialement son approche.
     tags: ["theme", "famille"],
     image: "/assets/photos/themes/familles/thumb.jpg",
     imageLarge: "/assets/photos/themes/familles/large.jpg",
-    gallery: "/assets/photos/themes/familles/gallery.jpg",
+    gallery: defaultGallery,
     title: "Familles",
     descTitle: "Lorem ipsum dolor sit amet, <br><strong>consectetur adipiscing elit.</strong>",
     description: `Cras gravida eget arcu in auctor. Donec rutrum tempus diam, eget ultrices erat convallis nec. Vivamus elementum tempus lorem. Nam vel elit eget nisi pulvinar sodales quis a leo. Morbi iaculis viverra arcu, ac tempus purus faucibus nec. In at urna nisl.
@@ -63,7 +73,7 @@ Pour les sessions romantiques, Shootizy personnalise spécialement son approche.
     tags: ["theme"],
     image: "/assets/photos/themes/carrieres/thumb.jpg",
     imageLarge: "/assets/photos/themes/carrieres/large.jpg",
-    gallery: "/assets/photos/themes/carrieres/gallery.jpg",
+    gallery: defaultGallery,
     title: "Carrières / CV LinkedIn",
     descTitle:
       "<strong>Faites vraiment la différence</strong>, dans votre<br>présentation professionnelle",
@@ -78,7 +88,7 @@ Question de budget ? Réponse Shootizy : <strong>faites vraiment la différenc
     tags: ["theme"],
     image: "/assets/photos/themes/groupes/thumb.jpg",
     imageLarge: "/assets/photos/themes/groupes/large.jpg",
-    gallery: "/assets/photos/themes/groupes/gallery.jpg",
+    gallery: defaultGallery,
     title: "Groupes",
     descTitle: "Plus on est de fous, <strong>plus on Shootizy ^^</strong>",
     description: `Associations, clubs, chorales, orchestres…  <strong>Plus on est de fous, plus on Shootizy</strong>. Le photo-portrait de groupe, en studio ou en extérieur, compte parmi nos spécialités.<br><br>
@@ -93,7 +103,7 @@ Autre astuce de pro. Quand la photo de groupe est prise, tout le monde se déten
     tags: ["theme"],
     image: "/assets/photos/themes/fetes-anniversaires/thumb.jpg",
     imageLarge: "/assets/photos/themes/fetes-anniversaires/large.jpg",
-    gallery: "/assets/photos/themes/fetes-anniversaires/gallery.jpg",
+    gallery: defaultGallery,
     title: "Fêtes / Anniversaires / Mariages",
     descTitle: "Donnez à vos festivités <strong>la marque <br>de l’inoubliable !</strong>",
     description: `Du mariage à l’arbre de Noël, en passant les anniversaires, les soirées costumées ou les cérémonies en tout genre... <strong>Donnez à vos festivités la marque de l’Inoubliable</strong>.<br><br>
@@ -106,7 +116,7 @@ Bien sûr, le mariage occupe une place à part dans le registre de vos célébra
     tags: ["theme"],
     image: "/assets/photos/themes/evjf/thumb.jpg",
     imageLarge: "/assets/photos/themes/evjf/large.jpg",
-    gallery: "/assets/photos/themes/evjf/gallery.jpg",
+    gallery: defaultGallery,
     title: "Enterrements de vie de jeune Fille / Garçon",
     descTitle: "Ce qui se passe à Shootizy<br><strong>reste chez Shootizy !</strong>",
     description: `Et si c’était l’un des jours les plus fous de votre vie ? Sans de belles images, ce serait dommage d’en perdre la trace.<br><br>
@@ -120,7 +130,7 @@ La prestation Shootizy, toujours à prix mini, permet aux participants de se con
     tags: ["theme"],
     image: "/assets/photos/themes/grossesses/thumb.jpg",
     imageLarge: "/assets/photos/themes/grossesses/large.jpg",
-    gallery: "/assets/photos/themes/grossesses/gallery.jpg",
+    gallery: defaultGallery,
     title: "Grossesses / Naissances",
     descTitle:
       "Future Maman ? Bébé est déjà né ?<br><strong>Ce Shooting est fait pour vous !</strong>",
@@ -129,6 +139,46 @@ La prestation Shootizy, toujours à prix mini, permet aux participants de se con
 Au delà des naissances, quelle que soit votre tribu, <strong>nous créons avec vous des souvenirs pleins d’avenir</strong>.<br>
 Le portrait de famille : <strong>Un cadeau à haute teneur émotionnelle, à l’épreuve du temps, à offrir et à s’offrir.</strong>`,
     price: "20€",
+  },
+]);
+
+// Sur mesure
+db.products.insert([
+  {
+    productId: "produit-surmesure-artisan",
+    tags: ["surmesure"],
+    image: "/assets/design/surmesure/img1.png",
+    imageLarge: "/assets/design/surmesure/img1.png",
+    gallery: defaultGallery,
+    title: "Artisan, artiste, créateur",
+    descTitle: "",
+    description:
+      "Vous voulez valoriser vos créations grâce à des prises de vues haute qualité, à prix optimisé.",
+    price: "",
+  },
+  {
+    productId: "produit-surmesure-agence",
+    tags: ["surmesure"],
+    image: "/assets/design/surmesure/img2.png",
+    imageLarge: "/assets/design/surmesure/img2.png",
+    gallery: defaultGallery,
+    title: "Agence de communication, d’événementiel",
+    descTitle: "",
+    description:
+      "Vous cherchez le meilleur rapport qualité-prix-implication pour vos visuels : automobile alimentaire, gastronomie, hôtellerie, luxe, sport, voyages ...",
+    price: "",
+  },
+  {
+    productId: "produit-surmesure-entreprise",
+    tags: ["surmesure"],
+    image: "/assets/design/surmesure/img3.png",
+    imageLarge: "/assets/design/surmesure/img3.png",
+    gallery: defaultGallery,
+    title: "Entrepreneurs, entreprises",
+    descTitle: "",
+    description:
+      "Vous cherchez le meilleur rapport qualité-prix-implication pour vos visuels : automobile alimentaire, gastronomie, hôtellerie, luxe, sport, voyages ...",
+    price: "",
   },
 ]);
 

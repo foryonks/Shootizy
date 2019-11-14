@@ -40,11 +40,11 @@ const ImageViewer = ({ images, selected, onClose }) => {
 };
 
 const ImageRenderer = ({ item, index, key }) => {
-  //return <div className="imageViewer-image" style={{ backgroundImage: `url(${item})` }} />;
+  //return <div className="imageViewer-image" style={{ backgroundImage: `url('${item}')` }} />;
   return (
-    <div className="imageViewer-image">
+    <div className="imageViewer-image" key={key}>
       <div className="image-outer">
-        <img src={item.url} alt="" />
+        <img src={item.src} alt="" />
         <span className="description">
           <span>{item.description}</span>
         </span>

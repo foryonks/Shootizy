@@ -32,4 +32,18 @@ routes.get(
   })
 );
 
+/**
+ * Update product
+ */
+routes.post(
+  "/:productId",
+  asyncRouteWrapper(async (req, res) => {
+    const product = req.body;
+    const { productId } = req.params;
+
+    const updatedProduct = await productService.update(productId, product);
+    res.json(updatedProduct);
+  })
+);
+
 module.exports = routes;
