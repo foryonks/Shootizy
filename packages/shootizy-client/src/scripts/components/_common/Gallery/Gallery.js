@@ -52,18 +52,18 @@ Gallery.defaultProps = {
   images: [],
 };
 
-Gallery.fakegallery = qty => {
-  return new Array(qty)
-    .join(" ")
-    .split(" ")
-    .map(() => {
-      const num = Math.ceil(Math.random() * 15);
-      return {
-        src: `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.jpg`,
-        description:
-          "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit amet",
-      };
-    });
-};
+// Gallery.fakegallery = qty => {
+//   return new Array(qty)
+//     .join(" ")
+//     .split(" ")
+//     .map(() => {
+//       const num = Math.ceil(Math.random() * 15);
+//       return {
+//         src: `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.jpg`,
+//         description:
+//           "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit amet",
+//       };
+//     });
+// };
 
 export default Gallery;
