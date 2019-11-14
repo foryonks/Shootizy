@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 
 //import "jodit";
 import "jodit/build/jodit.min.css";
@@ -10,30 +10,31 @@ import "./FileBrowser.scss";
 
 Jodit.defaultOptions.language = "fr";
 
-const config = getConfig();
-class LocalFileBrowser extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+let fileBrowser = null;
 
-  fileBrowser = null;
-  onButtonClick = () => {
-    if (!this.fileBrowser)
-      this.fileBrowser = new Jodit.modules.FileBrowser(null, config.filebrowser);
-
-    this.fileBrowser.open(data => {
-      this.props.onData(data.files);
+const LocalFileBrowser = ({ currentFile, onData }) => {
+  const onButtonClick = () => {
+    if (!fileBrowser) {
+      const config = getConfig();
+      fileBrowser = new Jodit.modules.FileBrowser(null, config.filebrowser);
+    }
+    fileBrowser.open(data => {
+      onData(data.files);
     });
   };
 
-  render() {
-    return <Icon onClick={this.onButtonClick} name="image" className="file-browser clickable" />;
-  }
-}
+  useEffect(() => {
+    if (fileBrowser) {
+      // Close if switching item
+      fileBrowser.close();
+    }
+  }, [currentFile]);
+
+  return <Icon onClick={onButtonClick} name="image" className="file-browser clickable" />;
+};
 
 LocalFileBrowser.propTypes = {
-  src: PropTypes.string,
+  currentFile: PropTypes.string,
   onData: PropTypes.func,
 };
 

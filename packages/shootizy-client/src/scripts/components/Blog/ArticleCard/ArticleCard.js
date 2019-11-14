@@ -27,7 +27,7 @@ const ArticleCard = ({
       onClick={() => {
         history.push(articleLink);
       }}>
-      <div className="img" style={{ backgroundImage: `url(${imageMini})` }} />
+      <div className="img" style={{ backgroundImage: `url('${imageMini}')` }} />
       <div className="card-desc">
         {category && (
           <div className="blog-cat-datetime">

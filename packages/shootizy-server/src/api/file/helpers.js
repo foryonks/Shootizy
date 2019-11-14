@@ -1,47 +1,48 @@
 "use strict";
 const path = require("path");
 const fs = require("fs");
-const _ = require("lodash");
+//const _ = require("lodash");
 const shell = require("shelljs");
 const fecha = require("fecha");
+const logger = require("logger");
 
 // Should not allow `.file` or `file.` or `fi..le` or `fi--le` or `file___`
 const INVALID_FILENAME = /^\.|\.$|\.{2,}|([^a-z0-9\.\_\-])|^\-|\-$|\-{2,}|\_{3,}/gi;
 
 // Make sure filename meets `*.*` file naming standards
-const VALID_FILENAME_FORMAT = /.\.[a-z0-9]+$/i;
+//const VALID_FILENAME_FORMAT = /.\.[a-z0-9]+$/i;
 
 // File whitelist for images, videos, documents
-const FILE_WHITELIST = {
-  images: ["png", "jpeg", "gif", "jpg"],
-  videos: [],
-  documents: [],
-  graphics: [],
-};
+// const FILE_WHITELIST = {
+//   images: ["png", "jpeg", "gif", "jpg"],
+//   videos: [],
+//   documents: [],
+//   graphics: [],
+// };
 
 // Base URL for images to be sourced
-const baseUrl = "/api/file/assets/";
+const BASE_URL = "/api/file/assets/";
 
 // Root filepath to store images
-const root_url = "public/images/";
+const ROOT_URL = "public/images/";
 
 // Upload errors
-const errors = [
-  "File uploaded with success",
-  "File name missing or invalid",
-  "File type not allowed",
-  "File by that name already exists",
-  "File cannot exceed 5MB",
-  "File was only partially uploaded",
-  "No file was uploaded",
-  "Missing a temporary folder",
-  "Failed to write file to disk.",
-];
+// const ERRORS = [
+//   "File uploaded with success",
+//   "File name missing or invalid",
+//   "File type not allowed",
+//   "File by that name already exists",
+//   "File cannot exceed 5MB",
+//   "File was only partially uploaded",
+//   "No file was uploaded",
+//   "Missing a temporary folder",
+//   "Failed to write file to disk.",
+// ];
 
 const getFolderUpload = function(folderPath = "") {
   if (!process.env.STORAGE) {
-    console.error("please create env variable STORAGE, in dev");
-    console.error("STORAGE=$PWD/storage");
+    logger.error("please create env variable STORAGE, in dev");
+    logger.error("STORAGE=$PWD/storage");
   }
   let folder = process.env.STORAGE.replace("$PWD", process.env.PWD)
     .replace("$CWD", process.cwd())
@@ -83,26 +84,26 @@ const sanitize_filename = filename => {
 };
 
 // Checks to see if filename is invalid
-const valid_filename = filename => {
-  INVALID_FILENAME.lastIndex = 0;
-  return INVALID_FILENAME.test(filename);
-};
+// const valid_filename = filename => {
+//   INVALID_FILENAME.lastIndex = 0;
+//   return INVALID_FILENAME.test(filename);
+// };
 
 // Checks to see if filename has a normal format
 // EG: filename.extension
-const is_file = function(filename) {
-  return VALID_FILENAME_FORMAT.test(filename);
-};
+// const is_file = function(filename) {
+//   return VALID_FILENAME_FORMAT.test(filename);
+// };
 
 // Make sure file type is whitelisted
 // Defaults to `FILE_WHITELIST.images`
-const is_whitelisted = (filename, list) => {
-  return (
-    FILE_WHITELIST[list || "images"].filter(type => {
-      return new RegExp(`\.${type}$`, "i").test(filename);
-    }).length > 0
-  );
-};
+// const is_whitelisted = (filename, list) => {
+//   return (
+//     FILE_WHITELIST[list || "images"].filter(type => {
+//       return new RegExp(`\.${type}$`, "i").test(filename);
+//     }).length > 0
+//   );
+// };
 
 const imagesExtensions = ["jpg", "gif", "png", "bmp"];
 
@@ -114,10 +115,15 @@ const isImage = file => {
 const moveFileOnUpload = async function(file, pathParam = "") {
   return new Promise(function(resolve, reject) {
     const folder = getFolderUpload(pathParam);
-    const filepath = `${folder}/${file.name}`;
+    const fileName = sanitize_filename(file.name);
+    const filepath = `${folder}/${fileName}`;
     file.mv(filepath, err => {
       if (err) reject(err);
-      else resolve(filepath);
+      else
+        resolve({
+          fileName,
+          isImage: isImage(fileName),
+        });
     });
   });
 };
@@ -158,13 +164,21 @@ const browseFiles = (filepath, { foldersOnly, filter = () => true } = {}) => {
       });
   }
 };
+
+const getThumbPath = filePath => {
+  const { dir, base } = path.parse(filePath);
+  return path.join(dir, "_thumb", base);
+};
+
 module.exports = {
   getFolderUpload,
   isImage,
   moveFileOnUpload,
-  baseUrl,
+  BASE_URL,
+  ROOT_URL,
   browseFiles,
   formatDate,
   dateNow,
   sanitizePath,
+  getThumbPath,
 };

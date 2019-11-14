@@ -23,17 +23,17 @@ const Gallery = ({ images }) => {
   };
   return (
     <div className="GalleryWrapper row row-3">
-      {imagesMatrix.map(col => {
+      {imagesMatrix.map((col, indexCol) => {
         return (
-          <div className="col">
-            {col.map((image, key) => (
+          <div className="col" key={indexCol}>
+            {col.map((image, indexImage) => (
               <div
-                key={key}
+                key={indexImage}
                 className="image"
                 onClick={() => {
                   showVisionneuse(image);
                 }}>
-                <span style={{ backgroundImage: `url(${image.url})` }} />
+                <span style={{ backgroundImage: `url('${image.src}')` }} />
               </div>
             ))}
           </div>
@@ -59,7 +59,7 @@ Gallery.fakegallery = qty => {
     .map(() => {
       const num = Math.ceil(Math.random() * 15);
       return {
-        url: `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.jpg`,
+        src: `/assets/demo/gallery/${(num < 10 ? "0" : "") + num}.jpg`,
         description:
           "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit amet",
       };

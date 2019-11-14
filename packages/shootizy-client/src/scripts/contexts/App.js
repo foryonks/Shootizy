@@ -15,12 +15,15 @@ const reducer = (state, action) => {
       const { score, count } = action;
       return { ...state, rating: { score, count } };
     case ACTIONS.THEME_PRODUCTS_RECEIVED:
-      const { themes } = action;
-      const themesById = {};
-      themes.forEach(theme => {
-        themesById[theme.productId] = theme;
-      });
-      return { ...state, themes, themesById };
+      const { products } = action;
+      const themes = products.filter(product => product.tags.includes("theme"));
+      const surMesures = products.filter(product => product.tags.includes("surmesure"));
+
+      const productById = themes.reduce(
+        (acc, product) => ({ ...acc, [product.productId]: product }),
+        {}
+      );
+      return { ...state, surMesures, themes, productById };
     default:
       return state;
   }
@@ -41,10 +44,10 @@ const actions = dispatch => ({
   // Theme products
   loadThemeProducts: async () => {
     try {
-      const themes = await fetchJson("/api/products?tags=theme");
+      const products = await fetchJson("/api/products?tags=theme,surmesure");
       dispatch({
         type: ACTIONS.THEME_PRODUCTS_RECEIVED,
-        themes,
+        products,
       });
     } catch (e) {}
   },

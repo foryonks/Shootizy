@@ -5,7 +5,7 @@ import { formatDate } from "../../../../utils/DateUtils";
 
 const ListRendererSimple = ({ article, key }) => (
   <a href={`/blog/article/${article.slug}`} className="listRendererSimple mea" key={key}>
-    <div className="mea-img image" style={{ backgroundImage: `url(${article.imageMini})` }} />
+    <div className="mea-img image" style={{ backgroundImage: `url('${article.imageMini}')` }} />
 
     <div className="listRendererSimple-content mea-desc">
       <div className="blog-cat-datetime">

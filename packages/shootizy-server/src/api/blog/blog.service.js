@@ -151,11 +151,11 @@ const getComments = async ({ count = 10, sortBy = "date", order = "asc" }) => {
 
 //const asyncCommentGetArticle = ;
 
-const updateArticle = async article => {
+const updateArticle = async articleObj => {
   const db = await mongoDb.getInstance();
   const articleId = mongoDb.getObjectId(article.articleId);
 
-  article = _pick(article, UPDATABLE_FIELDS);
+  const article = _pick(articleObj, UPDATABLE_FIELDS);
 
   const collection = db.collection("blog.articles");
   const result = articleId
