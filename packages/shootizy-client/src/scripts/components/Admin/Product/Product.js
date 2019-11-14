@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useMemo } from "react";
 import classNamesDedupe from "classnames/dedupe";
 
 import { AppContext } from "scripts/contexts/App";
@@ -47,51 +47,59 @@ const FORM_FIELDS = [
 ];
 const FORM_SUBMIT_BTN = { label: "Publier", className: "btn-green" };
 
+const List = ({ list, currentIndex, onItemClick }) => (
+  <ul className="themes-admin__list">
+    {list.map((product, index) => (
+      <li
+        key={product.productId}
+        className={classNamesDedupe("themes-admin__list__item", {
+          "themes-admin__list__item--selected": index === currentIndex,
+        })}>
+        <button
+          onClick={() => {
+            onItemClick(index);
+          }}>
+          {product.title}
+        </button>
+      </li>
+    ))}
+  </ul>
+);
+
 const Product = () => {
-  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const { state: appState, loadThemeProducts } = useContext(AppContext);
-  const themes = appState.themes || [];
-
-  useEffect(() => {
-    if (themes && currentIndex === -1) {
-      setCurrentIndex(0);
-    }
-    // eslint-disable-next-line
-  }, [themes]);
+  const { themes = [], surMesures = [] } = appState;
 
   // Reload list on submit
   const handleSubmitSuccess = () => loadThemeProducts();
+
+  const products = useMemo(() => [...themes, ...surMesures], [themes, surMesures]);
+  const currentProduct = !!products.length && products[currentIndex];
 
   return (
     <div className="themes-admin">
       <div className="themes-admin__category">
         <div className="themes-admin__category__title">Thèmes</div>
-        <ul className="themes-admin__list">
-          {themes.map((product, index) => (
-            <li
-              key={product.productId}
-              className={classNamesDedupe("themes-admin__list__item", {
-                "themes-admin__list__item--selected": index === currentIndex,
-              })}>
-              <button
-                onClick={() => {
-                  setCurrentIndex(index);
-                }}>
-                {product.title}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <List list={themes} currentIndex={currentIndex} onItemClick={setCurrentIndex} />
       </div>
-      {currentIndex !== -1 && (
+      <div className="themes-admin__category">
+        <div className="themes-admin__category__title">Sur mesures</div>
+        <List
+          list={surMesures}
+          currentIndex={currentIndex - themes.length}
+          onItemClick={index => setCurrentIndex(index + themes.length)}
+        />
+      </div>
+      {currentProduct && (
         <Form
           id="form-admin-product"
           className="themes-admin__gallery"
           fields={FORM_FIELDS}
           submitBtn={FORM_SUBMIT_BTN}
-          defaultFormData={{ gallery: themes[currentIndex].gallery }}
-          action={`/api/products/${themes[currentIndex].productId}`}
+          defaultFormData={{ gallery: currentProduct.gallery }}
+          action={`/api/products/${currentProduct.productId}`}
           onSuccess={handleSubmitSuccess}
           successMessage="Done !"
         />

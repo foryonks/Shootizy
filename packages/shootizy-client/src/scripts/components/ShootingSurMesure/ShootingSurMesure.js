@@ -57,7 +57,7 @@ const ShootingSurMesure = () => {
 
         <div className="container-2">
           <h2 className="title mt100 mb50">Quelques unes de nos réalisations</h2>
-          <ThemesLister themesArray={list} />;
+          <ThemesLister themesArray={list} />
           <div className="clients mt100">
             <div>
               <strong className="grey-text">Clients</strong>

@@ -20,7 +20,7 @@ import "./Product.scss";
 const Product = ({ match }) => {
   const { contents: product } = useRemoteContents(`/api/products/${match.params.productId}`);
 
-  if (!product) {
+  if (!product || !product.tags.includes("theme")) {
     return null;
   }
 

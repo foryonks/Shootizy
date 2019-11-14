@@ -10,8 +10,13 @@
     &__title {
       width: 20%;
     }
+
+    + .themes-admin__category {
+      margin-top: 1rem;
+    }
   }
   &__list {
+    width: 80%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
