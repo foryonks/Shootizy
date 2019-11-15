@@ -181,11 +181,12 @@ const search = async search => {
       $or: [
         {
           title: new RegExp(search, "gi"),
-          texte: new RegExp(search, "gi"),
         },
+        { text: new RegExp(search, "gi") },
         //text: { $regex: new RegExp(search), $options: "i" },
       ],
     })
+    .project({ title: 1, slug: 1, _id: 1 })
     .toArray();
   return result;
 };

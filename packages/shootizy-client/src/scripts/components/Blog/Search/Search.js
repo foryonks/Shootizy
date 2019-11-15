@@ -10,10 +10,10 @@ const Search = ({ className }) => {
 
   const inputRef = useRef(null);
   const onButtonClick = () => {
-    setInputVisible(!inputVisible);
-    if (inputVisible) {
+    var newInputVisible = !inputVisible;
+    setInputVisible(newInputVisible);
+    if (newInputVisible) {
       inputRef.current.focus();
-    } else {
     }
   };
 
