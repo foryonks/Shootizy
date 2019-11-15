@@ -14,7 +14,9 @@ const ListCategories = props => {
       <ul>
         {categories.map(({ _id, slug, name }) => (
           <li key={_id}>
-            <NavLink to={`/blog/category/${slug}`}>{name}</NavLink>
+            <NavLink to={`/blog/category/${slug}`} className="btn-very-small">
+              {name}
+            </NavLink>
           </li>
         ))}
       </ul>

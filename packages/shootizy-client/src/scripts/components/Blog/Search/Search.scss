@@ -1,0 +1,55 @@
+@import "~styles/functions";
+
+.SearchBlogWrapper {
+  $search-input-size: 300px;
+  vertical-align: middle;
+  white-space: no-wrap;
+  position: relative;
+  .search-input {
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .icon-search {
+    display: inline-block;
+  }
+
+  .search-result {
+    white-space: normal;
+  }
+  .search-input {
+    width: $search-input-size;
+  }
+  .search-input-container {
+    vertical-align: middle;
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.2s ease-in;
+  }
+
+  .search-input-container--visible {
+    width: $search-input-size;
+  }
+
+  .search-result {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 400px;
+    background: #fff;
+    border: 1px solid #e7eaee;
+    text-align: left;
+    z-index: 10;
+
+    &.search-result-opened {
+      display: block;
+    }
+    li {
+      padding: 4px 4px;
+      &:hover {
+        background: $secondary-color;
+      }
+    }
+  }
+}

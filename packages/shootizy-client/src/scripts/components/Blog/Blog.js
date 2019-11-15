@@ -3,22 +3,21 @@ import { Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import BlogCarousel from "./BlogCarousel";
-import ListCategories from "./ListCategories";
+
 import GenericArticleList from "./GenericArticleList";
 import ListComments from "./ListComments";
 import HeaderImage from "scripts/components/_common/HeaderImage";
 import BlogArticle from "scripts/components/Blog/Article";
 import BlogCategory from "scripts/components/Blog/Category";
 import NewsletterSubscribeSmall from "scripts/components/Newsletter/NewsletterSubscribeSmall";
-
+import ListCategoryAndSearch from "./ListCategoryAndSearch";
 import "./Blog.scss";
 import "./Common.scss";
 import CategoryBlock from "./CategoryBlock/CategoryBlock";
 import BlockInstagram from "./BlockInstagram";
 
 const Blog = props => {
-  const title = `<strong>Bienvenue</strong>, Sur le Blog de<br>
-   Shootizy !`;
+  const title = `<strong>Bienvenue</strong>, Sur le Blog de<br> Shootizy !`;
 
   return (
     <div className="BlogWrapper page-section-grey">
@@ -35,8 +34,7 @@ const Blog = props => {
 
               <div className="container-2 pb100">
                 <BlogCarousel className="mask-grey" />
-                <ListCategories />
-
+                <ListCategoryAndSearch />
                 <main className="Blog-Content">
                   <content>
                     <CategoryBlock categorySlug="categorie1" cols={2} />

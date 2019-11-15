@@ -3,26 +3,8 @@
 .ListCategoriesWrapper {
   ul {
     text-align: center;
-    margin-top: 50px;
     > li {
       display: inline-block;
-      a {
-        display: block;
-        background: $secondary-color;
-        border-radius: 35px;
-        font-family: BrandonGrotesque-Bold;
-        font-size: 18px;
-        color: #000000;
-        letter-spacing: 0;
-        padding: 8px 28px;
-        margin: 2px 4px;
-
-        &:hover,
-        &.active {
-          background-color: #000;
-          color: #fff;
-        }
-      }
     }
   }
 }

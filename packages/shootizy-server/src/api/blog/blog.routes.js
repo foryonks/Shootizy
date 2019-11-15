@@ -102,7 +102,6 @@ routes.get(
  */
 routes.get(
   "/category/:slug",
-
   asyncRouteWrapper(async (req, res) => {
     const { slug } = req.params;
     const category = await blogService.getCategoryBySlug(slug);
@@ -118,9 +117,17 @@ routes.get(
 
   asyncRouteWrapper(async (req, res) => {
     const { slug } = req.params;
-    "category", slug;
     const articles = await blogService.listArticlesByCategory(slug);
     res.json(articles);
+  })
+);
+
+routes.get(
+  "/search/:search",
+  asyncRouteWrapper(async (req, res) => {
+    const { search } = req.params;
+    const response = await blogService.search(search);
+    res.json(response);
   })
 );
 

@@ -116,6 +116,7 @@ db.blog.articles.insert([
     slug: "encore-un-article",
   },
 ]);
+db.blog.articles.createIndex({ title: "text", text: "text" });
 
 db.blog.comments.insert([
   {

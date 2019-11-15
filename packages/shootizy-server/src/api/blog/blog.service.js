@@ -1,7 +1,7 @@
 const mongoDb = require("db");
 const _pick = require("lodash/pick");
-
 const { CustomError } = require("api/api.errors");
+const removeDiacritics = require("diacritics").remove;
 
 const UPDATABLE_FIELDS = ["author", "imageLarge", "imageMini", "slug", "text", "title"];
 
@@ -168,6 +168,28 @@ const updateArticle = async articleObj => {
   return formatEntry(resArticle);
 };
 
+/**
+ * Search in articles
+ * @param {*} search
+ */
+const search = async search => {
+  const db = await mongoDb.getInstance();
+
+  const result = db
+    .collection("blog.articles")
+    .find({
+      $or: [
+        {
+          title: new RegExp(search, "gi"),
+          texte: new RegExp(search, "gi"),
+        },
+        //text: { $regex: new RegExp(search), $options: "i" },
+      ],
+    })
+    .toArray();
+  return result;
+};
+
 module.exports = {
   listArticles,
   listCategories,
@@ -179,4 +201,5 @@ module.exports = {
   getComments,
   getCommentsByArticleId,
   listArticlesByCategory,
+  search,
 };

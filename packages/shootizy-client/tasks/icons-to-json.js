@@ -7,6 +7,7 @@ const packageJson = require("../package.json");
 const iconsJsonDestFile = path.resolve(rootDir, packageJson.icons.jsonFilePath);
 const svgPath = path.resolve(rootDir, packageJson.icons.svgFolder);
 const watch = require("node-watch");
+
 console.log("start icon to json task");
 
 function convert() {
@@ -19,6 +20,10 @@ function convert() {
       let fileContent = fs.readFileSync(path.join(svgPath, filename), "utf8");
       let dom = parser.parseFromString(fileContent);
       let svg = dom.getElementsByTagName("svg")[0];
+
+      var polys = svg.querySelectorAll("polygon,polyline");
+      [].forEach.call(polys, convertPolyToPath);
+
       if (!svg) return null;
       let viewBox = svg.getAttribute("viewBox");
       let paths = Array.prototype.slice
@@ -57,4 +62,16 @@ if (argv.watch) {
   });
 } else {
   convert();
+}
+
+function convertPolyToPath(poly) {
+  var svgNS = poly.ownerSVGElement.namespaceURI;
+  var path = document.createElementNS(svgNS, "path");
+  var points = poly.getAttribute("points").split(/\s+|,/);
+  var x0 = points.shift(),
+    y0 = points.shift();
+  var pathdata = "M" + x0 + "," + y0 + "L" + points.join(" ");
+  if (poly.tagName == "polygon") pathdata += "z";
+  path.setAttribute("d", pathdata);
+  poly.parentNode.replaceChild(path, poly);
 }

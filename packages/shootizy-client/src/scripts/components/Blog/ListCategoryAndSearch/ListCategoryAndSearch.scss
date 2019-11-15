@@ -1,0 +1,9 @@
+/* your css code */
+.categories-and-search {
+  text-align: center;
+  .ListCategoriesWrapper,
+  .SearchBlogWrapper {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
