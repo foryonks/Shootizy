@@ -4,6 +4,7 @@ import { AppContext } from "scripts/contexts/App";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import AddRating from "./Add";
 import List from "./List";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 
 import "./CustomerRating.scss";
 import HeaderImage from "../_common/HeaderImage";
@@ -36,7 +37,7 @@ const CustomerRating = () => {
           </a>
         </div>
 
-        <div className="container container-2 mt50">
+        <div className="container container-2 mt50 pb100">
           <List ratings={ratings} className="mb100" />
           <div className="block-forms block block-corners block-primary-background mt50">
             <div className="txt-c">
@@ -59,6 +60,7 @@ const CustomerRating = () => {
             </div>
           </div>
         </div>
+        <VenirAuStudio />
       </div>
     </div>
   );

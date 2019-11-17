@@ -5,13 +5,13 @@ import ThemeCard from "../ThemeCard";
 
 import "./Themes.scss";
 
-const Themes = () => {
+const Themes = ({ className }) => {
   const { state: appState } = useContext(AppContext);
 
   const list = appState.themes || [];
 
   return (
-    <div className="Themes container-2 grid">
+    <div className={`Themes container-2 grid ${className || ""}`}>
       <h2 className="title">
         Choisissez <strong>le thème</strong> de votre shooting,
         <br />

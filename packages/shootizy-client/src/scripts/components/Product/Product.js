@@ -28,8 +28,8 @@ const Product = ({ match }) => {
   const bookingLink = { pathname: `/booking`, state: { productId, productTitle: title } };
 
   return (
-    <div className="ProductPage">
-      <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} />
+    <div className="ProductPage ">
+      <Helmet bodyAttributes={{ class: "header-padding-page header-reverse page-section-grey" }} />
 
       <HeaderImage
         src={imageLarge}
@@ -78,9 +78,10 @@ const Product = ({ match }) => {
                   </div>
                 </div>
 
-                <div className="container-2">
+                <div className="container-2 mt100">
                   <LazyLoad height={400}>
-                    <div className="centered-gallery mt100">
+                    <h2 className="title">Quelques unes de nos réalisations</h2>
+                    <div className="centered-gallery mt50">
                       <Gallery images={product.gallery} />
                     </div>
                   </LazyLoad>
@@ -96,7 +97,8 @@ const Product = ({ match }) => {
       </div>
 
       <CommentCaMarche className="CommentCaMarche-Home" />
-      <Themes />
+
+      <Themes className="mt100" />
     </div>
   );
 };

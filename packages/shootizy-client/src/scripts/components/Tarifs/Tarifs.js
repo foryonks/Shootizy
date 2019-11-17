@@ -1,7 +1,7 @@
 import React from "react";
 import "./Tarifs.scss";
 import HeaderImage from "scripts/components/_common/HeaderImage";
-import Themes from "../Home/Themes/Themes";
+import ThemesListWithFilter from "scripts/components/NotreBook/ThemesListWithFilter";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Interweave from "interweave";
@@ -101,7 +101,7 @@ const Tarifs = props => (
       className="header-image-generic mask-grey with-header-cards"
       src="/assets/design/headers/tarifs.svg"
       preTitle="Tarifs"
-      title="Un peu de tarifs <strong>blabla</strong>">
+      title="Choissiez la formule <strong>qui vous convient</strong>">
       <div className="row row-3 container-2 header-prices">
         {TARIFS_ITEMS.map(({ title, subText, price, image, options, buttonLink }) => (
           <div className="card card-shadow card-simple tarif-item">
@@ -136,6 +136,12 @@ const Tarifs = props => (
       </div>
     </HeaderImage>
 
+    <div className="txt-c mt50">
+      <Link to="/booking" className="btn-green">
+        Je réserve mon shooting
+      </Link>
+    </div>
+
     <div className="main container-2 row row-2 mode-paiement mt200 mb100">
       <div className="col">
         <h3 className="title">Mode de paiement</h3>
@@ -154,9 +160,9 @@ const Tarifs = props => (
     </div>
 
     <div className="politque-paiement pageCustom-content container-2 mb100">
-      <h3 className="title">Paiement</h3>
+      <h3 className="title condition-title">Paiement</h3>
 
-      <div className="text">
+      <div className="text conditions-text">
         <p>
           Cette Politique de confidentialité décrit comment Adobe (également désigné par « nous », «
           notre » ou « nos ») utilisera vos informations dans les contextes suivants :
@@ -187,7 +193,10 @@ const Tarifs = props => (
 
     <CommentCaMarche />
     <div className="page-section page-section-grey">
-      <Themes />
+      <h2 className="title mb50">Quelques unes de nos réalisations</h2>
+      <div className="container-2">
+        <ThemesListWithFilter />
+      </div>
     </div>
   </div>
 );
