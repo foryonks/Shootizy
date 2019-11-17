@@ -1,3 +1,5 @@
+@import "~styles/variables";
+
 .circle-button {
   color: #000;
   background: #fff;
@@ -25,7 +27,7 @@
 }
 
 .circle-icon {
-  background: #2ef7cc;
+  background: $secondary-color;
   border-radius: 2em;
   font-size: 0.5em;
   padding: 0.3em;
