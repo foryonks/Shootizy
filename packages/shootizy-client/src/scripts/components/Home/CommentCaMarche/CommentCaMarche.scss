@@ -1,7 +1,7 @@
-/* your css code */
+@import "~styles/variables";
 .CommentCaMarche {
   text-align: center;
-  background: #2ef7cc;
+  background: $secondary-color;
 
   > ul {
     margin-top: 44px;

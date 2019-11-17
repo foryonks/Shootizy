@@ -94,9 +94,9 @@ const Main = () => (
       </div>
     </div>
 
-    <div className="section-container">
+    <div className="section-container pt100 pb100">
       <Themes />
-      <SurMesure fullForm={true} />
+      <SurMesure fullForm={false} />
     </div>
 
     <CommentCaMarche />

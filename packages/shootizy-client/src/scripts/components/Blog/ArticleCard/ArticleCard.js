@@ -68,11 +68,13 @@ const ArticleCard = ({
           <h4 className="title">{title}</h4>
         </Link>
 
-        {showDesc && (
+        {showDesc ? (
           <Link to={articleLink} className="ArticleCard-text">
-            <p>{text}</p>
+            <p>
+              {showDesc} {text}
+            </p>
           </Link>
-        )}
+        ) : null}
       </div>
     </div>
   );

@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
+import { string, bool } from "prop-types";
 import { AppContext } from "scripts/contexts/App";
-
-//import Score from "../Score";
+import Score from "scripts/components/CustomerRating/Score";
 
 import "./GlobalRating.scss";
 
@@ -28,22 +27,32 @@ const RATING_LABEL = {
 //   ) : null;
 // };
 
-const GlobalRating = ({ className, title, showDetails }) => {
+const GlobalRating = ({ className, showDetails, showScore }) => {
   const { state: appState } = useContext(AppContext);
   return appState.rating ? (
     <div className={`GlobalRating ${className}`}>
+      {showScore && <Score score={appState.rating.score} />}
       <span className="rating-text">
         <strong>{appState.rating.score}</strong> / 5{" "}
         {showDetails && RATING_LABEL[Math.floor(appState.rating.score)]}
       </span>
-      {showDetails && <h4>{appState.rating.count} avis</h4>}
+
+      {/* {showDetails && <h4>{appState.rating.count} avis</h4>} */}
     </div>
   ) : null;
 };
 
 GlobalRating.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string,
-  showDetails: PropTypes.bool,
+  className: string,
+  //title: string,
+  showDetails: bool,
+  showScore: bool,
+};
+
+GlobalRating.defaultProps = {
+  className: "",
+  //title: "",
+  showDetails: false,
+  showScore: false,
 };
 export default GlobalRating;

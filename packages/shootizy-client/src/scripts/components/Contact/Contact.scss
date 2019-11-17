@@ -1,5 +1,10 @@
 @import "~styles/functions";
 
+.page-contact-background {
+  background-image: url("/assets/design/contact/background.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
 .NewsletterWrapper {
   .form-newsletter-block {
     margin-top: 50px;
