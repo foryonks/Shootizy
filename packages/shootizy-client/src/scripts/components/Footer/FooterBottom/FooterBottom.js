@@ -127,7 +127,7 @@ const FooterBottom = props => (
 
       <div className="col col-rating">
         <span>Avis Clients</span>
-        <GlobalRating className="GlobalRating-footer" />
+        <GlobalRating className="GlobalRating-footer" showScore={true} />
       </div>
     </div>
   </div>

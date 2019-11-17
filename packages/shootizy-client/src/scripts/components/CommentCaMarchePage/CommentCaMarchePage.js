@@ -27,9 +27,9 @@ const CommentCaMarchePage = props => (
 
     <Prices className="container-2" />
 
-    <p className="button-container-centered">
+    <p className="button-container-centered mt50">
       <Link to="/booking" className="btn-green">
-        Réserver mon shooting
+        Je réserve mon shooting
       </Link>
     </p>
 

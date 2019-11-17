@@ -23,14 +23,6 @@ $carousel-width: $container-2-width;
     margin-right: -$margin-space-for-effects;
   }
 
-  .slideRow.cols-3,
-  .slideRow.cols-4 {
-    .commentsCount,
-    .ArticleCard-text {
-      display: none;
-    }
-  }
-
   .carousel.carousel-slider {
     margin-top: -$carousel-top-spacing;
     margin-bottom: -$carousel-top-spacing;
