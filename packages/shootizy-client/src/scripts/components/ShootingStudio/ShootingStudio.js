@@ -15,7 +15,6 @@ import "./ShootingStudio.scss";
 const Main = () => (
   <>
     <HeaderImage
-      className="header-image-generic"
       src="/assets/design/headers/shooting-studio.svg"
       preTitle="Shooting Studio"
       title="<strong>Il était une fois vous</strong>"

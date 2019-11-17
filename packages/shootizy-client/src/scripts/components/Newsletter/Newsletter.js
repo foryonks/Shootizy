@@ -41,8 +41,10 @@ const NotreBook = props => (
         />
       </div>
     </div>
-    <div className="container-2 mt100">
-      <VenirAuStudio />
+    <div className="page-section page-section-white">
+      <div className="container-2">
+        <VenirAuStudio />
+      </div>
     </div>
   </div>
 );

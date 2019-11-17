@@ -187,6 +187,7 @@ const search = async search => {
       ],
     })
     .project({ title: 1, slug: 1, _id: 1 })
+    .limit(10)
     .toArray();
   return result;
 };

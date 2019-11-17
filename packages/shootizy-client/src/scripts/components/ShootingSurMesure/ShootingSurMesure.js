@@ -18,7 +18,6 @@ const ShootingSurMesure = () => {
       <div className="ShootingSurMesureWrapper page-container">
         <Helmet bodyAttributes={{ class: "header-padding-page" }} />
         <HeaderImage
-          className="header-image-generic"
           src="/assets/design/headers/shooting-sur-mesure.svg"
           preTitle="Shooting sur mesure"
           title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"

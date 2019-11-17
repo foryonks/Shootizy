@@ -74,7 +74,6 @@ const Booking = ({ location }) => {
     <div className="Page booking-page">
       <Helmet bodyAttributes={{ class: "header-padding-page" }} />
       <HeaderImage
-        className="header-image-generic"
         //src="/assets/design/headers/header-shooting-studio.png"
         preTitle="Réserver mon shooting"
         title={

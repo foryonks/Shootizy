@@ -20,7 +20,7 @@ const CustomerRating = () => {
     <div className="CustomerRatingWrapper page-container-grey">
       <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} />
       <HeaderImage
-        className="header-image-generic header-reverse mask-grey"
+        className="header-reverse mask-grey"
         preTitle="Avis clients"
         title={() => (
           <div>

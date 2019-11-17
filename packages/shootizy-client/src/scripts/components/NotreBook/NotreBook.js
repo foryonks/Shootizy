@@ -16,7 +16,7 @@ const NotreBook = props => (
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
 
     <HeaderImage
-      className="header-image-generic mask-grey"
+      className="mask-grey"
       src="/assets/design/headers/le-book.svg"
       preTitle="Le book"
       title=""
