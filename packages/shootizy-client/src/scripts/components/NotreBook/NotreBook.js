@@ -23,16 +23,18 @@ const NotreBook = props => (
       useMask={true}
     />
 
-    <div className="page-section ">
-      <div className="container-2  mt50 pb50">
+    <div className="page-section pt50 pb50">
+      <div className="container-2   ">
         <ThemesListWithFilter />
       </div>
     </div>
-    <div className="container-2 pt100 pb100">
-      <h2 className="title mb50">
-        What’s new sur <strong>@Shootizy</strong>
-      </h2>
-      <SocialSquares cols={3} nums={9} twitterPos={[2, 7]} />
+    <div className="page-section-white pt100 pb100">
+      <div className="container-2 ">
+        <h2 className="title mb50">
+          What’s new sur <strong>@Shootizy</strong>
+        </h2>
+        <SocialSquares cols={3} nums={9} twitterPos={[2, 7]} />
+      </div>
     </div>
 
     <CarouselHome useMask={false} />
