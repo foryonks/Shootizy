@@ -14,10 +14,10 @@
 
 .ratings-list {
   $paddings: 10px;
-  margin-left: -$paddings;
-  margin-right: -$paddings;
+  // margin-left: -$paddings;
+  // margin-right: -$paddings;
 
-  react-columned-column {
+  react-columned-item {
     padding-left: $paddings;
     padding-right: $paddings;
   }

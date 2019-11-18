@@ -1,5 +1,5 @@
 import React from "react";
-import { string, bool } from "prop-types";
+import { func, string, bool, oneOfType } from "prop-types";
 import "./HeaderImage.scss";
 import HeaderImageMask from "../HeaderImageMask";
 import { NavLink } from "react-router-dom";
@@ -67,7 +67,7 @@ HeaderImage.propTypes = {
   src: string,
   preTitle: string,
   subTitle: string,
-  title: string,
+  title: oneOfType([string, func]),
   link: string,
   textButton: string,
   className: string,
