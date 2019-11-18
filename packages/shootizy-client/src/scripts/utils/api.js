@@ -25,6 +25,16 @@ const fetchApi = (path, options, redirectLogin401 = true) => {
   if (authToken) {
     headers.append("authorization", `Bearer ${authToken}`);
   }
+
+  if (fetchOptions.params) {
+    const { params } = fetchOptions;
+    const queryString = Object.keys(params)
+      .filter(key => params[key] !== undefined)
+      .map(key => key + "=" + params[key])
+      .join("&");
+    path += (path.indexOf("?") === -1 ? "?" : "&") + queryString;
+  }
+
   if (fetchOptions.method === "POST" && fetchOptions.body) {
     fetchOptions.body =
       typeof fetchOptions.body === "string"
@@ -33,6 +43,7 @@ const fetchApi = (path, options, redirectLogin401 = true) => {
     headers.append("Accept", "application/json");
   }
   fetchOptions.headers = headers;
+
   return fetch(path, fetchOptions)
     .then(async res => {
       // MDN: fetch not return error on 500 : https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful

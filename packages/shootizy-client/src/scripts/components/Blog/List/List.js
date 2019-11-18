@@ -4,9 +4,24 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./List.scss";
 import ArticleCard from "../ArticleCard";
 
-const List = ({ render, cols, hidden, className, sortBy, items, remoteContentsUrl }) => {
+const List = ({
+  render,
+  cols,
+  hidden,
+  className,
+  limit,
+  sortBy,
+  direction,
+  items,
+  remoteContentsUrl,
+}) => {
   let { contents: list } = useRemoteContents(remoteContentsUrl, {
     initialState: items,
+    params: {
+      sortBy,
+      direction,
+      limit,
+    },
   });
   if (items) {
     list = items;

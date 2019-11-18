@@ -3,7 +3,6 @@ import { number } from "prop-types";
 import "./Smiley.scss";
 
 const smileyByScore = score => {
-  console.log(score);
   if (score >= 4) {
     return "good";
   }

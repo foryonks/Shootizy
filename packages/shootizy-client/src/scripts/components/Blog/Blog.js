@@ -58,6 +58,16 @@ const Blog = props => {
                         <GenericArticleList
                           title="Actualité"
                           sortBy="date"
+                          direction={-1}
+                          limit={4}
+                          remoteContentsUrl="/api/blog/category/actualite/articles"
+                        />
+                      </div>
+                      <div className="col">
+                        <GenericArticleList
+                          title="Les plus lus"
+                          sortBy="readCount"
+                          direction={-1}
                           limit={4}
                           remoteContentsUrl="/api/blog/category/actualite/articles"
                         />
