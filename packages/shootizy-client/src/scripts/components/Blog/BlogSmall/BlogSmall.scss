@@ -12,6 +12,9 @@ body {
     background: url("/assets/design/blog/component-bg.svg") left top no-repeat;
     background-size: cover;
 
+    .BlogMultipleArticleCarouselWrapper .carouselWrapper-fixshadow {
+      margin: 0;
+    }
     .BlogSmall-content {
       position: relative;
       z-index: 1;

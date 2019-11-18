@@ -11,7 +11,8 @@ const routes = express.Router();
 routes.get(
   "/articles",
   asyncRouteWrapper(async (req, res) => {
-    const articles = await blogService.listArticles();
+    const query = req.query;
+    const articles = await blogService.listArticles(query);
     res.json(articles);
   })
 );
@@ -37,6 +38,18 @@ routes.post(
   asyncRouteWrapper(async (req, res) => {
     const article = req.body;
     const response = await blogService.updateArticle(article);
+    res.json(response);
+  })
+);
+
+/**
+ * increase article read counter
+ */
+routes.get(
+  "/article-read-count/:slug",
+  asyncRouteWrapper(async (req, res) => {
+    const { slug } = req.params;
+    const response = await blogService.updateArticleCounter(slug);
     res.json(response);
   })
 );

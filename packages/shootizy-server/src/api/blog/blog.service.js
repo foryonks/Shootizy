@@ -1,7 +1,7 @@
 const mongoDb = require("db");
 const _pick = require("lodash/pick");
 const { CustomError } = require("api/api.errors");
-const removeDiacritics = require("diacritics").remove;
+const diacritics = require("diacritics").remove;
 
 const UPDATABLE_FIELDS = ["author", "imageLarge", "imageMini", "slug", "text", "title"];
 
@@ -10,7 +10,7 @@ const formatEntry = ({ _id, ...others }) => ({
   ...others,
 });
 
-const listArticles = async ({ categoryId } = {}) => {
+const listArticles = async ({ categoryId, sort, direction } = {}) => {
   const db = await mongoDb.getInstance();
   const request = {};
 
@@ -18,9 +18,14 @@ const listArticles = async ({ categoryId } = {}) => {
   if (categoryId) {
     request.categoryId = categoryId;
   }
+  const sortQuery = {};
+  if (sort) {
+    sortQuery[sort] = direction;
+  }
   const articles = await db
     .collection("blog.articles")
     .find(request)
+    .sort(sortQuery)
     .toArray();
   const categories = await listCategories();
 
@@ -168,6 +173,23 @@ const updateArticle = async articleObj => {
   return formatEntry(resArticle);
 };
 
+const updateArticleCounter = async slug => {
+  const db = await mongoDb.getInstance();
+  const collection = db.collection("blog.articles");
+
+  const article = await collection.findOne({ slug });
+  if (article) {
+    if (!article.readCount) {
+      article.readCount = 0;
+    }
+    article.readCount++;
+    await collection.updateOne({ _id: article._id }, { $set: article }, { upsert: true });
+    return { ok: true };
+  } else {
+    throw new CustomError("Article not found", 404);
+  }
+};
+
 /**
  * Search in articles
  * @param {*} search
@@ -204,4 +226,5 @@ module.exports = {
   getCommentsByArticleId,
   listArticlesByCategory,
   search,
+  updateArticleCounter,
 };

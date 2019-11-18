@@ -98,9 +98,10 @@ const Tarifs = props => (
   <div className="Tarifs page-container page-section-grey">
     <Helmet bodyAttributes={{ class: "header-padding-page" }} />
     <HeaderImage
-      className="header-image-generic mask-grey with-header-cards"
+      className="mask-grey with-header-cards"
       src="/assets/design/headers/tarifs.svg"
       preTitle="Tarifs"
+      useMask={false}
       title="Choissiez la formule <strong>qui vous convient</strong>">
       <div className="row row-3 container-2 header-prices">
         {TARIFS_ITEMS.map(({ title, subText, price, image, options, buttonLink }) => (
