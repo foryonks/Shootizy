@@ -1,0 +1,30 @@
+/* your css code */
+
+.FormCategoryWrapper {
+  position: relative;
+
+  .form-blog-category {
+    display: table;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .form-fieldset,
+  .button-container-centered {
+    display: table-cell;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+
+  .button-container-centered {
+    width: 10px;
+  }
+
+  .form-feedback--error {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    font-size: 0.6em;
+    margin-top: -1em;
+  }
+}

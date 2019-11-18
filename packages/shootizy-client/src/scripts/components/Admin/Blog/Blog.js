@@ -12,6 +12,9 @@ const Blog = () => {
   return (
     <div className="container ">
       <div className="txt-c">
+        <Link to="/admin/blog/categories" className="btn-green">
+          Gérer les categories
+        </Link>{" "}
         <Link to="/admin/blog/article" className="btn-green">
           Ajouter un article
         </Link>

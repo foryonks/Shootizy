@@ -173,6 +173,23 @@ const updateArticle = async articleObj => {
   return formatEntry(resArticle);
 };
 
+const updateCategory = async categoryObj => {
+  const db = await mongoDb.getInstance();
+  const categoryId = mongoDb.getObjectId(categoryObj._id);
+
+  const category = _pick(categoryObj, ["slug", "name"]);
+
+  const collection = db.collection("blog.categories");
+  const result = categoryId
+    ? await collection.updateOne({ _id: categoryId }, { $set: category }, { upsert: true })
+    : await collection.insertOne(category);
+
+  const _id = result.upsertedId ? result.upsertedId._id : categoryId;
+  const resCategory = await collection.findOne({ _id });
+
+  return resCategory;
+};
+
 const updateArticleCounter = async slug => {
   const db = await mongoDb.getInstance();
   const collection = db.collection("blog.articles");
@@ -227,4 +244,5 @@ module.exports = {
   listArticlesByCategory,
   search,
   updateArticleCounter,
+  updateCategory,
 };

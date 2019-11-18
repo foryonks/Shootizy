@@ -13,7 +13,15 @@ const CONTENTS_CACHE = {};
  */
 const useRemoteContents = (
   apiPath,
-  { initialState = null, autoLoad = true, defaultUseCache = true, method, body, params } = {}
+  {
+    initialState = null,
+    autoLoad = true,
+    onLoad = e => e,
+    defaultUseCache = true,
+    method,
+    body,
+    params,
+  } = {}
 ) => {
   const [loading, setLoading] = useState(!!autoLoad);
   const [contents, setContents] = useState(initialState);
@@ -27,9 +35,11 @@ const useRemoteContents = (
           // Update cache
           CONTENTS_CACHE[apiPath] = newContents;
         }
+        newContents = onLoad(newContents);
         setContents(newContents);
       } catch (e) {
-        setContents(initialState);
+        const result = onLoad(initialState);
+        setContents(result);
       } finally {
         setLoading(false);
       }

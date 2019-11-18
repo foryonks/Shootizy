@@ -43,6 +43,19 @@ routes.post(
 );
 
 /**
+ * update admin article
+ */
+routes.post(
+  "/category",
+  loginMiddleware.checkLogin(true),
+  asyncRouteWrapper(async (req, res) => {
+    const category = req.body;
+    const response = await blogService.updateCategory(category);
+    res.json(response);
+  })
+);
+
+/**
  * increase article read counter
  */
 routes.get(
