@@ -1,11 +1,9 @@
 import React from "react";
 import "./Tarifs.scss";
 import HeaderImage from "scripts/components/_common/HeaderImage";
-import ThemesListWithFilter from "scripts/components/NotreBook/ThemesListWithFilter";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Interweave from "interweave";
-import CommentCaMarche from "scripts/components/Home/CommentCaMarche";
 const TARIFS_ITEMS = [
   {
     title: "Photo à l’unité",
@@ -189,14 +187,6 @@ const Tarifs = props => (
           Des informations de confidentialité supplémentaires sont proposées pour certaines
           applications et certains sites Web Adobe.
         </p>
-      </div>
-    </div>
-
-    <CommentCaMarche />
-    <div className="page-section page-section-grey">
-      <h2 className="title mb50">Quelques unes de nos réalisations</h2>
-      <div className="container-2">
-        <ThemesListWithFilter />
       </div>
     </div>
   </div>

@@ -1,3 +1,5 @@
+@import "~styles/variables";
+
 .block-forms {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -30,6 +32,10 @@
     color: rgba(0, 0, 0, 0.5);
     margin-bottom: 35px;
   }
+}
+
+.block-shadow {
+  box-shadow: $card-shadow;
 }
 
 .block-corners {

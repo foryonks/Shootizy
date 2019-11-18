@@ -17,7 +17,7 @@ const NotreBook = props => (
     <Helmet
       bodyAttributes={{ class: "header-padding-page-without-headerimage page-section-grey" }}
     />
-    <div className="block-forms block block-corners block-primary-background container-2 txt-c">
+    <div className="block-forms block block-shadow block-corners block-primary-background container-2 txt-c mb100">
       <div className="block-content">
         <h2 className="smallTitle">Newsletter</h2>
         <div className="text">
@@ -41,11 +41,7 @@ const NotreBook = props => (
         />
       </div>
     </div>
-    <div className="page-section page-section-white">
-      <div className="container-2">
-        <VenirAuStudio />
-      </div>
-    </div>
+    <VenirAuStudio />
   </div>
 );
 
