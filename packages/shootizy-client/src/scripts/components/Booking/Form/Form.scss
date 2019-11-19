@@ -1,6 +1,9 @@
 @import "~styles/variables";
 
 .booking-summary {
+  max-width: 790px;
+  margin-left: auto;
+  margin-right: auto;
   &__item {
     display: flex;
     flex-direction: column;
@@ -12,11 +15,38 @@
     }
   }
   margin-bottom: 2rem;
+
+  .booking-summary__item {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    transition: transform 200ms ease-in;
+    span {
+      font-size: 44px;
+    }
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.btn-simple {
+  color: $grey-text;
+  svg {
+    fill: currentColor;
+  }
+  &:hover {
+    color: $secondary-color;
+  }
 }
 
 .booking-form {
-  min-height: 50vh;
   text-align: initial;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 50vh;
 
   .form-fieldset {
     margin: auto;
@@ -40,8 +70,25 @@
 
       .booking-separator-fieldset__header {
         text-align: center;
-        font-size: 1.5rem;
+        //font-size: 1.5rem;
       }
     }
+  }
+
+  .small-text-mandatory {
+    text-align: right;
+    font-size: 12px;
+  }
+
+  .booking-checkboxes-fieldset {
+    .form-line {
+      margin-top: 40px;
+      label {
+        font-size: 18px;
+      }
+    }
+  }
+  .form-actions {
+    margin-top: 60px;
   }
 }

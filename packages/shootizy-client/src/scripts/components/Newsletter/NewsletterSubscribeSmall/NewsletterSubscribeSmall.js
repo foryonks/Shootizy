@@ -12,7 +12,7 @@ const FORM_SUBMIT_BTN = {
 };
 
 const NewsletterSubscribeSmall = props => (
-  <div className="NewsletterSubscribeSmall block-forms block block-corners block-primary-background txt-c">
+  <div className="NewsletterSubscribeSmall block-forms block-shadow block block-corners block-primary-background txt-c">
     <h3 className="title">Newsletter Shootizy…</h3>
     <p className="grey-text">Bons plans, offres spéciales et partenariats avantageux…</p>
     <div className="col ">

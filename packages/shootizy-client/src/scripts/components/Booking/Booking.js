@@ -22,7 +22,14 @@ const STEPS = [
       </>
     ),
   },
-  { title: "Date", header: "Choisissez une date dans notre agenda" },
+  {
+    title: "Date",
+    header: (
+      <>
+        Choisissez <strong>une date</strong> dans notre agenda
+      </>
+    ),
+  },
   {
     title: "Finalisation",
     header: (
@@ -72,9 +79,9 @@ const Booking = ({ location }) => {
 
   return (
     <div className="Page booking-page">
-      <Helmet bodyAttributes={{ class: "header-padding-page" }} />
+      <Helmet bodyAttributes={{ class: "header-padding-page page-section-grey" }} />
       <HeaderImage
-        //src="/assets/design/headers/header-shooting-studio.png"
+        src="assets/design/booking/header-background.svg"
         preTitle="Réserver mon shooting"
         title={
           !isConfirmed
@@ -86,10 +93,11 @@ const Booking = ({ location }) => {
             ? `<span class="small">Vous allez recevoir un email de confirmation.<br />Nous revenons vers vous dans les plus brefs délais :)</span>`
             : ""
         }
+        useMask={false}
       />
-      <div className="page-section section-container booking-page-section">
+      <div className="section-container booking-page-section">
         <div className="container container-2">
-          <div className="container-inside">
+          <div className="">
             <div className="booking__step-button-wrapper" ref={wrapperElement}>
               {!isConfirmed ? (
                 STEPS.map(({ title }, index) => (

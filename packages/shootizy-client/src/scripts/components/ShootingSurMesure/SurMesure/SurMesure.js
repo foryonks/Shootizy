@@ -78,7 +78,7 @@ const FORM_SUBMIT_BTN = {
 };
 
 const SurMesure = ({ fullForm }) => (
-  <div className="SurMesure block-forms block block-corners block-primary-background container-2 txt-c">
+  <div className="SurMesure block-forms block-shadow block block-corners block-primary-background container-2 txt-c">
     <div className="block-content">
       <div className="icon-circle">
         <Icon name="cut-peigne" />
