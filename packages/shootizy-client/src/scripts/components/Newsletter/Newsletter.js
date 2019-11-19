@@ -15,7 +15,10 @@ const FORM_SUBMIT_BTN = {
 const NotreBook = props => (
   <div className="NewsletterWrapper ">
     <Helmet
-      bodyAttributes={{ class: "header-padding-page-without-headerimage page-section-grey" }}
+      bodyAttributes={{
+        class:
+          "header-padding-page-without-headerimage page-section-grey page-newsletter-background",
+      }}
     />
     <div className="block-forms block block-shadow block-corners block-primary-background container-2 txt-c mb100">
       <div className="block-content">
