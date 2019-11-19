@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import classNamesDedupe from "classnames/dedupe";
 
 import Datepicker from "scripts/components/_common/Datepicker";
+
+import Calendar from "react-calendar";
+
 import DropdownPopover from "scripts/components/_common/DropdownPopover";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
@@ -64,6 +67,8 @@ const TimePicker = ({ className, onChange, isOpen }) => {
         isOpen={isOpen && !date}
         required
       />
+
+      {/* <Calendar minDate={dateMin} onChange={handleSelectDate} value={date} /> */}
       <DropdownPopover
         className="booking-time-picker__list"
         title={!!date ? formatDateStd(date) : ""}
