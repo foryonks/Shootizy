@@ -22,7 +22,14 @@ const STEPS = [
       </>
     ),
   },
-  { title: "Date", header: "Choisissez une date dans notre agenda" },
+  {
+    title: "Date",
+    header: (
+      <>
+        Choisissez <strong>une date</strong> dans notre agenda
+      </>
+    ),
+  },
   {
     title: "Finalisation",
     header: (

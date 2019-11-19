@@ -27,7 +27,8 @@ const FORM_FIELDS = [
     className: "booking-separator-fieldset",
     renderHeader: () => (
       <div className="booking-separator-fieldset__header">
-        <h3>Vos coordonnées</h3>
+        <h2 className="title">Vos coordonnées</h2>
+        <p>Afin de rester en contact</p>
       </div>
     ),
     children: [],
@@ -86,6 +87,12 @@ const FORM_FIELDS = [
   },
   {
     type: "fieldset",
+    className: "small-text-mandatory",
+    renderHeader: () => <div>* Champs obligatoires</div>,
+    children: [],
+  },
+  {
+    type: "fieldset",
     className: "booking-checkboxes-fieldset",
     children: [
       {
@@ -127,6 +134,19 @@ const BookingForm = ({ stepsData, onStepChange }) => {
     bookingTime: { date, startTime, endTime },
   });
 
+  const IconModify = () => (
+    <svg width="15px" height="15px" viewBox="0 0 15 15">
+      <path
+        d="M217.634 174.485l-1.643 1.643-4.12-4.118 1.643-1.634c.228-.238.556-.376.892-.376.336 0 .663.138.9.376l2.328 2.317c.227.237.366.564.366.901 0 .336-.14.663-.366.891zm-6.08-.158a.228.228 0 00-.168.07l-5.366 5.365c-.049.05-.07.11-.07.168 0 .13.09.219.218.219.06 0 .119-.02.168-.07l5.367-5.366c.049-.05.07-.11.07-.17a.208.208 0 00-.22-.216zm-4.059 8.505l-2.327-2.327-.9.9v1.06h1.267v1.269h1.059l.901-.902zm7.86-6.07L207.12 185H203v-4.119l8.237-8.238 4.118 4.12z"
+        transform="translate(-1213 -1091) translate(570 765) translate(400 10) translate(40 146)"
+        stroke="none"
+        strokeWidth={1}
+        fillRule="evenodd"
+        opacity={0.5}
+      />
+    </svg>
+  );
+
   return (
     <>
       <ul className="row row-2 booking-summary">
@@ -134,8 +154,8 @@ const BookingForm = ({ stepsData, onStepChange }) => {
           <li className="booking-summary__item card card-simple card-shadow">
             <strong>1. Shooting</strong>
             <span>{productTitle}</span>
-            <button className="btn-green-small" onClick={() => onStepChange(0)}>
-              Modifier
+            <button className="btn-simple" onClick={() => onStepChange(0)}>
+              Modifier <IconModify />
             </button>
           </li>
         )}
@@ -147,8 +167,8 @@ const BookingForm = ({ stepsData, onStepChange }) => {
               <br />
               {startTime} - {endTime}
             </span>
-            <button className="btn-green-small" onClick={() => onStepChange(1)}>
-              Modifier
+            <button className="btn-simple" onClick={() => onStepChange(1)}>
+              Modifier <IconModify />
             </button>
           </li>
         )}
