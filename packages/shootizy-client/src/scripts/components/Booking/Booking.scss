@@ -17,18 +17,24 @@
   position: relative;
 }
 .booking__step-button {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   background: white;
   color: black;
   border-radius: 4rem;
+  box-shadow: $button-box-shadow;
 
   &__index {
-    padding: 0.5rem 1rem;
-    border-radius: 4rem;
+    display: inline-block;
+    $size: 40px;
+    height: $size;
+    width: $size;
+    line-height: $size;
+    border-radius: 100px;
     border: 1px solid #dadada;
     background: white;
     margin-right: 0.25rem;
     margin-left: -0.5rem;
+    background: #ffffff;
   }
 
   &:hover:not(:disabled),
@@ -40,7 +46,8 @@
   }
   &--done {
     .booking__step-button__index {
-      background-color: $btn-green-bg-color;
+      background-color: $secondary-color;
+      border-color: $secondary-color;
     }
   }
   &:disabled {

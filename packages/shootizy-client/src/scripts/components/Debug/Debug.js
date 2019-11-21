@@ -5,11 +5,9 @@
 
 import React from "react";
 
-const reactDebug = 0 & (process.env.REACT_APP_DEBUG === "true");
+const reactDebug = process.env.REACT_APP_DEBUG === "true";
 
-if (reactDebug) {
-  // using conditionnal CSS creation is mandatory because require is always actived :(
-  // so don't know why
+const useStyle = () => {
   const style = document.createElement("style");
   style.innerHTML = `
   html {
@@ -20,6 +18,28 @@ if (reactDebug) {
   }
   `;
   document.body.appendChild(style);
+};
+
+async function useCustomParcoursResaervation() {
+  if (/booking/.test(document.location.href)) {
+    await wait(500);
+    document.querySelector(".ThemeCard").click();
+    await wait(200);
+    [...document.querySelectorAll(".react-calendar__month-view__days__day")][25].click();
+    //await wait(100);
+    //window.scrollTo(0, 1200);
+  }
+}
+
+const waitRatio = 2;
+const wait = async sleep => new Promise(resolve => setTimeout(resolve, sleep * waitRatio));
+
+if (reactDebug) {
+  // using conditionnal CSS creation is mandatory because require is always actived :(
+  // so don't know why
+
+  0 && useStyle();
+  useCustomParcoursResaervation();
 }
 
 class Debug extends React.Component {

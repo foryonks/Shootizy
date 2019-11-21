@@ -127,6 +127,7 @@ const Booking = ({ location }) => {
                   showStatus={false}
                   showArrows={false}
                   selectedItem={currentStep}
+                  swipeable={false}
                   onChange={scrollToWrapper}>
                   {STEPS.map((step, index) => (
                     <Fragment key={index}>

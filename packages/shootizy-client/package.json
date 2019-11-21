@@ -26,6 +26,7 @@
     }
   },
   "dependencies": {
+    "animated-scroll-to": "^2.0.5",
     "classnames": "^2.2.6",
     "cross-env": "^6.0.3",
     "destyle": "^1.1.4",
@@ -40,6 +41,7 @@
     "react": "^16.10.1",
     "react-app-polyfill": "^1.0.3",
     "react-breadcrumbs": "^2.1.7",
+    "react-calendar": "^2.19.2",
     "react-columned": "^1.1.3",
     "react-date-picker": "^7.8.2",
     "react-dom": "^16.10.1",
