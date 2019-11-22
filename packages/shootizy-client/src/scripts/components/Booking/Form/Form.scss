@@ -20,8 +20,8 @@
     padding-top: 50px;
     padding-bottom: 50px;
     transition: transform 200ms ease-in;
-    span {
-      font-size: 44px;
+    .booking-summary__item-title {
+      font-size: 40px;
     }
 
     &:hover {

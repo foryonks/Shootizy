@@ -1,2 +1,80 @@
-.ThemesNavigation {
+@import "~styles/variables";
+$border-radius: 24px;
+
+// when used inside navigation bar
+ul.themes-navigation {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+
+  &,
+  li:last-child a {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  li.selected a {
+    color: inherit;
+    background: $secondary-color;
+  }
+  li {
+    display: flex;
+    flex-direction: row;
+    margin: 0 !important;
+
+    a {
+      width: 100%;
+      display: flex;
+      border-radius: 0;
+      background: none;
+      padding: 10px 20px;
+      text-align: left;
+      color: #000 !important;
+
+      &:hover,
+      &.active {
+        color: inherit;
+        background: $secondary-color;
+      }
+    }
+
+    img {
+      width: 70px !important;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+ul.themes-navigation--selectmode {
+  box-shadow: $box-shadow-main;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  background: #fff;
+  width: 100%;
+
+  li {
+    a {
+      align-items: center;
+    }
+    img {
+      vertical-align: middle;
+    }
+  }
+  span {
+    font-size: 18px;
+  }
+}
+
+.themes-navigation-container {
+  position: relative;
+  display: block;
+  width: 100%;
 }

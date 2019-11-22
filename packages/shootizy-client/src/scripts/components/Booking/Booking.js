@@ -58,19 +58,12 @@ const Booking = ({ location }) => {
     }
   }, [isConfirmed]);
 
-  const handleProductSelect = useCallback(
-    (productId, productTitle) => {
-      setstepsData(currentstepsData => [{ productId, productTitle }, ...currentstepsData.slice(1)]);
+  const handleProductSelect = useCallback((productId, productTitle) => {
+    setstepsData(currentstepsData => [{ productId, productTitle }, ...currentstepsData.slice(1)]);
 
-      // Go to next step
-
-      setCurrentStep(currentStep => {
-        const { date, endTime, startTime } = stepsData[1] || {};
-        return date && endTime && startTime ? 2 : 1;
-      });
-    },
-    [stepsData]
-  );
+    // Go to next step
+    setCurrentStep(currentStep => currentStep + 1);
+  }, []);
   const handleTimeSelect = useCallback(bookingTime => {
     setstepsData(currentstepsData => [...currentstepsData.slice(0, 1), bookingTime]);
     // Go to next step if time selectedst

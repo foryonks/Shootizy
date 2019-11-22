@@ -10,7 +10,7 @@ const NAV_LINKS = [
     subNav: (
       <div className="sub-nav-content">
         <h3>Choisissez le thème de votre Shooting</h3>
-        <ThemesNavigation showImage={true} />
+        <ThemesNavigation className="themes-navigation" showImage={true} />
       </div>
     ),
   },

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import Form from "scripts/components/Form";
-import { formatDateStd } from "scripts/utils/DateUtils";
-
+import { formatDate } from "scripts/utils/DateUtils";
+import ThemesNavigation from "scripts/components/Product/ThemesNavigation";
 import "./Form.scss";
 
 const TODAY = new Date();
@@ -123,10 +123,18 @@ const FORM_SUBMIT_BTN = {
 };
 
 const BookingForm = ({ stepsData, onStepChange }) => {
+  const [showProducts, setShowProducts] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(() => {
+    return stepsData && stepsData[0];
+  });
+  useEffect(() => {
+    setSelectedProduct(stepsData && stepsData[0]);
+  }, [stepsData]);
+
   if (!stepsData) {
     return null;
   }
-  const { productId, productTitle } = stepsData[0] || {};
+  const { productId, productTitle } = selectedProduct || {};
   const { date, startTime, endTime } = stepsData[1] || {};
   const formatPostData = data => ({
     ...data,
@@ -147,23 +155,39 @@ const BookingForm = ({ stepsData, onStepChange }) => {
     </svg>
   );
 
+  const onProductChange = (evt, { productId, title }) => {
+    evt.preventDefault();
+    setSelectedProduct({ productId, productTitle: title });
+    setShowProducts(false);
+  };
+
   return (
     <>
       <ul className="row row-2 booking-summary">
         {stepsData[0] && (
           <li className="booking-summary__item card card-simple card-shadow">
             <strong>1. Shooting</strong>
-            <span>{productTitle}</span>
-            <button className="btn-simple" onClick={() => onStepChange(0)}>
-              Modifier <IconModify />
-            </button>
+            <span className="booking-summary__item-title">{productTitle}</span>
+            <div className="themes-navigation-container">
+              <button className="btn-simple" onClick={() => setShowProducts(!showProducts)}>
+                Modifier <IconModify />
+              </button>
+
+              {showProducts && (
+                <ThemesNavigation
+                  className="themes-navigation themes-navigation--selectmode"
+                  onItemClick={onProductChange}
+                  showImage={true}
+                />
+              )}
+            </div>
           </li>
         )}
         {stepsData[1] && (
           <li className="booking-summary__item card card-simple card-shadow">
             <strong>2. Date</strong>
-            <span>
-              {formatDateStd(date)}
+            <span className="booking-summary__item-title">
+              {formatDate(date, "ddd. D MMM YYYY")}
               <br />
               {startTime} - {endTime}
             </span>

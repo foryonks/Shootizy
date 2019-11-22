@@ -76,71 +76,74 @@
 }
 
 $color-hover: #dfdfdf;
-
-.react-calendar__month-view__days__day {
-  padding: 0;
-  position: relative;
-
-  &:before {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-  }
-  > abbr {
-    display: none;
-  }
-
-  .react-calendar__date-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 50%;
-  }
-
-  &:not(:disabled) .react-calendar__date-content {
-    border: 1px solid $secondary-color;
-    border-radius: 1000px;
+.booking-time-picker {
+  .react-calendar__month-view__days__day {
+    padding: 0;
+    position: relative;
 
     &:before {
       content: "";
       display: block;
       padding-bottom: 100%;
     }
+    > abbr {
+      display: none;
+    }
 
-    .react-calendar__date-content__number {
+    .react-calendar__date-content {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
       width: 50%;
     }
+
+    &:not(:disabled) .react-calendar__date-content {
+      border: 1px solid $secondary-color;
+      border-radius: 1000px;
+
+      &:before {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+
+      .react-calendar__date-content__number {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 50%;
+      }
+    }
+
+    &:not(:disabled):hover {
+      background: none;
+      .react-calendar__date-content {
+        @include day-tile-current-hover;
+      }
+    }
   }
 
-  &:not(:disabled):hover {
-    background: none;
+  .react-calendar__tile--active {
+    &,
+    &:enabled:hover,
+    &:enabled:focus,
+    &:hover,
+    &:focus {
+      background: $color-hover;
+      color: inherit;
+    }
+
     .react-calendar__date-content {
       @include day-tile-current-hover;
     }
   }
-}
 
-.react-calendar__tile--active {
-  &,
-  &:enabled:hover,
-  &:enabled:focus,
-  &:hover,
-  &:focus {
-    background: $color-hover;
-    color: inherit;
+  .react-calendar__month-view__days__day--weekend {
+    color: #000;
   }
 
-  .react-calendar__date-content {
-    @include day-tile-current-hover;
-  }
-}
-
-.booking-time-picker {
   margin-bottom: 20px;
   .booking-time-picker__item {
     display: flex;

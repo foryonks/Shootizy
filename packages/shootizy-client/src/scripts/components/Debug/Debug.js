@@ -6,6 +6,12 @@
 import React from "react";
 
 const reactDebug = process.env.REACT_APP_DEBUG === "true";
+const init = () => {
+  if (reactDebug) {
+    debugCustomParcoursReservation();
+    0 && debugStyle();
+  }
+};
 
 const debugStyle = () => {
   const style = document.createElement("style");
@@ -26,12 +32,11 @@ async function debugCustomParcoursReservation() {
     (await wait(
       () => [...document.querySelectorAll(".react-calendar__month-view__days__day")][30]
     )).click();
-
     (await wait(() => document.querySelector(".booking-time-picker__item-button"))).click();
-    (await wait(() => document.querySelector(".booking-summary__item.card button"))).click();
     await wait(300);
     window.scrollTo(0, 200);
-    (await wait(() => document.querySelector(".ThemeCard"))).click();
+    //(await wait(() => document.querySelector(".booking-summary__item.card button"))).click();
+    //(await wait(() => document.querySelectorAll(".themes-navigation--selectmode a")[2])).click();
   }
 }
 
@@ -39,6 +44,19 @@ const waitRatio = 2;
 const delayDetection = 50;
 const countBeforeError = 100;
 const wait = async sleep => {
+  console.log(
+    `DEBUG : ${
+      typeof sleep === "function"
+        ? "Action:" +
+          sleep
+            .toString()
+            .replace(/(\n|\s+)/g, " ")
+            .replace(/\s+/, " ")
+            .replace("function () {  return", "")
+            .replace(/\}$/, "")
+        : "Wait : " + sleep
+    }`
+  );
   let fn =
     typeof sleep === "function"
       ? (resolve, reject, count) => {
@@ -59,32 +77,10 @@ const wait = async sleep => {
   return new Promise(fn);
 };
 
-if (reactDebug) {
-  // using conditionnal CSS creation is mandatory because require is always actived :(
-  // so don't know why
-
-  0 && debugStyle();
-  0 && debugCustomParcoursReservation();
-}
-
+init();
 class Debug extends React.Component {
-  constructor(props) {
-    super(props);
-    if (reactDebug) {
-      console.log("Debug Activated !");
-    }
-  }
-
-  componentDidMount() {
-    if (reactDebug) {
-      setTimeout(() => {
-        window.scrollTo(0, 400);
-      }, 500);
-    }
-  }
-
   render() {
-    return reactDebug ? <></> : null;
+    return null;
   }
 }
 
