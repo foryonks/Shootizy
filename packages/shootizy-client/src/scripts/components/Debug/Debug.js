@@ -7,7 +7,7 @@ import React from "react";
 
 const reactDebug = process.env.REACT_APP_DEBUG === "true";
 
-const useStyle = () => {
+const debugStyle = () => {
   const style = document.createElement("style");
   style.innerHTML = `
   html {
@@ -20,26 +20,51 @@ const useStyle = () => {
   document.body.appendChild(style);
 };
 
-async function useCustomParcoursResaervation() {
+async function debugCustomParcoursReservation() {
   if (/booking/.test(document.location.href)) {
-    await wait(500);
-    document.querySelector(".ThemeCard").click();
-    await wait(200);
-    [...document.querySelectorAll(".react-calendar__month-view__days__day")][25].click();
-    //await wait(100);
-    //window.scrollTo(0, 1200);
+    (await wait(() => document.querySelector(".ThemeCard"))).click();
+    (await wait(
+      () => [...document.querySelectorAll(".react-calendar__month-view__days__day")][30]
+    )).click();
+
+    (await wait(() => document.querySelector(".booking-time-picker__item-button"))).click();
+    (await wait(() => document.querySelector(".booking-summary__item.card button"))).click();
+    await wait(300);
+    window.scrollTo(0, 200);
+    (await wait(() => document.querySelector(".ThemeCard"))).click();
   }
 }
 
 const waitRatio = 2;
-const wait = async sleep => new Promise(resolve => setTimeout(resolve, sleep * waitRatio));
+const delayDetection = 50;
+const countBeforeError = 100;
+const wait = async sleep => {
+  let fn =
+    typeof sleep === "function"
+      ? (resolve, reject, count) => {
+          if (!count) count = 0;
+          const item = sleep();
+          if (item) {
+            resolve(item);
+          } else {
+            if (count < countBeforeError) {
+              setTimeout(fn, delayDetection, resolve, reject, count + 1);
+            } else {
+              reject("Element not found, function is : \n" + sleep.toString());
+            }
+          }
+        }
+      : resolve => setTimeout(resolve, sleep * waitRatio);
+
+  return new Promise(fn);
+};
 
 if (reactDebug) {
   // using conditionnal CSS creation is mandatory because require is always actived :(
   // so don't know why
 
-  0 && useStyle();
-  useCustomParcoursResaervation();
+  0 && debugStyle();
+  0 && debugCustomParcoursReservation();
 }
 
 class Debug extends React.Component {
