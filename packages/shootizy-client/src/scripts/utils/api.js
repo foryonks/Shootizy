@@ -35,7 +35,7 @@ const fetchApi = (path, options, redirectLogin401 = true) => {
     path += (path.indexOf("?") === -1 ? "?" : "&") + queryString;
   }
 
-  if (fetchOptions.method === "POST" && fetchOptions.body) {
+  if (["POST", "DELETE", "PUSH"].includes(fetchOptions.method) && fetchOptions.body) {
     fetchOptions.body =
       typeof fetchOptions.body === "string"
         ? fetchOptions.body
@@ -76,12 +76,13 @@ const fetchApi = (path, options, redirectLogin401 = true) => {
  * @returns {Promise} Fetch promise.
  */
 const fetchJson = (path, options, redirectLogin401 = true) => {
-  if (options && options.method === "POST") {
+  if (options && (options.method === "POST" || options.method === "DELETE")) {
     options.headers = {
       ...options.headers,
       "Content-Type": "application/json",
     };
   }
+
   return fetchApi(path, options, redirectLogin401).then(res => res.json());
 };
 export { fetchJson, getAppToken, setAppToken, removeAppToken };

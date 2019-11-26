@@ -2,11 +2,14 @@
 
 .FormCategoryWrapper {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+  align-items: center;
 
   .form-blog-category {
     display: table;
     width: 100%;
-    margin-bottom: 1em;
   }
 
   .form-fieldset,

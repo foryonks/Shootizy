@@ -5,7 +5,7 @@ import ThemeCard from "../ThemeCard";
 
 import "./Themes.scss";
 
-const Themes = ({ className }) => {
+const Themes = ({ className, title }) => {
   const { state: appState } = useContext(AppContext);
 
   const list = appState.themes || [];
@@ -13,9 +13,15 @@ const Themes = ({ className }) => {
   return (
     <div className={`Themes container-2 grid ${className || ""}`}>
       <h2 className="title">
-        Choisissez <strong>le thème</strong> de votre shooting,
-        <br />
-        <strong>selon votre besoin ou votre envie</strong>.
+        {title ? (
+          title
+        ) : (
+          <>
+            Choisissez <strong>le thème</strong> de votre shooting,
+            <br />
+            <strong>selon votre besoin ou votre envie</strong>.
+          </>
+        )}
       </h2>
 
       {/* <p className="undertitle">
@@ -36,4 +42,10 @@ const Themes = ({ className }) => {
   );
 };
 
+// Themes.propTypes = {
+//   title:{OneOfType:[string,],
+// }
+// Themes.defaultProps = {
+//   title:,
+// }
 export default Themes;

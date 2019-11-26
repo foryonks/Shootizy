@@ -2,6 +2,7 @@ import React from "react";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import ArticleCard from "scripts/components/Blog/ArticleCard";
 import { Link } from "react-router-dom";
+import "./Blog.scss";
 
 const Blog = () => {
   let { contents: articles } = useRemoteContents("/api/blog/articles", {
@@ -20,9 +21,10 @@ const Blog = () => {
         </Link>
       </div>
 
-      <div className="blog-list row row-3 row-stretch row-margin row-wrap">
+      <div className="admin-blog-list blog-list row row-3 row-stretch row-margin row-wrap">
         {articles.map(article => (
           <ArticleCard
+            className="article-cart__list-admin"
             article={article}
             key={article.articleId}
             getArticleUrl={({ slug }) => `/admin/blog/article/${slug}`}

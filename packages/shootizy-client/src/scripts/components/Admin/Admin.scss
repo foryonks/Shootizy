@@ -1,4 +1,53 @@
-//TO-DO
+@import "~styles/variables";
 .admin-home__body {
   margin-top: 50px;
+}
+
+.btn {
+  &-success,
+  &-danger,
+  &-cancel,
+  &-info,
+  &-normal {
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  &-success {
+    color: $success-color;
+    background: $success-color-background;
+    border-color: $success-color-border;
+  }
+
+  &-cancel,
+  &-danger {
+    color: $danger-color;
+    background: $danger-color-background;
+    border-color: $danger-color-border;
+  }
+}
+
+.delete-button {
+  color: $danger-color;
+  background: $danger-color-background;
+  border: 1px solid $danger-color-border;
+}
+
+.button-icon-only {
+  font-size: 44px;
+  border-radius: 500px;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1.2em;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    height: 1em;
+    width: 1em;
+  }
 }

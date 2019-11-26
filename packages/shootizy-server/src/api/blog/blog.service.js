@@ -190,6 +190,14 @@ const updateCategory = async categoryObj => {
   return resCategory;
 };
 
+const deleteCategory = async categoryObj => {
+  const db = await mongoDb.getInstance();
+  const categoryId = mongoDb.getObjectId(categoryObj._id);
+  const collection = db.collection("blog.categories");
+  const result = await collection.deleteOne({ _id: categoryId });
+  return result;
+};
+
 const updateArticleCounter = async slug => {
   const db = await mongoDb.getInstance();
   const collection = db.collection("blog.articles");
@@ -245,4 +253,5 @@ module.exports = {
   search,
   updateArticleCounter,
   updateCategory,
+  deleteCategory,
 };

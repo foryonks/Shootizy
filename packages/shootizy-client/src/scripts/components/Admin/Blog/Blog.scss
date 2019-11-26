@@ -1,0 +1,37 @@
+.article-cart__list-admin {
+  margin: 10px 0.5%;
+  > div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+  .img {
+    width: 30%;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .card-desc {
+    width: 70%;
+    padding: 10px;
+  }
+
+  .ArticleCard-text {
+    font-size: 10px;
+  }
+
+  .commentsCount {
+    right: 5px;
+    top: 5px;
+    margin: 0;
+    .numText {
+      font-size: 10px;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

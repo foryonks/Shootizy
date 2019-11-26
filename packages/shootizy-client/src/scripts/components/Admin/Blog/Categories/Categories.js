@@ -17,12 +17,20 @@ const Categories = () => {
   const onSubmit = () => {
     reloadList();
   };
+  const onDeleteCategory = () => {
+    reloadList();
+  };
 
   return (
     <div className="CategoriesAdminWrapper">
       <ul className="container-2">
         {categories.map(category => (
-          <FormCategory category={category} handleSuccess={onSubmit} key={category.key} />
+          <FormCategory
+            category={category}
+            handleSuccess={onSubmit}
+            onDelete={onDeleteCategory}
+            key={category.key}
+          />
         ))}
       </ul>
     </div>

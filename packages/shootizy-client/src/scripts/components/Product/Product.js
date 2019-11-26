@@ -5,7 +5,6 @@ import LazyLoad from "react-lazyload";
 import Prices from "scripts/components/_common/Prices";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
-import ThemesNavigation from "./ThemesNavigation/ThemesNavigation";
 
 //import Prices from "../_common/Prices";
 import Interweave from "interweave";
@@ -86,19 +85,26 @@ const Product = ({ match }) => {
                     </div>
                   </LazyLoad>
 
-                  <h4 className="title txt-c mt100">Thèmes Shooting Studio</h4>
-                  <ThemesNavigation className="mt10" />
+                  <Themes
+                    className="mt100"
+                    title={
+                      <>
+                        Découvrez les autres thèmes disponibles <br />
+                        dans
+                        <strong>votre studio préféré Shootizy !</strong>
+                      </>
+                    }
+                  />
                 </div>
               </div>
             )}
           />
-          <Prices className="Prices-header-product mt100" textKey="product" />
         </div>
       </div>
 
       <CommentCaMarche className="CommentCaMarche-Home" />
 
-      <Themes className="mt100" />
+      <Prices className="Prices-header-product container-2 pt100 pb100" textKey="product" />
     </div>
   );
 };

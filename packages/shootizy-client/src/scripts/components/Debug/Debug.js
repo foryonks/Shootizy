@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /**
  * Debug component, use only to help to design the project. Disable it by commenting
  * its import in index.js
@@ -27,18 +29,41 @@ const debugStyle = () => {
 };
 
 async function debugCustomParcoursReservation() {
-  if (/booking/.test(document.location.href)) {
-    (await wait(() => document.querySelector(".ThemeCard"))).click();
-    (await wait(
-      () => [...document.querySelectorAll(".react-calendar__month-view__days__day")][30]
-    )).click();
-    (await wait(() => document.querySelector(".booking-time-picker__item-button"))).click();
-    await wait(300);
-    window.scrollTo(0, 200);
-    //(await wait(() => document.querySelector(".booking-summary__item.card button"))).click();
-    //(await wait(() => document.querySelectorAll(".themes-navigation--selectmode a")[2])).click();
-  }
+  // if (/admin\/blog\/categories/.test(document.location.href)) {
+  //   const form = await wait(() =>
+  //     document.querySelector(".CategoriesAdminWrapper > ul > .FormCategoryWrapper:last-child")
+  //   );
+  //   const name = await wait(() => form.querySelector("#form-blog-category__name"));
+  //   findReact(name).pendingProps.onChange("name", "totoriti");
+  //   const slug = await wait(() => form.querySelector("#form-blog-category__slug"));
+  //   findReact(slug).pendingProps.onChange("slug", "totoriti");
+  //   await wait(200);
+  //   (await wait(() => form.querySelector("button"))).click();
+  //   wait(300);
+  //   (await wait(() => document.querySelectorAll(".delete-button")[4])).click();
+  //   (await wait(() => document.querySelector(".Confirm .btn-success"))).click();
+  // }
+  // if (/booking/.test(document.location.href)) {
+  //   (await wait(() => document.querySelector(".ThemeCard"))).click();
+  //   (await wait(
+  //     () => [...document.querySelectorAll(".react-calendar__month-view__days__day")][30]
+  //   )).click();
+  //   (await wait(() => document.querySelector(".booking-time-picker__item-button"))).click();
+  //   await wait(300);
+  //   window.scrollTo(0, 200);
+  //   //(await wait(() => document.querySelector(".booking-summary__item.card button"))).click();
+  //   //(await wait(() => document.querySelectorAll(".themes-navigation--selectmode a")[2])).click();
+  // }
 }
+
+const findReact = dom => {
+  for (let key in dom) {
+    if (key.startsWith("__reactInternalInstance$")) {
+      return dom[key]._debugOwner;
+    }
+  }
+  return null;
+};
 
 const waitRatio = 2;
 const delayDetection = 50;
