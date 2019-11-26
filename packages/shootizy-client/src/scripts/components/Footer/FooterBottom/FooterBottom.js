@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 //import PropTypes from "prop-types";
 import Logo from "../../Header/Logo";
-import "./FooterBottom.scss";
 import SocialButtons from "../../_common/SocialButtons";
 import GlobalRating from "../../CustomerRating/GlobalRating/GlobalRating";
 import Icon from "../../Icon";
+import "./FooterBottom.scss";
+import animateScrollTo from "animated-scroll-to";
 
 const data = [
   {
@@ -81,12 +82,18 @@ function addIds(obj) {
 }
 addIds(data);
 
+const moveToTop = () => {
+  animateScrollTo(0, {
+    speed: 200,
+  });
+};
+
 const FooterBottom = props => (
   <div className="FooterBottom">
     <div className="container-2 row footer-bottom-top">
-      <a href="#top" className="circle-button movetotop-button">
+      <button className="circle-button movetotop-button" onClick={moveToTop}>
         <Icon name="arrow-top" />
-      </a>
+      </button>
       <div className="col col-logo">
         <Logo className="footer-logo" hideText={true} />
         <div className="description">
