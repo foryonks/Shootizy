@@ -40,7 +40,7 @@ const Header = (props, ref) => {
             <Logo />
             <span className="navigation">
               <NavBar />
-              <Link to="/booking" className="btn-big">
+              <Link to="/booking" className="btn-big btn-hover-green">
                 Réserver mon Shooting
               </Link>
             </span>

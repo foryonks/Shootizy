@@ -19,6 +19,14 @@
   letter-spacing: 0;
 }
 
+.btn-hover-green {
+  &:hover {
+    background-color: $secondary-color !important;
+    border-color: transparent;
+    box-shadow: $button-box-shadow;
+  }
+}
+
 .btn-green,
 .btn-green-small {
   @include button;
@@ -26,7 +34,6 @@
   color: #000;
 
   &:hover {
-    //background-color: $btn-green-hover-bg-color !important;
     box-shadow: $button-box-shadow !important;
   }
 

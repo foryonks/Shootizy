@@ -68,7 +68,6 @@ const TimePicker = ({ className, onChange, isOpen }) => {
 
   const tileClassName = ({ activeStartDate, date, view }) => {
     return "";
-    //return view === "month" ? "fuck" : "prout";
   };
 
   const refCalendar = useRef(null);

@@ -6,6 +6,11 @@
 }
 
 .PageCustomWrapper {
+  .list-buttons {
+    margin-top: -1.9%;
+    position: relative;
+    z-index: 10;
+  }
   .update-date {
     color: $grey-text;
     font-weight: bold;

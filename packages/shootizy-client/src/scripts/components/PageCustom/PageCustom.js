@@ -23,7 +23,7 @@ const PageCustom = ({ match }) => {
           reverseColor={true}
         />
 
-        <ul className="list-buttons mt50">
+        <ul className="list-buttons list-buttons-big ">
           <li>
             <NavLink to="/mentions-legales">Mentions légales</NavLink>
           </li>
