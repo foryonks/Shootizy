@@ -23,7 +23,7 @@ const NotreBook = props => (
       useMask={true}
     />
 
-    <div className="page-section pt50 pb50">
+    <div className="page-section pt50 pb100">
       <div className="container-2   ">
         <ThemesListWithFilter />
       </div>
