@@ -1,5 +1,5 @@
 @import "~styles/functions";
-@import "~styles/buttons";
+@import "~styles/mixins";
 
 .Themes {
   > .title {
@@ -17,16 +17,6 @@
       width: 31.8%;
     }
 
-    .ThemeCard {
-      transition: all 0.2s;
-
-      &:hover {
-        box-shadow: 0 5px 24px rgba(0, 0, 0, 0.3);
-        transform: scale(1.05);
-        .btn-green {
-          @extend .btn-green:hover;
-        }
-      }
-    }
+    @include themeCardHover;
   }
 }

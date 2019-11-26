@@ -9,8 +9,8 @@ const NAV_LINKS = [
     title: "Shooting Studio",
     subNav: (
       <div className="sub-nav-content">
-        <h3>Choisissez le thème de votre Shooting</h3>
-        <ThemesNavigation className="themes-navigation" showImage={true} />
+        {/* <h3>Choisissez le thème de votre Shooting</h3> */}
+        <ThemesNavigation className="themes-navigation" showImage={false} />
       </div>
     ),
   },

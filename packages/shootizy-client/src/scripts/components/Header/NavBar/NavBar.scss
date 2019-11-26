@@ -15,6 +15,7 @@ $navColor: #f7f5f6;
       margin-left: 24px;
       font-size: 18px;
       position: relative;
+      z-index: 2;
     }
 
     a {
@@ -50,8 +51,7 @@ $navColor: #f7f5f6;
 
       .sub-nav-content {
         border-radius: $border-radius;
-        margin-top: 38px;
-        width: 390px;
+        margin-top: 19px;
         position: relative;
         box-shadow: $big-shadow;
 
@@ -61,24 +61,27 @@ $navColor: #f7f5f6;
           width: 25px;
           height: 25px;
           position: absolute;
-          z-index: -1;
-          background: $navColor;
+          z-index: 1;
+          background: #fff;
           border-radius: 3px;
           top: 0;
           left: 50%;
           transform: rotate(45deg) translateX(-50%);
         }
 
-        h3 {
-          font-size: 27px;
-          font-weight: normal;
-          padding: 20px;
-          line-height: 1;
-          background: $navColor;
-          text-align: center;
-          border-top-left-radius: $border-radius;
-          border-top-right-radius: $border-radius;
+        a {
+          white-space: nowrap;
         }
+        // h3 {
+        //   font-size: 27px;
+        //   font-weight: normal;
+        //   padding: 20px;
+        //   line-height: 1;
+        //   background: $navColor;
+        //   text-align: center;
+        //   border-top-left-radius: $border-radius;
+        //   border-top-right-radius: $border-radius;
+        // }
       }
     }
 

@@ -20,18 +20,8 @@ const CommentCaMarchePage = props => (
       title="<strong>Votre shooting en 3 étapes</strong>">
       <CommentCaMarche3blocks className="header-blocs container-2" />
     </HeaderImage>
-    <h2 className="title mt50 mb50">
-      Aucune obligation d’achat ! <br />
-      <strong>Payez seulement les photos que vous voulez !</strong>
-    </h2>
 
-    <Prices className="container-2" />
-
-    <p className="button-container-centered mt50">
-      <Link to="/booking" className="btn-green">
-        Je réserve mon shooting
-      </Link>
-    </p>
+    <Prices className="container-2" showTitle={true} showButton={true} />
 
     <div className="container-2 grey-text mt70">
       <div className="mea-table">

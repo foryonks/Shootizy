@@ -33,7 +33,7 @@ const list = async ({ nums = 4, twitterPos = "2" }) => {
   const serviceCacheKey = [`${nums}-${twitterPos}`];
   twitterPos = !twitterPos ? [] : twitterPos.split(",");
 
-  if (serviceCache[serviceCacheKey]) return serviceCache[serviceCacheKey];
+  //if (serviceCache[serviceCacheKey]) return serviceCache[serviceCacheKey];
   const result = await ig.scrapeUserPage(instagramAccount);
   // instagram
   const instagram = result.medias

@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import CarouselHome from "scripts/components/CarouselHome";
 import CommentCaMarche from "./CommentCaMarche";
 import Prices from "../_common/Prices";
-import ResaShooting from "./ResaShooting";
 import Themes from "scripts/components/Home/Themes/Themes";
 import SurMesure from "scripts/components/ShootingSurMesure/SurMesure/SurMesure";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
@@ -17,9 +16,13 @@ const Home = () => {
       <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} title="Accueil" />
       <div className="HomeWrapper">
         <CarouselHome>
-          <Prices className="container-2 home-prices" style={{ marginTop: "-10%" }} />
+          <Prices
+            className="container-2 home-prices"
+            showBottomTitle={true}
+            showButton={true}
+            style={{ marginTop: "-10%" }}
+          />
         </CarouselHome>
-        <ResaShooting />
         <CommentCaMarche className="CommentCaMarche-Home" />
 
         <div className="page-section page-section-grey">

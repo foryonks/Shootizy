@@ -3,6 +3,7 @@ import CrumbRoute from "scripts/components/Breadcrumbs/CrumbRoute";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 import Prices from "scripts/components/_common/Prices";
+import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 
@@ -45,7 +46,7 @@ const Product = ({ match }) => {
           </Link>
         </div>
       </div>
-      <div className="page-section page-section-grey">
+      <div className="page-section page-section-grey pb50">
         <div className="container-2">
           <CrumbRoute
             title={title}
@@ -90,8 +91,7 @@ const Product = ({ match }) => {
                     title={
                       <>
                         Découvrez les autres thèmes disponibles <br />
-                        dans
-                        <strong>votre studio préféré Shootizy !</strong>
+                        de <strong>votre studio préféré Shootizy !</strong>
                       </>
                     }
                   />
@@ -101,10 +101,17 @@ const Product = ({ match }) => {
           />
         </div>
       </div>
-
+      <div className="page-section-white pb100">
+        <Prices
+          className="Prices-header-product page-container-white container-2 pt50"
+          textKey="product"
+          showTitle={true}
+          showButton={true}
+        />
+      </div>
       <CommentCaMarche className="CommentCaMarche-Home" />
 
-      <Prices className="Prices-header-product container-2 pt100 pb100" textKey="product" />
+      <VenirAuStudio />
     </div>
   );
 };

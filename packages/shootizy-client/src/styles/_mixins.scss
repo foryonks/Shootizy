@@ -1,2 +1,16 @@
 @mixin control-arrow {
 }
+
+@mixin themeCardHover {
+  .ThemeCard {
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 0 5px 24px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+      .btn-green {
+        box-shadow: $button-box-shadow !important;
+      }
+    }
+  }
+}

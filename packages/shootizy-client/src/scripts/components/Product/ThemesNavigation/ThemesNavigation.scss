@@ -1,11 +1,17 @@
 @import "~styles/variables";
-$border-radius: 24px;
+$border-radius: 11px;
 
 // when used inside navigation bar
 ul.themes-navigation {
   display: flex;
   flex-direction: column;
   background: #fff;
+
+  &,
+  li:first-child a {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
 
   &,
   li:last-child a {
@@ -27,7 +33,7 @@ ul.themes-navigation {
       display: flex;
       border-radius: 0;
       background: none;
-      padding: 10px 20px;
+      padding: 15px 20px;
       text-align: left;
       color: #000 !important;
 

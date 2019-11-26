@@ -177,7 +177,7 @@ const BookingForm = ({ stepsData, onStepChange }) => {
                 <ThemesNavigation
                   className="themes-navigation themes-navigation--selectmode"
                   onItemClick={onProductChange}
-                  showImage={true}
+                  showImage={false}
                 />
               )}
             </div>
