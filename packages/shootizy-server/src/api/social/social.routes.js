@@ -6,7 +6,7 @@ const loginMiddleware = require("middleware/login");
 const routes = express.Router();
 
 /**
- * /api/user/login POST
+ * /api/social GET
  */
 routes.get(
   "/",
@@ -16,11 +16,11 @@ routes.get(
   })
 );
 
-/**
- * /api/user/me GET
- */
-routes.get("/me", loginMiddleware.checkLogin(false), (req, res) => {
-  res.json(req.user);
-});
+// /**
+//  * /api/user/me GET
+//  */
+// routes.get("/me", loginMiddleware.checkLogin(false), (req, res) => {
+//   res.json(req.user);
+// });
 
 module.exports = routes;
