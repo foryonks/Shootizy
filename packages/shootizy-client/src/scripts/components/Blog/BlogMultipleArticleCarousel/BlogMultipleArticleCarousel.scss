@@ -58,10 +58,12 @@ $carousel-width: $container-2-width;
       color: #000;
       font-size: 15px;
       opacity: 0.5;
+      border-radius: 100px;
 
-      &:hover {
+      &:not(.control-disabled):hover {
         opacity: 1;
-        background: none;
+        background: #000;
+        color: $color-grey;
       }
     }
 

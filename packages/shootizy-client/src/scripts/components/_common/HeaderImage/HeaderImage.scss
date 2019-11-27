@@ -17,27 +17,36 @@
     margin-bottom: 100px;
   }
 }
+.header-image {
+}
+
+.header-image {
+  background: center center no-repeat;
+  background-size: cover;
+  height: 41.92vw;
+
+  // @media (min-width: $header-width) {
+  //   //min-height: 600px;
+  // }
+
+  @media (min-width: 1400px) {
+    max-height: 520px;
+    padding: 0;
+  }
+}
+
+.carouselHome-item {
+  &.header-image {
+    max-height: 805px;
+  }
+}
 
 .HeaderImage {
   position: relative;
   color: inherit;
 
-  .header-image {
-    padding-bottom: 27.44%;
-    overflow: hidden;
-
-    @media (max-width: $header-width) {
-      min-height: 400px;
-    }
-    @media (min-width: 1920px) {
-      height: 527px;
-      padding: 0;
-    }
-  }
-
   .HeaderImage-content {
     overflow: hidden;
-    padding-bottom: 27.44%;
     position: relative;
   }
   .header-image--img {
@@ -106,22 +115,6 @@
 .header-image__btn-link {
   &.active {
     display: none;
-  }
-}
-
-/** Warning Use also in home carousel */
-.header-image {
-  background: center center no-repeat;
-  background-size: cover;
-  padding-bottom: 41.92%;
-
-  @media (max-width: $header-width) {
-    min-height: 600px;
-  }
-
-  @media (min-width: 1920px) {
-    height: 805px;
-    padding: 0;
   }
 }
 
