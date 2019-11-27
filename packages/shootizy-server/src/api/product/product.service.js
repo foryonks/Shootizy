@@ -4,7 +4,7 @@ const _omit = require("lodash/omit");
 const mongoDb = require("db");
 const { CustomError } = require("api/api.errors");
 
-const UPDATABLE_FIELDS = ["gallery"];
+const UPDATABLE_FIELDS = ["gallery", "textImage"];
 
 /**
  * Return product by productId

@@ -70,7 +70,10 @@ const Product = ({ match }) => {
                   </div>
                   <div className="col image-description">
                     <img
-                      src="/assets/photos/themes/fetes-anniversaires/image-pres.png"
+                      src={
+                        product.textImage ||
+                        "/assets/photos/themes/fetes-anniversaires/image-pres.png"
+                      }
                       alt=""
                       className="description-image"
                     />

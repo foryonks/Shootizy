@@ -10,8 +10,27 @@ import "./Product.scss";
 const FORM_FIELDS = [
   {
     type: "custom",
+    name: "textImage",
+    label: "Images associée au texte",
+    render: (value, isError, onChange, onValidate) => {
+      return (
+        <div>
+          <EditableImage
+            onChange={image => {
+              onChange("textImage", image);
+            }}
+            src={value}
+            maxWidth={200}
+            alt=""
+          />
+        </div>
+      );
+    },
+  },
+  {
+    type: "custom",
     name: "gallery",
-    //label: "Galeries",
+    label: "Galeries d'images",
     render: (value, isError, onChange, onValidate) => {
       const images = value || [];
 
@@ -98,7 +117,7 @@ const Product = () => {
           className="themes-admin__gallery"
           fields={FORM_FIELDS}
           submitBtn={FORM_SUBMIT_BTN}
-          defaultFormData={{ gallery: currentProduct.gallery }}
+          defaultFormData={currentProduct}
           action={`/api/products/${currentProduct.productId}`}
           onSuccess={handleSubmitSuccess}
           successMessage="Done !"
