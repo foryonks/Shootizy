@@ -1,1 +1,13 @@
 /* your css code */
+.generic-article-list-big {
+  .image {
+    width: 100%;
+    max-width: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .listRendererSimple-title {
+    font-weight: normal;
+    font-size: 24px;
+  }
+}

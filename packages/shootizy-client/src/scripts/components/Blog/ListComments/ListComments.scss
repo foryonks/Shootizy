@@ -1,7 +1,10 @@
 /* your css code */
+@import "~styles/functions";
+
 .ListCommentsWrapper {
   li {
     margin-bottom: 20px;
+    font-size: font-size(16);
     &:after {
       content: "";
       display: table;

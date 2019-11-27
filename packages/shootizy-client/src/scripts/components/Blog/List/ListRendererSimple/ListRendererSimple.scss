@@ -7,24 +7,29 @@
 
   .image {
     width: 80px;
-    height: 80px;
     margin-right: 15px;
     background: no-repeat center center;
     background-size: cover;
+    &:before {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
   }
 
   .mea-desc {
     padding: 0;
   }
+  .blog-cat-datetime {
+    letter-spacing: 0;
+    font-size: font-size(14);
+    font-weight: bold;
+    color: #000;
+  }
 }
 
-.blog-cat-datetime {
-  letter-spacing: 0;
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #000;
-}
 .listRendererSimple-title {
   margin-top: font-size(5);
   font-weight: bold;
+  font-size: font-size(16);
 }

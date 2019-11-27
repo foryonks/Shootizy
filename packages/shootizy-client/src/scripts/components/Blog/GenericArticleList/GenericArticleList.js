@@ -2,6 +2,7 @@ import React from "react";
 import { element, func, oneOfType } from "prop-types";
 import List from "../List";
 import ListRenderedSimple from "../List/ListRendererSimple";
+import "./GenericArticleList.scss";
 
 const GenericArticleList = props => (
   <div className="MostReadArticlesWrapper">

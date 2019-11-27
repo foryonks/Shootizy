@@ -56,6 +56,7 @@ const Blog = props => {
                     <div className="row row-2">
                       <div className="col">
                         <GenericArticleList
+                          className="generic-article-list-big"
                           title="Actualité"
                           sortBy="date"
                           direction={-1}
@@ -65,6 +66,7 @@ const Blog = props => {
                       </div>
                       <div className="col">
                         <GenericArticleList
+                          className="generic-article-list-big"
                           title="Les plus lus"
                           sortBy="readCount"
                           direction={-1}
