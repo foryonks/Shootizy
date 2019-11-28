@@ -21,7 +21,7 @@ const PagesCustom = props => {
             <option value="mentions-legales">Mentions légales</option>
           </select>
         </div>
-        {pageSlug && <PageCustomEditor pageSlug={pageSlug} />}
+        {pageSlug ? <PageCustomEditor pageSlug={pageSlug} /> : null}
       </div>
     </div>
   );

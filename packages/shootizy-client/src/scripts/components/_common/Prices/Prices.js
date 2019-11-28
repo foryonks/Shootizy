@@ -20,7 +20,7 @@ const Prices = ({ className, showBottomTitle, showTitle, showButton, textKey = "
   const itemsCollapse = items.filter(({ parent }) => !!parent);
   return (
     <div className={`PricesWrapper ${className}`}>
-      {showTitle && <Title />}
+      {showTitle ? <Title /> : null}
       <div className={`Prices Prices-header row`}>
         {itemsAlone.map(PriceItem)}
         <div
@@ -31,7 +31,7 @@ const Prices = ({ className, showBottomTitle, showTitle, showButton, textKey = "
           {itemsCollapse.map(PriceItem)}
         </div>
       </div>
-      {showBottomTitle && <Title />}
+      {showBottomTitle ? <Title /> : null}
       {showButton && (
         <p className="button-container-centered mt50">
           <Link to="/tarifs" className="btn-green">

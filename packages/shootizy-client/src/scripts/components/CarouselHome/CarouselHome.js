@@ -68,7 +68,7 @@ const CarouselHome = ({ history, children, useMask }) => {
             }
           )}
         </CarouselResponsive>
-        {useMask && <HeaderImageMask />}
+        {useMask ? <HeaderImageMask /> : null}
       </div>
       {children}
     </div>

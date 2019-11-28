@@ -132,7 +132,7 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
         label: (
           <>
             {label}
-            {isRequired && <sup> *</sup>}
+            {isRequired ? <sup> *</sup> : null}
           </>
         ),
         onChange: ev => {
@@ -161,11 +161,13 @@ const Field = ({ id, field, onChange, onValidate, showErrorFeedback }) => {
       {showLabel && (
         <label htmlFor={id}>
           {typeof label === "string" ? <Interweave content={label} /> : label}
-          {isRequired && <sup> *</sup>}
+          {isRequired ? <sup> *</sup> : null}
         </label>
       )}
       {Input}
-      {showErrorFeedback && isError && <div className="form-feedback--error">{field.error}</div>}
+      {showErrorFeedback && isError ? (
+        <div className="form-feedback--error">{field.error}</div>
+      ) : null}
     </>
   );
   return wrapperClassname ? <div className={wrapperClassname}>{Field}</div> : Field;

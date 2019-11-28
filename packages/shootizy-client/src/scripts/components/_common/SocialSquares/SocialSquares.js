@@ -21,8 +21,10 @@ const SocialSquares = ({ cols, nums, twitterPos, className, fill }) => {
               href={url}
               className={`item item-${type}`}
               style={{ backgroundImage: thumbnail ? `url("${thumbnail}")` : false }}>
-              {date && <time>{formatDate(date, "DD.MM.YYYY")}</time>}
-              {type === "twitter" && <span className="text">{sliceAndRemoveHTML(text, 12)}</span>}
+              {date ? <time>{formatDate(date, "DD.MM.YYYY")}</time> : null}
+              {type === "twitter" ? (
+                <span className="text">{sliceAndRemoveHTML(text, 12)}</span>
+              ) : null}
               <Icon name={type} />
             </a>
           ))}

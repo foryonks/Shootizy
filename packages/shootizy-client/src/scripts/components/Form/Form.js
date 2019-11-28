@@ -278,7 +278,7 @@ const Form = ({
           {submitted && successMessage && (
             <div className="form-feedback--success">{successMessage}</div>
           )}
-          {error && <div className="form-feedback--error">{error}</div>}
+          {error ? <div className="form-feedback--error">{error}</div> : null}
         </FormAction>
       </form>
     )

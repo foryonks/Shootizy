@@ -48,7 +48,7 @@ const Booking = () => {
                 <p>
                   {getDateStr(date)} | {startTime} - {endTime}
                 </p>
-                {product && <p>Thème : {product.title}</p>}
+                {product ? <p>Thème : {product.title}</p> : null}
                 <p>
                   {name} - {email}
                 </p>
@@ -62,7 +62,7 @@ const Booking = () => {
                 </button>
               </div>
             </div>
-            {error && <div className="form-feedback--error">{error}</div>}
+            {error ? <div className="form-feedback--error">{error}</div> : null}
           </li>
         ))}
         {PaginationComponent}

@@ -29,7 +29,7 @@ const listArticles = async ({ categoryId, sort, direction } = {}) => {
     .toArray();
   const categories = await listCategories();
 
-  for (var i = 0; i < articles.length; i++) {
+  for (let i = 0; i < articles.length; i++) {
     let article = articles[i];
     let comments = await getCommentsByArticleId(article._id);
     article.commentsCount = comments.length;

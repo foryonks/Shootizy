@@ -16,7 +16,7 @@ const ThemesNavigation = ({ showImage, onItemClick, className }) => {
           <NavLink
             to={`/shooting-studio/${productId}`}
             onClick={evt => onItemClick(evt, { title, productId })}>
-            {showImage && <img src={image} alt="" />} <span>{title}</span>
+            {showImage ? <img src={image} alt="" /> : null} <span>{title}</span>
           </NavLink>
         </li>
       ))}
@@ -27,6 +27,7 @@ const ThemesNavigation = ({ showImage, onItemClick, className }) => {
 ThemesNavigation.propTypes = {
   onItemClick: func,
 };
+
 ThemesNavigation.defaultProps = {
   onItemClick: () => {},
 };

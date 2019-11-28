@@ -31,7 +31,7 @@ const GlobalRating = ({ className, showDetails, showScore }) => {
   const { state: appState } = useContext(AppContext);
   return appState.rating ? (
     <div className={`GlobalRating ${className}`}>
-      {showScore && <Score score={appState.rating.score} />}
+      {showScore ? <Score score={appState.rating.score} /> : null}
       <span className="rating-text">
         <strong>{appState.rating.score}</strong> / 5{" "}
         {showDetails && RATING_LABEL[Math.floor(appState.rating.score)]}

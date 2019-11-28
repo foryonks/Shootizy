@@ -93,7 +93,7 @@ const DropdownPopover = ({
             "dropdown-popover--open": isOpen,
           })}>
           <div className="dropdown-popover__contents">
-            {title && <h3 className="dropdown-popover__title">{title}</h3>}
+            {title ? <h3 className="dropdown-popover__title">{title}</h3> : null}
             {loading ? (
               <div className="dropdown-popover__info">Chargement...</div>
             ) : !list.length ? (

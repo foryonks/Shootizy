@@ -29,7 +29,7 @@ const NavBar = props => (
           <NavLink to={path}>
             <span>{title}</span>
           </NavLink>
-          {subNav && <div className="nav-sub">{subNav}</div>}
+          {subNav ? <div className="nav-sub">{subNav}</div> : null}
         </li>
       ))}
     </ul>

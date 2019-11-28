@@ -57,7 +57,7 @@ const HeaderImage = ({
           </div>
         )}
       </div>
-      {useMask && <HeaderImageMask />}
+      {useMask ? <HeaderImageMask /> : null}
     </div>
     {children}
   </section>

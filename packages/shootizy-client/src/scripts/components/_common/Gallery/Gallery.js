@@ -39,7 +39,9 @@ const Gallery = ({ images }) => {
           </div>
         );
       })}
-      {showViewer && <ImageViewer selected={selectedImage} images={images} onClose={closeViewer} />}
+      {showViewer ? (
+        <ImageViewer selected={selectedImage} images={images} onClose={closeViewer} />
+      ) : null}
     </div>
   );
 };

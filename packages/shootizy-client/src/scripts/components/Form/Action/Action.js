@@ -7,7 +7,7 @@ const Action = ({ className, label, icon, disabled, wrapper, children }) => {
   const Button = (
     <>
       <button disabled={disabled} className={className}>
-        {icon && <Icon name={icon} />}
+        {icon ? <Icon name={icon} /> : null}
         {label}
       </button>
       {children}
