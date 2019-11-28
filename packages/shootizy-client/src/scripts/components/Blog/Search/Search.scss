@@ -21,8 +21,8 @@ body.search-form-opened {
     padding-left: 0;
     padding-right: 0;
     border-radius: 100px;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
   }
 
   .search-result {
@@ -48,13 +48,23 @@ body.search-form-opened {
     transform: translateX(-50%) translateY(-50%);
     display: flex;
     flex-direction: row;
+
     align-items: center;
     z-index: 1001;
   }
 
+  .icon-search {
+    cursor: default;
+    pointer-events: none;
+  }
+  .icon-search,
+  .icon-close {
+    flex-shrink: 1;
+  }
+
   .search-input-container {
     vertical-align: middle;
-    width: 100%;
+    flex-grow: 1;
 
     input {
       width: 100%;
@@ -81,7 +91,7 @@ body.search-form-opened {
     background: #fff;
     text-align: left;
     z-index: 10;
-    padding-top: 5px;
+    padding-top: 15px;
 
     &.search-result-opened {
       display: block;
