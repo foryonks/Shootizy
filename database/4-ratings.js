@@ -4,7 +4,7 @@ db.ratings.insert([
   {
     date: new Date(),
     shootingDate: new Date(),
-    name: "Arnaud Gueras",
+    name: "Nicolas Batel",
     score: 5,
     comment: "Shootizy is fucking great !",
     isConfirmed: true,
@@ -12,7 +12,7 @@ db.ratings.insert([
   {
     date: new Date(),
     shootingDate: new Date(),
-    name: "Viet Vo",
+    name: "Medy Boo",
     score: 4,
     comment: "It's ok !",
     isConfirmed: true,

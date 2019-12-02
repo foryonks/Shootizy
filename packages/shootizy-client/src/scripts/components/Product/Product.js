@@ -39,14 +39,14 @@ const Product = ({ match }) => {
         subTitle="SHOOTING OFFERT puis 20 € la photo ou 150 € Le Pack 150 photos"
       />
 
-      <div className="pb50 page-section-grey">
+      <div className="page-section-grey">
         <div className="txt-c button-over-middle">
           <Link to={bookingLink} className="btn-green">
             Je réserve mon shooting
           </Link>
         </div>
       </div>
-      <div className="page-section page-section-grey pb50">
+      <div className="page-section page-section-grey pt50 pb50">
         <div className="container-2">
           <CrumbRoute
             title={title}

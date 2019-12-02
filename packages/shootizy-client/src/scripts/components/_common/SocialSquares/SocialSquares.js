@@ -19,6 +19,8 @@ const SocialSquares = ({ cols, nums, twitterPos, className, fill }) => {
             <a
               key={key}
               href={url}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`item item-${type}`}
               style={{ backgroundImage: thumbnail ? `url("${thumbnail}")` : false }}>
               {date ? <time>{formatDate(date, "DD.MM.YYYY")}</time> : null}

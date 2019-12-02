@@ -47,7 +47,7 @@ const Blog = props => {
                       limit={3}
                       remoteContentsUrl="/api/blog/articles"
                     />
-                    <ListComments sortBy="date" order="desc" count="3" />
+                    <ListComments className="mt50" sortBy="date" order="desc" count="3" />
                     <NewsletterSubscribeSmall />
                   </aside>
                 </main>

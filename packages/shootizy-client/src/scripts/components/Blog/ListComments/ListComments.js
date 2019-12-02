@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import "./ListComments.scss";
 
-const ListComments = ({ sortBy, order, count, title }) => {
+const ListComments = ({ sortBy, order, count, title, className }) => {
   const { contents: comments } = useRemoteContents(`/api/blog/comments/`, {
     method: "POST",
     body: {
@@ -14,7 +14,7 @@ const ListComments = ({ sortBy, order, count, title }) => {
   });
 
   return (
-    <div className="ListCommentsWrapper">
+    <div className={`ListCommentsWrapper ${className || ""}`}>
       <h3 className="Blog-block-title">{title || "Nouveaux Com'"}</h3>
       <ul className="comments">
         {comments &&

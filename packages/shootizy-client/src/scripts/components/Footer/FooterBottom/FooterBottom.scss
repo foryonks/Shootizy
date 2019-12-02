@@ -15,15 +15,22 @@
   }
 
   .movetotop-button {
+    $size: 70px;
+    $decal: $size * 2;
     position: absolute;
     right: 0;
     left: auto;
     margin-left: 0;
     margin-right: 0;
     font-size: 24px;
-    width: 70px;
-    height: 70px;
+    width: $size;
+    height: $size;
     cursor: pointer;
+    margin-right: -$decal;
+
+    @media (max-width: $container-2-width+$decal*2+20) {
+      margin-right: auto;
+    }
   }
 }
 

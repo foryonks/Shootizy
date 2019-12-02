@@ -1,5 +1,8 @@
 @import "~styles/functions";
 
+.carousel .control-arrow {
+  cursor: pointer !important;
+}
 /* your css code */
 .Carousel {
   position: relative;

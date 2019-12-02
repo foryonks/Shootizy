@@ -2,11 +2,16 @@
 
 .SocialSquaresWrapper {
   .item {
-    padding-bottom: 50%;
     position: relative;
     margin: 0;
     width: 50%;
     cursor: pointer;
+
+    &:before {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
   }
 
   .itemscols-2 .item {
@@ -14,11 +19,9 @@
   }
   .itemscols-3 .item {
     width: 33.33333%;
-    padding-bottom: 33.3333%;
   }
   .itemscols-4 .item {
     width: 25%;
-    padding-bottom: 25%;
   }
 
   span.empty {
@@ -35,11 +38,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    //padding: 45px;
   }
 
   $margins: 15.51%;
-  date,
   .text {
     position: absolute;
     top: 0;
@@ -47,11 +48,13 @@
     right: $margins;
   }
 
-  datetime {
+  time {
     font-size: font-size(20);
     opacity: 0.5;
     margin-top: $margins;
     position: absolute;
+    left: $margins;
+    top: 0;
   }
 
   .text {
