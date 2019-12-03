@@ -2,6 +2,13 @@
   "id": "backstop_default",
   "viewports": [
     {
+      "label": "large",
+      "width": 1920,
+      "height": 1200
+    }
+  ],
+  "viewports_disabled": [
+    {
       "label": "phone",
       "width": 320,
       "height": 480
@@ -10,11 +17,6 @@
       "label": "tablet",
       "width": 1024,
       "height": 768
-    },
-    {
-      "label": "large",
-      "width": 1920,
-      "height": 1200
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -37,7 +39,8 @@
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
+      "requireSameDimensions": true,
+      "scrollToSelector": ".FooterBottom"
     }
   ],
   "paths": {
