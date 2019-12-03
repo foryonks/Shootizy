@@ -70,3 +70,9 @@ upload/
 
 # vscode config
 .vscode
+
+
+# BackstopJS folder
+backstop_data/engine_scripts
+backstop_data/html_report
+backstop_data/bitmaps_test
