@@ -88,6 +88,7 @@ const Public = () => (
       </ShowHideWithRoute>
     </LazyLoad> */}
     <Footer />
+    <div id="bottomForTest" />
   </>
 );
 
