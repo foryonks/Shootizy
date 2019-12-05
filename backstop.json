@@ -2,9 +2,9 @@
   "id": "backstop_default",
   "viewports": [
     {
-      "label": "large",
+      "label": "large_high",
       "width": 1920,
-      "height": 1200
+      "height": 10000
     }
   ],
   "viewports_disabled": [
@@ -15,7 +15,6 @@
     },
     {
       "label": "tablet",
-      "width": 1024,
       "height": 768
     }
   ],
@@ -24,23 +23,143 @@
   "scenarios": [
     {
       "label": "Homepage",
-      "cookiePath": "",
       "url": "http://localhost:3000",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true,
-      "scrollToBottom": true
+      "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"],
+      "delay": 200
+    },
+    {
+      "label": "Comment-ca-marche",
+      "url": "http://localhost:3000/comment-ca-marche",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 200
+    },
+    {
+      "label": "Shooting-Studio",
+      "url": "http://localhost:3000/shooting-studio",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "removeSelectors": [".studio-photo-content"],
+      "delay": 2000
+    },
+    {
+      "label": "shooting-studio/produit-theme-bookmodel",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-bookmodel",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-social",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-social",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-couple",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-couple",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-famille",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-famille",
+      "hideSelectors": [".googlemaps-content iframe"],
+
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-carriere",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-carriere",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-groupe",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-groupe",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-fete",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-fete",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-evjf",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-evjf",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-studio/produit-theme-naissance",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-naissance",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 5000
+    },
+    {
+      "label": "shooting-sur-mesure",
+      "url": "http://localhost:3000/shooting-sur-mesure",
+      "hideSelectors": [".googlemaps-content iframe", ".FloatingBodyWrapper"],
+      "delay": 2000
+    },
+    {
+      "label": "tarifs",
+      "url": "http://localhost:3000/tarifs",
+      "hideSelectors": [".googlemaps-content iframe"],
+      "delay": 2000
+    },
+    {
+      "label": "notre-book",
+      "url": "http://localhost:3000/notre-book",
+      "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"],
+      "delay": 500
+    },
+    {
+      "label": "booking/etape 1",
+      "url": "http://localhost:3000/booking",
+      "delay": 300
+    },
+    {
+      "label": "booking/etape 2",
+      "url": "http://localhost:3000/booking",
+      "engine": "puppeteer",
+      "clickSelectors": [".ThemeCard"]
+    },
+    {
+      "label": "booking/etape 3",
+      "url": "http://localhost:3000/booking",
+      "engine": "puppeteer",
+      "clickSelectors": [
+        ".ThemeCard",
+        ".react-calendar__month-view__days__day:not(:disabled)",
+        ".dropdown-popover__list__item .booking-time-picker__item-button"
+      ]
+    },
+    {
+      "label": "newsletter",
+      "url": "http://localhost:3000/newsletter"
+    },
+    {
+      "label": "blog home",
+      "url": "http://localhost:3000/blog",
+      "delay": 2000
+    },
+    {
+      "label": "blog categorie",
+      "url": "http://localhost:3000/blog/category/categorie1",
+      "delay": 2000
+    },
+    {
+      "label": "blog article",
+      "url": "http://localhost:3000/blog/article/shootizy-the-site",
+      "delay": 2000
+    },
+    {
+      "label": "avis clients",
+      "url": "http://localhost:3000/avis-clients"
+    },
+    {
+      "label": "contact",
+      "url": "http://localhost:3000/contact"
     }
   ],
   "paths": {
@@ -51,12 +170,13 @@
     "ci_report": "backstop_data/ci_report"
   },
   "report": ["browser"],
-  "engine": "chromy",
+  "engine": "puppeteer",
   "engineOptions": {
-    "args": ["--no-sandbox"]
+    "waitTimeout": 120000,
+    "chromeFlags": ["--disable-gpu", "--force-device-scale-factor=1"]
   },
-  "asyncCaptureLimit": 5,
-  "asyncCompareLimit": 50,
+  "asyncCaptureLimit": 2,
+  "asyncCompareLimit": 5,
   "debug": false,
   "debugWindow": false
 }
