@@ -17,7 +17,6 @@ const Header = (props, ref) => {
     throttle: 25,
   };
   let { y } = useWindowScrollPosition(options);
-
   const updateHeaderSticky = () => {
     const header = headerRef.current;
     if (!gap) {
@@ -25,7 +24,8 @@ const Header = (props, ref) => {
       gap = parseInt(content.getPropertyValue("content").replace(/"/g, ""), 10);
     }
     sticky = sticky > 0 ? sticky : header.offsetTop - gap;
-    y > sticky ? setClassName("sticky") : setClassName("");
+    console.log(sticky, y);
+    setClassName(y > sticky ? "sticky" : "");
   };
   useEffect(() => {
     updateHeaderSticky();
@@ -36,14 +36,16 @@ const Header = (props, ref) => {
       <header className={`header ${className}`}>
         <div className="header-content">
           <TopHeader />
-          <div className="header-main" ref={headerRef}>
-            <Logo />
-            <span className="navigation">
-              <NavBar />
-              <Link to="/booking" className="btn-big btn-hover-green">
-                Réserver mon Shooting
-              </Link>
-            </span>
+          <div className="header-main">
+            <div className="header-main__content" ref={headerRef}>
+              <Logo />
+              <span className="navigation">
+                <NavBar />
+                <Link to="/booking" className="btn-big btn-hover-green">
+                  Réserver mon Shooting
+                </Link>
+              </span>
+            </div>
           </div>
         </div>
         <Breadcrumbs className="header__breadcrumbs" />
