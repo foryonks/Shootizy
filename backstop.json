@@ -99,7 +99,7 @@
       "label": "shooting-sur-mesure",
       "url": "http://localhost:3000/shooting-sur-mesure",
       "hideSelectors": [".googlemaps-content iframe", ".FloatingBodyWrapper"],
-      "delay": 2000
+      "delay": 5000
     },
     {
       "label": "tarifs",
@@ -138,7 +138,8 @@
     },
     {
       "label": "newsletter",
-      "url": "http://localhost:3000/newsletter"
+      "url": "http://localhost:3000/newsletter",
+      "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"]
     },
     {
       "label": "blog home",
@@ -157,11 +158,14 @@
     },
     {
       "label": "avis clients",
-      "url": "http://localhost:3000/avis-clients"
+      "url": "http://localhost:3000/avis-clients",
+      "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"],
+      "delay": 2000
     },
     {
       "label": "contact",
-      "url": "http://localhost:3000/contact"
+      "url": "http://localhost:3000/contact",
+      "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"]
     }
   ],
   "paths": {
