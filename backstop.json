@@ -25,7 +25,7 @@
       "label": "Homepage",
       "url": "http://localhost:3000",
       "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"],
-      "delay": 200
+      "delay": 2000
     },
     {
       "label": "Comment-ca-marche",
@@ -111,18 +111,19 @@
       "label": "notre-book",
       "url": "http://localhost:3000/notre-book",
       "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"],
-      "delay": 500
+      "delay": 5000
     },
     {
       "label": "booking/etape 1",
       "url": "http://localhost:3000/booking",
-      "delay": 300
+      "delay": 1000
     },
     {
       "label": "booking/etape 2",
       "url": "http://localhost:3000/booking",
       "engine": "puppeteer",
-      "clickSelectors": [".ThemeCard"]
+      "clickSelectors": [".ThemeCard"],
+      "delay": 1000
     },
     {
       "label": "booking/etape 3",
@@ -132,7 +133,8 @@
         ".ThemeCard",
         ".react-calendar__month-view__days__day:not(:disabled)",
         ".dropdown-popover__list__item .booking-time-picker__item-button"
-      ]
+      ],
+      "delay": 1000
     },
     {
       "label": "newsletter",
