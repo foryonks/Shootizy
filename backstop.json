@@ -22,6 +22,19 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
+      "label": "Header",
+      "comment": "Header and Cookies to show",
+      "url": "http://localhost:3000",
+      "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"],
+      "viewports": [
+        {
+          "label": "large_high",
+          "width": 1920,
+          "height": 1200
+        }
+      ]
+    },
+    {
       "label": "Homepage",
       "url": "http://localhost:3000",
       "hideSelectors": [".googlemaps-content iframe", ".SocialSquaresWrapper"],
@@ -179,7 +192,7 @@
   "engine": "puppeteer",
   "engineOptions": {
     "waitTimeout": 120000,
-    "chromeFlags": ["--disable-gpu", "--force-device-scale-factor=1"]
+    "chromeFlags": ["--headless", "--force-device-scale-factor=1", "--log-level=4"]
   },
   "asyncCaptureLimit": 2,
   "asyncCompareLimit": 5,
