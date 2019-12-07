@@ -117,7 +117,8 @@ $header-paddings: 10px;
   position: absolute;
   top: auto;
   width: 100%;
-  max-width: $header-width;
+  padding: 0 $header-paddings;
+  max-width: $header-width + $header-paddings * 2;
 }
 
 /** Modifiers parents class **/

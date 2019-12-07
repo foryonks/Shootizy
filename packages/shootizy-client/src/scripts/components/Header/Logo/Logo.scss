@@ -3,9 +3,9 @@
 .logo {
   display: flex;
   flex-direction: row;
-  align-items: center;
+
   font-size: 1em;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   svg {
     width: 10em;
@@ -30,7 +30,7 @@
 @media (max-width: 940px) {
   .logo {
     flex-direction: column;
-
+    justify-content: center;
     svg {
       width: 6em;
     }

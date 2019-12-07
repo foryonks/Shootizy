@@ -24,7 +24,6 @@ const Header = (props, ref) => {
       gap = parseInt(content.getPropertyValue("content").replace(/"/g, ""), 10);
     }
     sticky = sticky > 0 ? sticky : header.offsetTop - gap;
-    console.log(sticky, y);
     setClassName(y > sticky ? "sticky" : "");
   };
   useEffect(() => {
