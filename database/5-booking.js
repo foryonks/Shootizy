@@ -35,7 +35,7 @@ db.workingSchedules.insert([
   {
     // Sunday
     day: 0,
-    timetable: [],
+    timetable: NORMAL_SCHEDULE,
   },
   {
     // Monday
