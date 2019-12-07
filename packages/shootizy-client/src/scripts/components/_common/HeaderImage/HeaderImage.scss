@@ -30,14 +30,13 @@
   // }
 
   @media (min-width: 1400px) {
-    max-height: 520px;
     padding: 0;
   }
 }
 
 .carouselHome-item {
   &.header-image {
-    max-height: 805px;
+    height: 805px;
   }
 }
 

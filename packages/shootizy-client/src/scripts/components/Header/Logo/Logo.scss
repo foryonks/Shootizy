@@ -5,7 +5,8 @@
   flex-direction: row;
   align-items: center;
   font-size: 1em;
-
+  justify-content: center;
+  align-items: center;
   svg {
     width: 10em;
     fill: currentColor;
@@ -24,4 +25,20 @@
 
 .logo-inverted {
   color: white;
+}
+
+@media (max-width: 940px) {
+  .logo {
+    flex-direction: column;
+
+    svg {
+      width: 6em;
+    }
+  }
+
+  .logo-text {
+    margin-left: 0;
+    text-align: center;
+    width: 9em;
+  }
 }

@@ -12,6 +12,12 @@
   margin-left: auto;
   margin-right: auto;
   max-width: $header-width;
+
+  @media (max-width: 900px) {
+    .studio-pro {
+      display: none;
+    }
+  }
 }
 
 .header-top > * {
@@ -27,9 +33,13 @@
 
 .header-links {
   @extend .inline-menu;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
   li {
     vertical-align: middle;
     margin-left: 1.4em;
+    white-space: nowrap;
   }
 
   & {
@@ -75,5 +85,20 @@
 
   a {
     color: inherit;
+  }
+}
+@media (max-width: 1080px) {
+  .header-links {
+    li,
+    .facebook,
+    .instagram {
+      margin-left: 5%;
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .header-reservation-par-tel {
+    display: none;
   }
 }

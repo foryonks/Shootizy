@@ -31,6 +31,11 @@ body {
         margin-right: -$carousel-width/2 + $buttons-right-margin;
         right: 50%;
         left: auto;
+
+        @media (max-width: ($carousel-width + 40px)) {
+          right: 40px;
+          margin-right: 0;
+        }
       }
     }
     .description {

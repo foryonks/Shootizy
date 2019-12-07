@@ -4,7 +4,7 @@ import "./Logo.scss";
 
 function Logo({ className, hideText }) {
   return (
-    <span className={`logo ${className}`}>
+    <span className={`logo ${className || ""}`}>
       <Link to="/">
         <svg version="1.1" x="0px" y="0px" viewBox="0 0 500 138.52">
           <path
