@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 @mixin btn-big-hover {
   background-color: $secondary-color;
@@ -126,5 +127,22 @@ $header-paddings: 10px;
   .header,
   .HeaderImage {
     color: #fff;
+  }
+}
+
+/* All stuff and CSS about header mobile here
+  Header mobile max : 800px
+*/
+@include media-phone-for-header {
+  .header.sticky .header-main {
+    top: 0;
+  }
+  .header-main {
+    padding: 0;
+
+    .header-main__content {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 }

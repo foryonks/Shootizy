@@ -1,5 +1,7 @@
 @import "~styles/functions";
 @import "~styles/inline-menu";
+@import "~styles/mediaqueries-mixins";
+
 .header-top {
   font-size: font-size(15);
   min-height: font-size(33);
@@ -99,6 +101,14 @@
 
 @media (max-width: 990px) {
   .header-reservation-par-tel {
+    display: none;
+  }
+}
+
+/* mobile only stuff
+*/
+@include media-phone-for-header {
+  .header-top {
     display: none;
   }
 }

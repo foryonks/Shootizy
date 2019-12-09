@@ -1,25 +1,26 @@
-@mixin for-phone-only {
-  @media (max-width: 599px) {
-    @content;
+body:before {
+  position: absolute;
+  background: #fff;
+  padding: 3px;
+  top: 0;
+  right: 0;
+  z-index: 10000;
+  @include media-phone-for-header {
+    content: "media-phone-for-header";
   }
-}
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
-    @content;
+  @include media-phone-only {
+    content: "media-phone-only";
   }
-}
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
-    @content;
+  @include media-tablet-portrait-up {
+    content: "media-tablet-portrait-up";
   }
-}
-@mixin for-desktop-up {
-  @media (min-width: 1200px) {
-    @content;
+  @include media-tablet-landscape-up {
+    content: "media-tablet-landscape-up";
   }
-}
-@mixin for-big-desktop-up {
-  @media (min-width: 1800px) {
-    @content;
+  @include media-desktop-up {
+    content: "media-desktop-up";
+  }
+  @include media-big-desktop-up {
+    content: "media-big-desktop-up";
   }
 }
