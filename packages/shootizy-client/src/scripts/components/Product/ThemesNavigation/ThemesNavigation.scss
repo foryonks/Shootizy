@@ -35,11 +35,11 @@ ul.themes-navigation {
       background: none;
       padding: 15px 20px;
       text-align: left;
-      color: #000 !important;
+      color: #000;
 
       &:hover,
       &.active {
-        color: inherit;
+        color: inherit !important;
         background: $secondary-color;
       }
     }

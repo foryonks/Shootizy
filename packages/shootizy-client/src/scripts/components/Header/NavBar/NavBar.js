@@ -1,15 +1,17 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import ThemesNavigation from "scripts/components/Product/ThemesNavigation/ThemesNavigation.js";
+import { bool } from "prop-types";
+import Icon from "scripts/components/Icon";
 
 const NAV_LINKS = [
   { path: "/comment-ca-marche", title: "Comment ça marche ?" },
   {
     path: "/shooting-studio",
     title: "Shooting Studio",
+    subNavOpenedRegExp: /\/produit-/,
     subNav: (
       <div className="sub-nav-content">
-        {/* <h3>Choisissez le thème de votre Shooting</h3> */}
         <ThemesNavigation className="themes-navigation" showImage={false} />
       </div>
     ),
@@ -21,19 +23,47 @@ const NAV_LINKS = [
   { path: "/tarifs", title: "Tarifs" },
   { path: "/notre-book", title: "Notre book" },
 ];
-const NavBar = props => (
+const NavItem = ({ path, title, subNav, subNavOpenedRegExp }) => {
+  const location = useLocation();
+  const [opened, setOpened] = useState(
+    subNavOpenedRegExp && subNavOpenedRegExp.test(location.pathname)
+  );
+
+  const onButtonClick = e => {
+    e.preventDefault();
+    setOpened(!opened);
+  };
+
+  return (
+    <li key={path}>
+      <NavLink to={path} className="navbar-link">
+        <span>{title}</span>
+        {subNav ? (
+          <button className={`subNav-button`} onClick={onButtonClick}>
+            <Icon name={opened ? "moins" : "plus"} />
+          </button>
+        ) : null}
+      </NavLink>
+      {subNav && opened ? <div className="nav-sub">{subNav}</div> : null}
+    </li>
+  );
+};
+const NavBar = ({ isMobile }) => (
   <div className="nav-bar">
     <ul className="menu">
-      {NAV_LINKS.map(({ path, title, subNav }) => (
-        <li key={path}>
-          <NavLink to={path}>
-            <span>{title}</span>
-          </NavLink>
-          {subNav ? <div className="nav-sub">{subNav}</div> : null}
-        </li>
+      {NAV_LINKS.map(props => (
+        <NavItem isMobile={isMobile} {...props} />
       ))}
     </ul>
   </div>
 );
+
+NavBar.propTypes = {
+  isMobile: bool,
+};
+
+NavBar.defaultProps = {
+  isMobile: false,
+};
 
 export default NavBar;

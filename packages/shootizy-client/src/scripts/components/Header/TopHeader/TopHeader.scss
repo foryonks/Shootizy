@@ -22,6 +22,10 @@
   }
 }
 
+.site-name-with-copy {
+  display: none;
+}
+
 .header-top > * {
   flex-shrink: 1;
 }
@@ -101,14 +105,6 @@
 
 @media (max-width: 990px) {
   .header-reservation-par-tel {
-    display: none;
-  }
-}
-
-/* mobile only stuff
-*/
-@include media-mobile-for-header {
-  .header-top {
     display: none;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import Breadcrumbs from "scripts/components/Breadcrumbs";
 import TopHeader from "./TopHeader";
@@ -16,7 +16,12 @@ const Header = (props, ref) => {
   const headerRef = useRef();
   const [headerClassName, setHeaderClassName] = useState();
   const [gap] = useState(defaultGap);
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [mobileMenuOpened, setMobileMenuOpened] = useState(true);
+  const history = useHistory();
+
+  history.listen((location, change) => {
+    setMobileMenuOpened(false);
+  });
 
   useScrollPosition(
     ({ currPos }) => {
@@ -26,13 +31,12 @@ const Header = (props, ref) => {
     [headerClassName]
   );
   const isMobile = useMediaQuery("(max-width:800px)");
-  const className = `header-wrapper ${openMobileMenu ? "header-mobile-menu__opened" : ""}`;
 
   return (
-    <div className={className}>
-      <header className={headerClassName}>
+    <div className={`header-wrapper ${mobileMenuOpened ? "header-mobile-menu__opened" : ""}`}>
+      <header className={`header ${headerClassName || ""}`}>
         <div className="header-content">
-          <TopHeader />
+          {isMobile ? null : <TopHeader />}
           <div className="header-main">
             <div className="header-main__content" ref={headerRef}>
               <Logo />
@@ -42,9 +46,17 @@ const Header = (props, ref) => {
                   Réserver {isMobile ? "" : "mon Shooting"}
                 </Link>
                 {isMobile ? (
-                  <button className="button-icon-menu" onClick={() => setOpenMobileMenu(true)}>
-                    <Icon name="menu" />
-                  </button>
+                  mobileMenuOpened ? (
+                    <button
+                      className="button-icon-menu button-icon-menu__close"
+                      onClick={() => setMobileMenuOpened(false)}>
+                      <Icon name="close" />
+                    </button>
+                  ) : (
+                    <button className="button-icon-menu" onClick={() => setMobileMenuOpened(true)}>
+                      <Icon name="menu" />
+                    </button>
+                  )
                 ) : null}
               </span>
             </div>
@@ -52,11 +64,12 @@ const Header = (props, ref) => {
         </div>
         <Breadcrumbs className="header__breadcrumbs" />
       </header>
-      {openMobileMenu ? (
+      {isMobile && mobileMenuOpened ? (
         <div className="mobile-menu">
-          <NavBar />
+          <NavBar isMobile={isMobile} />
         </div>
       ) : null}
+      {isMobile && mobileMenuOpened ? <TopHeader /> : null}
     </div>
   );
 };

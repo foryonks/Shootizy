@@ -36,6 +36,21 @@
       "delay": 1000
     },
     {
+      "label": "Header subnav",
+      "comment": "Header and subnav",
+      "url": "http://localhost:3000",
+      "hoverSelectors": [".nav-bar .menu li:nth-child(2)"],
+      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "viewports": [
+        {
+          "label": "large_high",
+          "width": 1920,
+          "height": 1200
+        }
+      ],
+      "delay": 1000
+    },
+    {
       "label": "Homepage",
       "url": "http://localhost:3000",
       "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
@@ -112,7 +127,7 @@
       "label": "shooting-sur-mesure",
       "url": "http://localhost:3000/shooting-sur-mesure",
       "hideSelectors": [".googlemaps-content", ".FloatingBodyWrapper"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "tarifs",
@@ -179,7 +194,8 @@
     {
       "label": "contact",
       "url": "http://localhost:3000/contact",
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"]
+      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "delay": 2000
     }
   ],
   "paths": {

@@ -1,24 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 
 import Icon from "../../Icon";
-
-const Links = [
-  { to: "/newsletter", title: "Newsletter", icon: "newsletter" },
-  { to: "/blog", title: "Le Blog", icon: "blog" },
-  { to: "/avis-clients", title: "Avis clients", icon: "star" },
-  { to: "/contact", title: "Contact", icon: "email" },
-  { to: "/facebook", title: "", icon: "facebook", className: "facebook" },
-  { to: "/instagram", title: "", icon: "instagram", className: "instagram" },
-];
+import TopHeaderLinks from "./TopHeaderLinks/index";
 
 const TopHeader = () => {
   return (
     <div className="header-top">
       <span>
         <span>
-          Shootizy <span className="studio-pro"> : Studio photo professionnel à Paris</span>
+          <span className="site-name">Shootizy</span>
+          <span className="site-name-with-copy">&copy; Shootizy 2019</span>
+
+          <span className="studio-pro"> : Studio photo professionnel à Paris</span>
         </span>
         <span className="header-reservation">
           <Icon name="phone-circle" />
@@ -26,16 +20,7 @@ const TopHeader = () => {
           <a href="tel:+3384292171">+33 84 29 21 71</a>
         </span>
       </span>
-      <ul className="header-links">
-        {Links.map(({ to, title, icon, className }, index) => (
-          <li key={index} className={className}>
-            <NavLink to={to}>
-              <Icon name={icon} />
-              {title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      <TopHeaderLinks />
     </div>
   );
 };

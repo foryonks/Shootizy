@@ -6,6 +6,15 @@
   border-color: transparent;
   box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 }
+
+@mixin headerMainStickyProps {
+  .header-main {
+    position: fixed;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+  }
+}
 $stickyGap: 10px;
 $header-paddings: 10px;
 
@@ -33,12 +42,7 @@ $header-paddings: 10px;
 }
 
 .header.sticky {
-  .header-main {
-    position: fixed;
-    left: 50%;
-    top: 10px;
-    transform: translateX(-50%);
-  }
+  @include headerMainStickyProps();
 
   .btn-big {
     background: $btn-green-bg-color;
@@ -161,6 +165,74 @@ $header-paddings: 10px;
     }
   }
 
+  .button-icon-menu {
+    color: inherit;
+  }
+
+  // Mobile menu writing :
+
+  $hpaddings: 20px;
+  $vpaddings: 15px;
+  .mobile-menu {
+    // remove all styles of themesnavigation
+    color: #fff;
+    padding-left: $hpaddings;
+    padding-right: $hpaddings;
+    font-size: 30px;
+
+    &,
+    li a {
+      color: #fff;
+    }
+
+    $limargintop: 18px;
+
+    li {
+      margin-top: $limargintop;
+    }
+    ul.themes-navigation {
+      background: none;
+      border: none;
+      border-radius: 0;
+
+      li {
+        a {
+          color: rgba(255, 255, 255, 0.5);
+          padding: 20px $hpaddings;
+        }
+      }
+    }
+
+    .nav-bar {
+      .nav-sub {
+        margin-top: 15px;
+      }
+
+      .navbar-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 1%;
+      }
+
+      .subNav-button {
+        svg {
+          width: 22px;
+        }
+      }
+
+      a {
+        font-weight: normal;
+        display: block;
+        &:hover,
+        &.active {
+          background: none;
+          color: $secondary-color !important;
+        }
+      }
+    }
+  }
+
   // When mobile menu is opened, header become black and a all black content cover the website
   // This thing is only done when mobile mode only
   .header-mobile-menu__opened {
@@ -172,5 +244,75 @@ $header-paddings: 10px;
     right: 0;
     bottom: 0;
     background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+
+    .header.sticky .header-main {
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      transform: none;
+    }
+
+    .mobile-menu {
+      margin-top: 110px;
+      margin-bottom: auto;
+    }
+
+    .header-top {
+      flex-direction: column;
+      margin: 30px 20px 50px;
+      align-items: flex-start;
+      font-size: 20px;
+    }
+
+    .site-name {
+      display: none;
+    }
+    .site-name-with-copy {
+      display: inline-block;
+    }
+
+    .header-links {
+      margin-top: 10px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      li {
+        margin-left: auto;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .breadcrumbs {
+      display: none;
+    }
+    .logo {
+      color: $secondary-color;
+    }
+
+    .header {
+      margin: 0;
+      min-height: 0;
+    }
+
+    .header-main__content {
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
+    .header-btn-reserver {
+      @include btn-big-hover;
+      color: #000;
+    }
   }
 }
