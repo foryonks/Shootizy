@@ -1,33 +1,12 @@
-import { useState, useEffect } from "react";
-import _throttle from "lodash.throttle";
+import useMediaQueryHook from "react-hook-media-query";
 
-const supportsPassive = false;
+export const headerMobile = "(max-width:800px)";
+export const phone = "(max-width: 600px)";
+export const tablet = "(max-width: 1200px)";
+export const desktopStandard = "(max-width: 1400px)";
 
-let getMode = () => {
-  return {
-    mode: getComputedStyle(document.body, ":before").content,
-    width: window.innerWidth,
-  };
-};
-let defaultOptions = {
-  throttle: 300,
-};
-
-function useMediaQueriesChange(options) {
-  let opts = Object.assign({}, defaultOptions, options);
-  let [mode, setMode] = useState(getMode());
-
-  useEffect(() => {
-    let handleResize = _throttle(() => {
-      setMode(getMode());
-    }, opts.throttle);
-
-    window.addEventListener("resize", handleResize, supportsPassive ? { passive: true } : false);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [opts.throttle]);
-  return mode;
+function useMediaQuery(options) {
+  return useMediaQueryHook(options);
 }
 
-export default useMediaQueriesChange;
+export default useMediaQuery;

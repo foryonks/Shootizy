@@ -1,19 +1,19 @@
-@mixin media-phone-only {
+@mixin media-phone {
   @media (max-width: 600px) {
     @content;
   }
 }
-@mixin media-tablet-portrait {
-  @media (max-width: 800px) {
-    @content;
-  }
-}
+// @mixin media-tablet-portrait {
+//   @media (max-width: 800px) {
+//     @content;
+//   }
+// }
 @mixin media-mobile-for-header {
   @media (max-width: 800px) {
     @content;
   }
 }
-@mixin media-tablet-landscape {
+@mixin media-tablet {
   @media (max-width: 1200px) {
     @content;
   }

@@ -5,8 +5,7 @@ import Breadcrumbs from "scripts/components/Breadcrumbs";
 import TopHeader from "./TopHeader";
 import NavBar from "./NavBar";
 import Logo from "./Logo";
-//import useMediaQueriesChange from "scripts/hooks/useMediaQueriesChange";
-import useMediaQuery from "react-hook-media-query";
+import useMediaQuery, { headerMobile } from "scripts/hooks/useMediaQueriesChange";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import Icon from "scripts/components/Icon";
 
@@ -16,7 +15,7 @@ const Header = (props, ref) => {
   const headerRef = useRef();
   const [headerClassName, setHeaderClassName] = useState();
   const [gap] = useState(defaultGap);
-  const [mobileMenuOpened, setMobileMenuOpened] = useState(true);
+  const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   const history = useHistory();
 
   history.listen((location, change) => {
@@ -30,7 +29,7 @@ const Header = (props, ref) => {
     },
     [headerClassName]
   );
-  const isMobile = useMediaQuery("(max-width:800px)");
+  const isMobile = useMediaQuery(headerMobile);
 
   return (
     <div className={`header-wrapper ${mobileMenuOpened ? "header-mobile-menu__opened" : ""}`}>

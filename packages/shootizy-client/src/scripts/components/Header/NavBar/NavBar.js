@@ -23,7 +23,7 @@ const NAV_LINKS = [
   { path: "/tarifs", title: "Tarifs" },
   { path: "/notre-book", title: "Notre book" },
 ];
-const NavItem = ({ path, title, subNav, subNavOpenedRegExp }) => {
+const NavItem = ({ path, title, subNav, subNavOpenedRegExp, isMobile }) => {
   const location = useLocation();
   const [opened, setOpened] = useState(
     subNavOpenedRegExp && subNavOpenedRegExp.test(location.pathname)
@@ -38,13 +38,15 @@ const NavItem = ({ path, title, subNav, subNavOpenedRegExp }) => {
     <li key={path}>
       <NavLink to={path} className="navbar-link">
         <span>{title}</span>
-        {subNav ? (
+        {subNav && isMobile ? (
           <button className={`subNav-button`} onClick={onButtonClick}>
             <Icon name={opened ? "moins" : "plus"} />
           </button>
         ) : null}
       </NavLink>
-      {subNav && opened ? <div className="nav-sub">{subNav}</div> : null}
+      {subNav && (!isMobile || (isMobile && opened)) ? (
+        <div className="nav-sub">{subNav}</div>
+      ) : null}
     </li>
   );
 };
