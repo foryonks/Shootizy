@@ -133,7 +133,7 @@ $header-paddings: 10px;
 /* All stuff and CSS about header mobile here
   Header mobile max : 800px
 */
-@include media-phone-for-header {
+@include media-mobile-for-header {
   .header.sticky .header-main {
     top: 0;
   }
@@ -143,6 +143,34 @@ $header-paddings: 10px;
     .header-main__content {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
+      padding: 0 20px;
+      min-height: 50px;
     }
+    .navigation {
+      align-items: center;
+    }
+  }
+  .header-btn-reserver {
+    padding: 26px 18px;
+    font-size: 12px;
+  }
+  .button-icon-menu {
+    margin-left: 20px;
+    svg {
+      width: 22px;
+    }
+  }
+
+  // When mobile menu is opened, header become black and a all black content cover the website
+  // This thing is only done when mobile mode only
+  .header-mobile-menu__opened {
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
   }
 }

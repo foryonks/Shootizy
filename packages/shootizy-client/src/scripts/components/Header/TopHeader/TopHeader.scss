@@ -107,7 +107,7 @@
 
 /* mobile only stuff
 */
-@include media-phone-for-header {
+@include media-mobile-for-header {
   .header-top {
     display: none;
   }

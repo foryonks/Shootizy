@@ -1,26 +1,26 @@
-body:before {
-  position: absolute;
-  background: #fff;
-  padding: 3px;
-  top: 0;
-  right: 0;
-  z-index: 10000;
-  @include media-phone-for-header {
-    content: "media-phone-for-header";
-  }
-  @include media-phone-only {
-    content: "media-phone-only";
-  }
-  @include media-tablet-portrait-up {
-    content: "media-tablet-portrait-up";
-  }
-  @include media-tablet-landscape-up {
-    content: "media-tablet-landscape-up";
-  }
-  @include media-desktop-up {
-    content: "media-desktop-up";
-  }
-  @include media-big-desktop-up {
-    content: "media-big-desktop-up";
-  }
-}
+// body:before {
+//   position: absolute;
+//   background: #fff;
+//   padding: 3px;
+//   top: 0;
+//   right: 0;
+//   z-index: 10000;
+//   content: "desktop-large";
+
+//   // @include media-mobile-for-header {
+//   //   content: "phone-for-header";
+//   // }
+//   @include media-desktop-standard {
+//     content: "desktop";
+//   }
+//   @include media-tablet-landscape {
+//     content: "tablet-landscape";
+//   }
+//   @include media-tablet-portrait {
+//     content: "tablet-portrait";
+//   }
+
+//   @include media-phone-only {
+//     content: "phone-only";
+//   }
+// }

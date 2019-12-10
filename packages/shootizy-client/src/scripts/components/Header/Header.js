@@ -1,71 +1,62 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import _throttle from "lodash.throttle";
 
 import Breadcrumbs from "scripts/components/Breadcrumbs";
 import TopHeader from "./TopHeader";
 import NavBar from "./NavBar";
 import Logo from "./Logo";
-import useWindowScrollPosition from "scripts/hooks/useWindowScrollPosition";
+//import useMediaQueriesChange from "scripts/hooks/useMediaQueriesChange";
+import useMediaQuery from "react-hook-media-query";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import Icon from "scripts/components/Icon";
 
-let sticky = 0;
-let gap = 33;
+const defaultGap = 33;
 
 const Header = (props, ref) => {
   const headerRef = useRef();
-  const [className, setClassName] = useState();
-  let options = {
-    throttle: 25,
-  };
-  let { y } = useWindowScrollPosition(options);
+  const [headerClassName, setHeaderClassName] = useState();
+  const [gap] = useState(defaultGap);
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
-  // const updateGap = () => {
-  //   const header = headerRef.current;
-  //   const content = window.getComputedStyle(header, ":before");
-  //   gap = parseInt(content.getPropertyValue("content").replace(/"/g, ""), 10);
-  // };
-
-  const updateHeaderSticky = () => {
-    //const header = headerRef.current;
-    // if (!gap) {
-    //   updateGap();
-    // }
-    sticky = gap; //sticky > 0 ? sticky : header.offsetTop - gap;
-    setClassName(y > sticky ? "sticky" : "");
-  };
-
-  useEffect(() => {
-    updateHeaderSticky();
-    let timer;
-    const updateHeaderThrottle = _throttle(() => {
-      updateHeaderSticky();
-    }, 200);
-    document.addEventListener("resize", updateHeaderThrottle);
-    return () => {
-      document.removeEventListener("resize", updateHeaderThrottle);
-      clearTimeout(timer);
-    };
-  });
+  useScrollPosition(
+    ({ currPos }) => {
+      const isSticky = -currPos.y > gap;
+      setHeaderClassName(isSticky ? "sticky" : "");
+    },
+    [headerClassName]
+  );
+  const isMobile = useMediaQuery("(max-width:800px)");
+  const className = `header-wrapper ${openMobileMenu ? "header-mobile-menu__opened" : ""}`;
 
   return (
-    <div className="header-wrapper">
-      <header className={`header ${className}`}>
+    <div className={className}>
+      <header className={headerClassName}>
         <div className="header-content">
           <TopHeader />
           <div className="header-main">
             <div className="header-main__content" ref={headerRef}>
               <Logo />
               <span className="navigation">
-                <NavBar />
-                <Link to="/booking" className="btn-big btn-hover-green">
-                  Réserver mon Shooting
+                {isMobile ? null : <NavBar />}
+                <Link to="/booking" className="btn-big btn-hover-green header-btn-reserver">
+                  Réserver {isMobile ? "" : "mon Shooting"}
                 </Link>
+                {isMobile ? (
+                  <button className="button-icon-menu" onClick={() => setOpenMobileMenu(true)}>
+                    <Icon name="menu" />
+                  </button>
+                ) : null}
               </span>
             </div>
           </div>
         </div>
         <Breadcrumbs className="header__breadcrumbs" />
       </header>
+      {openMobileMenu ? (
+        <div className="mobile-menu">
+          <NavBar />
+        </div>
+      ) : null}
     </div>
   );
 };

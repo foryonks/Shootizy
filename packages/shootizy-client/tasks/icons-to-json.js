@@ -21,10 +21,9 @@ function convert() {
       let dom = parser.parseFromString(fileContent);
       let svg = dom.getElementsByTagName("svg")[0];
 
-      var polys = svg.querySelectorAll("polygon,polyline");
-      [].forEach.call(polys, convertPolyToPath);
-
       if (!svg) return null;
+      //var polys = svg.querySelectorAll("polygon,polyline");
+
       let viewBox = svg.getAttribute("viewBox");
       let paths = Array.prototype.slice
         .call(svg.getElementsByTagName("path"))
