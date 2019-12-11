@@ -5,7 +5,7 @@ import Breadcrumbs from "scripts/components/Breadcrumbs";
 import TopHeader from "./TopHeader";
 import NavBar from "./NavBar";
 import Logo from "./Logo";
-import useMediaQuery, { headerMobile } from "scripts/hooks/useMediaQueriesChange";
+import useMediaQuery, { headerMobile } from "scripts/hooks/useMediaQuery";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import Icon from "scripts/components/Icon";
 
