@@ -9,8 +9,11 @@ import SurMesure from "scripts/components/ShootingSurMesure/SurMesure/SurMesure"
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import BlogSmall from "scripts/components/Blog/BlogSmall";
 import FooterSocial from "scripts/components/Footer/FooterSocial";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const Home = () => {
+  const isMobile = useMediaQuery(phone);
+
   return (
     <>
       <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} title="Accueil" />
@@ -18,9 +21,9 @@ const Home = () => {
         <CarouselHome>
           <Prices
             className="container-2 home-prices"
-            showBottomTitle={true}
+            showBottomTitle={!isMobile}
+            showTitle={isMobile}
             showButton={true}
-            style={{ marginTop: "-10%" }}
           />
         </CarouselHome>
         <CommentCaMarche className="CommentCaMarche-Home" />

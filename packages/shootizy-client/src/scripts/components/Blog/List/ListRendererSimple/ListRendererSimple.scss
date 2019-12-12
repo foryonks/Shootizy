@@ -3,7 +3,7 @@
 .listRendererSimple {
   display: block;
   margin-bottom: 20px;
-  font-size: font-size(14px);
+  font-size: size(14px);
 
   .image {
     width: 80px;
@@ -22,14 +22,14 @@
   }
   .blog-cat-datetime {
     letter-spacing: 0;
-    font-size: font-size(14);
+    font-size: size(14);
     font-weight: bold;
     color: #000;
   }
 }
 
 .listRendererSimple-title {
-  margin-top: font-size(10);
+  margin-top: size(10);
   font-weight: bold;
-  font-size: font-size(16);
+  font-size: size(16);
 }

@@ -1,7 +1,12 @@
 @import "./functions";
+@import "./mediaqueries-mixins";
 
 html {
   font-size: $font-size;
+
+  @include media-phone {
+    font-size: 18px;
+  }
 }
 
 body {
@@ -18,11 +23,11 @@ strong {
 .pre-title {
   text-align: center;
   font-weight: bold;
-  font-size: font-size(25px);
+  font-size: size(25px);
 }
 
 h2.title {
-  font-size: font-size(44);
+  font-size: size(44);
   font-weight: 300;
   color: #000;
   text-align: center;
@@ -32,14 +37,14 @@ h2.title {
 
 h3.title,
 .card-title {
-  font-size: font-size(27);
+  font-size: size(27);
   font-weight: bold;
   color: #000;
   line-height: 1.4;
 }
 
 h4.title {
-  font-size: font-size(18);
+  font-size: size(18);
   font-weight: bold;
   color: #000;
   line-height: 1.4;

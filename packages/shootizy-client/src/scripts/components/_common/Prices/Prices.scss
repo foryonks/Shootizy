@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .Prices-header {
   color: #000;
@@ -14,14 +15,11 @@
     margin-right: 10px;
     flex-grow: 1;
     text-align: center;
-    font-size: 24px;
+    font-size: size(24px);
     box-shadow: $card-shadow;
 
-    .pretitle {
-    }
-
     .title {
-      font-size: 44px;
+      font-size: size(44px);
       font-weight: bold;
       margin-top: 30px;
     }
@@ -33,9 +31,9 @@
       color: #fff;
       margin-left: auto;
       margin-right: auto;
-      padding: 20px 30px;
+      padding: size(20px) size(30px);
       font-weight: bold;
-      margin-top: 26px;
+      margin-top: size(26px);
     }
 
     .price-item-text {
@@ -68,9 +66,9 @@
         left: 0;
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
+        width: size(60px);
+        height: size(60px);
+        font-size: size(24px);
         font-weight: bold;
         display: flex;
         justify-content: center;
@@ -119,6 +117,50 @@
   .price-offer {
     margin-left: 0;
   }
+
+  @include media-phone {
+  }
+}
+
+@media (max-width: 950px) {
+  .Prices-header {
+    flex-direction: column;
+    margin: 0;
+
+    .price-item {
+      margin: 20px 0;
+      border-left: none;
+      border-top: 1px dashed #000;
+    }
+  }
+}
+
+@include media-phone {
+  .Prices-header {
+    .price-collapse {
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+
+      .price-item {
+        width: 100% !important;
+        border-left: none;
+        border-top: 1px dashed #000;
+        padding-top: 60px;
+
+        &:before {
+          top: 0;
+          left: 50%;
+          color: #000;
+          background: $secondary-color;
+        }
+
+        &:first-child {
+          border-top: none;
+        }
+      }
+    }
+  }
 }
 
 // .Prices {
@@ -129,7 +171,7 @@
 //   }
 
 //   .price-item-qty {
-//     font-size: 81px; //font-size(81);
+//     font-size: 81px; //size(81);
 //     display: block;
 //     font-weight: 300;
 //     line-height: 0.7;
@@ -145,7 +187,7 @@
 //   }
 
 //   .price-item-of {
-//     font-size: font-size(27px);
+//     font-size: size(27px);
 //     font-weight: 500;
 //     line-height: 1.4;
 //     letter-spacing: 0.1ex;

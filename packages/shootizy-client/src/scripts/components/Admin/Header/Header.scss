@@ -10,8 +10,8 @@
 .admin-header__top {
   display: flex;
   align-items: center;
-  font-size: font-size(15);
-  min-height: font-size(33);
+  font-size: size(15);
+  min-height: size(33);
   padding: 0 0 1px 7px;
   justify-content: space-between;
 }
@@ -27,7 +27,7 @@
   font-weight: 500;
 
   .logo {
-    font-size: font-size(14.8px);
+    font-size: size(14.8px);
   }
   .menu {
     display: flex;

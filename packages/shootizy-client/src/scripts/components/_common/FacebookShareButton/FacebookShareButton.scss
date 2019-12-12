@@ -5,14 +5,14 @@
   border: 1px solid #3b5998;
   color: #3b5998;
   border-radius: 100px;
-  width: font-size(30);
-  height: font-size(30);
+  width: size(30);
+  height: size(30);
   display: flex;
   justify-content: center;
   align-items: center;
 
   .svg-icon {
-    font-size: font-size(16);
+    font-size: size(16);
   }
 
   &:hover {

@@ -1,4 +1,5 @@
-/* your css code */
+@import "~styles/variables";
+@import "~styles/mediaqueries-mixins";
 
 .HomeWrapper {
   .CommentCaMarche {
@@ -10,5 +11,35 @@
   }
   .carouselHome-item.header-image {
     height: 805px;
+  }
+
+  @media (max-width: 800px) {
+    .home-prices {
+      margin-top: 0;
+    }
+  }
+  @include media-phone {
+    .header-image-mask {
+      display: none;
+    }
+
+    .carousel .control-dots {
+      margin-top: 0;
+      margin-bottom: 50px;
+
+      li {
+        width: 10px;
+        height: 10px;
+        border-radius: 100px;
+        opacity: 1;
+        &.selected {
+          background: $secondary-color;
+        }
+      }
+    }
+
+    .home-prices {
+      margin-top: 50px;
+    }
   }
 }

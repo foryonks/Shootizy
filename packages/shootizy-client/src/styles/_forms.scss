@@ -1,6 +1,6 @@
 @import "./functions";
 
-$form-input-font-size: font-size(20);
+$form-input-font-size: size(20);
 
 @mixin input-baseProps() {
   font-size: $form-input-font-size;
@@ -50,13 +50,13 @@ select {
 }
 
 .form-line {
-  margin-bottom: font-size(22);
+  margin-bottom: size(22);
 }
 
 .label-top > {
   label {
     display: block;
-    margin-bottom: font-size(7);
+    margin-bottom: size(7);
     font-weight: bold;
 
     .label-legend {
@@ -78,7 +78,7 @@ form.generic-form {
 
   label {
     color: rgba(0, 0, 0, 0.5);
-    font-size: font-size(14);
+    font-size: size(14);
     margin-bottom: 8px;
     display: block;
   }

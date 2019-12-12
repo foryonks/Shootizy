@@ -8,7 +8,7 @@
   position: relative;
 
   .description {
-    font-size: font-size(16px);
+    font-size: size(16px);
     line-height: 1.4;
     margin-bottom: 20px;
     opacity: 0.5;
@@ -36,12 +36,16 @@
 
 .col-logo {
   width: 23%;
+
+  .footer-logo {
+    align-items: flex-start;
+  }
 }
 
 .col-links {
   padding-left: 14.4%;
   padding-right: 2.5%;
-  font-size: font-size(16);
+  font-size: size(16);
   margin-left: 0;
   margin-right: 0;
   flex-grow: 1;
@@ -57,7 +61,7 @@
   .title {
     color: #fff;
     margin-bottom: 24px;
-    font-size: font-size(20);
+    font-size: size(20);
   }
 
   li {
@@ -89,14 +93,14 @@
 .footer-bottom-bottom {
   margin-top: 60px;
   .brand-and-social {
-    font-size: font-size(16);
+    font-size: size(16);
   }
   .SocialButtonsWrapper {
     display: inline-block;
   }
   .social-buttons {
     display: inline-block;
-    font-size: font-size(23px);
+    font-size: size(23px);
     margin-bottom: 30px;
     color: #fff;
 
@@ -107,7 +111,7 @@
 }
 
 .col-rating {
-  font-size: font-size(16);
+  font-size: size(16);
   > * {
     vertical-align: middle;
   }
@@ -118,12 +122,12 @@
   color: #fff;
   text-align: right;
   font-weight: 500;
-  font-size: font-size(16);
+  font-size: size(16);
 
   h3 {
     color: #fff;
     margin-bottom: 4px;
-    font-size: font-size(16);
+    font-size: size(16);
   }
 
   .rating-score {

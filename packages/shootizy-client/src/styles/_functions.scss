@@ -1,10 +1,10 @@
 @import "./variables";
 
 @function size-rem($sizeValue: $font-size) {
-  @return font-size($sizeValue);
+  @return size($sizeValue);
 }
 
-@function font-size($sizeValue: $font-size) {
+@function size($sizeValue: $font-size) {
   $number: strip-unit($sizeValue / $font-size);
   @return $number + rem;
 }

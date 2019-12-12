@@ -24,17 +24,17 @@ const data = [
 
 const CommentCaMarche3blocks = ({ className }) => (
   <div className={`CommentCaMarche3blocksWrapper ${className || ""}`}>
-    <ul className="row row-3">
+    <div className="row row-3">
       {data.map(({ number, title, text, key }) => (
-        <li className="CommentCaMarche-item card card-simple card-shadow" key={number}>
+        <div className="CommentCaMarche-item card card-simple card-shadow" key={number}>
           <div className="top-icon">{number}</div>
           <h2 className="title">{title}</h2>
           <p className="ccm3b-text">
             <Interweave content={text} />
           </p>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   </div>
 );
 

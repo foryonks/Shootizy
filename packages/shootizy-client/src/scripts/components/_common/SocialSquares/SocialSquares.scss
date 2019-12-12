@@ -49,7 +49,7 @@
   }
 
   time {
-    font-size: font-size(20);
+    font-size: size(20);
     opacity: 0.5;
     margin-top: $margins;
     position: absolute;
@@ -61,7 +61,7 @@
     margin-top: 33.1%;
     display: block;
     position: absolute;
-    font-size: font-size(24);
+    font-size: size(24);
     overflow: hidden;
     bottom: 0;
     margin-bottom: $margins;

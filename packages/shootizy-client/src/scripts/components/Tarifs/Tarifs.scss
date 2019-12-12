@@ -31,7 +31,7 @@
       }
     }
     .title {
-      margin-bottom: font-size(20px);
+      margin-bottom: size(20px);
       font-weight: bold;
       text-align: center;
     }
@@ -46,10 +46,10 @@
     .tarif-price {
       text-align: center;
       strong {
-        font-size: font-size(60);
+        font-size: size(60);
       }
       small {
-        font-size: font-size(24);
+        font-size: size(24);
         text-align: baseline;
       }
     }

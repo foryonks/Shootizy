@@ -4,6 +4,7 @@ import "./Prices.scss";
 import Interweave from "interweave";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import { Link } from "react-router-dom";
+//import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const Title = () => (
   <h2 className="title mt50 mb50">
@@ -18,6 +19,8 @@ const Prices = ({ className, showBottomTitle, showTitle, showButton, textKey = "
 
   const itemsAlone = items.filter(({ parent }) => !parent);
   const itemsCollapse = items.filter(({ parent }) => !!parent);
+  //const isMobile = useMediaQuery(phone);
+
   return (
     <div className={`PricesWrapper ${className}`}>
       {showTitle ? <Title /> : null}

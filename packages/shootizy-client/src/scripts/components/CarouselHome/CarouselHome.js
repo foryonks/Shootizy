@@ -9,6 +9,7 @@ import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 import HeaderImageMask from "scripts/components/_common/HeaderImageMask/HeaderImageMask";
 import { AppContext } from "scripts/contexts/App";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const CarouselHome = ({ history, children, useMask }) => {
   const { contents } = useRemoteContents("/api/contents/home-carousel");
@@ -16,6 +17,7 @@ const CarouselHome = ({ history, children, useMask }) => {
     state: { productById = {} },
   } = useContext(AppContext);
   const items = contents ? contents.items : [];
+  const isMobile = useMediaQuery(phone);
   return (
     <div className="CarouselHome">
       <div className="carouselHome-content carousel-default-arrows carousel-position-full-width-header">
@@ -23,9 +25,10 @@ const CarouselHome = ({ history, children, useMask }) => {
           infiniteLoop
           autoPlay
           showThumbs={false}
-          showIndicators={false}
+          showIndicators={isMobile}
           showStatus={false}
-          interval={6000}>
+          showArrows={!isMobile}
+          interval={600000}>
           {items.map(
             ({ title, contentLink, buttonLink, buttonText, text, img, key, themeId }, index) => {
               const theme = productById[themeId];
