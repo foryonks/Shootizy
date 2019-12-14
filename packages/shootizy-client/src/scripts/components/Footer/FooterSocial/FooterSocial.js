@@ -6,14 +6,14 @@ import LazyLoad from "react-lazyload";
 
 const FooterSocial = props => {
   return (
-    <div className="footer-social-section">
+    <div className="footer-social-section section-paddings">
       <div className="container-2 container-full row row-2">
         <div className="col col-description txt-c">
           <h2 className="title">
             <strong>@Shootizy</strong>
           </h2>
           <p>Rejoignez la communauté Shootizy sur tous vps réseaux sociaux préférés</p>
-          <h2 className="title mt50">
+          <h2 className="title title-hashtag">
             <strong>#Shootizy</strong>
           </h2>
           <p>

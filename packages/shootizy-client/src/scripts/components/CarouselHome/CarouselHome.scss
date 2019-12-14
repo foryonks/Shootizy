@@ -99,16 +99,16 @@
 
   @include media-phone {
     .carouselHome-item-wrapper {
-      left: 25px;
-      right: 25px;
+      left: size-mobile(20px);
+      right: size-mobile(20px);
     }
     .carouselHome-item-category {
-      font-size: size(18);
+      font-size: size-mobile(18);
       font-weight: normal;
     }
 
     .carouselHome-item-title {
-      font-size: size(45);
+      font-size: size-mobile(45);
       font-weight: 500;
 
       strong {

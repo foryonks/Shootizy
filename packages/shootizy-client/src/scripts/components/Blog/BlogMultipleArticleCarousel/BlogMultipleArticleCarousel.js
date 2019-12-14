@@ -13,10 +13,11 @@ const BlogMultipleArticleCarousel = ({ articles, cols, ...props }) => {
     <div className="BlogMultipleArticleCarouselWrapper blog-carousel">
       <div className="carouselWrapper-fixshadow">
         <CarouselResponsive
-          infiniteLoop
           showThumbs={false}
           showIndicators={false}
           showStatus={false}
+          infiniteLoop={true}
+          autoPlay={false}
           {...props}>
           {dataMatrix.map((row, index) => (
             <div className={`slideRow container-2 cols-${cols}`} key={index}>

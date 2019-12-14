@@ -27,14 +27,14 @@
     .CarouselHome .carousel {
       .control-dots {
         margin-top: 0;
-        margin-bottom: 50px;
+        margin-bottom: size-mobile(50px);
       }
 
       @include carousel-dots($secondary-color);
     }
 
     .home-prices {
-      margin-top: 50px;
+      margin-top: size-mobile(50px);
     }
   }
 }

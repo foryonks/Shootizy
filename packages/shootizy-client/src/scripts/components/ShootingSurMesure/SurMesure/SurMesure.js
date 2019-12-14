@@ -93,7 +93,7 @@ const SurMesure = ({ fullForm, isMobile }) => (
       </div>
       {isMobile ? (
         <div className="txt-c button-link">
-          <Link to="shooting-sur-mesure" class="btn-white">
+          <Link to="shooting-sur-mesure" className="btn-white">
             Demandez-nous
           </Link>
         </div>

@@ -26,7 +26,7 @@
 
 @include media-phone {
   body .CommentCaMarche3blocksWrapper .carousel.carousel-slider {
-    padding-bottom: 50px;
+    padding-bottom: size-mobile(50px);
     .control-arrow {
       display: none;
     }
@@ -40,8 +40,8 @@
         align-items: stretch;
       }
       .slide {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: size-mobile(10px);
+        padding-right: size-mobile(10px);
         // width: 80vw;
         // min-width: 0;
       }
@@ -52,7 +52,7 @@
     }
 
     .control-dots {
-      margin-top: 50px;
+      margin-top: size-mobile(50px);
       margin-bottom: 0;
     }
     @include carousel-dots(#000);
@@ -60,5 +60,8 @@
 
   .CommentCaMarche3blocksWrapper .CommentCaMarche-item {
     width: 100%;
+  }
+  .CommentCaMarche .button {
+    margin-bottom: 0;
   }
 }

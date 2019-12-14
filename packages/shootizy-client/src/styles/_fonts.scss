@@ -3,9 +3,9 @@
 
 html {
   font-size: $font-size;
-
+  //font-size: (strip-unit($font-size) * 100/375) + vw;
   @include media-phone {
-    font-size: (18 * 100/375) + vw;
+    font-size: (strip-unit($font-size-mobile) * 100/375) + vw;
   }
 }
 
@@ -33,6 +33,10 @@ h2.title {
   text-align: center;
   margin-bottom: 20px;
   line-height: 1.2;
+
+  @include media-phone {
+    font-size: size-mobile(32);
+  }
 }
 
 h3.title,
@@ -49,6 +53,10 @@ h4.title {
   color: #000;
   line-height: 1.4;
   text-align: center;
+
+  @include media-phone {
+    font-size: size-mobile(18);
+  }
 }
 
 .undertitle {

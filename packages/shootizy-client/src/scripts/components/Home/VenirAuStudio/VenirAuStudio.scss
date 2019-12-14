@@ -89,14 +89,14 @@
     }
 
     .col-description {
-      margin-bottom: size(50);
+      margin-bottom: size-mobile(50);
       .form-actions {
         text-align: center;
       }
     }
     .col-googlemaps {
       .logo {
-        font-size: size(34);
+        font-size: size-mobile(34);
       }
     }
   }

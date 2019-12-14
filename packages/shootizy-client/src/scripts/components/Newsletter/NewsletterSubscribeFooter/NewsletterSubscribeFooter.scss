@@ -49,22 +49,22 @@
 
     form {
       width: 100%;
-      margin-top: size(34);
+      margin-top: size-mobile(34);
     }
 
     form input[type="email"] {
       width: 100%;
       min-width: 0;
-      height: size(45px);
+      height: size-mobile(45px);
     }
 
     .circle-button {
-      min-height: size(44);
-      min-width: size(44);
+      min-height: size-mobile(44);
+      min-width: size-mobile(44);
 
       svg {
-        width: size(22);
-        height: size(22);
+        width: size-mobile(22);
+        height: size-mobile(22);
       }
     }
   }

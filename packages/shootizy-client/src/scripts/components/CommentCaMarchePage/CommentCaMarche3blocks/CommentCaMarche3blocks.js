@@ -45,6 +45,8 @@ const CommentCaMarche3blocks = ({ className }) => {
         <Carousel
           items={data}
           showIndicators={true}
+          infiniteLoop={true}
+          autoPlay={false}
           centerMode={true}
           render={({ item, index }) => <Block {...item} key={item.number} />}
         />

@@ -1,10 +1,11 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .FooterBottom {
   background: #000;
   color: #fff;
-  padding-bottom: 52px;
-  padding-top: 100px;
+  padding-top: size(100px);
+  padding-bottom: size(52px);
   position: relative;
 
   .description {
@@ -22,9 +23,9 @@
     left: auto;
     margin-left: 0;
     margin-right: 0;
-    font-size: 24px;
-    width: $size;
-    height: $size;
+    font-size: size(24px);
+    width: size($size);
+    height: size($size);
     cursor: pointer;
     margin-right: -$decal;
 
@@ -65,7 +66,6 @@
   }
 
   li {
-    margin-bottom: 9px;
     line-height: 1;
     opacity: 0.5;
     margin-bottom: 16px;
@@ -116,6 +116,7 @@
     vertical-align: middle;
   }
 }
+
 .GlobalRating-footer {
   margin-left: 3px;
   display: inline-block;
@@ -140,5 +141,41 @@
     color: $secondary-color;
     margin-left: 5px;
     font-size: 1.5em;
+  }
+}
+
+@include media-phone {
+  .FooterBottom {
+    padding-top: size-mobile(50);
+
+    .row {
+      flex-direction: column;
+    }
+
+    .col-logo {
+      width: 100%;
+    }
+
+    .col-links {
+      padding-left: 0;
+      padding-right: 0;
+      margin-top: size-mobile(50);
+      font-size: size-mobile(16px);
+
+      .title {
+        margin-bottom: size-mobile(30px);
+        font-size: size-mobile(24);
+      }
+      .col {
+        width: 100%;
+        margin-top: size-mobile(30);
+      }
+    }
+  }
+
+  .circle-button {
+    width: size-mobile(44);
+    height: size-mobile(44);
+    top: size-mobile(-30);
   }
 }

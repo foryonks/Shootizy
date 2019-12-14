@@ -1,22 +1,26 @@
 /* your css code */
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .footer-social-section {
-  padding-top: 100px;
-  padding-bottom: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .title-hashtag {
+    margin-top: size(50);
+  }
+
   p {
     margin: 0;
   }
   .phrase2 {
-    margin-top: 10px;
-    margin-bottom: 40px;
+    margin-top: size(10px);
+    margin-bottom: size(40px);
   }
 
   .social-section-buttons {
-    font-size: 70px;
+    font-size: size(70px);
     a {
       width: 1em;
       height: 1em;
@@ -49,6 +53,17 @@
   .col-description {
     padding: 0 7.6%;
   }
-  .col-social {
+
+  @include media-phone {
+    > .row {
+      flex-direction: column;
+    }
+    > .row-2 > .col {
+      width: 100% !important;
+    }
+
+    .col-social {
+      margin-top: size-mobile(50px);
+    }
   }
 }
