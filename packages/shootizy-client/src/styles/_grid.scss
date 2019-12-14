@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mediaqueries-mixins";
 
 @mixin containerMediaMaxWidth($maxwidth) {
   @media (max-width: $maxwidth+ $container-padding*2) {
@@ -101,6 +102,16 @@ $nb-cols-len: length($nb-cols);
 }
 
 /*** Margins **/
+
+.section-paddings {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include media-phone {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
 
 .mb10 {
   margin-bottom: 10px !important;

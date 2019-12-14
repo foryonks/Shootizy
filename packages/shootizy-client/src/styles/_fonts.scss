@@ -5,7 +5,7 @@ html {
   font-size: $font-size;
 
   @include media-phone {
-    font-size: 18px;
+    font-size: (18 * 100/375) + vw;
   }
 }
 

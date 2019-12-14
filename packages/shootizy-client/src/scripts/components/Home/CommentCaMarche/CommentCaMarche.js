@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CommentCaMarche3blocks from "../../CommentCaMarchePage/CommentCaMarche3blocks";
 
 const CommentCaMarche = ({ className }) => (
-  <section className={`CommentCaMarche page-section pt100 pb100  ${className}`}>
+  <section className={`CommentCaMarche page-section section-paddings ${className}`}>
     <div className="container-2">
       <h2 className="title mb50">
         Votre Shooting Photo <strong>en 3 étapes !</strong>

@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .ThemeCard {
   padding: 0 0 24px !important;
@@ -12,8 +13,16 @@
     border-radius: $card-border-radius $card-border-radius 0 0;
     overflow: hidden;
     position: relative;
-    padding-bottom: 71.77%;
 
+    .img {
+      background: center center no-repeat;
+      background-size: cover;
+      &:before {
+        content: "";
+        display: block;
+        padding-bottom: 71.73%;
+      }
+    }
     img {
       height: 100%;
       display: block;
@@ -89,6 +98,38 @@
       font-size: size(16px);
       padding: 0.2em 1.7em;
       margin-bottom: 15px;
+    }
+  }
+
+  @include media-phone {
+    padding: 0 !important;
+    width: 100% !important;
+    transform: scale(1);
+
+    .Themes > .row &:hover {
+      transform: scale(1) !important;
+    }
+
+    .ThemeCard-image {
+      border-radius: $card-border-radius;
+
+      .img:before {
+        padding-bottom: 54.02%;
+      }
+    }
+    .ThemeCard-title {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: size(16px);
+      display: block;
+      bottom: size(37);
+
+      .ThemeCard-image {
+        margin: 0;
+      }
     }
   }
 }

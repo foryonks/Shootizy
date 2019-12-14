@@ -6,6 +6,7 @@ import Icon from "scripts/components/Icon";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import "./SurMesure.scss";
+import { Link } from "react-router-dom";
 
 const FORM_FIELDS = [
   {
@@ -77,7 +78,7 @@ const FORM_SUBMIT_BTN = {
   className: "btn-white",
 };
 
-const SurMesure = ({ fullForm }) => (
+const SurMesure = ({ fullForm, isMobile }) => (
   <div className="SurMesure block-forms block-shadow block block-corners block-primary-background container-2 txt-c">
     <div className="block-content">
       <div className="icon-circle">
@@ -90,23 +91,33 @@ const SurMesure = ({ fullForm }) => (
         Un besoin (très) particulier ? Avec ou sans vidéo ? Une solution que vous ne trouvez pas
         encore ? <strong>Dites-nous tout, on s’occupe de vous !</strong>
       </div>
-      <Form
-        className="mt60 generic-form"
-        id="form-sur-mesure"
-        fields={fullForm ? FULL_FORM : FORM_FIELDS}
-        submitBtn={FORM_SUBMIT_BTN}
-        action="/api/contact/sur-mesure"
-      />
+      {isMobile ? (
+        <div className="txt-c button-link">
+          <Link to="shooting-sur-mesure" class="btn-white">
+            Demandez-nous
+          </Link>
+        </div>
+      ) : (
+        <Form
+          className="mt60 generic-form"
+          id="form-sur-mesure"
+          fields={fullForm ? FULL_FORM : FORM_FIELDS}
+          submitBtn={FORM_SUBMIT_BTN}
+          action="/api/contact/sur-mesure"
+        />
+      )}
     </div>
   </div>
 );
 
 SurMesure.propTypes = {
   fullForm: bool,
+  isMobile: bool,
 };
 
 SurMesure.defaultProps = {
   fullForm: false,
+  isMobile: false,
 };
 
 export default SurMesure;

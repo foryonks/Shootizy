@@ -16,7 +16,7 @@ const ProductSelect = ({ currentId, onClick }) => {
           className="ThemeCard card card-simple"
           onClick={() => onClick(productId, title)}>
           <div className="ThemeCard-image">
-            <img src={image} alt="" />
+            <div className="img" style={{ backgroundImage: `url("${image}")` }} />
           </div>
           <div className="ThemeCard-content">
             <h4 className="ThemeCard-title">{title}</h4>

@@ -28,9 +28,9 @@ const Home = () => {
         </CarouselHome>
         <CommentCaMarche className="CommentCaMarche-Home" />
 
-        <div className="page-section page-section-grey">
+        <div className="page-section page-section-grey section-paddings">
           <Themes />
-          <SurMesure />
+          <SurMesure isMobile={isMobile} />
         </div>
 
         <VenirAuStudio />

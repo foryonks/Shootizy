@@ -53,8 +53,8 @@ const NavItem = ({ path, title, subNav, subNavOpenedRegExp, isMobile }) => {
 const NavBar = ({ isMobile }) => (
   <div className="nav-bar">
     <ul className="menu">
-      {NAV_LINKS.map(props => (
-        <NavItem isMobile={isMobile} {...props} />
+      {NAV_LINKS.map((props, key) => (
+        <NavItem isMobile={isMobile} {...props} key={key} />
       ))}
     </ul>
   </div>

@@ -1,5 +1,6 @@
 @import "~styles/variables";
 @import "~styles/mediaqueries-mixins";
+@import "~styles/mixins";
 
 .HomeWrapper {
   .CommentCaMarche {
@@ -23,19 +24,13 @@
       display: none;
     }
 
-    .carousel .control-dots {
-      margin-top: 0;
-      margin-bottom: 50px;
-
-      li {
-        width: 10px;
-        height: 10px;
-        border-radius: 100px;
-        opacity: 1;
-        &.selected {
-          background: $secondary-color;
-        }
+    .CarouselHome .carousel {
+      .control-dots {
+        margin-top: 0;
+        margin-bottom: 50px;
       }
+
+      @include carousel-dots($secondary-color);
     }
 
     .home-prices {
