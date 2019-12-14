@@ -139,7 +139,7 @@
       "label": "notre-book",
       "url": "http://localhost:3000/notre-book",
       "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "booking/etape 1",
