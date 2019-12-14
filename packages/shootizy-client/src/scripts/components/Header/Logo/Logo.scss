@@ -44,11 +44,11 @@
 }
 
 @include media-mobile-for-header {
-  .logo {
-    svg {
-      width: 90px;
-    }
-  }
+  // .logo {
+  //   svg {
+  //     width: 90px;
+  //   }
+  // }
   .logo-text {
     display: none;
   }

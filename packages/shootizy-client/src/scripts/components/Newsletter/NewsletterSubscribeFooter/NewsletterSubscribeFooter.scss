@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 /* your css code */
 .NewsletterSubscribeFooter {
   background: $secondary-color;
@@ -20,6 +21,7 @@
   .form-newsletter {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
   form input[type="email"] {
@@ -36,6 +38,34 @@
     font-size: 0.9em;
     .svg-icon {
       font-size: 1.4em;
+    }
+  }
+
+  @include media-phone {
+    .row {
+      flex-direction: column;
+      align-items: normal;
+    }
+
+    form {
+      width: 100%;
+      margin-top: size(34);
+    }
+
+    form input[type="email"] {
+      width: 100%;
+      min-width: 0;
+      height: size(45px);
+    }
+
+    .circle-button {
+      min-height: size(44);
+      min-width: size(44);
+
+      svg {
+        width: size(22);
+        height: size(22);
+      }
     }
   }
 }

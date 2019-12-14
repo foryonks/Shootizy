@@ -6,13 +6,19 @@
   font-size: 12px;
   border-radius: 200px;
   margin-left: 5px;
-  height: 3em;
-  width: 3em;
+  min-height: 3em;
+  min-width: 3em;
   font-weight: bold;
   box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  // svg {
+  //   width: 50%;
+  //   height: 50%;
+  //   position: absolute;
+  // }
 }
 
 .generic-description {

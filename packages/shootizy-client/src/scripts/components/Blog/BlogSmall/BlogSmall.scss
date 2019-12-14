@@ -1,4 +1,6 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 $buttons-right-margin: 0; // 74px;
 $carousel-top-spacing: 55px;
 
@@ -6,8 +8,8 @@ $carousel-width: $container-2-width;
 body {
   .BlogSmall {
     // background: url("/assets/design/fond-le-blog.jpg") center center;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    // padding-top: 100px;
+    // padding-bottom: 100px;
     position: relative;
     background: url("/assets/design/blog/component-bg.svg") left top no-repeat;
     background-size: cover;
@@ -95,6 +97,21 @@ body {
       .control-prev {
         margin-right: 0;
       }
+    }
+  }
+}
+
+@include media-phone {
+  .BlogSmall {
+    .carousel .slider-wrapper.axis-horizontal .slider {
+      display: flex;
+      align-items: stretch;
+    }
+    .BlogMultipleArticleCarouselWrapper .carousel.carousel-slider .slide {
+      padding: 0;
+    }
+    .ArticleCard {
+      height: 100%;
     }
   }
 }

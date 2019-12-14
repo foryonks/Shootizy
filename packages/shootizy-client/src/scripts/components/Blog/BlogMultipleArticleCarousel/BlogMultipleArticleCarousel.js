@@ -6,7 +6,7 @@ import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 import { toMatrix } from "scripts/utils/utils";
 import ArticleCard from "../ArticleCard";
 
-const BlogMultipleArticleCarousel = ({ articles, cols }) => {
+const BlogMultipleArticleCarousel = ({ articles, cols, ...props }) => {
   let dataMatrix = toMatrix(articles, cols, { fill: true });
 
   return (
@@ -16,7 +16,8 @@ const BlogMultipleArticleCarousel = ({ articles, cols }) => {
           infiniteLoop
           showThumbs={false}
           showIndicators={false}
-          showStatus={false}>
+          showStatus={false}
+          {...props}>
           {dataMatrix.map((row, index) => (
             <div className={`slideRow container-2 cols-${cols}`} key={index}>
               {row.map(article =>

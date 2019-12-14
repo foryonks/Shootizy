@@ -141,6 +141,10 @@ $header-paddings: 10px;
   .header.sticky .header-main {
     top: 0;
   }
+
+  .header .logo svg {
+    width: 90px;
+  }
   .header-main {
     padding: 0;
 

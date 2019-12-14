@@ -77,6 +77,9 @@
 
   > * {
     margin-bottom: 30px;
+    @include media-phone {
+      margin-bottom: size(20);
+    }
   }
 }
 

@@ -4,24 +4,26 @@ import "./VenirAuStudio.scss";
 import LazyLoad from "react-lazyload";
 import Form from "scripts/components/Form";
 import Logo from "scripts/components/Header/Logo";
-import metro3 from "../../../../assets/icons-metro/metro-3.svg";
-import metro12 from "../../../../assets/icons-metro/metro-12.svg";
-import metro13 from "../../../../assets/icons-metro/metro-13.svg";
-import metro14 from "../../../../assets/icons-metro/metro-14.svg";
-import metrom from "../../../../assets/icons-metro/metro-m.svg";
+import metro3 from "assets/icons-metro/metro-3.svg";
+import metro12 from "assets/icons-metro/metro-12.svg";
+import metro13 from "assets/icons-metro/metro-13.svg";
+import metro14 from "assets/icons-metro/metro-14.svg";
+import metrom from "assets/icons-metro/metro-m.svg";
 
 const FORM_FIELDS = [
-  { type: "text", name: "name", label: "Nom*", isRequired: true },
+  { type: "text", name: "name", label: "Nom*", placeholder: "Bom complet", isRequired: true },
   {
     type: "email",
     name: "email",
     label: "Votre email afin que l’on puisse vous répondre*",
+    placeholder: "Email",
     isRequired: true,
   },
   {
     type: "textarea",
     name: "message",
     label: "Dites nous tout ! :)",
+    placeholder: "Rédigez ici...",
     isRequired: true,
     props: { rows: "4" },
   },
@@ -29,11 +31,11 @@ const FORM_FIELDS = [
 const FORM_SUBMIT_BTN = {
   hiddenOnSubmit: true,
   label: "Envoyer",
-  className: "btn-green btn-right",
+  className: "btn-green",
 };
 
 const VenirAuStudio = props => (
-  <section className="VenirAuStudio page-section">
+  <section className="VenirAuStudio section-paddings">
     <div className="container-2">
       <h2 className="title">
         <strong>Viendez au Studio !</strong>

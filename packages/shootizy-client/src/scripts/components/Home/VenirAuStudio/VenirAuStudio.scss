@@ -1,5 +1,6 @@
 @import "~styles/functions";
 @import "~styles/misc";
+@import "~styles/mediaqueries-mixins";
 
 .VenirAuStudio {
   .title {
@@ -71,10 +72,32 @@
   }
 
   // form
-
+  .form-actions {
+    text-align: right;
+  }
   .btn-right {
-    display: table;
-    margin-left: auto;
     margin-right: 10px;
+  }
+
+  @include media-phone {
+    .row {
+      flex-direction: column;
+    }
+
+    .col {
+      width: 100% !important;
+    }
+
+    .col-description {
+      margin-bottom: size(50);
+      .form-actions {
+        text-align: center;
+      }
+    }
+    .col-googlemaps {
+      .logo {
+        font-size: size(34);
+      }
+    }
   }
 }
