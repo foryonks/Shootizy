@@ -144,7 +144,7 @@ function FooterLink(cat) {
         ) : null}
       </Link>
       {!isMobile || (isMobile && opened) ? (
-        <ul>
+        <ul className="footer-subnav">
           {cat.links.map(item => (
             <li key={item.id}>
               <Link to={item.link}>{item.label}</Link>

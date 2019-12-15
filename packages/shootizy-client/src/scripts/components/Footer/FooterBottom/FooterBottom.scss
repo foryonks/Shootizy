@@ -159,6 +159,10 @@
 
     .col-logo {
       width: 100%;
+
+      .footer-logo svg {
+        width: size-mobile(90);
+      }
     }
 
     .col-links {
@@ -168,17 +172,44 @@
       font-size: size-mobile(16px);
 
       .title-link {
-        margin-bottom: size-mobile(30px);
+        margin-bottom: 0;
       }
 
       .title {
-        font-size: size-mobile(24);
+        font-size: size-mobile(20);
+      }
+
+      .footer-subnav {
+        margin-top: size-mobile(30px);
       }
 
       .col {
         width: 100%;
         margin-top: size-mobile(30);
       }
+
+      .subNav-button {
+        .svg-icon {
+          font-size: size-mobile(22);
+        }
+      }
+    }
+
+    .footer-bottom-bottom {
+      flex-direction: column-reverse;
+    }
+
+    .col-rating {
+      align-self: flex-end;
+      margin-bottom: size-mobile(20px);
+    }
+
+    .GlobalRating {
+      font-size: size-mobile(14px);
+    }
+
+    .social-buttons {
+      font-size: size-mobile(24px);
     }
   }
 
