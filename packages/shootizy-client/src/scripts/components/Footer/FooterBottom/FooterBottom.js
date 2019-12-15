@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 //import PropTypes from "prop-types";
@@ -8,6 +8,7 @@ import GlobalRating from "../../CustomerRating/GlobalRating/GlobalRating";
 import Icon from "../../Icon";
 import "./FooterBottom.scss";
 import animateScrollTo from "animated-scroll-to";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const data = [
   {
@@ -107,22 +108,7 @@ const FooterBottom = props => (
       </div>
 
       <div className="col col-links allLinks">
-        <div className="row ">
-          {data.map(cat => (
-            <div className="col" key={cat.id}>
-              <Link to={cat.link}>
-                <h3 className="title">{cat.label}</h3>
-              </Link>
-              <ul>
-                {cat.links.map(item => (
-                  <li key={item.id}>
-                    <Link to={item.link}>{item.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <div className="row ">{data.map(cat => FooterLink(cat))}</div>
       </div>
     </div>
 
@@ -139,5 +125,35 @@ const FooterBottom = props => (
     </div>
   </div>
 );
+
+function FooterLink(cat) {
+  const [opened, setOpened] = useState(false);
+  const isMobile = useMediaQuery(phone);
+  const onButtonClick = e => {
+    e.preventDefault();
+    setOpened(!opened);
+  };
+  return (
+    <div className="col" key={cat.id}>
+      <Link to={cat.link} className="title-link">
+        <h3 className="title">{cat.label}</h3>
+        {isMobile ? (
+          <button className={`subNav-button`} onClick={onButtonClick}>
+            <Icon name={opened ? "moins" : "plus"} />
+          </button>
+        ) : null}
+      </Link>
+      {!isMobile || (isMobile && opened) ? (
+        <ul>
+          {cat.links.map(item => (
+            <li key={item.id}>
+              <Link to={item.link}>{item.label}</Link>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
 
 export default FooterBottom;
