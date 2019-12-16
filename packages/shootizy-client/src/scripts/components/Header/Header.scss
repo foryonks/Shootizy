@@ -320,3 +320,9 @@ $header-paddings: 10px;
     }
   }
 }
+
+@include media-phone {
+  .header-blocs {
+    margin-top: -50%;
+  }
+}

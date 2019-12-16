@@ -11,7 +11,7 @@ import HeaderImageMask from "scripts/components/_common/HeaderImageMask/HeaderIm
 import { AppContext } from "scripts/contexts/App";
 import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
-const CarouselHome = ({ history, children, useMask }) => {
+const CarouselHome = ({ history, children, useMask, className }) => {
   const { contents } = useRemoteContents("/api/contents/home-carousel");
   const {
     state: { productById = {} },
@@ -19,7 +19,7 @@ const CarouselHome = ({ history, children, useMask }) => {
   const items = contents ? contents.items : [];
   const isMobile = useMediaQuery(phone);
   return (
-    <div className="CarouselHome">
+    <div className={`CarouselHome ${className}`}>
       <div className="carouselHome-content carousel-default-arrows carousel-position-full-width-header">
         <CarouselResponsive
           infiniteLoop

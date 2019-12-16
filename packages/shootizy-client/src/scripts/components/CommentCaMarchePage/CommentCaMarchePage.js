@@ -16,16 +16,16 @@ const CommentCaMarchePage = props => (
     <HeaderImage
       className="with-header-cards mask-grey"
       src="/assets/design/headers/comment-ca-marche.svg"
-      preTitle="Comment ça marche"
+      preTitle="Comment ça marche ?"
       title="<strong>Votre shooting en 3 étapes</strong>">
       <CommentCaMarche3blocks className="header-blocs container-2" />
     </HeaderImage>
 
     <Prices className="container-2" showTitle={true} showButton={true} />
 
-    <div className="container-2 grey-text mt70">
-      <div className="mea-table">
-        <div className="mea-img img-half">
+    <div className="container-2 grey-text container-descriptions">
+      <div className="mea-table mobile-column-reverse">
+        <div className="mea-img img-half mobile-right-decal">
           <img src="/assets/design/comment-ca-marche/ccm01.png" alt="" />
         </div>
         <div className="mea-desc">
@@ -101,7 +101,7 @@ const CommentCaMarchePage = props => (
         </div>
       </div>
 
-      <div className="mea-table">
+      <div className="mea-table mobile-column-reverse">
         <div className="mea-img img-half">
           <img src="/assets/design/comment-ca-marche/ccm03.png" alt="" />
         </div>
@@ -119,13 +119,13 @@ const CommentCaMarchePage = props => (
         </div>
       </div>
 
-      <p className="txt-c mt50 mb100">
+      <p className="txt-c page-button">
         <Link to="/booking" className="btn-green">
           Je réserve mon Shooting
         </Link>
       </p>
     </div>
-    <CarouselHome useMask={false} />
+    <CarouselHome useMask={false} className="carousel-inpage" />
     <VenirAuStudio />
   </article>
 );

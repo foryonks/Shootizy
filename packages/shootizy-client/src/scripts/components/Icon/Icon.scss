@@ -1,3 +1,6 @@
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .svg-icon {
   font-size: 1em;
   line-height: 1;
@@ -29,6 +32,16 @@
   background: #000;
   border-radius: 200px;
   color: #fff;
+}
+
+@include media-phone {
+  .top-icon {
+    $size: size-mobile(46);
+    height: $size;
+    width: $size;
+    font-size: size-mobile(18);
+    margin-bottom: size-mobile(16);
+  }
 }
 
 .icon-big {

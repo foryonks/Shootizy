@@ -100,7 +100,7 @@ const Main = () => (
     </div>
 
     <CommentCaMarche />
-    <CarouselHome useMask={false} />
+    <CarouselHome useMask={false} className="carousel-inpage" />
     <VenirAuStudio />
   </>
 );

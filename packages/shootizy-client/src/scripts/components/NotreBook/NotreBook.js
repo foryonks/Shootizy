@@ -37,7 +37,7 @@ const NotreBook = props => (
       </div>
     </div>
 
-    <CarouselHome useMask={false} />
+    <CarouselHome useMask={false} className="carousel-inpage" />
     <CommentCaMarche />
     <VenirAuStudio />
   </div>

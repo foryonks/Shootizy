@@ -110,9 +110,33 @@
     .carouselHome-item-title {
       font-size: size-mobile(45);
       font-weight: 500;
+      margin-top: size-mobile(30);
+      line-height: 1;
 
       strong {
         font-weight: 500;
+      }
+    }
+
+    &.carousel-inpage {
+      .carouselHome-item-content {
+        top: size-mobile(100);
+      }
+    }
+
+    .control-dots {
+      margin-top: 0;
+      margin-bottom: size-mobile(50px);
+
+      .dot {
+        $size: size-mobile(10px);
+        width: $size;
+        height: $size;
+        background: #fff;
+        opacity: 1;
+      }
+      li.selected {
+        background: $secondary-color;
       }
     }
   }

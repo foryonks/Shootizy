@@ -17,11 +17,11 @@
   }
 }
 
-@mixin carousel-dots($color) {
+@mixin carousel-dots($color, $width: 10px) {
   .carousel .control-dots {
     li {
-      width: 10px;
-      height: 10px;
+      width: $width;
+      height: $width;
       border-radius: 100px;
       opacity: 1;
       box-shadow: $box-shadow-main;

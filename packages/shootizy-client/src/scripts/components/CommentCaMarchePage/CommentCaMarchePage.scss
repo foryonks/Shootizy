@@ -1,7 +1,14 @@
 /* your css code */
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .CommentCaMarchePageWrapper {
   .mea-desc {
     line-height: 1.41;
+  }
+
+  .container-descriptions {
+    margin-top: 70px;
   }
 
   .mea-table {
@@ -20,5 +27,35 @@
 
   h4 + p {
     margin-top: 0;
+  }
+
+  .page-button {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  @include media-phone {
+    .container-descriptions {
+      margin-top: size-mobile(50);
+    }
+    .mea-table {
+      margin-top: size-mobile(50);
+
+      .mea-img {
+        $size: size-mobile(10);
+        padding-left: $size;
+        padding-right: $size;
+        margin-top: size-mobile(20);
+      }
+    }
+
+    .mobile-right-decal {
+      transform: translateX(size-mobile(10));
+    }
+
+    .page-button {
+      margin-top: size-mobile(90);
+      margin-bottom: size-mobile(50);
+    }
   }
 }

@@ -1,3 +1,6 @@
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .mea {
   &:after {
     display: table;
@@ -28,13 +31,14 @@
 .mea,
 .mea-table {
   .img-half {
-    width: 50% !important;
+    width: 50%;
 
     img {
       max-width: 100%;
     }
   }
 }
+
 .mea-table {
   width: 100%;
   display: table;
@@ -48,5 +52,25 @@
   .mea-desc {
     display: table-cell;
     vertical-align: middle;
+  }
+}
+
+@include media-phone {
+  .mea-table {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &.mobile-column-reverse {
+      flex-direction: column-reverse;
+    }
+    .mea-img,
+    .mea-desc {
+      display: block;
+    }
+
+    .img-half {
+      width: 100%;
+    }
   }
 }

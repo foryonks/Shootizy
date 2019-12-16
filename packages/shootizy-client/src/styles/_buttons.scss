@@ -1,4 +1,5 @@
 @import "./functions";
+@import "./mediaqueries-mixins";
 
 //$button-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.14);
 
@@ -154,4 +155,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+@include media-phone {
+  font-size: size-mobile(16);
 }

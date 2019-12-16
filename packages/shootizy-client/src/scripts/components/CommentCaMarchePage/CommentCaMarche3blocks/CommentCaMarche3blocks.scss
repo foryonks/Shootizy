@@ -26,10 +26,13 @@
 
 @include media-phone {
   body .CommentCaMarche3blocksWrapper .carousel.carousel-slider {
-    padding-bottom: size-mobile(50px);
+    padding-bottom: size-mobile(40px);
     .control-arrow {
       display: none;
     }
+  }
+  .carousel .slider-wrapper {
+    padding-bottom: size-mobile(15);
   }
   .CommentCaMarche3blocksWrapper {
     .Carousel {
@@ -48,6 +51,7 @@
 
       .CommentCaMarche-item {
         height: 100%;
+        padding: size-mobile(30) size-mobile(25);
       }
     }
 

@@ -1,4 +1,4 @@
-@import "~styles/variables";
+@import "~styles/functions";
 @import "~styles/mediaqueries-mixins";
 @import "~styles/mixins";
 
@@ -26,11 +26,8 @@
 
     .CarouselHome .carousel {
       .control-dots {
-        margin-top: 0;
         margin-bottom: size-mobile(50px);
       }
-
-      @include carousel-dots($secondary-color);
     }
 
     .home-prices {
