@@ -1,1 +1,8 @@
 /* your css code */
+@import "~styles/functions";
+
+.ThemesListerWrapper {
+  .mobile-select {
+    margin-bottom: size-mobile(30);
+  }
+}

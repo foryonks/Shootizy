@@ -123,6 +123,10 @@
   background-color: #00f6d6;
 }
 
+.header-padding-withnoheader {
+  padding-top: 90px;
+}
+
 @include media-phone {
   .header-image {
     height: size-mobile(500);

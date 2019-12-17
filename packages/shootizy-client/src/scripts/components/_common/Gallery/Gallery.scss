@@ -1,4 +1,6 @@
-/* your css code */
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .GalleryWrapper {
   $margin: 0.3%;
   margin-left: $margin;
@@ -46,4 +48,27 @@
   //     padding-bottom: 133%;
   //   }
   // }
+
+  @include media-phone {
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .image-0,
+    .image-1,
+    .image-3,
+    .image-4 {
+      width: 49% !important;
+      span {
+        padding-bottom: 78.51% !important;
+      }
+    }
+
+    .image-2,
+    .image-5 {
+      width: 100% !important;
+      span {
+        padding-bottom: 75.06% !important;
+      }
+    }
+  }
 }

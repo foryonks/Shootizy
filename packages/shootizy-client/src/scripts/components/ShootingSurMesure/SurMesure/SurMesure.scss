@@ -38,7 +38,6 @@
   }
 
   @include media-phone {
-    padding-top: size-mobile(50px);
-    padding-bottom: size-mobile(50px);
+    padding: size-mobile(50px) size-mobile(20px);
   }
 }

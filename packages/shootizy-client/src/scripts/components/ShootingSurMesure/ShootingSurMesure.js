@@ -8,26 +8,36 @@ import FloatingBody from "./FloatingBody";
 import ThemesLister from "scripts/components/_common/ThemesLister";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import { AppContext } from "scripts/contexts/App";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
-const ShootingSurMesure = () => {
+const ShootingSurMesure = ({ className }) => {
   const { state: appState } = useContext(AppContext);
   const list = appState.surMesures;
-
+  const isMobile = useMediaQuery(phone);
   return (
     list && (
-      <div className="ShootingSurMesureWrapper page-container">
+      <div
+        className={`ShootingSurMesureWrapper page-container ${
+          isMobile ? "header-padding-withnoheader" : ""
+        }`}>
         <Helmet bodyAttributes={{ class: "header-padding-page" }} />
-        <HeaderImage
-          src="/assets/design/headers/shooting-sur-mesure.svg"
-          preTitle="Shooting sur mesure"
-          title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
-        />
-        <FloatingBody />
+        {isMobile ? null : (
+          <>
+            <HeaderImage
+              src="/assets/design/headers/shooting-sur-mesure.svg"
+              preTitle="Shooting sur mesure"
+              title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
+            />
+            <FloatingBody />
+          </>
+        )}
         <SurMesure fullForm={true} />
 
         <div className="container-2">
           {list.map(({ productId, title, description, image }, index) => (
-            <div className="mea-table" key={productId}>
+            <div
+              className={`mea-table ${index % 2 ? "mobile-column-reverse" : ""}`}
+              key={productId}>
               {!!(index % 2) && (
                 <div className="mea-img">
                   <img src={image} alt="" />

@@ -1,4 +1,6 @@
-/* TO-DO your css code */
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .form-feedback--success {
   color: #026c02;
   margin-top: 5px;
@@ -28,6 +30,33 @@
   }
 }
 
+@mixin recaptcha-transform($width, $scale: $width/440) {
+  @media (max-width: $width+"px") {
+    transform: scale($scale);
+  }
+}
+
 .recaptcha {
-  //    width: 100% !important;
+  > div > div {
+    width: auto !important;
+    height: auto !important;
+  }
+  @include media-phone {
+    text-align: center;
+  }
+
+  iframe {
+    display: inline-block;
+    transform-origin: center top;
+
+    //@include recaptcha-transform(800);
+    @include recaptcha-transform(800);
+    @include recaptcha-transform(700);
+    @include recaptcha-transform(600);
+    @include recaptcha-transform(500);
+    @include recaptcha-transform(400);
+    @include recaptcha-transform(360);
+    @include recaptcha-transform(324);
+    @include recaptcha-transform(300);
+  }
 }

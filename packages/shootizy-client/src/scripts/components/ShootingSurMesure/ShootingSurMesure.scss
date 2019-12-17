@@ -32,4 +32,22 @@
       margin-right: auto;
     }
   }
+
+  @include media-phone {
+    .mea-table {
+      margin-top: size-mobile(30);
+      .mea-desc,
+      .mea-img {
+        width: 100%;
+      }
+
+      .mea-img {
+        padding: 0;
+      }
+    }
+
+    .icon-circle {
+      margin-top: 0;
+    }
+  }
 }
