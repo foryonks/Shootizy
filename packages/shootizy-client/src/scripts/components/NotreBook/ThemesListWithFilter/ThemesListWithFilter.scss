@@ -1,8 +1,13 @@
 /* your css code */
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .ThemesListerWrapper {
   .mobile-select {
     margin-bottom: size-mobile(30);
+  }
+
+  @include media-phone {
+    text-align: left;
   }
 }

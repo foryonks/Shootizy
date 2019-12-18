@@ -8,29 +8,21 @@ import FloatingBody from "./FloatingBody";
 import ThemesLister from "scripts/components/_common/ThemesLister";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import { AppContext } from "scripts/contexts/App";
-import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const ShootingSurMesure = ({ className }) => {
   const { state: appState } = useContext(AppContext);
   const list = appState.surMesures;
-  const isMobile = useMediaQuery(phone);
+
   return (
     list && (
-      <div
-        className={`ShootingSurMesureWrapper page-container ${
-          isMobile ? "header-padding-withnoheader" : ""
-        }`}>
+      <div className={`ShootingSurMesureWrapper page-container`}>
         <Helmet bodyAttributes={{ class: "header-padding-page" }} />
-        {isMobile ? null : (
-          <>
-            <HeaderImage
-              src="/assets/design/headers/shooting-sur-mesure.svg"
-              preTitle="Shooting sur mesure"
-              title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
-            />
-            <FloatingBody />
-          </>
-        )}
+        <HeaderImage
+          src="/assets/design/headers/shooting-sur-mesure.svg"
+          preTitle="Shooting sur mesure"
+          title="Décrivez-nous votre besoin <br>et obtenez un <strong>devis gratuit</strong> sur mesure !"
+        />
+        <FloatingBody />
         <SurMesure fullForm={true} />
 
         <div className="container-2">
@@ -65,9 +57,9 @@ const ShootingSurMesure = ({ className }) => {
         </div>
 
         <div className="container-2">
-          <h2 className="title mt100 mb50">Quelques unes de nos réalisations</h2>
+          <h2 className="title margin-title-surmesure">Quelques unes de nos réalisations</h2>
           <ThemesLister themesArray={list} />
-          <div className="clients mt100">
+          <div className="clients">
             <div>
               <strong className="grey-text">Clients</strong>
             </div>

@@ -7,9 +7,11 @@ import ArrowLeft from "../Icons/ArrowLeft";
 const ThemesLister = ({ themesArray }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isMobile = useMediaQuery(phone);
+
   return (
     <div className="ThemesListerWrapper">
       <div className="txt-r themes-filter">
+        <strong>Filtrer par thème :</strong>
         {isMobile ? (
           <span className="mobile-select">
             <span>{(themesArray[currentIndex] || {}).title || "Filtrer"}</span>
@@ -28,21 +30,18 @@ const ThemesLister = ({ themesArray }) => {
             </select>
           </span>
         ) : (
-          <>
-            <strong>Filtrer par thème :</strong>
-            <ul className="themes-list">
-              {themesArray.map((theme, index) => (
-                <li key={theme.productId} className={`${currentIndex === index ? "current" : ""}`}>
-                  <button
-                    onClick={() => {
-                      setCurrentIndex(index);
-                    }}>
-                    {theme.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </>
+          <ul className="themes-list">
+            {themesArray.map((theme, index) => (
+              <li key={theme.productId} className={`${currentIndex === index ? "current" : ""}`}>
+                <button
+                  onClick={() => {
+                    setCurrentIndex(index);
+                  }}>
+                  {theme.title}
+                </button>
+              </li>
+            ))}
+          </ul>
         )}
 
         <Gallery images={themesArray[currentIndex].gallery} />

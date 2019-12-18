@@ -158,5 +158,8 @@
 }
 
 @include media-phone {
-  font-size: size-mobile(16);
+  //  font-size: size-mobile(16);
+  .btn-green {
+    padding: size-mobile(4) size-mobile(15);
+  }
 }

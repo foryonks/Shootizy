@@ -24,6 +24,10 @@
       }
     }
   }
+  .margin-title-surmesure {
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
 
   .enterprises-confiance {
     img {
@@ -33,7 +37,17 @@
     }
   }
 
+  .clients {
+    margin-top: 100px;
+  }
+
   @include media-phone {
+    .FloatingBodyWrapper {
+      margin-top: -20%;
+      max-width: 80%;
+      position: relative;
+      left: -2%;
+    }
     .mea-table {
       margin-top: size-mobile(30);
       .mea-desc,
@@ -45,9 +59,26 @@
         padding: 0;
       }
     }
+    .button {
+      margin-top: size-mobile(30px);
+      margin-bottom: size-mobile(30px);
+    }
 
     .icon-circle {
       margin-top: 0;
+    }
+
+    .mea-table .mea-img img {
+      border-radius: size-mobile(10);
+      box-shadow: size-mobile(20) size-mobile(20) size-mobile(8) rgba(0, 0, 0, 0.05);
+    }
+    .margin-title-surmesure {
+      margin-top: size-mobile(50);
+      margin-bottom: size-mobile(30);
+    }
+    .clients {
+      margin-top: size-mobile(50);
+      margin-bottom: size-mobile(30);
     }
   }
 }
