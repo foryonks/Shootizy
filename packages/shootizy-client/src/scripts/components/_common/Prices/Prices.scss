@@ -6,6 +6,9 @@
     margin-top: 0;
     margin-bottom: 50px;
   }
+  .button-container-centered {
+    margin-top: 50px;
+  }
 }
 .Prices-header {
   color: #000;
@@ -91,6 +94,10 @@
     }
   }
 
+  .button-container-centered {
+    margin-top: 50px;
+  }
+
   .price-offer {
     color: #fff;
     background: #000;
@@ -140,7 +147,17 @@
 }
 
 @include media-phone {
+  .PricesWrapper {
+    .title-price {
+      margin-bottom: size-mobile(30);
+    }
+  }
+
   .Prices-header {
+    > .price-item {
+      margin-top: 0;
+    }
+
     .price-collapse {
       flex-direction: column;
       justify-content: stretch;
@@ -151,6 +168,7 @@
         border-left: none;
         border-top: 1px dashed #000;
         padding-top: size-mobile(60);
+        margin-top: 0;
 
         &:before {
           top: 0;
@@ -163,6 +181,10 @@
           border-top: none;
         }
       }
+    }
+
+    .button-container-centered {
+      margin-top: size-mobile(30);
     }
   }
 }

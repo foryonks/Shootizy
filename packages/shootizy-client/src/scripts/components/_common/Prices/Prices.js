@@ -36,7 +36,7 @@ const Prices = ({ className, showBottomTitle, showTitle, showButton, textKey = "
       </div>
       {showBottomTitle ? <Title className="mt50" /> : null}
       {showButton && (
-        <p className="button-container-centered mt50">
+        <p className="button-container-centered ">
           <Link to="/tarifs" className="btn-green">
             Consultez nos tarifs
           </Link>
