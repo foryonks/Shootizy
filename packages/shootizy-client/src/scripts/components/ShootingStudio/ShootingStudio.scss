@@ -1,4 +1,6 @@
-/* your css code */
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+@import "~styles/mixins";
 
 .ShootingStudioPage {
   .main {
@@ -9,14 +11,22 @@
     margin-top: 40px;
   }
 
-  .studio-photo-block {
-    margin-top: -12.2%;
+  .studio-photo-block-container {
+    position: relative;
+    z-index: 4;
+    margin-bottom: 50px;
+    margin-top: -7.8%;
+  }
 
+  .studio-photo-block {
     .button-container-centered {
-      margin-top: -10%;
       position: relative;
-      z-index: 4;
+      z-index: 5;
+      margin-top: -10%;
     }
+  }
+  .title-section {
+    margin-bottom: 100px;
   }
 
   .studio-taille-humaine {
@@ -37,13 +47,73 @@
       margin-bottom: 20px;
     }
   }
-}
-/** espace 3 colonnes custom spacing between items */
-.esprit-shootizy {
-  .row {
-    align-items: space-between;
+
+  .studio-photo-block-container {
+    @media (max-width: 950px) {
+      margin-top: -5%;
+    }
+    @media (max-width: 900px) {
+      margin-top: -2%;
+    }
   }
-  .col {
-    width: 29% !important;
+  /** espace 3 colonnes custom spacing between items */
+  .esprit-shootizy {
+    .row {
+      align-items: space-between;
+    }
+    .col {
+      width: 29% !important;
+    }
+  }
+  @include media-phone {
+    .studio-photo-block-container {
+      $margin: 260;
+      $padding: 50;
+      padding-top: size-mobile($padding);
+      margin-top: size-mobile(-($margin + $padding));
+      width: auto;
+      overflow: hidden;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: size-mobile(50);
+      padding-bottom: 0;
+    }
+    .studio-photo-block {
+      width: auto;
+      $size: -120px;
+      margin-left: size-mobile($size);
+      margin-right: size-mobile($size);
+    }
+
+    .title-section {
+      margin-bottom: size-mobile(50);
+    }
+
+    .esprit-shootizy {
+      @include control-dots-white-black();
+
+      .slide {
+        $pads: 50px;
+        padding-left: size-mobile($pads);
+        padding-right: size-mobile($pads);
+      }
+      .carousel .control-dots {
+        margin-bottom: size-mobile(-10);
+      }
+      .col {
+        width: auto !important;
+      }
+    }
+
+    .studio-taille-humaine {
+      .mea-desc {
+        padding-right: 0;
+      }
+
+      .mea-img {
+        margin-top: size-mobile(50);
+        margin-bottom: size-mobile(-20);
+      }
+    }
   }
 }

@@ -31,3 +31,18 @@
     }
   }
 }
+
+@mixin control-dots($color, $color-selected) {
+  .carousel .control-dots li {
+    background: $color;
+    opacity: 1;
+
+    &.selected {
+      background: $color-selected;
+    }
+  }
+}
+
+@mixin control-dots-white-black {
+  @include control-dots(#fff, #000);
+}

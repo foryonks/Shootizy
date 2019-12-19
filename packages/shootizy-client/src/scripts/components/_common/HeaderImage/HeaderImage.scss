@@ -127,6 +127,12 @@
   padding-top: 90px;
 }
 
+@media (max-width: 870px) {
+  .header-image {
+    min-height: 400px;
+  }
+}
+
 @include media-phone {
   .header-image {
     height: size-mobile(500);
