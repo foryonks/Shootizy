@@ -3,10 +3,10 @@ import "./HeaderImageMask.scss";
 
 const HeaderImageMask = props => (
   <div className="header-image-mask">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4070 220">
+    <svg viewBox="0 0 4070 188">
       <path
-        d="M0,0 C489.5,117.5 1228.5,187 2056,187 C2857,187 3575.5,111 4070,0 L4070,220 L0,220 L0,0 Z"
-        id="Path"
+        fill="currentColor"
+        d="M0 0c489.5 117.5 1228.5 187 2056 187 801 0 1519.5-76 2014-187v188H0V0z"
       />
     </svg>
   </div>

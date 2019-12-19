@@ -30,6 +30,7 @@
 
 .btn-green,
 .btn-green-small {
+  white-space: nowrap;
   @include button;
   background: $btn-green-bg-color;
   color: #000;

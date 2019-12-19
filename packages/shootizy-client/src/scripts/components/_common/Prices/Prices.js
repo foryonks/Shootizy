@@ -6,8 +6,8 @@ import useRemoteContents from "scripts/hooks/useRemoteContents";
 import { Link } from "react-router-dom";
 //import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
-const Title = () => (
-  <h2 className="title mt50 mb50">
+const Title = ({ className }) => (
+  <h2 className={`title title-price ${className}`}>
     Aucune obligation d’achat ! <br />
     <strong>Payez seulement les photos que vous voulez !</strong>
   </h2>
@@ -34,7 +34,7 @@ const Prices = ({ className, showBottomTitle, showTitle, showButton, textKey = "
           {itemsCollapse.map(PriceItem)}
         </div>
       </div>
-      {showBottomTitle ? <Title /> : null}
+      {showBottomTitle ? <Title className="mt50" /> : null}
       {showButton && (
         <p className="button-container-centered mt50">
           <Link to="/tarifs" className="btn-green">

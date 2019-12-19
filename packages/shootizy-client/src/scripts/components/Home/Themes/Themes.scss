@@ -1,5 +1,6 @@
 @import "~styles/functions";
 @import "~styles/mixins";
+@import "~styles/mediaqueries-mixins";
 
 .Themes {
   > .title {
@@ -13,10 +14,16 @@
   > .row {
     margin-bottom: 33px;
 
-    > .card {
-      width: 31.8%;
+    @include themeCardHover;
+  }
+  .card {
+    width: 31.8%;
+    @media (max-width: 900px) {
+      width: 49% !important;
     }
 
-    @include themeCardHover;
+    @include media-phone {
+      width: 100% !important;
+    }
   }
 }

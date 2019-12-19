@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./functions";
 @import "./mediaqueries-mixins";
 
 @mixin containerMediaMaxWidth($maxwidth) {
@@ -13,6 +14,10 @@
   $padding: 100px;
   padding-top: $padding;
   padding-bottom: $padding;
+}
+
+.page-no-paddings {
+  padding: 0;
 }
 
 .page-section-green {
@@ -115,7 +120,9 @@ $nb-cols-len: length($nb-cols);
     padding-bottom: 50px;
   }
 }
-
+.mt0 {
+  margin-top: 0 !important;
+}
 .mb10 {
   margin-bottom: 10px !important;
 }
@@ -202,5 +209,10 @@ $nb-cols-len: length($nb-cols);
   img {
     width: 100%;
     display: block;
+  }
+}
+@include media-phone {
+  .mt50-mobile {
+    margin-top: size-mobile(50) !important;
   }
 }

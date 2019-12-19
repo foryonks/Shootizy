@@ -21,7 +21,7 @@ const CommentCaMarchePage = props => (
       <CommentCaMarche3blocks className="header-blocs container-2" />
     </HeaderImage>
 
-    <Prices className="container-2" showTitle={true} showButton={true} />
+    <Prices className="container-2 pt50" showTitle={true} showButton={true} />
 
     <div className="container-2 grey-text container-descriptions">
       <div className="mea-table mobile-column-reverse">

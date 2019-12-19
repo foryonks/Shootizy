@@ -46,51 +46,51 @@ const Product = ({ match }) => {
           </Link>
         </div>
       </div>
-      <div className="page-section page-section-grey pt50 pb50">
-        <div className="container-2">
-          <CrumbRoute
-            title={title}
-            path="/shooting-studio/:productId"
-            render={() => (
-              <div className="">
-                <div className="product-description container-2 row row-2">
-                  <div className="col">
-                    <div className="pre-title grey-text txt-l">{title}</div>
-                    <h2 className="title txt-l mt50">
-                      <Interweave content={descTitle} />
-                    </h2>
-                    <div className="description">
-                      <Interweave content={description} />
-                    </div>
-                    <div className="txt-l mt50">
-                      <Link to={bookingLink} className="btn-green">
-                        Je réserve mon Shooting
-                      </Link>
-                    </div>
+      <div className="page-section-grey">
+        <CrumbRoute
+          title={title}
+          path="/shooting-studio/:productId"
+          render={() => (
+            <div className="">
+              <div className="product-description container-2 row row-2">
+                <div className="col">
+                  <div className="pre-title grey-text txt-l">{title}</div>
+                  <h2 className="title txt-l mt50">
+                    <Interweave content={descTitle} />
+                  </h2>
+                  <div className="description">
+                    <Interweave content={description} />
                   </div>
-                  <div className="col image-description">
-                    <img
-                      src={
-                        product.textImage ||
-                        "/assets/photos/themes/fetes-anniversaires/image-pres.png"
-                      }
-                      alt=""
-                      className="description-image"
-                    />
-                    <div />
+                  <div className="txt-l mt50">
+                    <Link to={bookingLink} className="btn-green">
+                      Je réserve mon Shooting
+                    </Link>
                   </div>
                 </div>
+                <div className="col image-description">
+                  <img
+                    src={
+                      product.textImage ||
+                      "/assets/photos/themes/fetes-anniversaires/image-pres.png"
+                    }
+                    alt=""
+                    className="description-image"
+                  />
+                  <div />
+                </div>
+              </div>
 
-                <div className="container-2 mt100">
-                  <LazyLoad height={400}>
+              <div className="section-paddings">
+                <LazyLoad height={400}>
+                  <div className="container-2 ">
                     <h2 className="title">Quelques unes de nos réalisations</h2>
-                    <div className="centered-gallery mt50">
+                    <div className="centered-gallery">
                       <Gallery images={product.gallery} />
                     </div>
-                  </LazyLoad>
-
+                  </div>
+                </LazyLoad>
+                <div className="mt100 mt50-mobile">
                   <Themes
-                    className="mt100"
                     title={
                       <>
                         Découvrez les autres thèmes disponibles <br />
@@ -100,13 +100,13 @@ const Product = ({ match }) => {
                   />
                 </div>
               </div>
-            )}
-          />
-        </div>
+            </div>
+          )}
+        />
       </div>
-      <div className="page-section-white pb100">
+      <div className="page-section-grey section-paddings mt0">
         <Prices
-          className="Prices-header-product page-container-white container-2 pt50"
+          className="Prices-header-product page-container-white container-2"
           textKey="product"
           showTitle={true}
           showButton={true}

@@ -1,6 +1,12 @@
 @import "~styles/functions";
 @import "~styles/mediaqueries-mixins";
 
+.PricesWrapper {
+  .title-price {
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+}
 .Prices-header {
   color: #000;
   z-index: 10;
