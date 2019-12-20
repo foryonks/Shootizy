@@ -4,6 +4,9 @@ import HeaderImage from "scripts/components/_common/HeaderImage";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Interweave from "interweave";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
+import { Carousel as CarouselResponsive } from "react-responsive-carousel";
+
 const TARIFS_ITEMS = [
   {
     title: "Photo à l’unité",
@@ -92,7 +95,38 @@ const TARIFS_ITEMS = [
   },
 ];
 
+const tarifsItems = () =>
+  TARIFS_ITEMS.map(({ title, subText, price, image, options, buttonLink }) => (
+    <div className="card card-shadow card-simple tarif-item">
+      <div className="tarif-item--top">
+        <div className="image" style={{ backgroundImage: `url(${image})` }} />
+        <h2 className="title">{title}</h2>
+        <div className="tarif-subtext">
+          <Interweave content={subText} />
+        </div>
+        <div className="tarif-price">
+          <Interweave content={price} />
+        </div>
+      </div>
+      <div className="tarif-item--options">
+        <ul>
+          {options.map(({ value, className }) => (
+            <li className={className}>{value}</li>
+          ))}
+        </ul>
+        {buttonLink && (
+          <div className="txt-c mt50">
+            <Link to={buttonLink} className="btn-green btn-small">
+              En savoir plus
+            </Link>
+          </div>
+        )}
+      </div>
+    </div>
+  ));
+
 const Tarifs = props => {
+  const isMobile = useMediaQuery(phone);
   return (
     <div className="Tarifs page-container page-section-grey">
       <Helmet bodyAttributes={{ class: "header-padding-page" }} />
@@ -102,47 +136,31 @@ const Tarifs = props => {
         preTitle="Tarifs"
         useMask={false}
         title="Choissiez la formule <strong>qui vous convient</strong>">
-        <div className="row row-3 container-2 header-prices">
-          {TARIFS_ITEMS.map(({ title, subText, price, image, options, buttonLink }) => (
-            <div className="card card-shadow card-simple tarif-item">
-              <div className="tarif-item--top">
-                <div className="image">
-                  <img src={image} alt="" />
-                </div>
-                <h2 className="title">{title}</h2>
-                <div className="tarif-subtext">
-                  <Interweave content={subText} />
-                </div>
-                <div className="tarif-price">
-                  <Interweave content={price} />
-                </div>
-              </div>
-              <div className="tarif-item--options">
-                <ul>
-                  {options.map(({ value, className }) => (
-                    <li className={className}>{value}</li>
-                  ))}
-                </ul>
-                {buttonLink && (
-                  <div className="txt-c mt50">
-                    <Link to={buttonLink} className="btn-green btn-small">
-                      En savoir plus
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        {isMobile ? (
+          <CarouselResponsive
+            showThumbs={false}
+            showIndicators={true}
+            showStatus={false}
+            autoPlay={false}
+            showArrows={false}
+            infiniteLoop={true}
+            centerMode={true}
+            {...props}
+            interval={4000}>
+            {tarifsItems()}
+          </CarouselResponsive>
+        ) : (
+          <div className="row row-3 container-2 header-prices">{tarifsItems()}</div>
+        )}
       </HeaderImage>
 
-      <div className="txt-c mt50">
+      <div className="button-container">
         <Link to="/booking" className="btn-green">
           Je réserve mon shooting
         </Link>
       </div>
 
-      <div className="main container-2 row row-2 mode-paiement mt200 mb100">
+      <div className="main container-2 row row-2 mode-paiement ">
         <div className="col">
           <h3 className="title">Mode de paiement</h3>
           <div className="text-big">
@@ -150,7 +168,7 @@ const Tarifs = props => {
             <br />
             <strong>Mais on y travaille ;-)</strong>
           </div>
-          <div className="mt50">
+          <div className="bank-cards">
             <img src="/assets/design/tarifs/cards.png" alt="" />
           </div>
         </div>

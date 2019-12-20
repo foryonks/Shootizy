@@ -1,11 +1,22 @@
 @import "~styles/functions";
+@import "~styles/mixins";
+@import "~styles/mediaqueries-mixins";
 .Tarifs {
   .header-prices {
     position: relative;
     z-index: 6;
     margin-top: -6%;
   }
+
+  .button-container {
+    margin-top: 50px;
+    text-align: center;
+  }
   .tarif-item {
+    &:before {
+      content: "";
+      display: table;
+    }
     padding: 0;
     padding-bottom: 20px;
     background: #fff;
@@ -18,16 +29,14 @@
     }
 
     .image {
-      padding-bottom: 68.38%;
-      position: relative;
-      min-height: 100%;
-
-      img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        max-width: 100%;
+      background: center center no-repeat;
+      background-size: contain;
+      &:before {
+        padding-bottom: 37.38%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        content: "";
+        display: block;
       }
     }
     .title {
@@ -59,10 +68,15 @@
       margin: 0 40px;
       li {
         &:before {
-          content: url("/assets/design/tarifs/puce.svg");
+          content: "";
+          background: center center url("/assets/design/tarifs/puce.svg") no-repeat;
+          background-size: contain;
           display: inline-block;
-          margin-left: -1.5em;
-          width: 1.5em;
+          $size: 1em;
+          margin-left: -$size;
+          width: $size;
+          height: $size;
+          font-size: 1em;
         }
         padding-left: 1.5em;
         margin: 1.5em 0;
@@ -80,7 +94,13 @@
     }
   }
 
+  .bank-cards {
+    margin-top: 50px;
+  }
+
   .mode-paiement {
+    margin-top: 100px;
+    margin-bottom: 200px;
     display: flex;
     align-items: center;
 
@@ -96,5 +116,62 @@
 
   .text-big {
     font-size: 44px;
+  }
+
+  @include media-phone {
+    @include control-dots(#000, $secondary-color);
+    .control-dots {
+      margin-top: 0;
+      margin-bottom: size-mobile(-20px);
+    }
+    .carousel {
+      margin-top: size-mobile(-200px);
+      .slider-wrapper {
+        padding: size-mobile(20px) 0;
+      }
+      .slide {
+        background: none;
+      }
+      .slider .slide {
+        padding: 0 size-mobile(10px);
+      }
+    }
+
+    .card {
+      height: 100%;
+      text-align: left;
+    }
+
+    .button-container {
+      margin-top: size-mobile(50px);
+    }
+
+    .text-big {
+      margin-top: size-mobile(10px);
+      font-size: size-mobile(30);
+    }
+    .bank-cards {
+      margin-top: size-mobile(30px);
+    }
+
+    .tarif-item .tarif-item--options li:before {
+      width: 0.7em;
+    }
+    .mode-paiement {
+      margin-top: size-mobile(50);
+      margin-bottom: size-mobile(100);
+      flex-direction: column;
+      .col {
+        width: 100% !important;
+
+        & + .col {
+          margin-top: 50px;
+          text-align: center;
+          img {
+            width: 50%;
+          }
+        }
+      }
+    }
   }
 }
