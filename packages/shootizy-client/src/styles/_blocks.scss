@@ -1,4 +1,5 @@
-@import "~styles/variables";
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .block-forms {
   margin-top: 50px;
@@ -31,6 +32,32 @@
     font-size: 24px;
     color: rgba(0, 0, 0, 0.5);
     margin-bottom: 35px;
+  }
+
+  @include media-phone {
+    $size: size-mobile(50);
+    margin-top: $size;
+    margin-bottom: $size !important;
+    padding-top: size-mobile(30);
+    padding-bottom: size-mobile(30);
+
+    .smallTitle {
+      margin-top: size-mobile(0);
+      margin-bottom: size-mobile(30px);
+      font-size: size-mobile(18px);
+    }
+    .block-content {
+      max-width: none;
+
+      .text .big {
+        font-size: size-mobile(30px);
+        margin-bottom: size-mobile(30);
+      }
+    }
+
+    .advertphrase {
+      font-size: size-mobile(24);
+    }
   }
 }
 

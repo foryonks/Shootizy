@@ -6,4 +6,9 @@
   background-position: top center;
 }
 
-/** use common css blocks */
+.NewsletterWrapper {
+  .block-forms {
+    margin-top: 0;
+    margin-bottom: 100px;
+  }
+}

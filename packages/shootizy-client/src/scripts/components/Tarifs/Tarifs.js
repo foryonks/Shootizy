@@ -160,7 +160,7 @@ const Tarifs = props => {
         </Link>
       </div>
 
-      <div className="main container-2 row row-2 mode-paiement ">
+      <div className="main container-2 row row-2 mode-paiement">
         <div className="col">
           <h3 className="title">Mode de paiement</h3>
           <div className="text-big">

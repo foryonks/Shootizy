@@ -20,7 +20,7 @@ const NotreBook = props => (
           "header-padding-page-without-headerimage page-section-grey page-newsletter-background",
       }}
     />
-    <div className="block-forms block block-shadow block-corners block-primary-background container-2 txt-c mb100">
+    <div className="block-forms block block-shadow block-corners block-primary-background container-2 txt-c">
       <div className="block-content">
         <h2 className="smallTitle">Newsletter</h2>
         <div className="text">

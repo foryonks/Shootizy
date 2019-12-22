@@ -10,7 +10,7 @@
   "viewports_disabled": [
     {
       "label": "phone",
-      "width": 320,
+      "width": 640,
       "height": 480
     },
     {

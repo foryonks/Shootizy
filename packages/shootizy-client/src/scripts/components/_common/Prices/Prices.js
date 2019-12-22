@@ -34,9 +34,9 @@ const Prices = ({ className, showBottomTitle, showTitle, showButton, textKey = "
           {itemsCollapse.map(PriceItem)}
         </div>
       </div>
-      {showBottomTitle ? <Title className="mt50" /> : null}
+      {showBottomTitle ? <Title className="pricesBottomTitle" /> : null}
       {showButton && (
-        <p className="button-container-centered ">
+        <p className="button-container-centered">
           <Link to="/tarifs" className="btn-green">
             Consultez nos tarifs
           </Link>

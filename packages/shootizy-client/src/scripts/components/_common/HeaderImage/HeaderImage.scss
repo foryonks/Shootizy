@@ -16,6 +16,10 @@
 .header-padding-page-without-headerimage {
   .header {
     margin-bottom: 100px;
+
+    @include media-phone {
+      margin-bottom: size-mobile(20px);
+    }
   }
 }
 .header-image {

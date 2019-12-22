@@ -23,12 +23,8 @@ const NotreBook = props => (
       useMask={true}
     />
 
-    <div className="page-section pt50 pb100">
-      <div className="container-2   ">
-        <ThemesListWithFilter />
-      </div>
-    </div>
-    <div className="page-section-white pt100 pb100">
+    <ThemesListWithFilter className="page-section section-paddings container-2" />
+    <div className="page-section-white section-paddings">
       <div className="container-2 ">
         <h2 className="title mb50">
           What’s new sur <strong>@Shootizy</strong>

@@ -37,7 +37,7 @@ const NotreBook = props => (
         class: "header-padding-page-without-headerimage page-section-grey page-contact-background",
       }}
     />
-    <div className=" block block-shadow block-corners block-primary-background container-2 txt-c mb100">
+    <div className="block-forms block block-shadow block-corners block-primary-background container-2 txt-c mb100">
       <div className="block-content">
         <h2 className="smallTitle">Contact</h2>
         <div className="text">
@@ -45,9 +45,6 @@ const NotreBook = props => (
             Vous êtes à quelques clics de vivre l'expérience Shootizy, le Shooting au goût de
             revenez-y.
           </div>
-          {/* <div className="advertphrase">
-            Profitez de nos bons plans réguliers, offres spéciales et partenariats avantageux…{" "}
-          </div> */}
         </div>
 
         <Form
