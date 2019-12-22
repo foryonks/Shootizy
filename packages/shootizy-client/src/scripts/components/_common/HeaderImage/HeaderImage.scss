@@ -134,6 +134,12 @@
 }
 
 @include media-phone {
+  .header-image-mobile__small {
+    .header-image {
+      height: size-mobile(200px);
+      min-height: 0;
+    }
+  }
   .header-image {
     height: size-mobile(500);
   }

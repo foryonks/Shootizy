@@ -175,21 +175,21 @@ $header-paddings: 10px;
 
   // Mobile menu writing :
 
-  $hpaddings: 20px;
-  $vpaddings: 15px;
+  $hpaddings: size-mobile(20px);
+  $vpaddings: size-mobile(15px);
   .mobile-menu {
     // remove all styles of themesnavigation
     color: #fff;
     padding-left: $hpaddings;
     padding-right: $hpaddings;
-    font-size: 30px;
+    font-size: size-mobile(30px);
 
     &,
     li a {
       color: #fff;
     }
 
-    $limargintop: 18px;
+    $limargintop: size-mobile(18px);
 
     li {
       margin-top: $limargintop;
@@ -209,7 +209,7 @@ $header-paddings: 10px;
 
     .nav-bar {
       .nav-sub {
-        margin-top: 15px;
+        margin-top: size-mobile(15px);
       }
 
       .navbar-link {
@@ -221,7 +221,7 @@ $header-paddings: 10px;
 
       .subNav-button {
         svg {
-          width: 22px;
+          width: size-mobile(22px);
         }
       }
 
@@ -264,15 +264,15 @@ $header-paddings: 10px;
     }
 
     .mobile-menu {
-      margin-top: 110px;
+      margin-top: size-mobile(110px);
       margin-bottom: auto;
     }
 
     .header-top {
       flex-direction: column;
-      margin: 30px 20px 50px;
+      margin: size-mobile(30px) size-mobile(20px) size-mobile(50px);
       align-items: flex-start;
-      font-size: 20px;
+      font-size: size-mobile(14px);
     }
 
     .site-name {
@@ -283,16 +283,17 @@ $header-paddings: 10px;
     }
 
     .header-links {
-      margin-top: 10px;
-      margin-right: 20px;
+      flex-wrap: wrap;
+
+      margin-top: size-mobile(10px);
+      margin-right: size-mobile(20px);
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       width: 100%;
+      margin: size-mobile(20px) size-mobile(-10px) size-mobile(-10px);
+      margin-right: size-mobile(-10px);
       li {
-        margin-left: auto;
-        &:first-child {
-          margin-left: 0;
-        }
+        margin: 0 size-mobile(10px) size-mobile(10px);
       }
     }
 
