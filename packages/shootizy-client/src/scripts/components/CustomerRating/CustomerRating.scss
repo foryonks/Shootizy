@@ -1,5 +1,7 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
+$column-rating-paddings: 10px;
 .CustomerRatingWrapper {
   .button-container-centered-header {
     transform: translateY(-50%);
@@ -13,18 +15,18 @@
 }
 
 .ratings-list {
-  $paddings: 10px;
-  // margin-left: -$paddings;
-  // margin-right: -$paddings;
+  margin-left: -$column-rating-paddings;
+  margin-right: -$column-rating-paddings;
 
   react-columned-item {
-    padding-left: $paddings;
-    padding-right: $paddings;
+    padding-left: $column-rating-paddings;
+    padding-right: $column-rating-paddings;
   }
+
   .card {
     margin-bottom: 20px;
   }
-  .card .Smiley {
+  .Smiley {
     width: 50px;
   }
 
@@ -35,11 +37,18 @@
     font-weight: bold;
   }
 
+  .score-number {
+    display: flex;
+    flex: row;
+    align-items: center;
+  }
+
   .star-icon {
     display: inline-block;
     background: url(/assets/design/ratings/star.svg) no-repeat center center;
     background-size: contain;
     width: 23px;
+    margin-left: 5px;
 
     &:before {
       content: "";
@@ -77,4 +86,66 @@
 
 .CustomerRatingWrapper .HeaderImage .HeaderImage-content {
   background-color: #000;
+}
+
+.block-forms {
+  margin-top: 50px;
+}
+
+.ratings-container {
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
+
+@include media-phone {
+  $space: $column-rating-paddings * 0.7;
+
+  .ratings-list {
+    margin-left: size-mobile(-$space);
+    margin-right: size-mobile(-$space);
+
+    react-columned-item {
+      padding-left: size-mobile($space);
+      padding-right: size-mobile($space);
+    }
+
+    .Smiley {
+      width: size-mobile(30);
+    }
+
+    .name {
+      margin-top: size-mobile(10);
+    }
+
+    time {
+      font-size: size-mobile(12);
+    }
+
+    .comment {
+      font-size: size-mobile(14);
+    }
+
+    .score-number {
+      font-size: size-mobile(12);
+    }
+    .star-icon {
+      width: size-mobile(14);
+    }
+
+    .card {
+      margin-bottom: size-mobile($space * 2);
+    }
+  }
+
+  .block-forms {
+    margin-top: size-mobile(30);
+  }
+  .ratings-container {
+    margin-top: size-mobile(30);
+    padding-bottom: size-mobile(50);
+  }
+
+  .form-rating .rating-line .rating-score {
+    font-size: size-mobile(25);
+  }
 }

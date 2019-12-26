@@ -32,7 +32,7 @@ const PageCustom = ({ match }) => {
           </li>
         </ul>
 
-        <div className="container-2 pt100 pb100">
+        <div className="container-2 section-paddings">
           <div className="update-date">
             Dernière mise à jour le : {formatDateStd(modifiedDate || new Date())}
           </div>

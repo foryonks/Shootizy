@@ -1,4 +1,5 @@
 @import "./functions";
+@import "./mediaqueries-mixins";
 
 $form-input-font-size: size(20);
 
@@ -147,5 +148,11 @@ form.generic-form {
     opacity: 0;
     cursor: pointer;
     z-index: 1;
+  }
+}
+
+@include media-phone {
+  form.generic-form label {
+    font-size: size-mobile(13);
   }
 }

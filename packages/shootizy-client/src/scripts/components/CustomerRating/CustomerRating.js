@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { AppContext } from "scripts/contexts/App";
 import useRemoteContents from "scripts/hooks/useRemoteContents";
@@ -10,13 +10,22 @@ import "./CustomerRating.scss";
 import HeaderImage from "../_common/HeaderImage";
 import GlobalRating from "./GlobalRating";
 import Smiley from "./Smiley";
+import animateScrollTo from "animated-scroll-to";
 
 const CustomerRating = () => {
   const { contents: ratings /*, load: reloadList */ } = useRemoteContents("/api/ratings", {
     initialState: [],
   });
   const { loadGlobalRating } = useContext(AppContext);
-
+  const formEl = useRef(null);
+  const onAvisClick = e => {
+    const item = formEl.current;
+    if (item) {
+      // remove 100 because sticky header
+      const y = item.getBoundingClientRect().top + window.scrollY - 100;
+      animateScrollTo(y);
+    }
+  };
   return (
     <div className="CustomerRatingWrapper page-container-grey">
       <Helmet bodyAttributes={{ class: "header-padding-page header-reverse" }} />
@@ -32,13 +41,17 @@ const CustomerRating = () => {
       />
       <div className="page-section-grey">
         <div className="button-container-centered-header button-container-centered">
-          <a href="#donnezavis" className="btn-green">
+          <button type="button" className="btn-green" onClick={onAvisClick}>
             Donnez-votre avis
-          </a>
+          </button>
         </div>
-        <div className="container container-2 mt50 pb100">
-          <List ratings={ratings} className="mb100" />
-          <div className="block-forms block block-corners block-shadow block-primary-background mt50">
+
+        {/* content of page  */}
+        <div className="container container-2 ratings-container">
+          <List ratings={ratings} />
+          <div
+            ref={formEl}
+            className="block-forms block block-corners block-shadow block-primary-background">
             <div className="txt-c">
               <Smiley score={5} className="smallSmiley" />{" "}
               <Smiley score={0} className="smallSmiley" />
@@ -53,7 +66,6 @@ const CustomerRating = () => {
               <AddRating
                 onSubmit={() => {
                   loadGlobalRating();
-                  //  reloadList();
                 }}
               />
             </div>

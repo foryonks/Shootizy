@@ -11,7 +11,7 @@ import metro14 from "assets/icons-metro/metro-14.svg";
 import metrom from "assets/icons-metro/metro-m.svg";
 
 const FORM_FIELDS = [
-  { type: "text", name: "name", label: "Nom*", placeholder: "Bom complet", isRequired: true },
+  { type: "text", name: "name", label: "Nom*", placeholder: "Nom complet", isRequired: true },
   {
     type: "email",
     name: "email",

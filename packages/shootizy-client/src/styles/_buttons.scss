@@ -162,5 +162,12 @@
   //  font-size: size-mobile(16);
   .btn-green {
     padding: size-mobile(4) size-mobile(15);
+    font-size: size-mobile(24);
+  }
+
+  .btn-green-small {
+    font-size: size-mobile(18);
+    padding-left: size-mobile(18);
+    padding-right: size-mobile(18);
   }
 }

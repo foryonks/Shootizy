@@ -1,4 +1,5 @@
-@import "~styles/variables";
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .circle-button {
   color: #000;
@@ -94,6 +95,22 @@
       color: black;
       border-radius: 4rem;
       box-shadow: $button-box-shadow;
+    }
+  }
+}
+
+@include media-phone {
+  .list-buttons {
+    margin-left: size-mobile(20);
+    margin-right: size-mobile(20);
+    li {
+      margin-left: 0;
+      margin-right: 0;
+      display: block;
+      margin-top: size-mobile(10px);
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 }

@@ -1,3 +1,6 @@
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 //   > .col {
 //     width: 48%;
 //   }
@@ -26,10 +29,17 @@ $box-shadow: $card-shadow;
   border-radius: 20px;
 }
 
-.card {
-}
-
 // TO-DO
 .card-margin {
   margin-bottom: 20px;
+}
+
+@include media-phone {
+  .card {
+    padding: size-mobile(15) size-mobile(10);
+  }
+
+  .card-margin {
+    margin-bottom: size-mobile(15);
+  }
 }

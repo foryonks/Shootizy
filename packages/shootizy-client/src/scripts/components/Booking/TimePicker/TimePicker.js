@@ -49,15 +49,6 @@ const TimePicker = ({ className, onChange, isOpen }) => {
     onChange(date && { date, startTime, endTime });
   };
 
-  // const handleOnTimeClick = isOpen => {
-  //   if (!isOpen && date) {
-  //     // Reload timetable to assure REAL TIME factor (or in case someone else reserve)
-  //     loadTimeTable();
-  //     // Reset value
-  //     onChange(null);
-  //   }
-  // };
-
   const tileContent = ({ activeStartDate, date, view }) => {
     return view === "month" ? (
       <span className="react-calendar__date-content">

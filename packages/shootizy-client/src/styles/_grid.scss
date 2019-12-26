@@ -220,4 +220,9 @@ $nb-cols-len: length($nb-cols);
   .mt50-mobile {
     margin-top: size-mobile(50) !important;
   }
+
+  .container-2 {
+    margin-left: size-mobile(20);
+    margin-right: size-mobile(20);
+  }
 }
