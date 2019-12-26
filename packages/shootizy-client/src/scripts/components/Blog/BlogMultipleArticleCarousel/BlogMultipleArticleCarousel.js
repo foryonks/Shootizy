@@ -20,7 +20,7 @@ const BlogMultipleArticleCarousel = ({ articles, cols, ...props }) => {
           autoPlay={false}
           {...props}>
           {dataMatrix.map((row, index) => (
-            <div className={`slideRow container-2 cols-${cols}`} key={index}>
+            <div className={`slideRow cols-${cols}`} key={index}>
               {row.map(article =>
                 article ? (
                   <ArticleCard

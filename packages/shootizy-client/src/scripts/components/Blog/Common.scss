@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .blog-cat-datetime {
   font-size: 1.33em;
@@ -45,4 +46,15 @@
 
 .Blog-item-margin {
   margin-bottom: 50px;
+}
+
+@include media-phone {
+  .Blog-Content {
+    flex-direction: column;
+
+    & > content,
+    & > aside {
+      width: auto;
+    }
+  }
 }

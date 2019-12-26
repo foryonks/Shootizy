@@ -1,9 +1,22 @@
-/* your css code */
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .categories-and-search {
   text-align: center;
   .ListCategoriesWrapper,
   .SearchBlogWrapper {
     display: inline-block;
     vertical-align: middle;
+  }
+}
+
+@include media-phone {
+  .categories-and-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .ListCategoriesWrapper {
+      flex-grow: 1;
+    }
   }
 }

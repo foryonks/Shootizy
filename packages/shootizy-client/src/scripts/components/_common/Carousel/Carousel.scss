@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .carousel .control-arrow {
   cursor: pointer !important;
@@ -96,9 +97,12 @@
 .carousel-green-arrows,
 .carousel-default-arrows {
   .carousel.carousel-slider .control-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: $arrow-size;
     height: $arrow-size;
-    line-height: $arrow-size;
+
     border-radius: 100px;
     vertical-align: middle;
     padding: 0;
@@ -214,5 +218,16 @@
 .carousel-simple {
   .carousel .slide {
     background: none;
+  }
+}
+
+@include media-phone {
+  .carousel-green-arrows,
+  .carousel-default-arrows {
+    .carousel.carousel-slider .control-arrow {
+      $size: size-mobile(30);
+      width: $size;
+      height: $size;
+    }
   }
 }

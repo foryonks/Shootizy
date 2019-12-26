@@ -1,4 +1,6 @@
-/* your css code */
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .Article {
   .article-image {
     overflow: hidden;
@@ -47,4 +49,7 @@
       color: #000;
     }
   }
+}
+
+@include media-phone {
 }

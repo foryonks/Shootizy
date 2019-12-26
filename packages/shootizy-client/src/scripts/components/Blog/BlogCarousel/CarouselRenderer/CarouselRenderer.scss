@@ -1,5 +1,6 @@
 /* your css code */
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .BlogCarouselRenderer-contentwrapper {
   position: relative;
@@ -30,5 +31,20 @@
 
   .BlogCarousel-content-title {
     font-size: 2.44em;
+  }
+}
+
+@include media-phone {
+  .BlogCarouselRenderer-contentwrapper {
+    padding-bottom: 70%;
+    .BlogCarousel-content {
+      font-size: size-mobile(14);
+    }
+  }
+
+  .BlogCarouselRenderer-contentwrapper .BlogCarousel-content {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }

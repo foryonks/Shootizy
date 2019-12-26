@@ -2,7 +2,17 @@ import React from "react";
 import { number, array, func, bool } from "prop-types";
 import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 
-const Carousel = ({ selectedItem, children, className, items, render, ...props }) => {
+const Carousel = ({
+  selectedItem,
+  children,
+  className,
+  items,
+  render,
+  showThumbs = false,
+  showIndicators = false,
+  showStatus = false,
+  ...props
+}) => {
   items = items || [];
   return (
     <div className={`Carousel   ${className}`}>
@@ -10,9 +20,7 @@ const Carousel = ({ selectedItem, children, className, items, render, ...props }
         {items && items.length && (
           <CarouselResponsive
             selectedItem={selectedItem}
-            showThumbs={false}
-            showIndicators={false}
-            showStatus={false}
+            {...{ showThumbs, showIndicators, showStatus }}
             {...props}
             interval={4000}>
             {items.map((item, index) => render({ item, index, key: index }))}

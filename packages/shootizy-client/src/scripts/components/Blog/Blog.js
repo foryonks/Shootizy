@@ -15,9 +15,12 @@ import "./Blog.scss";
 import "./Common.scss";
 import CategoryBlock from "./CategoryBlock/CategoryBlock";
 import BlockInstagram from "./BlockInstagram";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const Blog = props => {
   const title = `<strong>Bienvenue</strong>, Sur le Blog de<br> Shootizy !`;
+
+  const isMobile = useMediaQuery(phone);
 
   return (
     <div className="BlogWrapper page-section-grey">
@@ -37,8 +40,12 @@ const Blog = props => {
                 <ListCategoryAndSearch />
                 <main className="Blog-Content">
                   <content>
-                    <CategoryBlock categorySlug="categorie1" cols={2} />
-                    <CategoryBlock categorySlug="categorie2" cols={3} className="mt50" />
+                    <CategoryBlock categorySlug="categorie1" cols={isMobile ? 1 : 2} />
+                    <CategoryBlock
+                      categorySlug="categorie2"
+                      cols={isMobile ? 1 : 3}
+                      className="mt50"
+                    />
                   </content>
                   <aside>
                     <GenericArticleList
