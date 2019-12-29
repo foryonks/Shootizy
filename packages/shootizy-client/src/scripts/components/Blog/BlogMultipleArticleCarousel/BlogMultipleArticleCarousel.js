@@ -5,10 +5,11 @@ import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 
 import { toMatrix } from "scripts/utils/utils";
 import ArticleCard from "../ArticleCard";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const BlogMultipleArticleCarousel = ({ articles, cols, ...props }) => {
   let dataMatrix = toMatrix(articles, cols, { fill: true });
-
+  const isMobile = useMediaQuery(phone);
   return (
     <div className="BlogMultipleArticleCarouselWrapper blog-carousel">
       <div className="carouselWrapper-fixshadow">
@@ -18,9 +19,10 @@ const BlogMultipleArticleCarousel = ({ articles, cols, ...props }) => {
           showStatus={false}
           infiniteLoop={true}
           autoPlay={false}
+          centerMode={isMobile}
           {...props}>
           {dataMatrix.map((row, index) => (
-            <div className={`slideRow cols-${cols}`} key={index}>
+            <div className={`slideRow container-2 cols-${cols}`} key={index}>
               {row.map(article =>
                 article ? (
                   <ArticleCard

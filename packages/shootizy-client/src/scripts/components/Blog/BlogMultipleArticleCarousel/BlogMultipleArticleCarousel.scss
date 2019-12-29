@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 $buttons-right-margin: 0; // 74px;
 $carousel-top-spacing: 55px;
@@ -99,6 +100,12 @@ $carousel-width: $container-2-width;
       .carousel-item {
         width: 49%;
       }
+    }
+  }
+
+  @include media-phone {
+    .slideRow {
+      margin: 0;
     }
   }
 }
