@@ -6,6 +6,9 @@ $carousel-top-spacing: 55px;
 
 $carousel-width: $container-2-width;
 body {
+  .CategoryBlockWrapper {
+    margin-top: 50px;
+  }
   .BlogSmall {
     position: relative;
     background: url("/assets/design/blog/component-bg.svg") left top no-repeat;
@@ -99,16 +102,33 @@ body {
 }
 
 @include media-phone {
+  body .CategoryBlockWrapper {
+    margin-top: size-mobile(60);
+  }
+
   .BlogSmall {
     .carousel .slider-wrapper.axis-horizontal .slider {
       display: flex;
       align-items: stretch;
     }
-    .BlogMultipleArticleCarouselWrapper .carousel.carousel-slider .slide {
-      padding: 0;
-    }
+
     .ArticleCard {
       height: 100%;
     }
+  }
+
+  .BlogMultipleArticleCarouselWrapper .carousel.carousel-slider .slide {
+    padding: 0;
+
+    .slideRow {
+      height: 100%;
+      $size: 10px;
+      padding-left: size-mobile(10px);
+      padding-right: size-mobile(10px);
+    }
+  }
+
+  .CategoryBlockWrapper {
+    margin-bottom: size-mobile(20);
   }
 }

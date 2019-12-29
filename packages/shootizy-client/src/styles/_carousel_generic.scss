@@ -1,3 +1,6 @@
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 body {
   .carousel.carousel-slider {
     overflow: visible;
@@ -28,5 +31,8 @@ body {
         content: "\e901";
       }
     }
+  }
+
+  @include media-phone {
   }
 }

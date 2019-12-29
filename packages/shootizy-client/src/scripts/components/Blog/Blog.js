@@ -35,17 +35,13 @@ const Blog = props => {
             <>
               <HeaderImage preTitle="Blog" title={title} reverseColor={true} useMask={false} />
 
-              <div className="container-2 pb100">
+              <div className="container-2 blog-container section-paddings">
                 <BlogCarousel className="mask-grey" />
                 <ListCategoryAndSearch />
                 <main className="Blog-Content">
                   <content>
                     <CategoryBlock categorySlug="categorie1" cols={isMobile ? 1 : 2} />
-                    <CategoryBlock
-                      categorySlug="categorie2"
-                      cols={isMobile ? 1 : 3}
-                      className="mt50"
-                    />
+                    <CategoryBlock categorySlug="categorie2" cols={isMobile ? 1 : 3} />
                   </content>
                   <aside>
                     <GenericArticleList
@@ -54,7 +50,12 @@ const Blog = props => {
                       limit={3}
                       remoteContentsUrl="/api/blog/articles"
                     />
-                    <ListComments className="mt50" sortBy="date" order="desc" count="3" />
+                    <ListComments
+                      className="listComments-blog"
+                      sortBy="date"
+                      order="desc"
+                      count="3"
+                    />
                     <NewsletterSubscribeSmall />
                   </aside>
                 </main>

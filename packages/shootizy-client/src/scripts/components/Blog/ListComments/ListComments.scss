@@ -1,5 +1,5 @@
-/* your css code */
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .ListCommentsWrapper {
   li {
@@ -20,6 +20,19 @@
     }
     .text {
       overflow: hidden;
+    }
+  }
+
+  @include media-phone {
+    li {
+      margin-bottom: size-mobile(20);
+      font-size: size-mobile(18);
+      .icon {
+        $size: 50px;
+        width: size-mobile($size);
+        height: size-mobile($size);
+        margin-right: size-mobile(20);
+      }
     }
   }
 }

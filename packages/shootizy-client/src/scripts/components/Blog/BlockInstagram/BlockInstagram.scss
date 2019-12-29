@@ -1,3 +1,6 @@
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .BlockInstagram {
   flex-direction: wrap;
   $margin: 1.3%;
@@ -10,6 +13,25 @@
 
     .svg-icon {
       display: none;
+    }
+  }
+
+  @include media-phone {
+    & {
+      margin-right: 0;
+    }
+    &.SocialSquaresWrapper .itemscols-3 .item {
+      width: 49% !important;
+      margin-right: 2%;
+      margin-bottom: 2%;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(9n) {
+        display: none;
+      }
     }
   }
 }

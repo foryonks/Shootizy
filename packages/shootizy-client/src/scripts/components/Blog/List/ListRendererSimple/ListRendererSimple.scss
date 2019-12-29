@@ -1,5 +1,6 @@
-/* your css code */
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .listRendererSimple {
   display: block;
   margin-bottom: 20px;
@@ -32,4 +33,24 @@
   margin-top: size(10);
   font-weight: bold;
   font-size: size(16);
+}
+
+@include media-phone {
+  .listRendererSimple {
+    margin-bottom: size-mobile(20);
+
+    .image {
+      width: size-mobile(100);
+      margin-right: size-mobile(20);
+    }
+
+    .blog-cat-datetime {
+      font-size: size-mobile(16);
+    }
+  }
+
+  .listRendererSimple-title {
+    margin-top: size-mobile(14);
+    font-size: size-mobile(18);
+  }
 }
