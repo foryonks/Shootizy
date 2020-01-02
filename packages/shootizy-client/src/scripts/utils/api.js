@@ -19,13 +19,14 @@ const removeAppToken = () => localStorage.removeItem("shootizyAuthToken");
  * @returns {Promise} Fetch promise.
  */
 const fetchApi = (path, options, redirectLogin401 = true) => {
+  console.log("fetchApi", path, options);
   let fetchOptions = options || {};
   const authToken = getAppToken();
   const headers = new Headers(fetchOptions.headers || {});
   if (authToken) {
     headers.append("authorization", `Bearer ${authToken}`);
   }
-
+  console.log("if fetchOptions.params", fetchOptions.params);
   if (fetchOptions.params) {
     const { params } = fetchOptions;
     const queryString = Object.keys(params)
@@ -34,16 +35,17 @@ const fetchApi = (path, options, redirectLogin401 = true) => {
       .join("&");
     path += (path.indexOf("?") === -1 ? "?" : "&") + queryString;
   }
-
-  if (["POST", "DELETE", "PUSH"].includes(fetchOptions.method) && fetchOptions.body) {
+  console.log('["POST", "DELETE", "PUSH"] in fetchOptions.method', fetchOptions.method);
+  if (["POST", "DELETE", "PUSH"].indexOf(fetchOptions.method) !== -1 && fetchOptions.body) {
     fetchOptions.body =
       typeof fetchOptions.body === "string"
         ? fetchOptions.body
         : JSON.stringify(fetchOptions.body || {});
     headers.append("Accept", "application/json");
   }
+  console.log("fetch before call");
   fetchOptions.headers = headers;
-
+  console.log("call of Fetch");
   return fetch(path, fetchOptions)
     .then(async res => {
       // MDN: fetch not return error on 500 : https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful
@@ -76,6 +78,7 @@ const fetchApi = (path, options, redirectLogin401 = true) => {
  * @returns {Promise} Fetch promise.
  */
 const fetchJson = (path, options, redirectLogin401 = true) => {
+  console.log("fetchjson used (path, options)", path, options);
   if (options && (options.method === "POST" || options.method === "DELETE")) {
     options.headers = {
       ...options.headers,

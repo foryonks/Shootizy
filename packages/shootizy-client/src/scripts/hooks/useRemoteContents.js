@@ -27,12 +27,17 @@ const useRemoteContents = (
   const [contents, setContents] = useState(initialState);
   const load = useCallback(
     async useCache => {
+      //console.log("try useRemoteContent", apiPath, useCache);
       try {
         setLoading(true);
+        // console.log("contentCache", CONTENTS_CACHE[apiPath]);
         let newContents = useCache && apiPath ? CONTENTS_CACHE[apiPath] : null;
+        // console.log("newContents", newContents);
         if (apiPath && !newContents) {
+          // console.log("call FetchJSON", apiPath);
           newContents = await fetchJson(apiPath, { method, body, params });
           // Update cache
+          console.log("useremotecontents fetch called and newContents is", newContents);
           CONTENTS_CACHE[apiPath] = newContents;
         }
         newContents = onLoad(newContents);
