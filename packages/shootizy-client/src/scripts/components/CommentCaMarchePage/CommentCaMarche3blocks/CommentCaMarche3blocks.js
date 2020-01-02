@@ -42,14 +42,16 @@ const CommentCaMarche3blocks = ({ className }) => {
   return (
     <div className={`CommentCaMarche3blocksWrapper ${className || ""}`}>
       {isMobile ? (
-        <Carousel
-          items={data}
-          showIndicators={true}
-          infiniteLoop={true}
-          autoPlay={false}
-          centerMode={true}
-          render={({ item, index }) => <Block {...item} key={item.number} />}
-        />
+        data && data.length ? (
+          <Carousel
+            items={data}
+            showIndicators={true}
+            infiniteLoop={true}
+            autoPlay={false}
+            centerMode={true}
+            render={({ item, index }) => <Block {...item} key={item.number} />}
+          />
+        ) : null
       ) : (
         <div className="row row-3">
           <Blocks data={data} />

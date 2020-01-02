@@ -13,6 +13,7 @@ import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const CarouselHome = ({ history, children, useMask, className }) => {
   const { contents } = useRemoteContents("/api/contents/home-carousel");
+  console.log("useRemoteConetnt in carouselhome");
   const {
     state: { productById = {} },
   } = useContext(AppContext);
@@ -21,56 +22,58 @@ const CarouselHome = ({ history, children, useMask, className }) => {
   return (
     <div className={`CarouselHome ${className}`}>
       <div className="carouselHome-content carousel-default-arrows carousel-position-full-width-header">
-        <CarouselResponsive
-          infiniteLoop
-          autoPlay
-          showThumbs={false}
-          showIndicators={isMobile}
-          showStatus={false}
-          showArrows={!isMobile}
-          interval={600000}>
-          {items.map(
-            ({ title, contentLink, buttonLink, buttonText, text, img, key, themeId }, index) => {
-              const theme = productById[themeId];
-              return (
-                <div
-                  className="carouselHome-item header-image"
-                  key={index}
-                  style={{ backgroundImage: `url('${img}')` }}>
-                  {/* <img src={img} alt="" className="carouselHome-image" /> */}
-                  <div className="carouselHome-item-wrapper">
-                    <div
-                      className={classNamesDedupe("carouselHome-item-content", {
-                        "carouselHome-item-content--link": !!contentLink,
-                      })}
-                      onClick={() => {
-                        contentLink && history.push(contentLink);
-                      }}>
-                      <div className="carouselHome-item-category">
-                        Shooting Studio :{" "}
-                        <a href={`/shooting-studio/${theme.productId}`}>{theme.title}</a>
+        {items && items.length ? (
+          <CarouselResponsive
+            infiniteLoop
+            autoPlay
+            showThumbs={false}
+            showIndicators={isMobile}
+            showStatus={false}
+            showArrows={!isMobile}
+            interval={5000}>
+            {items.map(
+              ({ title, contentLink, buttonLink, buttonText, text, img, key, themeId }, index) => {
+                const theme = productById[themeId];
+                return (
+                  <div
+                    className="carouselHome-item header-image"
+                    key={index}
+                    style={{ backgroundImage: `url('${img}')` }}>
+                    {/* <img src={img} alt="" className="carouselHome-image" /> */}
+                    <div className="carouselHome-item-wrapper">
+                      <div
+                        className={classNamesDedupe("carouselHome-item-content", {
+                          "carouselHome-item-content--link": !!contentLink,
+                        })}
+                        onClick={() => {
+                          contentLink && history.push(contentLink);
+                        }}>
+                        <div className="carouselHome-item-category">
+                          Shooting Studio :{" "}
+                          <a href={`/shooting-studio/${theme.productId}`}>{theme.title}</a>
+                        </div>
+                        <div className="carouselHome-item-title">
+                          <Interweave content={title} />
+                        </div>
+                        <p className="carouselHome-item-button-container">
+                          {buttonLink && (
+                            <Link
+                              to={buttonLink}
+                              className="btn-green btn-big btn-green-hover-invert carouselHome-item-button"
+                              onClick={e => e.stopPropagation()}>
+                              {buttonText}
+                            </Link>
+                          )}
+                        </p>
+                        {/* <p className="carouselHome-item-text">{text}</p> */}
                       </div>
-                      <div className="carouselHome-item-title">
-                        <Interweave content={title} />
-                      </div>
-                      <p className="carouselHome-item-button-container">
-                        {buttonLink && (
-                          <Link
-                            to={buttonLink}
-                            className="btn-green btn-big btn-green-hover-invert carouselHome-item-button"
-                            onClick={e => e.stopPropagation()}>
-                            {buttonText}
-                          </Link>
-                        )}
-                      </p>
-                      {/* <p className="carouselHome-item-text">{text}</p> */}
                     </div>
                   </div>
-                </div>
-              );
-            }
-          )}
-        </CarouselResponsive>
+                );
+              }
+            )}
+          </CarouselResponsive>
+        ) : null}
         {useMask ? <HeaderImageMask /> : null}
       </div>
       {children}

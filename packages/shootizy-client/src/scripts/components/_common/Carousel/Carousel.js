@@ -17,7 +17,7 @@ const Carousel = ({
   return (
     <div className={`Carousel   ${className}`}>
       <div className="carousel-content">
-        {items && items.length && (
+        {items && items.length ? (
           <CarouselResponsive
             selectedItem={selectedItem}
             {...{ showThumbs, showIndicators, showStatus }}
@@ -25,7 +25,7 @@ const Carousel = ({
             interval={4000}>
             {items.map((item, index) => render({ item, index, key: index }))}
           </CarouselResponsive>
-        )}
+        ) : null}
       </div>
       {children}
     </div>

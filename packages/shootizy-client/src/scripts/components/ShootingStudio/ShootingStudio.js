@@ -44,15 +44,17 @@ const Main = () => {
             une expérience <strong>en 3D</strong>
           </h2>
           {isMobile ? (
-            <CarouselResponsive
-              className="carousel-simple carousel-"
-              showThumbs={false}
-              showIndicators={true}
-              autoPlay={true}
-              showStatus={false}
-              showArrows={false}>
-              {espritShootizy.map(item => item)}
-            </CarouselResponsive>
+            espritShootizy && espritShootizy.length ? (
+              <CarouselResponsive
+                className="carousel-simple carousel-"
+                showThumbs={false}
+                showIndicators={true}
+                autoPlay={true}
+                showStatus={false}
+                showArrows={false}>
+                {espritShootizy.map(item => item)}
+              </CarouselResponsive>
+            ) : null
           ) : (
             <div className="row row-3 txt-c">{espritShootizy.map(item => item)}</div>
           )}

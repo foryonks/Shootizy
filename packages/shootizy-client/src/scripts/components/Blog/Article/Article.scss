@@ -49,7 +49,14 @@
       color: #000;
     }
   }
-}
 
-@include media-phone {
+  @include media-phone {
+    .Blog-Content {
+      margin-top: size-mobile(80);
+      > content {
+        width: auto;
+        margin-bottom: size-mobile(50);
+      }
+    }
+  }
 }

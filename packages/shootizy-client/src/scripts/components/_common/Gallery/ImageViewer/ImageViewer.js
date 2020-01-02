@@ -28,13 +28,15 @@ const ImageViewer = ({ images, selected, onClose }) => {
       <button className="close" onClick={close}>
         &times;
       </button>
-      <Carousel
-        className="carousel-green-arrows"
-        selectedItem={selectedItem}
-        items={images}
-        render={ImageRenderer}
-        useKeyboardArrows={true}
-      />
+      {images && images.length ? (
+        <Carousel
+          className="carousel-green-arrows"
+          selectedItem={selectedItem}
+          items={images}
+          render={ImageRenderer}
+          useKeyboardArrows={true}
+        />
+      ) : null}
     </div>
   );
 };
