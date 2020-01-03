@@ -13,7 +13,6 @@ import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const CarouselHome = ({ history, children, useMask, className }) => {
   const { contents } = useRemoteContents("/api/contents/home-carousel");
-  console.log("useRemoteConetnt in carouselhome");
   const {
     state: { productById = {} },
   } = useContext(AppContext);

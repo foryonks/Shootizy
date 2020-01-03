@@ -1,7 +1,7 @@
 import React, { lazy, useEffect } from "react";
 import { Switch, withRouter } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import "whatwg-fetch";
+//import "whatwg-fetch";
 import "polyfill-array-includes";
 import Debug from "./components/Debug";
 import LazyRoute from "./components/LazyRoute";

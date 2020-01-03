@@ -62,7 +62,6 @@ routes.delete(
   "/category",
   loginMiddleware.checkLogin(true),
   asyncRouteWrapper(async (req, res) => {
-    console.log("pouet0");
     const category = req.body;
     const response = await blogService.deleteCategory(category);
     res.json(response);

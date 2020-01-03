@@ -9,7 +9,6 @@ const PagesCustom = props => {
   const onChange = event => {
     setPageSlug(event.currentTarget.value);
   };
-  console.log("pageSlug", pageSlug);
   return (
     <div className="PagesCustomWrapper">
       <h2 className="title">Choisissez une page</h2>
