@@ -78,8 +78,10 @@ const FORM_SUBMIT_BTN = {
   className: "btn-white",
 };
 
-const SurMesure = ({ fullForm, isMobile }) => (
-  <div className="SurMesure block-forms block-shadow block block-corners block-primary-background container-2 txt-c">
+const SurMesure = ({ fullForm, isMobile, className }) => (
+  <div
+    className={`SurMesure block-forms block-shadow block block-corners block-primary-background container-2 txt-c ${className ||
+      ""}`}>
     <div className="block-content">
       <div className="icon-circle">
         <Icon name="cut-peigne" />
