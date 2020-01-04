@@ -108,9 +108,15 @@
       margin-right: 0;
       display: block;
       margin-top: size-mobile(10px);
+
       &:first-child {
         margin-top: 0;
       }
+    }
+
+    a {
+      font-size: size-mobile(16);
+      padding: size-mobile(14) size-mobile(10px);
     }
   }
 }
