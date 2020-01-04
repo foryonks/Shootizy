@@ -160,14 +160,21 @@
 
 @include media-phone {
   //  font-size: size-mobile(16);
-  .btn-green {
+  .btn-green,
+  .btn-white {
     padding: size-mobile(4) size-mobile(15);
-    font-size: size-mobile(24);
+    font-size: size-mobile(16);
+    line-height: 2.3;
+  }
+
+  .btn-big {
+    line-height: 2.3;
   }
 
   .btn-green-small {
-    font-size: size-mobile(18);
-    padding-left: size-mobile(18);
-    padding-right: size-mobile(18);
+    $size: 16;
+    font-size: size-mobile(16);
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }

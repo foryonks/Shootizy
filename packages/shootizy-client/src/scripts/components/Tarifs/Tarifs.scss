@@ -119,14 +119,53 @@
   }
 
   @include media-phone {
-    @include control-dots(#000, $secondary-color);
+    .HeaderImage .carousel-slider {
+      padding-top: size-mobile(40);
+    }
+
     .control-dots {
-      margin-top: 0;
-      margin-bottom: size-mobile(-20px);
+      bottom: auto;
+      top: size-mobile(-40);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 size-mobile(10);
+
       .dot {
-        box-shadow: none;
+        color: #000;
+        background: #fff;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        border-radius: size-mobile(30);
+        padding: size-mobile(5) size-mobile(10);
+        box-shadow: $button-box-shadow;
+        outline: none;
+        font-size: size-mobile(16);
+        opacity: 1;
+        white-space: pre;
+        font-weight: bold;
+
+        &.selected {
+          background: #000;
+          color: #fff;
+        }
+        &:nth-child(1)::before {
+          content: "Photo à \A l'unité";
+        }
+
+        &:nth-child(2)::before {
+          content: "Le Pack \A 150";
+        }
+        &:nth-child(3)::before {
+          content: "Sur \A mesure";
+        }
       }
     }
+
     .carousel {
       margin-top: size-mobile(-200px);
       .slider-wrapper {
