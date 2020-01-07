@@ -54,4 +54,9 @@ $checkmarkCheckedSize: 16px;
 }
 
 @include media-phone {
+  .checkbox__checkmark {
+    flex-shrink: 0;
+    height: size-mobile(30);
+    width: size-mobile(30);
+  }
 }

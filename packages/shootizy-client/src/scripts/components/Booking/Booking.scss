@@ -85,6 +85,11 @@
 @include media-phone {
   .booking-page-section {
     padding-bottom: size-mobile(50);
+
+    > .container-2 {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   .booking__step-button--active {
@@ -205,6 +210,11 @@
     }
   }
 
+  .slide {
+    padding-left: size-mobile(20);
+    padding-right: size-mobile(20);
+  }
+
   .booking-form {
     $paddings: size-mobile(0);
     .form-fieldset.booking-message-fieldset {
@@ -219,6 +229,10 @@
     .form-fieldset {
       padding-left: $paddings;
       padding-right: $paddings;
+    }
+
+    .booking-checkboxes-fieldset .form-line label {
+      font-size: size-mobile(18);
     }
   }
 }
