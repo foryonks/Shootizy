@@ -73,8 +73,8 @@ const Article = ({ match }) => {
               </aside>
             </main>
           </div>
-          <div className="page-section page-section-white">
-            <ArticleComments articleId={article.articleId} />
+          <div className="page-section page-section-white section-paddings">
+            <ArticleComments articleId={article.articleId} className="container-2" />
           </div>
         </div>
       )}

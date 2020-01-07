@@ -104,6 +104,7 @@ $carousel-width: $container-2-width;
   }
 
   @include media-phone {
+    margin-bottom: size-mobile(50);
     .slideRow {
       margin: 0;
     }

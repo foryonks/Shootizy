@@ -21,6 +21,10 @@ $form-input-font-size: size(20);
 .react-select__input,
 .react-select__single-value {
   @include input-style();
+
+  @include media-phone {
+    font-size: size-mobile(14);
+  }
 }
 .react-select__value-container {
   @include input-baseProps();
@@ -126,7 +130,6 @@ form.generic-form {
   border: 1px solid $color-grey;
   position: relative;
   text-align: left;
-
   @include input-style();
 
   .icon-select {
@@ -154,5 +157,9 @@ form.generic-form {
 @include media-phone {
   form.generic-form label {
     font-size: size-mobile(13);
+  }
+
+  .mobile-select {
+    font-size: size-mobile(16);
   }
 }

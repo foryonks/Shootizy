@@ -25,7 +25,7 @@
       "label": "Header",
       "comment": "Header and Cookies to show",
       "url": "http://localhost:3000",
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "viewports": [
         {
           "label": "large_high",
@@ -40,7 +40,7 @@
       "comment": "Header and subnav",
       "url": "http://localhost:3000",
       "hoverSelectors": [".nav-bar .menu li:nth-child(2)"],
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "viewports": [
         {
           "label": "large_high",
@@ -53,92 +53,92 @@
     {
       "label": "Homepage",
       "url": "http://localhost:3000",
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "delay": 2000
     },
     {
       "label": "Comment-ca-marche",
       "url": "http://localhost:3000/comment-ca-marche",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 200
     },
     {
       "label": "Shooting-Studio",
       "url": "http://localhost:3000/shooting-studio",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "removeSelectors": [".studio-photo-content"],
       "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-bookmodel",
       "url": "http://localhost:3000/shooting-studio/produit-theme-bookmodel",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-social",
       "url": "http://localhost:3000/shooting-studio/produit-theme-social",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-couple",
       "url": "http://localhost:3000/shooting-studio/produit-theme-couple",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-famille",
       "url": "http://localhost:3000/shooting-studio/produit-theme-famille",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-carriere",
       "url": "http://localhost:3000/shooting-studio/produit-theme-carriere",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-groupe",
       "url": "http://localhost:3000/shooting-studio/produit-theme-groupe",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-fete",
       "url": "http://localhost:3000/shooting-studio/produit-theme-fete",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-evjf",
       "url": "http://localhost:3000/shooting-studio/produit-theme-evjf",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-studio/produit-theme-naissance",
       "url": "http://localhost:3000/shooting-studio/produit-theme-naissance",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 1000
     },
     {
       "label": "shooting-sur-mesure",
       "url": "http://localhost:3000/shooting-sur-mesure",
-      "hideSelectors": [".googlemaps-content", ".FloatingBodyWrapper"],
+      "hideSelectors": [".googlemaps", ".FloatingBodyWrapper"],
       "delay": 2000
     },
     {
       "label": "tarifs",
       "url": "http://localhost:3000/tarifs",
-      "hideSelectors": [".googlemaps-content"],
+      "hideSelectors": [".googlemaps"],
       "delay": 2000
     },
     {
       "label": "notre-book",
       "url": "http://localhost:3000/notre-book",
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "delay": 2000
     },
     {
@@ -167,14 +167,14 @@
     {
       "label": "newsletter",
       "url": "http://localhost:3000/newsletter",
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "delay": 1000
     },
     {
       "label": "blog home",
       "url": "http://localhost:3000/blog",
       "delay": 2000,
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"]
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"]
     },
     {
       "label": "blog categorie",
@@ -189,13 +189,13 @@
     {
       "label": "avis clients",
       "url": "http://localhost:3000/avis-clients",
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "delay": 2000
     },
     {
       "label": "contact",
       "url": "http://localhost:3000/contact",
-      "hideSelectors": [".googlemaps-content", ".SocialSquaresWrapper"],
+      "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "delay": 2000
     }
   ],

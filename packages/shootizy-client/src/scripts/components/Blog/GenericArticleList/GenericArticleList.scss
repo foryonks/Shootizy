@@ -1,4 +1,6 @@
-/* your css code */
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
+
 .generic-article-list-big {
   .image {
     width: 100%;
@@ -9,5 +11,16 @@
   .listRendererSimple-title {
     font-weight: normal;
     font-size: 24px;
+  }
+
+  @include media-phone {
+    .image {
+      max-width: size-mobile(120px);
+      border-radius: size-mobile(10);
+    }
+
+    .listRendererSimple-title {
+      font-size: size-mobile(18);
+    }
   }
 }

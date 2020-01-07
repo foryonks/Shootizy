@@ -1,4 +1,5 @@
 @import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .SocialSquaresWrapper {
   .item {
@@ -85,5 +86,35 @@
     color: #fff;
     bottom: size(25px);
     right: size(25px);
+  }
+
+  @include media-phone {
+    .itemscols-3 .item {
+      width: 100% !important;
+      margin-right: 0;
+      margin-bottom: 0;
+
+      .svg-icon {
+        $size: 40;
+        width: size-mobile($size);
+        height: size-mobile($size);
+      }
+
+      time {
+        font-size: size-mobile(18);
+      }
+
+      .text {
+        font-size: size-mobile(24);
+      }
+      // &:nth-child(9) {
+      //   display: none;
+      // }
+
+      // &:nth-child(9n) {
+      //   margin-left: auto;
+      //   margin-right: auto;
+      // }
+    }
   }
 }

@@ -138,6 +138,10 @@
 }
 
 @include media-phone {
+  .HeaderImage .text {
+    padding: 0 size-mobile(20);
+  }
+
   .header-image-mobile__small {
     .header-image {
       height: size-mobile(200px);

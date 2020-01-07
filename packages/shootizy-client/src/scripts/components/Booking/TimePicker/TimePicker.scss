@@ -110,10 +110,11 @@ $color-hover: #dfdfdf;
 
       .react-calendar__date-content__number {
         position: absolute;
-        left: 50%;
+        left: 0%;
         top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        width: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        text-align: center;
       }
     }
 
@@ -187,6 +188,9 @@ $color-hover: #dfdfdf;
       opacity: 0.4;
       vertical-align: middle;
       margin-right: 0.5em;
+      height: 1em;
+      width: 1em;
+      font-size: 30px;
     }
     path {
       color: currentColor;

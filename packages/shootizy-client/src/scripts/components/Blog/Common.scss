@@ -10,6 +10,9 @@
   .content-date {
     opacity: 0.5;
   }
+  @include media-phone {
+    font-size: size-mobile(16);
+  }
 }
 
 .Blog-block-title {

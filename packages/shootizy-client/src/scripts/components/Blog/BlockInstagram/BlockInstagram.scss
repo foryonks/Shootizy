@@ -17,21 +17,5 @@
   }
 
   @include media-phone {
-    & {
-      margin-right: 0;
-    }
-    &.SocialSquaresWrapper .itemscols-3 .item {
-      width: 49% !important;
-      margin-right: 2%;
-      margin-bottom: 2%;
-
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-
-      &:nth-child(9n) {
-        display: none;
-      }
-    }
   }
 }

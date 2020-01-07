@@ -1,4 +1,5 @@
-@import "~styles/variables";
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 
 .booking-page {
 }
@@ -77,6 +78,147 @@
     }
     .slide {
       background-color: transparent;
+    }
+  }
+}
+
+@include media-phone {
+  .booking-page-section {
+    padding-bottom: size-mobile(50);
+  }
+
+  .booking__step-button--active {
+    color: #fff;
+  }
+
+  .booking__step-button {
+    white-space: nowrap;
+    padding: size-mobile(18) size-mobile(20);
+    font-size: size-mobile(16);
+  }
+
+  .booking__step-button__index {
+    background: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    line-height: 1;
+    color: inherit;
+    border: none;
+    font-weight: bold;
+
+    &:after {
+      content: ".";
+    }
+  }
+
+  .booking__step-button--done .booking__step-button__index {
+    background: none;
+    color: $secondary-color;
+  }
+
+  .booking__step {
+    margin-top: size-mobile(50);
+  }
+  .booking__step__contents {
+    padding: 0;
+  }
+
+  // STEP 1
+  .booking__product-select {
+    .ThemeCard {
+      width: 100% !important;
+      margin-bottom: size-mobile(10);
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      .ThemeCard-image .img:before {
+        padding-bottom: 35.82%;
+      }
+
+      .ThemeCard-content {
+        position: absolute;
+        bottom: size-mobile(20);
+        padding-bottom: 0;
+
+        .ThemeCard-title {
+          padding: 0;
+          margin: 0;
+          width: auto;
+          position: static;
+        }
+      }
+    }
+
+    .ThemeCard-select-option {
+      $size: size-mobile(20);
+      right: size-mobile(10);
+      bottom: size-mobile(10);
+      width: $size;
+      height: $size;
+    }
+  }
+
+  //STEP 2
+  .booking-time-picker {
+    .dropdown-popover__list__item {
+      padding: size-mobile(10) size-mobile(10);
+    }
+    .react-calendar__month-view__days__day .react-calendar__date-content {
+      width: 70%;
+    }
+
+    .booking-time-picker__item-time {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      svg {
+        font-size: size-mobile(24);
+        margin-right: 0;
+      }
+
+      .separator {
+        display: none;
+      }
+    }
+
+    .booking-time-picker__item-button {
+      white-space: normal;
+      line-height: 1.2;
+    }
+  }
+
+  //STEP 3
+
+  .booking-summary {
+    flex-direction: column;
+
+    .booking-summary__item {
+      width: 100% !important;
+      padding: size-mobile(20);
+      margin: size-mobile(10) 0;
+      .booking-summary__item-title {
+        font-size: size-mobile(24);
+      }
+    }
+  }
+
+  .booking-form {
+    $paddings: size-mobile(0);
+    .form-fieldset.booking-message-fieldset {
+      padding-left: $paddings;
+      padding-right: $paddings;
+      .label-top > label {
+        font-size: size-mobile(14);
+      }
+    }
+
+    .form-fieldset.booking-separator-fieldset,
+    .form-fieldset {
+      padding-left: $paddings;
+      padding-right: $paddings;
     }
   }
 }

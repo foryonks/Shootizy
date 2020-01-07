@@ -8,6 +8,10 @@ $carousel-width: $container-2-width;
 body {
   .CategoryBlockWrapper {
     margin-top: 50px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
   .BlogSmall {
     position: relative;

@@ -120,7 +120,7 @@ const TimePicker = ({ className, onChange, isOpen }) => {
                   />
                 </svg>
                 <span>
-                  {startTime} - {endTime}{" "}
+                  {startTime} <span className="separator">-</span> {endTime}
                 </span>
               </span>
               <button className="booking-time-picker__item-button btn-green">

@@ -7,14 +7,14 @@ import { formatDate } from "scripts/utils/DateUtils";
 import usePagination from "scripts/hooks/usePagination";
 const ITEMS_PER_PAGE = 10;
 
-const ArticleComments = ({ articleId }) => {
+const ArticleComments = ({ articleId, className }) => {
   const { contents: comments, load: reloadList } = useRemoteContents(
     `/api/blog/comments/article/${articleId}`,
     { initialState: [] }
   );
   const { getCurrentPage, PaginationComponent } = usePagination(comments || [], ITEMS_PER_PAGE);
   return (
-    <div className="ArticleCommentsWrapper">
+    <div className={`ArticleCommentsWrapper ${className || ""}`}>
       <h3 className="Blog-block-title txt-c">
         {comments.length} Commentaire{comments.length === 1 ? "" : "s"}
       </h3>

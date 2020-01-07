@@ -4,10 +4,13 @@
 
 .ThemesListerWrapper {
   .mobile-select {
-    margin-bottom: size-mobile(30);
+    margin-bottom: size(30);
   }
 
   @include media-phone {
     text-align: left;
+    .mobile-select {
+      margin-bottom: size-mobile(30);
+    }
   }
 }

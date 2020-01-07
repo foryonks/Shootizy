@@ -1,4 +1,5 @@
 @import "./functions";
+@import "./mediaqueries-mixins";
 
 .rte-content {
   font-size: 16px;
@@ -37,5 +38,25 @@
   .fullsize {
     width: 100% !important;
     height: auto !important;
+  }
+
+  @include media-phone {
+    font-size: size-mobile(16);
+
+    h1 {
+      font-size: size-mobile(34px);
+    }
+
+    h2 {
+      font-size: size-mobile(28px);
+    }
+
+    h3 {
+      font-size: size-mobile(20px);
+    }
+
+    h4 {
+      font-size: size-mobile(16px);
+    }
   }
 }
