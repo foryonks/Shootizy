@@ -3,7 +3,7 @@ import { bool } from "prop-types";
 
 import Form from "scripts/components/Form";
 import Icon from "scripts/components/Icon";
-import ReCAPTCHA from "react-google-recaptcha";
+//import ReCAPTCHA from "react-google-recaptcha";
 
 import "./SurMesure.scss";
 import { Link } from "react-router-dom";
