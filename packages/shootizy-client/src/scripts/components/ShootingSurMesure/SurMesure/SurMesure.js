@@ -51,25 +51,25 @@ const FULL_FORM = [
     placeholder: "Rédigez ici...",
     props: { rows: "4" },
   },
-  {
-    type: "custom",
-    label: "",
-    name: "captcha",
-    isRequired: true,
-    fullWidth: true,
-    props: { rows: "3" },
-    render: (value, isError, onChange, onValidate) => {
-      return (
-        <ReCAPTCHA
-          className="recaptcha"
-          sitekey="d6LfcoL0UAAAAAELdlqyhJzCGm-xzGuLADmRmHnVH"
-          onChange={value => {
-            onChange("captcha", value);
-          }}
-        />
-      );
-    },
-  },
+  // {
+  //   type: "custom",
+  //   label: "",
+  //   name: "captcha",
+  //   isRequired: true,
+  //   fullWidth: true,
+  //   props: { rows: "3" },
+  //   render: (value, isError, onChange, onValidate) => {
+  //     return (
+  //       <ReCAPTCHA
+  //         className="recaptcha"
+  //         sitekey="d6LfcoL0UAAAAAELdlqyhJzCGm-xzGuLADmRmHnVH"
+  //         onChange={value => {
+  //           onChange("captcha", value);
+  //         }}
+  //       />
+  //     );
+  //   },
+  // },
 ];
 
 const FORM_SUBMIT_BTN = {

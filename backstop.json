@@ -5,14 +5,14 @@
       "label": "large_high",
       "width": 1920,
       "height": 10000
+    },
+    {
+      "label": "phone",
+      "width": 400,
+      "height": 9000
     }
   ],
   "viewports_disabled": [
-    {
-      "label": "phone",
-      "width": 640,
-      "height": 480
-    },
     {
       "label": "tablet",
       "height": 768
@@ -73,55 +73,55 @@
       "label": "shooting-studio/produit-theme-bookmodel",
       "url": "http://localhost:3000/shooting-studio/produit-theme-bookmodel",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-social",
       "url": "http://localhost:3000/shooting-studio/produit-theme-social",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-couple",
       "url": "http://localhost:3000/shooting-studio/produit-theme-couple",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-famille",
       "url": "http://localhost:3000/shooting-studio/produit-theme-famille",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-carriere",
       "url": "http://localhost:3000/shooting-studio/produit-theme-carriere",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-groupe",
       "url": "http://localhost:3000/shooting-studio/produit-theme-groupe",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-fete",
       "url": "http://localhost:3000/shooting-studio/produit-theme-fete",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-evjf",
       "url": "http://localhost:3000/shooting-studio/produit-theme-evjf",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-studio/produit-theme-naissance",
       "url": "http://localhost:3000/shooting-studio/produit-theme-naissance",
       "hideSelectors": [".googlemaps"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "shooting-sur-mesure",
@@ -212,7 +212,7 @@
     "waitTimeout": 120000,
     "chromeFlags": ["--headless", "--force-device-scale-factor=1", "--log-level=4"]
   },
-  "asyncCaptureLimit": 3,
+  "asyncCaptureLimit": 2,
   "asyncCompareLimit": 5,
   "debug": false,
   "debugWindow": false
