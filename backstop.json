@@ -26,13 +26,6 @@
       "comment": "Header and Cookies to show",
       "url": "http://localhost:3000",
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
-      "viewports": [
-        {
-          "label": "large_high",
-          "width": 1920,
-          "height": 1200
-        }
-      ],
       "delay": 1000
     },
     {
@@ -41,13 +34,6 @@
       "url": "http://localhost:3000",
       "hoverSelectors": [".nav-bar .menu li:nth-child(2)"],
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
-      "viewports": [
-        {
-          "label": "large_high",
-          "width": 1920,
-          "height": 1200
-        }
-      ],
       "delay": 1000
     },
     {
@@ -149,14 +135,12 @@
     {
       "label": "booking/etape 2",
       "url": "http://localhost:3000/booking",
-      "engine": "puppeteer",
       "clickSelectors": [".ThemeCard"],
       "delay": 1000
     },
     {
       "label": "booking/etape 3",
       "url": "http://localhost:3000/booking",
-      "engine": "puppeteer",
       "clickSelectors": [
         ".ThemeCard",
         ".react-calendar__month-view__days__day:not(:disabled)",
@@ -212,7 +196,7 @@
     "waitTimeout": 120000,
     "chromeFlags": ["--headless", "--force-device-scale-factor=1", "--log-level=4"]
   },
-  "asyncCaptureLimit": 2,
+  "asyncCaptureLimit": 1,
   "asyncCompareLimit": 5,
   "debug": false,
   "debugWindow": false

@@ -102,19 +102,19 @@ const Main = () => {
 };
 
 const espritShootizy = [
-  <div className="col">
+  <div className="col" key="item1">
     <h2 className="title">
       <strong>Démocratiser</strong>
     </h2>
     <p>le shooting photo professionnel grâce à des prix optimisés, sans frais cachés.</p>
   </div>,
-  <div className="col">
+  <div className="col" key="item2">
     <h2 className="title">
       <strong>Décrisper</strong>
     </h2>
     <p>cette expérience parfois intimidante, par la simplicité, le fun et la bienveillance.</p>
   </div>,
-  <div className="col">
+  <div className="col" key="item3">
     <h2 className="title">
       <strong>Démultiplier !</strong>
     </h2>
