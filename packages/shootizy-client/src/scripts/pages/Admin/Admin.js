@@ -6,8 +6,8 @@ import { CredentialsContext } from "scripts/contexts/Credentials";
 import LazyRoute from "scripts/components/LazyRoute";
 import AdminLogin from "scripts/components/Admin/Login";
 
-//const AdminHome = lazy(() => import("scripts/components/Admin"));
-import AdminHome from "scripts/components/Admin";
+const AdminHome = lazy(() => import("scripts/components/Admin"));
+
 const Admin = () => {
   const { state: credentials } = useContext(CredentialsContext);
 

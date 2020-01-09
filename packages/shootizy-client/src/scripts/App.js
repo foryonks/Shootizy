@@ -8,10 +8,8 @@ import LazyRoute from "./components/LazyRoute";
 
 const DEFAULT_TITLE = "Shootizy";
 
-// const PublicPage = lazy(() => import("scripts/pages/Public"));
-// const AdminPage = lazy(() => import("scripts/pages/Admin"));
-import PublicPage from "scripts/pages/Public";
-import AdminPage from "scripts/pages/Admin";
+const PublicPage = lazy(() => import("scripts/pages/Public"));
+const AdminPage = lazy(() => import("scripts/pages/Admin"));
 
 const App = () => {
   useEffect(() => {
