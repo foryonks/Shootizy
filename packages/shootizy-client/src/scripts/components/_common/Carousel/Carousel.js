@@ -21,8 +21,8 @@ const Carousel = ({
           <CarouselResponsive
             selectedItem={selectedItem}
             {...{ showThumbs, showIndicators, showStatus }}
-            {...props}
-            interval={4000}>
+            interval={4000}
+            {...props}>
             {items.map((item, index) => render({ item, index, key: index }))}
           </CarouselResponsive>
         ) : null}

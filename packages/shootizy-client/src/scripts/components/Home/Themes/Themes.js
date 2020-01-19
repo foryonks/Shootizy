@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 import { AppContext } from "scripts/contexts/App";
 import ThemeCard from "../ThemeCard";
@@ -7,7 +8,7 @@ import "./Themes.scss";
 
 const Themes = ({ className, title }) => {
   const { state: appState } = useContext(AppContext);
-
+  const isMobile = useMediaQuery(phone);
   const list = appState.themes || [];
 
   return (
@@ -17,7 +18,8 @@ const Themes = ({ className, title }) => {
           title
         ) : (
           <>
-            Choisissez <strong>le thème</strong> de votre shooting,
+            Choisissez <strong>le thème</strong>
+            {isMobile ? <br /> : null}de votre shooting,
             <br />
             <strong>selon votre besoin ou votre envie</strong>.
           </>

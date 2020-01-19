@@ -48,7 +48,9 @@ const CommentCaMarche3blocks = ({ className }) => {
             showIndicators={true}
             infiniteLoop={true}
             autoPlay={false}
-            centerMode={true}
+            centerMode
+            emulateTouch
+            stopOnHover={false}
             render={({ item, index }) => <Block {...item} key={item.number} />}
           />
         ) : null

@@ -1,4 +1,5 @@
-@import "~styles/variables";
+@import "~styles/functions";
+@import "~styles/mediaqueries-mixins";
 .CommentCaMarche {
   text-align: center;
   background: $secondary-color;
@@ -22,5 +23,13 @@
 
   .button {
     margin-top: 50px;
+  }
+
+  @include media-phone {
+    .container-2 > .title {
+      strong {
+        display: block;
+      }
+    }
   }
 }

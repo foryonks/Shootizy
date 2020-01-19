@@ -20,6 +20,17 @@
     width: 31.8%;
     @media (max-width: 900px) {
       width: 49% !important;
+
+      .ThemeCard-image:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.3;
+        background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      }
     }
 
     @include media-phone {

@@ -90,6 +90,11 @@
       padding: 0;
       margin: 0;
     }
+
+    .slide {
+      padding-left: size-mobile(20);
+      padding-right: size-mobile(20);
+    }
   }
 
   .booking__step-button--active {
@@ -208,11 +213,6 @@
         font-size: size-mobile(24);
       }
     }
-  }
-
-  .slide {
-    padding-left: size-mobile(20);
-    padding-right: size-mobile(20);
   }
 
   .booking-form {
