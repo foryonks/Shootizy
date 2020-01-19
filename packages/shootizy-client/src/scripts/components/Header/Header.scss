@@ -323,6 +323,15 @@ $header-paddings: 10px;
 }
 
 @include media-phone {
+  .header__breadcrumbs {
+    margin-top: size-mobile(15);
+    font-size: size-mobile(14);
+  }
+
+  .breadcrumbs__crumb {
+    font-size: 1em;
+  }
+
   .header-blocs {
     margin-top: -50%;
   }
