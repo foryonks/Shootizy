@@ -29,7 +29,7 @@ const CarouselHome = ({ history, children, useMask, className }) => {
             showIndicators={isMobile}
             showStatus={false}
             showArrows={!isMobile}
-            interval={5000}>
+            interval={500000}>
             {items.map(
               ({ title, contentLink, buttonLink, buttonText, text, img, key, themeId }, index) => {
                 const theme = productById[themeId];
@@ -38,7 +38,6 @@ const CarouselHome = ({ history, children, useMask, className }) => {
                     className="carouselHome-item header-image"
                     key={index}
                     style={{ backgroundImage: `url('${img}')` }}>
-                    {/* <img src={img} alt="" className="carouselHome-image" /> */}
                     <div className="carouselHome-item-wrapper">
                       <div
                         className={classNamesDedupe("carouselHome-item-content", {

@@ -97,7 +97,7 @@ const TARIFS_ITEMS = [
 
 const tarifsItems = () =>
   TARIFS_ITEMS.map(({ title, subText, price, image, options, buttonLink }) => (
-    <div className="card card-shadow card-simple tarif-item">
+    <div className="card card-shadow card-simple tarif-item" key={title}>
       <div className="tarif-item--top">
         <div className="image" style={{ backgroundImage: `url(${image})` }} />
         <h2 className="title">{title}</h2>
@@ -111,7 +111,9 @@ const tarifsItems = () =>
       <div className="tarif-item--options">
         <ul>
           {options.map(({ value, className }) => (
-            <li className={className}>{value}</li>
+            <li className={className} key={value}>
+              {value}
+            </li>
           ))}
         </ul>
         {buttonLink && (
