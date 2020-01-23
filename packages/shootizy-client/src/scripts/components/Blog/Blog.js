@@ -18,9 +18,11 @@ import BlockInstagram from "./BlockInstagram";
 import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 const Blog = props => {
-  const title = `<strong>Bienvenue</strong>, Sur le Blog de<br> Shootizy !`;
-
   const isMobile = useMediaQuery(phone);
+
+  const title = isMobile
+    ? `<strong>Bienvenue</strong>,Sur le<br> Blog de Shootizy !`
+    : `<strong>Bienvenue</strong>, Sur le Blog de<br> Shootizy !`;
 
   return (
     <div className="BlogWrapper page-section-grey">

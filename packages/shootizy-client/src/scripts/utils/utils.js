@@ -50,3 +50,10 @@ export const sliceAndRemoveHTML = (str, length) => {
         .replace(/[.,]$/, "") + "..."
     : text;
 };
+
+// export const arrayFill = (array, num) => {
+//   if(array.length < num) {
+
+//   }
+//   return array;
+// }

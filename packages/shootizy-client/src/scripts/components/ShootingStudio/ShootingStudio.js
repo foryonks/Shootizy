@@ -11,11 +11,11 @@ import SurMesure from "scripts/components/ShootingSurMesure/SurMesure";
 import CommentCaMarche from "scripts/components/Home/CommentCaMarche";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
 import "./ShootingStudio.scss";
-import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
-import { Carousel as CarouselResponsive } from "react-responsive-carousel";
+//import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
+//import { Carousel as CarouselResponsive } from "react-responsive-carousel";
 
 const Main = () => {
-  const isMobile = useMediaQuery(phone);
+  //const isMobile = useMediaQuery(phone);
 
   return (
     <>
@@ -41,9 +41,10 @@ const Main = () => {
         <div className="container-2">
           <h2 className="title title-section">
             <strong>L’Esprit Shootizy,</strong> <br />
-            une expérience <strong>en 3D</strong>
+            une expérience <strong>en 3Dé...</strong>
           </h2>
-          {isMobile ? (
+          <div className="row row-3 txt-c">{espritShootizy.map(item => item)}</div>
+          {/* {isMobile ? (
             espritShootizy && espritShootizy.length ? (
               <CarouselResponsive
                 className="carousel-simple carousel-"
@@ -57,7 +58,7 @@ const Main = () => {
             ) : null
           ) : (
             <div className="row row-3 txt-c">{espritShootizy.map(item => item)}</div>
-          )}
+          )} */}
         </div>
       </div>
       <div className="page-section-white section-paddings">

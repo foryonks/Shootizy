@@ -101,6 +101,10 @@
     color: #fff;
   }
 
+  .booking__step-button-wrapper {
+    margin-top: size-mobile(-28px);
+  }
+
   .booking__step-button {
     white-space: nowrap;
     padding: size-mobile(18) size-mobile(20);

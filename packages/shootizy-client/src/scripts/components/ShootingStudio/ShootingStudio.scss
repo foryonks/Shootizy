@@ -91,18 +91,27 @@
 
     .esprit-shootizy {
       @include control-dots-white-black();
-
-      .slide {
-        $pads: 50px;
-        padding-left: size-mobile($pads);
-        padding-right: size-mobile($pads);
-      }
-      .carousel .control-dots {
-        margin-bottom: size-mobile(-10);
+      .row.row-3 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
       .col {
+        margin-bottom: size-mobile(20);
         width: auto !important;
       }
+
+      // .slide {
+      //   $pads: 50px;
+      //   padding-left: size-mobile($pads);
+      //   padding-right: size-mobile($pads);
+      // }
+      // .carousel .control-dots {
+      //   margin-bottom: size-mobile(-10);
+      // }
+      // .col {
+      //   width: auto !important;
+      // }
     }
 
     .studio-taille-humaine {

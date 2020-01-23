@@ -15,6 +15,12 @@
   }
 
   @include media-phone {
+    .header-image {
+      height: auto;
+      min-height: size-mobile(300);
+      max-height: none;
+    }
+
     .Blog-Content {
       > content .row-2 {
         flex-direction: column;
