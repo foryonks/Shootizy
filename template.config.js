@@ -12,10 +12,11 @@ module.exports = {
       .replace(/__templateNameToParamCase__/gm, changeCase.paramCase(templateName));
   },
   replaceFileNameFn: (fileName, templateName, utils) => {
-    const { path } = utils;
+    const { path, changeCase } = utils;
     // @see https://nodejs.org/api/path.html#path_path_parse_path
     const { base } = path.parse(fileName);
 
-    return base.replace(/__templateNameToPascalCase__/gm, changeCase.pascalCase(templateName));
+    console.log(utils);
+    return base.replace(/__templateNameToPascalCase__/g, changeCase.pascalCase(templateName));
   },
 };

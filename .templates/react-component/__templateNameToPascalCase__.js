@@ -6,8 +6,12 @@ const __templateNameToPascalCase__ = props => {
   return <div className="__templateNameToParamCase__">Hello __templateNameToPascalCase__</div>;
 };
 
-__templateNameToPascalCase__.propTypes = {};
+__templateNameToPascalCase__.propTypes = {
+  // proptypes here
+};
 
-__templateNameToPascalCase__.defaultProps = {};
+__templateNameToPascalCase__.defaultProps = {
+  //default props here
+};
 
 export default __templateNameToPascalCase__;

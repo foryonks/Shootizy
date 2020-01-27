@@ -1,2 +1,1 @@
-import __templateNameToPascalCase__ from "./__templateNameToPascalCase__";
-export default __templateNameToPascalCase__;
+export { default } from "./__templateNameToPascalCase__";
