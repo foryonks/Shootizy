@@ -16,7 +16,6 @@ module.exports = {
     // @see https://nodejs.org/api/path.html#path_path_parse_path
     const { base } = path.parse(fileName);
 
-    console.log(utils);
     return base.replace(/__templateNameToPascalCase__/g, changeCase.pascalCase(templateName));
   },
 };

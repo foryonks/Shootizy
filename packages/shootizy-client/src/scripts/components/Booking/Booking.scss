@@ -1,8 +1,6 @@
 @import "~styles/functions";
 @import "~styles/mediaqueries-mixins";
 
-.booking-page {
-}
 .booking-page-section {
   &:before {
     content: "";
@@ -54,9 +52,6 @@
   }
   &:disabled {
     cursor: not-allowed;
-    > * {
-      //opacity: 0.3;
-    }
   }
 
   + .booking__step-button {
