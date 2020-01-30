@@ -29,16 +29,8 @@
     margin-bottom: 50px;
   }
 
-  .enterprises-confiance {
-    img {
-      max-width: 1180px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
   .clients {
-    margin-top: 100px;
+    //margin-top: 100px;
   }
 
   @include media-phone {
@@ -77,8 +69,66 @@
       margin-bottom: size-mobile(30);
     }
     .clients {
-      margin-top: size-mobile(50);
-      margin-bottom: size-mobile(30);
+      // margin-top: size-mobile(50);
+      // margin-bottom: size-mobile(30);
     }
+  }
+}
+
+.images-inline-list {
+  text-align: center;
+  margin: -1rem 0;
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1rem 1.23rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  @include media-phone {
+    margin: 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: stretch;
+
+    li {
+      padding: 0;
+      width: 46%;
+      margin: 2%;
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        padding-bottom: 75.55%;
+      }
+    }
+
+    img {
+      //width: 80%;
+      max-width: 80%;
+      position: absolute;
+      max-height: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+}
+
+.enterprises-confiance {
+  @include media-phone {
+    li {
+      background: #fff;
+      padding: 0;
+    }
+
+    padding-bottom: size-mobile(50);
   }
 }

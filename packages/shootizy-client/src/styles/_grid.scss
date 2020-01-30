@@ -4,8 +4,8 @@
 
 @mixin containerMediaMaxWidth($maxwidth) {
   @media (max-width: $maxwidth+ $container-padding*2) {
-    margin-left: $container-padding;
-    margin-right: $container-padding;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
     width: auto;
   }
 }
@@ -29,6 +29,12 @@
 
 .page-section-grey {
   background: $background-grey;
+
+  &-onmobile {
+    @include media-phone {
+      background: $background-grey;
+    }
+  }
 }
 
 .container,
@@ -39,7 +45,6 @@
 }
 .container-2 {
   max-width: $container-2-width;
-
   @include containerMediaMaxWidth($container-2-width);
 }
 
@@ -117,6 +122,14 @@ $nb-cols-len: length($nb-cols);
 
   @include media-phone {
     padding-top: size-mobile(50px);
+    padding-bottom: size-mobile(50px);
+  }
+}
+
+.section-padding-bottom {
+  padding-bottom: 100px;
+
+  @include media-phone {
     padding-bottom: size-mobile(50px);
   }
 }
@@ -222,7 +235,7 @@ $nb-cols-len: length($nb-cols);
   }
 
   .container-2 {
-    margin-left: size-mobile(20);
-    margin-right: size-mobile(20);
+    padding-left: size-mobile(20);
+    padding-right: size-mobile(20);
   }
 }
