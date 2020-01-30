@@ -30,7 +30,9 @@ const Home = () => {
 
         <div className="page-section page-section-grey section-paddings">
           <Themes />
-          <SurMesure isMobile={isMobile} className="SurMesure-HomePage" />
+          <div className="container-2">
+            <SurMesure isMobile={isMobile} className="SurMesure-HomePage" />
+          </div>
         </div>
 
         <VenirAuStudio />

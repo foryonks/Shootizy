@@ -92,7 +92,9 @@ const Main = () => {
 
       <div className="section-container section-paddings">
         <Themes />
-        <SurMesure fullForm={false} />
+        <div className="container-2">
+          <SurMesure fullForm={false} />
+        </div>
       </div>
 
       <CommentCaMarche />

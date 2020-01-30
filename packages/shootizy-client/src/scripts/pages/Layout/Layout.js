@@ -19,7 +19,9 @@ const Layout = ({ children, className }) => (
     <ShootizyTarifs />
     <div className="page-section section-container">
       <Themes locationHideRegex={/shooting-studio\/?$/} />
-      <SurMesure />
+      <div className="container-2">
+        <SurMesure />
+      </div>
     </div>
     <LazyLoad height={400}>
       <VenirAuStudio />
