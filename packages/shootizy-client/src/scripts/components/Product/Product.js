@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 import Prices from "scripts/components/_common/Prices";
 import VenirAuStudio from "scripts/components/Home/VenirAuStudio";
+import useMediaQuery, { phone } from "scripts/hooks/useMediaQuery";
 
 import useRemoteContents from "scripts/hooks/useRemoteContents";
 
@@ -19,6 +20,7 @@ import "./Product.scss";
 
 const Product = ({ match }) => {
   const { contents: product } = useRemoteContents(`/api/products/${match.params.productId}`);
+  const isMobile = useMediaQuery(phone);
 
   if (!product || !product.tags.includes("theme")) {
     return null;
@@ -67,17 +69,18 @@ const Product = ({ match }) => {
                     </Link>
                   </div>
                 </div>
-                <div className="col image-description">
-                  <img
-                    src={
-                      product.textImage ||
-                      "/assets/photos/themes/fetes-anniversaires/image-pres.png"
-                    }
-                    alt=""
-                    className="description-image"
-                  />
-                  <div />
-                </div>
+                {isMobile ? null : (
+                  <div className="col image-description">
+                    <img
+                      src={
+                        product.textImage ||
+                        "/assets/photos/themes/fetes-anniversaires/image-pres.png"
+                      }
+                      alt=""
+                      className="description-image"
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="section-paddings">

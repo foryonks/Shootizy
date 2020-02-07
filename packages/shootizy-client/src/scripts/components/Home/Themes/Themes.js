@@ -19,7 +19,7 @@ const Themes = ({ className, title }) => {
         ) : (
           <>
             Choisissez <strong>le thème</strong>
-            {isMobile ? <br /> : null}de votre shooting,
+            {isMobile ? <br /> : null} de votre shooting,
             <br />
             <strong>selon votre besoin ou votre envie</strong>.
           </>

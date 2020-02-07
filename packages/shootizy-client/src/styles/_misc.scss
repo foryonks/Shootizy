@@ -97,6 +97,10 @@
       box-shadow: $button-box-shadow;
     }
   }
+
+  .nowrap {
+    white-space: nowrap;
+  }
 }
 
 @include media-phone {

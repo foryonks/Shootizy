@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 
 const Title = ({ className }) => (
   <h2 className={`title title-price ${className}`}>
-    Aucune obligation d’achat ! <br />
+    Aucune obligation <span className="nowrap">d’achat !</span>
+    <br />
     <strong>Payez seulement les photos que vous voulez !</strong>
   </h2>
 );
@@ -27,9 +28,7 @@ const Prices = ({ className, showBottomTitle, showTitle, showButton, textKey = "
       <div className={`Prices Prices-header row`}>
         {itemsAlone.map(PriceItem)}
         <div
-          className={`card-simple card-shadow price-item price-collapse row row-${
-            itemsCollapse.length
-          }`}
+          className={`card-simple card-shadow price-item price-collapse row row-${itemsCollapse.length}`}
           style={{ flexGrow: itemsCollapse.length }}>
           {itemsCollapse.map(PriceItem)}
         </div>
