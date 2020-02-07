@@ -26,7 +26,7 @@
       "comment": "Header and Cookies to show",
       "url": "http://localhost:3000",
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
-      "delay": 2000
+      "delay": 5000
     },
     {
       "label": "Header subnav",
@@ -34,7 +34,14 @@
       "url": "http://localhost:3000",
       "hoverSelectors": [".nav-bar .menu li:nth-child(2)"],
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
-      "delay": 1000
+      "delay": 1000,
+      "viewports": [
+        {
+          "label": "large_high",
+          "width": 1920,
+          "height": 10000
+        }
+      ]
     },
     {
       "label": "Homepage",
@@ -135,7 +142,12 @@
     {
       "label": "booking/etape 2",
       "url": "http://localhost:3000/booking",
-      "clickSelectors": [".ThemeCard", ".react-calendar__month-view__days__day:not(:disabled)"],
+      "clickSelectors": [
+        ".ThemeCard",
+        ".react-calendar__navigation__arrow.react-calendar__navigation__next2-button",
+        ".react-calendar__navigation__arrow.react-calendar__navigation__next2-button",
+        ".react-calendar__month-view__days__day:not(:disabled)"
+      ],
       "clickSelectorWait": 1000,
       "postInteractionWait": 2000,
       "delay": 2000
@@ -145,10 +157,13 @@
       "url": "http://localhost:3000/booking",
       "clickSelectors": [
         ".ThemeCard",
+        ".react-calendar__navigation__arrow.react-calendar__navigation__next2-button",
+        ".react-calendar__navigation__arrow.react-calendar__navigation__next2-button",
         ".react-calendar__month-view__days__day:not(:disabled)",
         ".dropdown-popover__list__item .booking-time-picker__item-button"
       ],
       "clickSelectorWait": 1000,
+      "postInteractionWait": 2000,
       "delay": 2000
     },
     {
@@ -160,7 +175,7 @@
     {
       "label": "blog home",
       "url": "http://localhost:3000/blog",
-      "delay": 2000,
+      "delay": 4000,
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"]
     },
     {
