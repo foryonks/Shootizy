@@ -29,7 +29,7 @@ const CarouselHome = ({ history, children, useMask, className }) => {
             showIndicators={isMobile}
             showStatus={false}
             showArrows={!isMobile}
-            interval={500000}>
+            interval={5000}>
             {items.map(
               ({ title, contentLink, buttonLink, buttonText, text, img, key, themeId }, index) => {
                 const theme = productById[themeId];

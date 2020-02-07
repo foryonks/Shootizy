@@ -148,7 +148,7 @@ const Tarifs = props => {
             infiniteLoop={true}
             centerMode={true}
             {...props}
-            interval={4000}>
+            interval={9999999}>
             {tarifsItems()}
           </CarouselResponsive>
         ) : (
@@ -164,7 +164,11 @@ const Tarifs = props => {
 
       <div className="main container-2 row row-2 mode-paiement">
         <div className="col">
-          <h3 className="title">Mode de paiement</h3>
+          {isMobile ? (
+            <h2 className="title">Mode de paiement</h2>
+          ) : (
+            <h3 className="title">Mode de paiement</h3>
+          )}
           <div className="text-big">
             Vous ne pouvez pas encore régler par transmission de pensée…
             <br />
@@ -180,8 +184,11 @@ const Tarifs = props => {
       </div>
 
       <div className="politque-paiement pageCustom-content container-2 mb100">
-        <h3 className="title condition-title">Paiement</h3>
-
+        {isMobile ? (
+          <h2 className="title condition-title">Paiement</h2>
+        ) : (
+          <h3 className="title condition-title">Paiement</h3>
+        )}
         <div className="text conditions-text">
           <p>
             Cette Politique de confidentialité décrit comment Adobe (également désigné par « nous »,

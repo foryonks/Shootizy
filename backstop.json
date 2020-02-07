@@ -26,7 +26,7 @@
       "comment": "Header and Cookies to show",
       "url": "http://localhost:3000",
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "Header subnav",
@@ -46,7 +46,7 @@
       "label": "Comment-ca-marche",
       "url": "http://localhost:3000/comment-ca-marche",
       "hideSelectors": [".googlemaps"],
-      "delay": 200
+      "delay": 2000
     },
     {
       "label": "Shooting-Studio",
@@ -130,13 +130,15 @@
     {
       "label": "booking/etape 1",
       "url": "http://localhost:3000/booking",
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "booking/etape 2",
       "url": "http://localhost:3000/booking",
-      "clickSelectors": [".ThemeCard"],
-      "delay": 1000
+      "clickSelectors": [".ThemeCard", ".react-calendar__month-view__days__day:not(:disabled)"],
+      "clickSelectorWait": 1000,
+      "postInteractionWait": 2000,
+      "delay": 2000
     },
     {
       "label": "booking/etape 3",
@@ -146,13 +148,14 @@
         ".react-calendar__month-view__days__day:not(:disabled)",
         ".dropdown-popover__list__item .booking-time-picker__item-button"
       ],
-      "delay": 1000
+      "clickSelectorWait": 1000,
+      "delay": 2000
     },
     {
       "label": "newsletter",
       "url": "http://localhost:3000/newsletter",
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
-      "delay": 1000
+      "delay": 2000
     },
     {
       "label": "blog home",
