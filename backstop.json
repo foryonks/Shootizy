@@ -175,7 +175,7 @@
     {
       "label": "blog home",
       "url": "http://localhost:3000/blog",
-      "delay": 4000,
+      "delay": 8000,
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"]
     },
     {
