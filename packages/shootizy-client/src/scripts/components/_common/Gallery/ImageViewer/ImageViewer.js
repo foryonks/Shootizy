@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { array, string, func } from "prop-types";
 import Carousel from "scripts/components/_common/Carousel";
 import "./ImageViewer.scss";
@@ -34,6 +34,7 @@ const ImageViewer = ({ images, selected, onClose }) => {
           selectedItem={selectedItem}
           items={images}
           render={ImageRenderer}
+          infiniteLoop={true}
           useKeyboardArrows={true}
         />
       ) : null}
@@ -42,11 +43,21 @@ const ImageViewer = ({ images, selected, onClose }) => {
 };
 
 const ImageRenderer = ({ item, index, key }) => {
-  //return <div className="imageViewer-image" style={{ backgroundImage: `url('${item}')` }} />;
+  const [imageClassname, setImageClassname] = useState("image-loading");
+
+  const onImageLoaded = ({ target }) => {
+    const { naturalHeight, naturalWidth } = target;
+    setImageClassname(naturalWidth < naturalHeight ? "image-height" : "");
+  };
+
+  const onImageLoad = e => {
+    console.log(e);
+  };
+  // return <div className="imageViewer-image" style={{ backgroundImage: `url('${item}')` }} />;
   return (
     <div className="imageViewer-image" key={key}>
       <div className="image-outer">
-        <img src={item.src} alt="" />
+        <img src={item.src} alt="" onLoad={onImageLoaded} className={imageClassname} />
         <span className="description">
           <span>{item.description}</span>
         </span>

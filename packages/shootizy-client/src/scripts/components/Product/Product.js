@@ -83,7 +83,7 @@ const Product = ({ match }) => {
                 )}
               </div>
 
-              <div className="section-paddings">
+              <div className="section-paddings gallery-section">
                 <LazyLoad height={400}>
                   <div className="container-2 ">
                     <h2 className="title">Quelques unes de nos réalisations</h2>

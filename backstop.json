@@ -199,6 +199,26 @@
       "url": "http://localhost:3000/contact",
       "hideSelectors": [".googlemaps", ".SocialSquaresWrapper"],
       "delay": 2000
+    },
+    {
+      "label": "gallery viewer",
+      "url": "http://localhost:3000/shooting-studio/produit-theme-bookmodel",
+      "delay": 2000,
+      "selectors": ["viewport"],
+      "viewports": [
+        {
+          "label": "standard desktop",
+          "width": 1920,
+          "height": 1200
+        }
+      ],
+      "customGallery": {
+        "selector": ".gallery-section",
+        "imageSelector": ".centered-gallery .col:first-child .image:nth-of-type(2)",
+        "delay": 1000
+      },
+
+      "waitSelector": {}
     }
   ],
   "paths": {
