@@ -50,9 +50,6 @@ const ImageRenderer = ({ item, index, key }) => {
     setImageClassname(naturalWidth < naturalHeight ? "image-height" : "");
   };
 
-  const onImageLoad = e => {
-    console.log(e);
-  };
   // return <div className="imageViewer-image" style={{ backgroundImage: `url('${item}')` }} />;
   return (
     <div className="imageViewer-image" key={key}>
