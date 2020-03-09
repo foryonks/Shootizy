@@ -16,7 +16,7 @@
   "scripts": {
     "install": "lerna bootstrap",
     "start": "lerna run start --stream",
-    "start-dev": "lerna run start --stream",
+    "start-dev": "lerna run start-dev --stream",
     "start-debug": "lerna run start-debug --stream",
     "start-production": "lerna run start-production --stream",
     "build": "lerna run build",
